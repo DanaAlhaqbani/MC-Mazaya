@@ -146,6 +146,9 @@
                                                         <state key="normal" title="سجل من هنا">
                                                             <color key="titleColor" red="0.2196078431372549" green="0.62745098039215685" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="Dty-rl-xT4" kind="show" id="0ey-Yi-UqG"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ليس لديك حساب؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ot-ig-npa">
                                                         <rect key="frame" x="105" y="0.0" width="140" height="36"/>
@@ -205,10 +208,284 @@
             </objects>
             <point key="canvasLocation" x="267" y="485"/>
         </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="xGf-VE-Q7S">
+            <objects>
+                <viewController id="Dty-rl-xT4" customClass="SignUpViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CG9-NN-GnK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Hce-Pc-PNg">
+                                <rect key="frame" x="25" y="113" width="364" height="754"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c26-hf-hLr">
+                                        <rect key="frame" x="87.5" y="0.0" width="189" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إنشاء حساب" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPP-ee-1hs">
+                                                <rect key="frame" x="0.0" y="0.0" width="189" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5dh-et-2Zb">
+                                        <rect key="frame" x="63" y="81" width="238.5" height="72.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الاسم" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ya-2g-cDb">
+                                                <rect key="frame" x="196.5" y="0.0" width="42" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jbl-Wx-Gcd">
+                                                <rect key="frame" x="0.0" y="44" width="238.5" height="28.5"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="مثال: هشام" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="xI7-hp-8Na">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="0S2-HU-Ma4"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                    </textField>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileicon" translatesAutoresizingMaskIntoConstraints="NO" id="d6o-js-DEg">
+                                                        <rect key="frame" x="210" y="0.0" width="28.5" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="28.5" id="ZhA-yB-yoU"/>
+                                                            <constraint firstAttribute="height" constant="28.5" id="cK2-8g-GLe"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wPH-3S-5lP">
+                                        <rect key="frame" x="63" y="186.5" width="238.5" height="72.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البريد الإلكتروني" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Z1-1T-wsX">
+                                                <rect key="frame" x="118.5" y="0.0" width="120" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XBZ-ay-kks">
+                                                <rect key="frame" x="0.0" y="44" width="238.5" height="28.5"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="مثال: example@mc.gov.sa" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="f2M-M9-N3e">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="Fm8-lB-3uB"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                    </textField>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="TzO-n2-Agy">
+                                                        <rect key="frame" x="210" y="0.0" width="28.5" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="28.5" id="B4M-Ym-SSv"/>
+                                                            <constraint firstAttribute="height" constant="28.5" id="mgi-K6-cti"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YTZ-ng-YF8">
+                                        <rect key="frame" x="63" y="292" width="238.5" height="72.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="رقم الهاتف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHF-m4-D4x">
+                                                <rect key="frame" x="158" y="0.0" width="80.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="38J-FH-T5p">
+                                                <rect key="frame" x="0.0" y="44" width="238.5" height="28.5"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="مثال: 05XXXXXXXX" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="MtY-np-NZ3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="IEN-ts-syw"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                    </textField>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ttz-jU-TLg">
+                                                        <rect key="frame" x="210" y="0.0" width="28.5" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="28.5" id="LQP-Fa-KbW"/>
+                                                            <constraint firstAttribute="height" constant="28.5" id="w5i-nw-qMz"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hXL-ZR-cky">
+                                        <rect key="frame" x="63" y="397.5" width="238.5" height="72.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="كلمة المرور" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8J-7r-1FF">
+                                                <rect key="frame" x="156.5" y="0.0" width="82" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6cM-Th-8Vw">
+                                                <rect key="frame" x="0.0" y="44" width="238.5" height="28.5"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*********" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="xMw-pU-0Dn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="n0g-zX-WkF"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                    </textField>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pass" translatesAutoresizingMaskIntoConstraints="NO" id="6og-fz-2DK">
+                                                        <rect key="frame" x="210" y="0.0" width="28.5" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="28.5" id="I1o-d0-FNf"/>
+                                                            <constraint firstAttribute="width" constant="28.5" id="pxb-SV-ewv"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-Pt-E4W">
+                                        <rect key="frame" x="63" y="503" width="238.5" height="72.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تأكيد كلمة المرور" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGd-EF-3oo">
+                                                <rect key="frame" x="114.5" y="0.0" width="124" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mWk-AA-f8K">
+                                                <rect key="frame" x="0.0" y="44" width="238.5" height="28.5"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*********" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="A6p-nZ-aeH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="lnD-jL-YV3"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                    </textField>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pass" translatesAutoresizingMaskIntoConstraints="NO" id="vqx-dM-Lxg">
+                                                        <rect key="frame" x="210" y="0.0" width="28.5" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="28.5" id="3J3-yE-l4s"/>
+                                                            <constraint firstAttribute="height" constant="28.5" id="6lz-H2-Lx1"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vxR-ci-Hfm">
+                                        <rect key="frame" x="77.5" y="608.5" width="209" height="72.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الجنس" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrg-CX-yL5">
+                                                <rect key="frame" x="157.5" y="0.0" width="51.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="CRJ-C2-8ZM">
+                                                <rect key="frame" x="0.0" y="44" width="209" height="28.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ذكر" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8O-a7-ZPT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="22.5" height="28.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69Q-eo-G3a" customClass="KGRadioButton" customModule="سيار" customModuleProvider="target">
+                                                        <rect key="frame" x="40.5" y="0.0" width="30" height="28.5"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
+                                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="innerCircleCircleColor">
+                                                                <color key="value" red="0.42780825500000003" green="0.37951165440000001" blue="0.57830226419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="أنثى" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGq-pM-WMa">
+                                                        <rect key="frame" x="88.5" y="0.0" width="26" height="28.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70Z-ub-uZ7" customClass="KGRadioButton" customModule="سيار" customModuleProvider="target">
+                                                        <rect key="frame" x="132.5" y="0.0" width="30" height="28.5"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
+                                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileicon" translatesAutoresizingMaskIntoConstraints="NO" id="Enw-Bn-BeT">
+                                                        <rect key="frame" x="180.5" y="0.0" width="28.5" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="28.5" id="OoV-GY-Y7c"/>
+                                                            <constraint firstAttribute="height" constant="28.5" id="ubO-EZ-2h1"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4M-Zl-wLH">
+                                        <rect key="frame" x="63" y="714" width="238" height="40"/>
+                                        <color key="backgroundColor" red="0.21960784310000001" green="0.62745098040000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="kME-JF-xb5"/>
+                                            <constraint firstAttribute="width" constant="238" id="oPQ-0w-AI8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="إنشاء حساب">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Hce-Pc-PNg" firstAttribute="leading" secondItem="PaP-qg-jfU" secondAttribute="leading" constant="25" id="6yE-94-DMK"/>
+                            <constraint firstItem="PaP-qg-jfU" firstAttribute="trailing" secondItem="Hce-Pc-PNg" secondAttribute="trailing" constant="25" id="cpt-wq-Xcj"/>
+                            <constraint firstItem="Hce-Pc-PNg" firstAttribute="top" secondItem="PaP-qg-jfU" secondAttribute="top" constant="25" id="hGS-Uu-QqE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PaP-qg-jfU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C5N-mO-wEU">
+                        <barButtonItem key="backBarButtonItem" title="العود" id="4zV-Ve-qbY"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="f2M-M9-N3e" id="HaY-Bd-Bfj"/>
+                        <outlet property="femaleRadioButton" destination="70Z-ub-uZ7" id="2Nk-gK-vIY"/>
+                        <outlet property="maleRadioButton" destination="69Q-eo-G3a" id="32U-nv-E6C"/>
+                        <outlet property="nameTextField" destination="xI7-hp-8Na" id="tOV-Ub-QVa"/>
+                        <outlet property="passwordConfirmationTextField" destination="A6p-nZ-aeH" id="V93-Bb-KY9"/>
+                        <outlet property="passwordTextField" destination="xMw-pU-0Dn" id="TEz-mY-VtD"/>
+                        <outlet property="phoneTextField" destination="MtY-np-NZ3" id="uhN-4A-KzJ"/>
+                        <outlet property="signUpButton" destination="b4M-Zl-wLH" id="akP-uM-sK2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nf-3k-rku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1915.9420289855075" y="484.82142857142856"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MC logo" width="819" height="461"/>
         <image name="Pass" width="86" height="114"/>
         <image name="email" width="101" height="77"/>
+        <image name="phoneIcon" width="110" height="100"/>
+        <image name="profileicon" width="24" height="24"/>
     </resources>
 </document>
