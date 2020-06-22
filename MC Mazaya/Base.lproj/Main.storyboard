@@ -164,6 +164,9 @@
                                                 <state key="normal" title="هل نسيت كلمة المرور؟">
                                                     <color key="titleColor" red="0.2196078431372549" green="0.62745098039215685" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="gH9-w6-KFk" kind="show" id="z9q-ZT-QYX"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -403,7 +406,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69Q-eo-G3a" customClass="KGRadioButton" customModule="سيار" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69Q-eo-G3a" customClass="KGRadioButton" customModule="MC_Mazaya" customModuleProvider="target">
                                                         <rect key="frame" x="40.5" y="0.0" width="30" height="28.5"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
@@ -420,7 +423,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70Z-ub-uZ7" customClass="KGRadioButton" customModule="سيار" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70Z-ub-uZ7" customClass="KGRadioButton" customModule="MC_Mazaya" customModuleProvider="target">
                                                         <rect key="frame" x="132.5" y="0.0" width="30" height="28.5"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
@@ -480,6 +483,122 @@
             </objects>
             <point key="canvasLocation" x="1915.9420289855075" y="484.82142857142856"/>
         </scene>
+        <!--Reset Pass View Controller-->
+        <scene sceneID="JXq-PO-r3g">
+            <objects>
+                <viewController id="gH9-w6-KFk" customClass="ResetPassViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KEa-TU-umz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Hxh-po-7NE">
+                                <rect key="frame" x="62" y="137" width="290.5" height="529.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8KA-Uu-F4d">
+                                        <rect key="frame" x="29" y="0.0" width="232.5" height="278"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resetPass_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rGe-4x-xZf">
+                                                <rect key="frame" x="16" y="0.0" width="200" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="3Kw-iy-yOZ"/>
+                                                    <constraint firstAttribute="height" constant="200" id="SVe-N1-m3l"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lui-TB-93v">
+                                                <rect key="frame" x="0.0" y="210" width="232.5" height="68"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="استعادة كلمة المرور">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="32"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="left" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Cmk-jQ-WBq">
+                                        <rect key="frame" x="26" y="313" width="238.5" height="88.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ادخل بريدك الإلكتروني " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drg-Ob-GT4">
+                                                <rect key="frame" x="68.5" y="0.0" width="170" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LJE-eM-TlH">
+                                                <rect key="frame" x="0.0" y="60" width="238.5" height="28.5"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="مثال: example@mc.gov.sa" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ii5-KQ-Dmp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="oaB-0X-PAt"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="Xbd-G4-b5X">
+                                                        <rect key="frame" x="210" y="0.0" width="28.5" height="28.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="28.5" id="Aaw-ZY-Rlp"/>
+                                                            <constraint firstAttribute="height" constant="28.5" id="teI-Zx-i6h"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="drg-Ob-GT4" firstAttribute="width" secondItem="Cmk-jQ-WBq" secondAttribute="width" multiplier="0.713287" id="YqL-gi-wYV"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QL8-kL-4hG">
+                                        <rect key="frame" x="95.5" y="436.5" width="99.5" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="Q7w-Bb-O9i"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wno-Fu-PUP">
+                                        <rect key="frame" x="26" y="489.5" width="238" height="40"/>
+                                        <color key="backgroundColor" red="0.21960784310000001" green="0.62745098040000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="238" id="9na-3B-Qna"/>
+                                            <constraint firstAttribute="height" constant="40" id="lnt-fP-J8j"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="استعادة">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QL8-kL-4hG" firstAttribute="leading" secondItem="Hxh-po-7NE" secondAttribute="leading" constant="95.5" id="7O0-d7-yjE"/>
+                                    <constraint firstItem="Cmk-jQ-WBq" firstAttribute="top" secondItem="Hxh-po-7NE" secondAttribute="top" constant="313" id="cJX-CU-gdz"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9ia-vi-YdD" firstAttribute="bottom" secondItem="Hxh-po-7NE" secondAttribute="bottom" constant="195.33000000000001" id="2QM-j4-rAQ"/>
+                            <constraint firstItem="Hxh-po-7NE" firstAttribute="leading" secondItem="9ia-vi-YdD" secondAttribute="leading" constant="62" id="42q-mF-5jJ"/>
+                            <constraint firstItem="Hxh-po-7NE" firstAttribute="top" secondItem="9ia-vi-YdD" secondAttribute="top" constant="49" id="QSP-Kw-PUi"/>
+                            <constraint firstItem="9ia-vi-YdD" firstAttribute="trailing" secondItem="Hxh-po-7NE" secondAttribute="trailing" constant="61.670000000000002" id="iny-gC-2fF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9ia-vi-YdD"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="a3S-i6-BkO"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="Ii5-KQ-Dmp" id="lEp-79-vew"/>
+                        <outlet property="resetBtn" destination="wno-Fu-PUP" id="rO6-c7-Rhe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1HT-TZ-b89" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2861" y="513"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MC logo" width="819" height="461"/>
@@ -487,5 +606,6 @@
         <image name="email" width="101" height="77"/>
         <image name="phoneIcon" width="110" height="100"/>
         <image name="profileicon" width="24" height="24"/>
+        <image name="resetPass_icon" width="512" height="512"/>
     </resources>
 </document>
