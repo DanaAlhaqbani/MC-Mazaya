@@ -483,6 +483,30 @@
             </objects>
             <point key="canvasLocation" x="1915.9420289855075" y="484.82142857142856"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="imN-7d-d6E">
+            <objects>
+                <viewController id="kdM-gn-McD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="155-WW-KeR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYg-Ng-EmV">
+                                <rect key="frame" x="186" y="330" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LCf-RV-5qB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLQ-RY-tOZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3029" y="-192"/>
+        </scene>
         <!--Reset Pass View Controller-->
         <scene sceneID="JXq-PO-r3g">
             <objects>
