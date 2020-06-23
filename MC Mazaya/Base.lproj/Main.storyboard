@@ -504,11 +504,11 @@
             </objects>
             <point key="canvasLocation" x="1781" y="-3224"/>
         </scene>
-        <!--Item-->
+        <!--استخدام العرض-->
         <scene sceneID="PmZ-Vi-DhV">
             <objects>
                 <navigationController id="mqK-el-wWc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="NWs-bH-PyP"/>
+                    <tabBarItem key="tabBarItem" title="استخدام العرض" id="NWs-bH-PyP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EGG-QQ-4z3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -538,7 +538,7 @@
             </objects>
             <point key="canvasLocation" x="52" y="-2314"/>
         </scene>
-        <!--View Controller-->
+        <!--حسابي-->
         <scene sceneID="FGJ-B6-EHY">
             <objects>
                 <viewController id="IKd-vI-ewN" sceneMemberID="viewController">
@@ -548,13 +548,13 @@
                         <color key="backgroundColor" red="0.123484917" green="0.63859909770000001" blue="0.76157802340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="wiG-Gu-7b4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2wy-WJ-cy4"/>
+                    <navigationItem key="navigationItem" title="حسابي" id="2wy-WJ-cy4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRJ-gO-nK1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="51" y="-1598"/>
         </scene>
-        <!--View Controller-->
+        <!--الرئيسية-->
         <scene sceneID="yOw-sH-0xD">
             <objects>
                 <viewController id="CGu-Lx-FZD" sceneMemberID="viewController">
@@ -564,13 +564,13 @@
                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sKq-Fn-E91"/>
                     </view>
-                    <navigationItem key="navigationItem" id="X1u-yY-oQg"/>
+                    <navigationItem key="navigationItem" title="الرئيسية" id="X1u-yY-oQg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nn0-QR-1Wc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4009" y="-1598"/>
         </scene>
-        <!--View Controller-->
+        <!--العروض الكبرى-->
         <scene sceneID="WRN-Fs-8Dh">
             <objects>
                 <viewController id="bfF-Aq-pJh" sceneMemberID="viewController">
@@ -580,13 +580,13 @@
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="BoG-WZ-gEc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jFA-Wh-qLS"/>
+                    <navigationItem key="navigationItem" title="العروض الكبرى" id="jFA-Wh-qLS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wmf-hp-XFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3029" y="-1598"/>
         </scene>
-        <!--View Controller-->
+        <!--استخدام العرض-->
         <scene sceneID="vB0-Jw-WeQ">
             <objects>
                 <viewController id="v2n-sJ-vLP" sceneMemberID="viewController">
@@ -596,13 +596,13 @@
                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="hmu-lJ-nEY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xu0-JI-ggd"/>
+                    <navigationItem key="navigationItem" title="استخدام العرض" id="Xu0-JI-ggd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6RO-Jl-o81" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2090" y="-1598"/>
         </scene>
-        <!--View Controller-->
+        <!--الخريطة-->
         <scene sceneID="3QU-sb-zoO">
             <objects>
                 <viewController id="fih-re-FvZ" sceneMemberID="viewController">
@@ -612,7 +612,7 @@
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="pVN-xs-0Qp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KUl-2b-acl"/>
+                    <navigationItem key="navigationItem" title="الخريطة" id="KUl-2b-acl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srS-v8-CeL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -635,11 +635,11 @@
             </objects>
             <point key="canvasLocation" x="1090" y="-2314"/>
         </scene>
-        <!--Item-->
+        <!--الرئيسية-->
         <scene sceneID="eJd-BK-UJh">
             <objects>
                 <navigationController id="wih-vH-Dal" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xkv-Oo-dM2"/>
+                    <tabBarItem key="tabBarItem" title="الرئيسية" image="homePage" id="xkv-Oo-dM2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sxO-DS-Nhy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -652,11 +652,11 @@
             </objects>
             <point key="canvasLocation" x="4010" y="-2314"/>
         </scene>
-        <!--Item-->
+        <!--العروض الكبرى-->
         <scene sceneID="UHi-lU-bTp">
             <objects>
                 <navigationController id="aMD-fu-dka" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ZIA-R1-BxX"/>
+                    <tabBarItem key="tabBarItem" title="العروض الكبرى" image="bigOffers" id="ZIA-R1-BxX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7UV-gH-CiX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -813,7 +813,9 @@
     <resources>
         <image name="MC logo" width="819" height="461"/>
         <image name="Pass" width="86" height="114"/>
+        <image name="bigOffers" width="64" height="64"/>
         <image name="email" width="101" height="77"/>
+        <image name="homePage" width="26" height="26"/>
         <image name="phoneIcon" width="110" height="100"/>
         <image name="profileicon" width="24" height="24"/>
         <image name="resetPass_icon" width="512" height="512"/>
