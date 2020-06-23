@@ -107,7 +107,7 @@ class LoginViewController: UIViewController {
  
     func successful(){
         //=====Transfer to home page=====
-       // self.view.window?.rootViewController = homeViewController
+        self.performSegue(withIdentifier: "toHome", sender: nil)
 
     }
     func alertContent(title: String, message: String)-> UIAlertController{
