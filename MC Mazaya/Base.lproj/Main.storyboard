@@ -307,13 +307,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="38J-FH-T5p">
                                                 <rect key="frame" x="0.0" y="44" width="238.5" height="28.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="مثال: 05XXXXXXXX" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="MtY-np-NZ3">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="مثال: 05XXXXXXXX" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="MtY-np-NZ3" propertyAccessControl="none">
                                                         <rect key="frame" x="0.0" y="0.0" width="200" height="28.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="IEN-ts-syw"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="tel"/>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ttz-jU-TLg">
                                                         <rect key="frame" x="210" y="0.0" width="28.5" height="28.5"/>
@@ -375,7 +375,7 @@
                                                             <constraint firstAttribute="width" constant="200" id="lnD-jL-YV3"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pass" translatesAutoresizingMaskIntoConstraints="NO" id="vqx-dM-Lxg">
                                                         <rect key="frame" x="210" y="0.0" width="28.5" height="28.5"/>
@@ -453,6 +453,9 @@
                                         <state key="normal" title="إنشاء حساب">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUp:" destination="Dty-rl-xT4" eventType="touchUpInside" id="ARU-YA-bC2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -476,7 +479,7 @@
                         <outlet property="passwordConfirmationTextField" destination="A6p-nZ-aeH" id="V93-Bb-KY9"/>
                         <outlet property="passwordTextField" destination="xMw-pU-0Dn" id="TEz-mY-VtD"/>
                         <outlet property="phoneTextField" destination="MtY-np-NZ3" id="uhN-4A-KzJ"/>
-                        <outlet property="signUpButton" destination="b4M-Zl-wLH" id="akP-uM-sK2"/>
+                        <outlet property="signUpButton" destination="b4M-Zl-wLH" id="0ha-Xq-PIp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nf-3k-rku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -572,6 +575,9 @@
                                         <state key="normal" title="استعادة">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="resetPassPressed:" destination="gH9-w6-KFk" eventType="touchUpInside" id="oUY-TR-HIp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
