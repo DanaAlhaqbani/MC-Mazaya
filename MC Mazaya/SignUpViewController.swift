@@ -254,14 +254,14 @@ class SignUpViewController: UIViewController {
                                      
                         
                         print("successfuly signed user up")
-                        
-                        
+                       
                         
                         
                         // Email verify
                         Auth.auth().currentUser?.sendEmailVerification { (error) in
-                            self.successfulSignUp()
                             print("111111111111111")
+                            let alert = self.alertContent(title: "قم بتفعيل حسابك", message: "من فضلِك فعل الحساب عن طريق الرسالة المرسلة الى بريدك الالكتروني")
+                            self.present(alert, animated: true, completion: nil)
                         }
                         
                     })
@@ -271,17 +271,7 @@ class SignUpViewController: UIViewController {
             }
             
             
-            
-    func successfulSignUp() {
-        DispatchQueue.main.async {
-            let alert = self.alertContent(title: "قم بتفعيل حسابك", message: "من فضلِك فعل الحساب عن طريق الرسالة المرسلة الى بريدك الالكتروني")
-            self.present(alert, animated: true, completion: nil)
-
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(self.successfulSignUpFunction), name: NSNotification.Name(rawValue: "successfulSignUp"), object: nil)
-            
-        }
-    }
+  
         static var successfulSignUp  = false
         
         @objc func successfulSignUpFunction(){
