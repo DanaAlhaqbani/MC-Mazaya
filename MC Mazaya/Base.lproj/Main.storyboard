@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cec-a3-LOP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IKd-vI-ewN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="qFt-Ix-a7e">
-                                <rect key="frame" x="25" y="113" width="364" height="758"/>
+                                <rect key="frame" x="25" y="69" width="364" height="758"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="doB-67-k00">
                                         <rect key="frame" x="67.5" y="0.0" width="229" height="248"/>
@@ -216,11 +216,11 @@
             <objects>
                 <viewController id="Dty-rl-xT4" customClass="SignUpViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CG9-NN-GnK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Hce-Pc-PNg">
-                                <rect key="frame" x="25" y="113" width="364" height="754"/>
+                                <rect key="frame" x="25" y="25" width="364" height="754"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c26-hf-hLr">
                                         <rect key="frame" x="87.5" y="0.0" width="189" height="48"/>
@@ -498,6 +498,7 @@
                         <segue destination="mqK-el-wWc" kind="relationship" relationship="viewControllers" id="a2x-9f-rCO"/>
                         <segue destination="aMD-fu-dka" kind="relationship" relationship="viewControllers" id="2Mi-Zm-Phz"/>
                         <segue destination="wih-vH-Dal" kind="relationship" relationship="viewControllers" id="b9k-y4-zWu"/>
+                        <segue destination="0m5-PQ-vaa" kind="show" identifier="toHome" id="WV6-R0-pbU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ab-dr-nLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -698,11 +699,11 @@
             <objects>
                 <viewController id="gH9-w6-KFk" customClass="ResetPassViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KEa-TU-umz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Hxh-po-7NE">
-                                <rect key="frame" x="62" y="137" width="290.5" height="529.5"/>
+                                <rect key="frame" x="62" y="49" width="290.5" height="563.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8KA-Uu-F4d">
                                         <rect key="frame" x="29" y="0.0" width="232.5" height="278"/>
@@ -729,16 +730,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="left" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Cmk-jQ-WBq">
-                                        <rect key="frame" x="26" y="313" width="238.5" height="88.5"/>
+                                        <rect key="frame" x="26" y="313" width="238.5" height="122.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ادخل بريدك الإلكتروني " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drg-Ob-GT4">
-                                                <rect key="frame" x="68.5" y="0.0" width="170" height="40"/>
+                                                <rect key="frame" x="68.5" y="0.0" width="170" height="74"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LJE-eM-TlH">
-                                                <rect key="frame" x="0.0" y="60" width="238.5" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="94" width="238.5" height="28.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="مثال: example@mc.gov.sa" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ii5-KQ-Dmp">
                                                         <rect key="frame" x="0.0" y="0.0" width="200" height="28.5"/>
@@ -763,7 +764,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QL8-kL-4hG">
-                                        <rect key="frame" x="95.5" y="436.5" width="99.5" height="18"/>
+                                        <rect key="frame" x="95.5" y="470.5" width="99.5" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="Q7w-Bb-O9i"/>
                                         </constraints>
@@ -772,7 +773,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wno-Fu-PUP">
-                                        <rect key="frame" x="26" y="489.5" width="238" height="40"/>
+                                        <rect key="frame" x="26" y="523.5" width="238" height="40"/>
                                         <color key="backgroundColor" red="0.21960784310000001" green="0.62745098040000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="238" id="9na-3B-Qna"/>
@@ -810,6 +811,9 @@
             <point key="canvasLocation" x="2861" y="513"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WV6-R0-pbU"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="MC logo" width="819" height="461"/>
         <image name="Pass" width="86" height="114"/>
