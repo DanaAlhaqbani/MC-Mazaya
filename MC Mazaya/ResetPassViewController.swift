@@ -52,6 +52,7 @@ func alertContent(title: String, message: String)-> UIAlertController{
     let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
     alertVC.addAction(UIAlertAction(title: NSLocalizedString("حسنًا", comment: "Default action"), style: .default, handler: { _ in
         NSLog("The \"OK\" alert occured.")
+        self.navigationController?.popToRootViewController(animated: true)
     }))
     return alertVC
 }
