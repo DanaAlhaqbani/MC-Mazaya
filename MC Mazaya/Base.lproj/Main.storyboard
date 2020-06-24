@@ -486,6 +486,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="72b-o1-BYl">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ab-dr-nLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="W8g-27-b9G" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="abd-vF-Iua">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -500,7 +501,6 @@
                         <segue destination="wih-vH-Dal" kind="relationship" relationship="viewControllers" id="b9k-y4-zWu"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2ab-dr-nLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1781" y="-3224"/>
         </scene>
