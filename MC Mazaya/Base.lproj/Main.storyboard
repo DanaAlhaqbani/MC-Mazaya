@@ -486,7 +486,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="72b-o1-BYl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2ab-dr-nLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="W8g-27-b9G" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="abd-vF-Iua">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -501,6 +500,7 @@
                         <segue destination="wih-vH-Dal" kind="relationship" relationship="viewControllers" id="b9k-y4-zWu"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ab-dr-nLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1781" y="-3224"/>
         </scene>
@@ -521,11 +521,11 @@
             </objects>
             <point key="canvasLocation" x="2091" y="-2314"/>
         </scene>
-        <!--Item-->
+        <!--حسابي-->
         <scene sceneID="VBH-cg-W2t">
             <objects>
                 <navigationController id="0nS-X1-O4G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="y7v-rU-asO"/>
+                    <tabBarItem key="tabBarItem" title="حسابي" image="myAccount" id="y7v-rU-asO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nek-23-MrM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -557,7 +557,7 @@
         <!--الرئيسية-->
         <scene sceneID="yOw-sH-0xD">
             <objects>
-                <viewController id="CGu-Lx-FZD" sceneMemberID="viewController">
+                <viewController id="CGu-Lx-FZD" customClass="HomePageViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZEs-fi-T9h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -618,11 +618,11 @@
             </objects>
             <point key="canvasLocation" x="1090" y="-1598"/>
         </scene>
-        <!--Item-->
+        <!--الخريطة-->
         <scene sceneID="US5-Vb-Bx0">
             <objects>
                 <navigationController id="GUc-wA-l5S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4Nc-Ek-VLw"/>
+                    <tabBarItem key="tabBarItem" title="الخريطة" image="map" id="4Nc-Ek-VLw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XyS-Z8-Kh7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -816,9 +816,11 @@
         <image name="bigOffers" width="64" height="64"/>
         <image name="email" width="101" height="77"/>
         <image name="homePage" width="26" height="26"/>
+        <image name="map" width="64" height="64"/>
+        <image name="myAccount" width="50" height="50"/>
         <image name="phoneIcon" width="110" height="100"/>
         <image name="profileicon" width="24" height="24"/>
         <image name="resetPass_icon" width="512" height="512"/>
-        <image name="useOffer" width="100" height="100"/>
+        <image name="useOffer" width="50" height="50"/>
     </resources>
 </document>

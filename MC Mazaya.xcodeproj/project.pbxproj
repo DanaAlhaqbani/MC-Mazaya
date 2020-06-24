@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		116D568DDAAAC0B3B4A41EC0 /* Pods_MC_Mazaya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA67390707D5EA351875ADF8 /* Pods_MC_Mazaya.framework */; };
+		3B97E2C024A33D4200D0D965 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2BF24A33D4200D0D965 /* HomePageViewController.swift */; };
+		3B97E2C724A346D200D0D965 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2C624A346D200D0D965 /* BaseCell.swift */; };
+		3B97E2C924A346D900D0D965 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2C824A346D900D0D965 /* BaseListController.swift */; };
+		3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2CA24A346DC00D0D965 /* DownloaderX.swift */; };
+		3B97E2CD24A346E000D0D965 /* ExpertTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2CC24A346E000D0D965 /* ExpertTabBarController.swift */; };
+		3B97E2CF24A346E400D0D965 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2CE24A346E300D0D965 /* HeaderCell.swift */; };
+		3B97E2D124A346E700D0D965 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2D024A346E700D0D965 /* MainTabBarController.swift */; };
 		D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641E9AA249F3031001851A9 /* AppDelegate.swift */; };
 		D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641E9AC249F3031001851A9 /* SceneDelegate.swift */; };
 		D641E9AF249F3031001851A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641E9AE249F3031001851A9 /* ViewController.swift */; };
@@ -26,6 +33,13 @@
 
 /* Begin PBXFileReference section */
 		23096477DA04583DCAF7E84F /* Pods-MC Mazaya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.release.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.release.xcconfig"; sourceTree = "<group>"; };
+		3B97E2BF24A33D4200D0D965 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		3B97E2C624A346D200D0D965 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		3B97E2C824A346D900D0D965 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
+		3B97E2CA24A346DC00D0D965 /* DownloaderX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderX.swift; sourceTree = "<group>"; };
+		3B97E2CC24A346E000D0D965 /* ExpertTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertTabBarController.swift; sourceTree = "<group>"; };
+		3B97E2CE24A346E300D0D965 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		3B97E2D024A346E700D0D965 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		AA67390707D5EA351875ADF8 /* Pods_MC_Mazaya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC_Mazaya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637480B2916BA532CF0622D /* Pods-MC Mazaya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.debug.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.debug.xcconfig"; sourceTree = "<group>"; };
 		D641E9A7249F3031001851A9 /* MC Mazaya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Mazaya.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +81,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3B97E2C324A3455A00D0D965 /* TabBarContro */ = {
+			isa = PBXGroup;
+			children = (
+				3B97E2D024A346E700D0D965 /* MainTabBarController.swift */,
+				3B97E2C624A346D200D0D965 /* BaseCell.swift */,
+				3B97E2C824A346D900D0D965 /* BaseListController.swift */,
+				3B97E2CA24A346DC00D0D965 /* DownloaderX.swift */,
+				3B97E2CC24A346E000D0D965 /* ExpertTabBarController.swift */,
+				3B97E2CE24A346E300D0D965 /* HeaderCell.swift */,
+			);
+			path = TabBarContro;
+			sourceTree = "<group>";
+		};
 		C656F210F2AF57F7CC302653 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,11 +123,12 @@
 		D641E9A9249F3031001851A9 /* MC Mazaya */ = {
 			isa = PBXGroup;
 			children = (
+				3B97E2C324A3455A00D0D965 /* TabBarContro */,
 				D6E1285F24A0803B00977D26 /* Extensions */,
-				D6E1285C24A07F1400977D26 /* New Group */,
 				D641E9AA249F3031001851A9 /* AppDelegate.swift */,
 				D641E9AC249F3031001851A9 /* SceneDelegate.swift */,
 				D641E9AE249F3031001851A9 /* ViewController.swift */,
+				3B97E2BF24A33D4200D0D965 /* HomePageViewController.swift */,
 				D641E9B0249F3031001851A9 /* Main.storyboard */,
 				D641E9C0249F5252001851A9 /* GoogleService-Info.plist */,
 				D641E9B3249F3037001851A9 /* Assets.xcassets */,
@@ -112,13 +140,6 @@
 				D6F89BBD24A204CC000357BF /* homeViewController.swift */,
 			);
 			path = "MC Mazaya";
-			sourceTree = "<group>";
-		};
-		D6E1285C24A07F1400977D26 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		D6E1285F24A0803B00977D26 /* Extensions */ = {
@@ -266,15 +287,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6E1285E24A07F6400977D26 /* LoginViewController.swift in Sources */,
+				3B97E2D124A346E700D0D965 /* MainTabBarController.swift in Sources */,
 				D6E1286524A08EC700977D26 /* UIcolors.swift in Sources */,
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
+				3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */,
 				D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */,
+				3B97E2C724A346D200D0D965 /* BaseCell.swift in Sources */,
 				D6E1286B24A0B1FE00977D26 /* ResetPassViewController.swift in Sources */,
 				D6E1286324A08E4B00977D26 /* XUB.swift in Sources */,
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
+				3B97E2C024A33D4200D0D965 /* HomePageViewController.swift in Sources */,
+				3B97E2C924A346D900D0D965 /* BaseListController.swift in Sources */,
 				D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */,
 				D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */,
 				D6E1286124A0805900977D26 /* XTF.swift in Sources */,
+				3B97E2CF24A346E400D0D965 /* HeaderCell.swift in Sources */,
+				3B97E2CD24A346E000D0D965 /* ExpertTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
