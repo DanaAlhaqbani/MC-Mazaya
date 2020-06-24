@@ -9,14 +9,22 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import IQKeyboardManagerSwift
+
 class SignUpViewController: UIViewController {
     var gender = ""
+
+    var container: UIView = UIView()
+    var loadingView: UIView = UIView()
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var isValidname = false
     var isValidemail = false
     var isValidPassword = true
     var isValidConfirmPass = false
     var isFilledData = false
+    var isPassContainChar = false
+    
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -47,6 +55,8 @@ class SignUpViewController: UIViewController {
         
         gender = "أنثى"
         self.tabBarController?.tabBar.isHidden = true
+        print("hj")
+
     }
     
     // to know what gender option did the user choose
@@ -155,21 +165,38 @@ class SignUpViewController: UIViewController {
              
           } // Correct Email
           
-          
+          else if !(password.range(of: "[A-Za-z0-9]", options: .regularExpression) != nil) {
+            let alert = self.alertContent(title:  "كلمة المرور خاطئة", message: "يجب أن تتكون كلمة المرور من حروف و أرقام" )
+                       self.present(alert, animated: true, completion: nil)
+            isPassContainChar = true
+            
+          }
+
            else if((password.count) < 6){ //Password less than 6 char
                let alert = self.alertContent(title:  "كلمة المرور خاطئة", message: "يجب أن تكون كلمة المرور مكونة من ٦ خانات أو أكثر" )
             self.present(alert, animated: true, completion: nil)
 
           }
-              
+          else if !isValidNumber(testStr: phone){
+            let alert = self.alertContent(title:  "رقم الهاتف غير صالح!", message: " من فضلِك، أدخل رقم هاتفك بشكل صحيح" )
+                       self.present(alert, animated: true, completion: nil)
+          }
+            else if !isValidNumberLength(testStr: phone){
+                         let alert = self.alertContent(title:  "رقم الهاتف غير صالح!", message: " يجب أن يتكون رقم الهاتف من عشرة ارقام" )
+                                    self.present(alert, animated: true, completion: nil)
+                       }
           else if ((password) != (confirmPassword)) { // password != confirmPassword
                let alert = self.alertContent(title:  "تأكيد كلمة المرور غير متطابق!", message: " من فضلِك، أدخل كلمة مرور متطابقة" )
             self.present(alert, animated: true, completion: nil)
 
                               
           } // password != confirmPassword
+       
+
           
-              if isFilledData && self.isValidName(testStr: name) && self.isValidEmail(testStr: email) && password.count >= 6 && password == confirmPassword {
+            if isFilledData && self.isValidName(testStr: name) && self.isValidNumber(testStr: phone) && self.isValidEmail(testStr: email) && password.count >= 6 && password == confirmPassword && self.isValidNumberLength(testStr: phone){
+                self.showSpinner()
+
                   self.signUp(email: email, password: password, confirmPassword: confirmPassword, name: name, gender: gender, phone: phone)
               }
           
@@ -195,47 +222,24 @@ class SignUpViewController: UIViewController {
           return true
       }
     func isValidNumber(testStr:String) -> Bool{
-        var length = testStr.count
-        
+        let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        return phoneTest.evaluate(with: testStr)
+        }
+    func isValidNumberLength (testStr:String) -> Bool{
+       let length = testStr.count
+        if length == 10{
         return true
+        }
+        return false
     }
     func signUp(email:String, password:String, confirmPassword:String, name:String, gender:String, phone: String){
           // sign up
-        /*  Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-             if let error = error {
-               let alert = self.alertContent(title: "البريد الإلكتروني خاطئ", message: "البريد الإلكتروني مسجل مسبقا")
-                self.present(alert, animated: true, completion: nil)
-
-                  
-                  print("failed to sign user up with error", error.localizedDescription)
-                 
-                  return }
-              
-              guard let uid = result?.user.uid else { return }
-              
-              let values = ["Email": email, "Name": name, "Gender": gender, "Password": password]
-              Database.database().reference().child("Users").child(uid).updateChildValues(values, withCompletionBlock: {(error, ref) in
-                  if let error = error {
-                      print("failed to update database values with error", error.localizedDescription)
-                      return }
-                  
-                        print("successfuly signed user up")
-                        
-                        
-                        
-                        
-                        // Email verify
-                        Auth.auth().currentUser?.sendEmailVerification { (error) in
-                            self.successfulSignUp()
-                            print("111111111111111")
-                        }
-                        
-                    })
-                } // sign up
-                
-                */
+      
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                                  if let error = error {
+                                    self.removeSpinner()
+
               let alert = self.alertContent(title: "البريد الإلكتروني خاطئ", message: "البريد الإلكتروني مسجل مسبقا")
                           self.present(alert, animated: true, completion: nil)
 
@@ -260,8 +264,11 @@ class SignUpViewController: UIViewController {
                         // Email verify
                         Auth.auth().currentUser?.sendEmailVerification { (error) in
                             print("111111111111111")
-                            let alert = self.alertContent(title: "قم بتفعيل حسابك", message: "من فضلِك فعل الحساب عن طريق الرسالة المرسلة الى بريدك الالكتروني")
-                            self.present(alert, animated: true, completion: nil)
+                            self.removeSpinner()
+                            self.successfulSignUpFunction()
+
+                       
+                            
                         }
                         
                     })
@@ -272,16 +279,11 @@ class SignUpViewController: UIViewController {
             
             
   
-        static var successfulSignUp  = false
         
-        @objc func successfulSignUpFunction(){
-    //        navigationController?.popViewController(animated: true)
-            OperationQueue.main.addOperation {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "loginNV") as! UINavigationController
-            newViewController.modalPresentationStyle = .fullScreen
-            self.present(newViewController, animated: true, completion: nil)
-        }
+         func successfulSignUpFunction(){
+   let alert = self.alertContent(title: "قم بتفعيل حسابك", message: "من فضلِك فعل الحساب عن طريق الرسالة المرسلة الى بريدك الالكتروني")
+        self.present(alert, animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
         }
         
       func alertContent(title: String, message: String)-> UIAlertController{
@@ -304,4 +306,46 @@ class SignUpViewController: UIViewController {
         default: fatalError("error not supported here")
         }
     }
+    func showSpinner(){
+        self.showActivityIndicator(uiView: self.view)
+    }
+    
+    func removeSpinner(){
+        self.hideActivityIndicator(uiView: self.view)
+    }
+    func showActivityIndicator(uiView: UIView) {
+          container.frame = uiView.frame
+          container.center = uiView.center
+          container.backgroundColor = UIColorFromHex(rgbValue: 0xffffff, alpha: 0.3)
+      
+       
+          loadingView.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 80, height: 80))
+
+          loadingView.center = uiView.center
+          loadingView.backgroundColor = UIColorFromHex(rgbValue: 0x444444, alpha: 0.7)
+          loadingView.clipsToBounds = true
+          loadingView.layer.cornerRadius = 10
+      
+          activityIndicator.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 40, height: 40))
+          activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
+          activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2);
+
+          loadingView.addSubview(activityIndicator)
+          container.addSubview(loadingView)
+          uiView.addSubview(container)
+          activityIndicator.startAnimating()
+      }
+     
+     func hideActivityIndicator(uiView: UIView) {
+            activityIndicator.stopAnimating()
+            container.removeFromSuperview()
+        }
+     
+     
+     func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
+            let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+            let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+            let blue = CGFloat(rgbValue & 0xFF)/256.0
+            return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
+        }
 }
