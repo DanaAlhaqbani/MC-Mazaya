@@ -110,6 +110,7 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.9)
+  - SideMenu (6.4.8)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -120,6 +121,7 @@ DEPENDENCIES:
   - FirebaseUI/Google
   - FLAnimatedImage
   - IQKeyboardManagerSwift
+  - SideMenu
 
 SPEC REPOS:
   trunk:
@@ -145,6 +147,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SideMenu
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
@@ -169,7 +172,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
 
-PODFILE CHECKSUM: b92476b97bee51adef3976392f3b14904e695967
+PODFILE CHECKSUM: c8495a4a97df6f3192a83a90d31562d545850c86
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

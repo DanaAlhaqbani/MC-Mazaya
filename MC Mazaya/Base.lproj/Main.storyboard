@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cec-a3-LOP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W8g-27-b9G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -521,7 +521,7 @@
                 <navigationController id="mqK-el-wWc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="استخدام العرض" image="useOffer" id="NWs-bH-PyP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EGG-QQ-4z3">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -538,7 +538,7 @@
                 <navigationController id="0nS-X1-O4G" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="حسابي" image="myAccount" id="y7v-rU-asO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nek-23-MrM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -554,7 +554,7 @@
             <objects>
                 <viewController id="IKd-vI-ewN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F5N-0P-Loh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.123484917" green="0.63859909770000001" blue="0.76157802340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="wiG-Gu-7b4"/>
@@ -568,18 +568,27 @@
         <!--الرئيسية-->
         <scene sceneID="yOw-sH-0xD">
             <objects>
-                <viewController id="CGu-Lx-FZD" customClass="HomePageViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CGu-Lx-FZD" customClass="homeViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZEs-fi-T9h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sKq-Fn-E91"/>
                     </view>
-                    <navigationItem key="navigationItem" title="الرئيسية" id="X1u-yY-oQg"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="الرئيسية" id="X1u-yY-oQg">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.dash" catalog="system" id="Sbd-fl-MGX">
+                            <color key="tintColor" red="0.21960784310000001" green="0.62745098040000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="didTapMenu" destination="CGu-Lx-FZD" id="Ybs-r4-PpP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nn0-QR-1Wc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4009" y="-1598"/>
+            <point key="canvasLocation" x="4009" y="-1580"/>
         </scene>
         <!--العروض الكبرى-->
         <scene sceneID="WRN-Fs-8Dh">
@@ -602,7 +611,7 @@
             <objects>
                 <viewController id="v2n-sJ-vLP" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Iw-KJ-VXS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="hmu-lJ-nEY"/>
@@ -656,7 +665,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="CGu-Lx-FZD" kind="relationship" relationship="rootViewController" id="3Zz-hQ-Ywf"/>
+                        <segue destination="CGu-Lx-FZD" kind="relationship" relationship="rootViewController" id="Lfy-uE-KNa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plE-aN-xFP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -809,6 +818,7 @@
         <image name="bigOffers" width="64" height="64"/>
         <image name="email" width="101" height="77"/>
         <image name="homePage" width="26" height="26"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="map" width="64" height="64"/>
         <image name="myAccount" width="50" height="50"/>
         <image name="phoneIcon" width="110" height="100"/>

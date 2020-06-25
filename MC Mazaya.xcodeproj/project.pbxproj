@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		116D568DDAAAC0B3B4A41EC0 /* Pods_MC_Mazaya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA67390707D5EA351875ADF8 /* Pods_MC_Mazaya.framework */; };
-		3B97E2C024A33D4200D0D965 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2BF24A33D4200D0D965 /* HomePageViewController.swift */; };
 		3B97E2C724A346D200D0D965 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2C624A346D200D0D965 /* BaseCell.swift */; };
 		3B97E2C924A346D900D0D965 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2C824A346D900D0D965 /* BaseListController.swift */; };
 		3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2CA24A346DC00D0D965 /* DownloaderX.swift */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		23096477DA04583DCAF7E84F /* Pods-MC Mazaya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.release.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.release.xcconfig"; sourceTree = "<group>"; };
-		3B97E2BF24A33D4200D0D965 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		3B97E2C624A346D200D0D965 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		3B97E2C824A346D900D0D965 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		3B97E2CA24A346DC00D0D965 /* DownloaderX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderX.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				D641E9AA249F3031001851A9 /* AppDelegate.swift */,
 				D641E9AC249F3031001851A9 /* SceneDelegate.swift */,
 				D641E9AE249F3031001851A9 /* ViewController.swift */,
-				3B97E2BF24A33D4200D0D965 /* HomePageViewController.swift */,
 				D641E9B0249F3031001851A9 /* Main.storyboard */,
 				D641E9C0249F5252001851A9 /* GoogleService-Info.plist */,
 				D641E9B3249F3037001851A9 /* Assets.xcassets */,
@@ -296,7 +293,6 @@
 				D6E1286B24A0B1FE00977D26 /* ResetPassViewController.swift in Sources */,
 				D6E1286324A08E4B00977D26 /* XUB.swift in Sources */,
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
-				3B97E2C024A33D4200D0D965 /* HomePageViewController.swift in Sources */,
 				3B97E2C924A346D900D0D965 /* BaseListController.swift in Sources */,
 				D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */,
 				D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */,

@@ -239,7 +239,6 @@ class SignUpViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                                  if let error = error {
                                     self.removeSpinner()
-
               let alert = self.alertContent(title: "البريد الإلكتروني خاطئ", message: "البريد الإلكتروني مسجل مسبقا")
                           self.present(alert, animated: true, completion: nil)
 
@@ -277,7 +276,7 @@ class SignUpViewController: UIViewController {
                 
             }
             
-            
+        
   
         
          func successfulSignUpFunction(){

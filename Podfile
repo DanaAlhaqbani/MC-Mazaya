@@ -21,4 +21,5 @@ pod 'Firebase/Storage'
 
 pod 'FirebaseUI/Google'
 pod 'FLAnimatedImage'
+pod 'SideMenu'
 end
