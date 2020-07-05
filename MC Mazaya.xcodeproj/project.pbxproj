@@ -14,6 +14,19 @@
 		3B97E2CD24A346E000D0D965 /* ExpertTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2CC24A346E000D0D965 /* ExpertTabBarController.swift */; };
 		3B97E2CF24A346E400D0D965 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2CE24A346E300D0D965 /* HeaderCell.swift */; };
 		3B97E2D124A346E700D0D965 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2D024A346E700D0D965 /* MainTabBarController.swift */; };
+		D620C51B24B1B7C50085B937 /* MenuListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620C51A24B1B7C50085B937 /* MenuListController.swift */; };
+		D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EA824AB3B1F004569D6 /* TabBarController.swift */; };
+		D6381EAB24AC89F7004569D6 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */; };
+		D6381EAD24AC921D004569D6 /* profilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EAC24AC921D004569D6 /* profilePresenter.swift */; };
+		D6381EB124ADD3F7004569D6 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */; };
+		D6381EB324ADD417004569D6 /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB224ADD417004569D6 /* RegionViewController.swift */; };
+		D6381EB524ADD461004569D6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB424ADD461004569D6 /* FavoriteViewController.swift */; };
+		D6381EB724ADD479004569D6 /* NewOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB624ADD479004569D6 /* NewOffersViewController.swift */; };
+		D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB824ADD48E004569D6 /* UsedOffersViewController.swift */; };
+		D6381EBB24ADD4A5004569D6 /* SuggestOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EBA24ADD4A5004569D6 /* SuggestOfferViewController.swift */; };
+		D6381EBD24ADD4C5004569D6 /* VouchersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EBC24ADD4C5004569D6 /* VouchersViewController.swift */; };
+		D6381EBF24ADD4DA004569D6 /* CommunicateUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EBE24ADD4DA004569D6 /* CommunicateUsViewController.swift */; };
+		D639206B24AA0BEB0008F28E /* firstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639206A24AA0BEB0008F28E /* firstViewController.swift */; };
 		D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641E9AA249F3031001851A9 /* AppDelegate.swift */; };
 		D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641E9AC249F3031001851A9 /* SceneDelegate.swift */; };
 		D641E9AF249F3031001851A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641E9AE249F3031001851A9 /* ViewController.swift */; };
@@ -21,6 +34,10 @@
 		D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B3249F3037001851A9 /* Assets.xcassets */; };
 		D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B5249F3037001851A9 /* LaunchScreen.storyboard */; };
 		D641E9C1249F5252001851A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D641E9C0249F5252001851A9 /* GoogleService-Info.plist */; };
+		D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CCD24A8773E00FAAFAF /* XUI.swift */; };
+		D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */; };
+		D6D44CDF24A8BC8E00FAAFAF /* stc_font_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D44CDE24A8BC8E00FAAFAF /* stc_font_regular.ttf */; };
+		D6D44CE124A8BC9B00FAAFAF /* stc_font_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6D44CE024A8BC9B00FAAFAF /* stc_font_light.otf */; };
 		D6E1285E24A07F6400977D26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E1285D24A07F6400977D26 /* LoginViewController.swift */; };
 		D6E1286124A0805900977D26 /* XTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E1286024A0805900977D26 /* XTF.swift */; };
 		D6E1286324A08E4B00977D26 /* XUB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E1286224A08E4B00977D26 /* XUB.swift */; };
@@ -28,6 +45,10 @@
 		D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E1286824A0A55600977D26 /* SignUpViewController.swift */; };
 		D6E1286B24A0B1FE00977D26 /* ResetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E1286A24A0B1FE00977D26 /* ResetPassViewController.swift */; };
 		D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F89BBD24A204CC000357BF /* homeViewController.swift */; };
+		D6FF724024A49C4400EFA660 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */; };
+		D6FF724224A4A09000EFA660 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */; };
+		D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */; };
+		D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724524A4A52100EFA660 /* profileTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +61,19 @@
 		3B97E2D024A346E700D0D965 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		AA67390707D5EA351875ADF8 /* Pods_MC_Mazaya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC_Mazaya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637480B2916BA532CF0622D /* Pods-MC Mazaya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.debug.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.debug.xcconfig"; sourceTree = "<group>"; };
+		D620C51A24B1B7C50085B937 /* MenuListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListController.swift; sourceTree = "<group>"; };
+		D6381EA824AB3B1F004569D6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		D6381EAC24AC921D004569D6 /* profilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilePresenter.swift; sourceTree = "<group>"; };
+		D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
+		D6381EB224ADD417004569D6 /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
+		D6381EB424ADD461004569D6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		D6381EB624ADD479004569D6 /* NewOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOffersViewController.swift; sourceTree = "<group>"; };
+		D6381EB824ADD48E004569D6 /* UsedOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedOffersViewController.swift; sourceTree = "<group>"; };
+		D6381EBA24ADD4A5004569D6 /* SuggestOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestOfferViewController.swift; sourceTree = "<group>"; };
+		D6381EBC24ADD4C5004569D6 /* VouchersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchersViewController.swift; sourceTree = "<group>"; };
+		D6381EBE24ADD4DA004569D6 /* CommunicateUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicateUsViewController.swift; sourceTree = "<group>"; };
+		D639206A24AA0BEB0008F28E /* firstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstViewController.swift; sourceTree = "<group>"; };
 		D641E9A7249F3031001851A9 /* MC Mazaya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Mazaya.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D641E9AA249F3031001851A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D641E9AC249F3031001851A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +83,10 @@
 		D641E9B6249F3037001851A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D641E9B8249F3037001851A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D641E9C0249F5252001851A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D6D44CCD24A8773E00FAAFAF /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
+		D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassPresenter.swift; sourceTree = "<group>"; };
+		D6D44CDE24A8BC8E00FAAFAF /* stc_font_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = stc_font_regular.ttf; path = "MC Mazaya/Extensions/stc_font_regular.ttf"; sourceTree = SOURCE_ROOT; };
+		D6D44CE024A8BC9B00FAAFAF /* stc_font_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = stc_font_light.otf; path = "MC Mazaya/Extensions/stc_font_light.otf"; sourceTree = SOURCE_ROOT; };
 		D6E1285D24A07F6400977D26 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D6E1286024A0805900977D26 /* XTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XTF.swift; sourceTree = "<group>"; };
 		D6E1286224A08E4B00977D26 /* XUB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUB.swift; sourceTree = "<group>"; };
@@ -56,6 +94,10 @@
 		D6E1286824A0A55600977D26 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D6E1286A24A0B1FE00977D26 /* ResetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassViewController.swift; sourceTree = "<group>"; };
 		D6F89BBD24A204CC000357BF /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		D6FF724524A4A52100EFA660 /* profileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +163,7 @@
 		D641E9A9249F3031001851A9 /* MC Mazaya */ = {
 			isa = PBXGroup;
 			children = (
+				D6D44CDB24A8BC3400FAAFAF /* fonts */,
 				3B97E2C324A3455A00D0D965 /* TabBarContro */,
 				D6E1285F24A0803B00977D26 /* Extensions */,
 				D641E9AA249F3031001851A9 /* AppDelegate.swift */,
@@ -135,8 +178,34 @@
 				D6E1286824A0A55600977D26 /* SignUpViewController.swift */,
 				D6E1286A24A0B1FE00977D26 /* ResetPassViewController.swift */,
 				D6F89BBD24A204CC000357BF /* homeViewController.swift */,
+				D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */,
+				D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */,
+				D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */,
+				D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */,
+				D639206A24AA0BEB0008F28E /* firstViewController.swift */,
+				D6381EA824AB3B1F004569D6 /* TabBarController.swift */,
+				D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */,
+				D6381EAC24AC921D004569D6 /* profilePresenter.swift */,
+				D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */,
+				D6381EB224ADD417004569D6 /* RegionViewController.swift */,
+				D6381EB424ADD461004569D6 /* FavoriteViewController.swift */,
+				D6381EB624ADD479004569D6 /* NewOffersViewController.swift */,
+				D6381EB824ADD48E004569D6 /* UsedOffersViewController.swift */,
+				D6381EBA24ADD4A5004569D6 /* SuggestOfferViewController.swift */,
+				D6381EBC24ADD4C5004569D6 /* VouchersViewController.swift */,
+				D6381EBE24ADD4DA004569D6 /* CommunicateUsViewController.swift */,
+				D620C51A24B1B7C50085B937 /* MenuListController.swift */,
 			);
 			path = "MC Mazaya";
+			sourceTree = "<group>";
+		};
+		D6D44CDB24A8BC3400FAAFAF /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D6D44CDE24A8BC8E00FAAFAF /* stc_font_regular.ttf */,
+				D6D44CE024A8BC9B00FAAFAF /* stc_font_light.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		D6E1285F24A0803B00977D26 /* Extensions */ = {
@@ -145,6 +214,8 @@
 				D6E1286024A0805900977D26 /* XTF.swift */,
 				D6E1286224A08E4B00977D26 /* XUB.swift */,
 				D6E1286424A08EC700977D26 /* UIcolors.swift */,
+				D6FF724524A4A52100EFA660 /* profileTextField.swift */,
+				D6D44CCD24A8773E00FAAFAF /* XUI.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,8 +281,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D44CE124A8BC9B00FAAFAF /* stc_font_light.otf in Resources */,
 				D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */,
 				D641E9C1249F5252001851A9 /* GoogleService-Info.plist in Resources */,
+				D6D44CDF24A8BC8E00FAAFAF /* stc_font_regular.ttf in Resources */,
 				D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */,
 				D641E9B2249F3031001851A9 /* Main.storyboard in Resources */,
 			);
@@ -286,16 +359,35 @@
 				D6E1285E24A07F6400977D26 /* LoginViewController.swift in Sources */,
 				3B97E2D124A346E700D0D965 /* MainTabBarController.swift in Sources */,
 				D6E1286524A08EC700977D26 /* UIcolors.swift in Sources */,
+				D6381EBD24ADD4C5004569D6 /* VouchersViewController.swift in Sources */,
+				D6381EBF24ADD4DA004569D6 /* CommunicateUsViewController.swift in Sources */,
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
 				3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */,
+				D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */,
+				D6381EB124ADD3F7004569D6 /* FamilyViewController.swift in Sources */,
+				D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */,
 				D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */,
+				D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */,
 				3B97E2C724A346D200D0D965 /* BaseCell.swift in Sources */,
+				D639206B24AA0BEB0008F28E /* firstViewController.swift in Sources */,
+				D6381EAB24AC89F7004569D6 /* EditProfilePresenter.swift in Sources */,
+				D6FF724024A49C4400EFA660 /* ProfileViewController.swift in Sources */,
+				D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */,
+				D620C51B24B1B7C50085B937 /* MenuListController.swift in Sources */,
+				D6381EAD24AC921D004569D6 /* profilePresenter.swift in Sources */,
+				D6381EB324ADD417004569D6 /* RegionViewController.swift in Sources */,
+				D6FF724224A4A09000EFA660 /* EditProfileViewController.swift in Sources */,
+				D6381EB524ADD461004569D6 /* FavoriteViewController.swift in Sources */,
 				D6E1286B24A0B1FE00977D26 /* ResetPassViewController.swift in Sources */,
 				D6E1286324A08E4B00977D26 /* XUB.swift in Sources */,
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
+				D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */,
+				D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */,
 				3B97E2C924A346D900D0D965 /* BaseListController.swift in Sources */,
+				D6381EB724ADD479004569D6 /* NewOffersViewController.swift in Sources */,
 				D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */,
 				D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */,
+				D6381EBB24ADD4A5004569D6 /* SuggestOfferViewController.swift in Sources */,
 				D6E1286124A0805900977D26 /* XTF.swift in Sources */,
 				3B97E2CF24A346E400D0D965 /* HeaderCell.swift in Sources */,
 				3B97E2CD24A346E000D0D965 /* ExpertTabBarController.swift in Sources */,

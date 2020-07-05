@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     
+
     
     var container: UIView = UIView()
     var loadingView: UIView = UIView()
@@ -24,11 +25,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var showSignUp: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ///self.navigationController?.isNavigationBarHidden = true
         emailTextField.backgroundUnderlined()
                passwordTextField.backgroundUnderlined()
                loginBtn.setButton()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func LoginBtn(_ sender: Any) {
@@ -114,13 +115,30 @@ class LoginViewController: UIViewController {
     }
     
   
- 
+
     func successful(){
         //=====Transfer to home page=====
         self.removeSpinner()
-        self.performSegue(withIdentifier: "toHome", sender: nil)
+        self.moveToTheTabBarViewController()
+
 
     }
+   func moveToTheTabBarViewController () {
+          
+  //        TrophyVC.newUsections = self.UTsections
+  //        TrophyVC.newUPsections = self.UPsections
+          
+          let homeViewController = storyboard?.instantiateViewController(withIdentifier: "VCTabBar") as? UITabBarController
+          let userNavViewController = homeViewController?.viewControllers![1] as? UINavigationController
+          let userHomeViewController = userNavViewController?.viewControllers[0] as? homeViewController
+
+        
+          
+          self.view.window?.rootViewController = homeViewController
+          self.view.window?.makeKeyAndVisible()
+      }
+        
+        
     func alertContent(title: String, message: String)-> UIAlertController{
         
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)

@@ -167,4 +167,13 @@ extension CGLayer {
            gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
 //           self.insertSublayer(gradientLayer, at: 0)
        }
+    func generalGradiantView() {
+        let green = UIColor(rgb: 0x38a089)
+        let dark = UIColor(rgb: 0x00524d)
+
+        let topColor = UIColor.green
+        let bottomColor =  UIColor.white
+        
+        self.setGradientBackground(colorOne: topColor, colorTwo: bottomColor)
+    }
 }

@@ -13,6 +13,7 @@ import IQKeyboardManagerSwift
 
 class SignUpViewController: UIViewController {
     var gender = ""
+    var points = "0"
 
     var container: UIView = UIView()
     var loadingView: UIView = UIView()
@@ -249,7 +250,7 @@ class SignUpViewController: UIViewController {
                                  
                                  guard let uid = result?.user.uid else { return }
                                  
-            let values = ["Email": email, "Name": name, "Gender": gender, "Password": password, "Phone": phone]
+            let values = ["Email": email, "Name": name, "Gender": gender, "Password": password, "Phone": phone, "Points": self.points] as [String : Any]
                                  Database.database().reference().child("Users").child(uid).updateChildValues(values, withCompletionBlock: {(error, ref) in
                                      if let error = error {
                                          print("failed to update database values with error", error.localizedDescription)
