@@ -29,6 +29,8 @@ class LoginViewController: UIViewController {
         emailTextField.backgroundUnderlined()
                passwordTextField.backgroundUnderlined()
                loginBtn.setButton()
+        emailTextField.addDoneButtonOnKeyboard()
+        passwordTextField.addDoneButtonOnKeyboard()
 
     }
     

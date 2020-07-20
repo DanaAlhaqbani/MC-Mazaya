@@ -10,7 +10,7 @@ import UIKit
 import SideMenu
 import Firebase
 import FirebaseAuth
-
+import DropDown
 struct userData {
     static var name = ""
     static var email = ""
@@ -22,7 +22,7 @@ struct userData {
 
 }
 class homeViewController: UIViewController, MenuListControllerDelegate {
-   private let Region = RegionViewController()
+   //private let Region = RegionViewController()
     private let ViewFamily = FamilyViewController()
     private let Faviorate = FavoriteViewController()
     private let NewOffers = NewOffersViewController()
@@ -31,7 +31,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
     private let Vouchers = VouchersViewController()
     private let Communication = CommunicateUsViewController()
 
-
+    
     
   let user = Auth.auth().currentUser
      var ref: DatabaseReference?
@@ -56,7 +56,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
         self.title = name
         SideMenu?.dismiss(animated: true, completion: {
             if name == "المنطقة" {
-                self.Region.view.isHidden = false
+               // self.Region.view.isHidden = true
                 self.ViewFamily.view.isHidden = true
                 self.Faviorate.view.isHidden = true
                 self.NewOffers.view.isHidden = true
@@ -64,9 +64,10 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
                 self.SuggestOffer.view.isHidden = true
                 self.Vouchers.view.isHidden = true
                 self.Communication.view.isHidden = true
+
             }
             else if name == "عائلتي" {
-                self.Region.view.isHidden = true
+                //self.Region.view.isHidden = true
                 self.ViewFamily.view.isHidden = false
                 self.Faviorate.view.isHidden = true
                 self.NewOffers.view.isHidden = true
@@ -77,7 +78,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
 
             }
             else if name == "المفضلة" {
-                self.Region.view.isHidden = true
+                // self.Region.view.isHidden = true
                 self.ViewFamily.view.isHidden = true
                 self.Faviorate.view.isHidden = false
                 self.NewOffers.view.isHidden = true
@@ -88,7 +89,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
                            
             }
             else if name == "جديد العروض" {
-                self.Region.view.isHidden = true
+                //self.Region.view.isHidden = true
                 self.ViewFamily.view.isHidden = true
                 self.Faviorate.view.isHidden = true
                 self.NewOffers.view.isHidden = false
@@ -99,7 +100,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
                              
               }
             else if name == "الصفقات المستخدمة" {
-                self.Region.view.isHidden = true
+                //self.Region.view.isHidden = true
                 self.ViewFamily.view.isHidden = true
                 self.Faviorate.view.isHidden = true
                 self.NewOffers.view.isHidden = true
@@ -110,7 +111,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
                                     
               }
             else if name ==  "إقترح عرضاً" {
-                self.Region.view.isHidden = true
+               // self.Region.view.isHidden = true
                 self.ViewFamily.view.isHidden = true
                 self.Faviorate.view.isHidden = true
                 self.NewOffers.view.isHidden = true
@@ -121,7 +122,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
                                         
               }
             else if name ==  "القسائم الشرائية" {
-                self.Region.view.isHidden = true
+               // self.Region.view.isHidden = true
                 self.ViewFamily.view.isHidden = true
                 self.Faviorate.view.isHidden = true
                 self.NewOffers.view.isHidden = true
@@ -132,7 +133,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
                                                    
             }
             else if name ==  "تواصل معنا" {
-                self.Region.view.isHidden = true
+               // self.Region.view.isHidden = true
                 self.ViewFamily.view.isHidden = true
                 self.Faviorate.view.isHidden = true
                 self.NewOffers.view.isHidden = true
@@ -153,7 +154,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
     }
 
     private func addChildController(){
-        addChild(Region)
+        //addChild(Region)
         addChild(ViewFamily)
         addChild(Faviorate)
         addChild(NewOffers)
@@ -161,7 +162,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
         addChild(SuggestOffer)
         addChild(Vouchers)
         addChild(Communication)
-        view.addSubview(Region.view)
+       // view.addSubview(Region.view)
         view.addSubview(ViewFamily.view)
         view.addSubview(Faviorate.view)
         view.addSubview(NewOffers.view)
@@ -169,7 +170,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
         view.addSubview(SuggestOffer.view)
         view.addSubview(Vouchers.view)
         view.addSubview(Communication.view)
-        Region.view.frame = view.bounds
+        //Region.view.frame = view.bounds
         ViewFamily.view.frame = view.bounds
         Faviorate.view.frame = view.bounds
         NewOffers.view.frame = view.bounds
@@ -177,7 +178,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
         SuggestOffer.view.frame = view.bounds
         Vouchers.view.frame = view.bounds
         Communication.view.frame = view.bounds
-        Region.didMove(toParent: self)
+        //Region.didMove(toParent: self)
         ViewFamily.didMove(toParent: self)
         Faviorate.didMove(toParent: self)
         NewOffers.didMove(toParent: self)
@@ -185,7 +186,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
         SuggestOffer.didMove(toParent: self)
         Vouchers.didMove(toParent: self)
         Communication.didMove(toParent: self)
-        Region.view.isHidden = true
+        //Region.view.isHidden = true
         ViewFamily.view.isHidden = true
         Faviorate.view.isHidden = true
         NewOffers.view.isHidden = true
