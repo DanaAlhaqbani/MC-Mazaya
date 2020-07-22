@@ -180,7 +180,7 @@ class SignUpViewController: UIViewController {
 
           }
           else if !isValidNumber(testStr: phone){
-            let alert = self.alertContent(title:  "رقم الهاتف غير صالح!", message: " من فضلِك، أدخل رقم هاتفك بشكل صحيح" )
+            let alert = self.alertContent(title:  "رقم الهاتف غير صالح!", message: " من فضلِك، أدخل رقم الهاتف بشكل صحيح" )
                        self.present(alert, animated: true, completion: nil)
           }
             else if !isValidNumberLength(testStr: phone){

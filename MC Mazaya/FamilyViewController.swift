@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class FamilyViewController: UIViewController {
+    
+    let userID = Auth.auth().currentUser?.uid
 
  
         override func viewDidLoad() {
@@ -51,15 +54,58 @@ class FamilyViewController: UIViewController {
                 return $0
             }(UIButton(type: .system))
         @objc func FAQAction() {
-           print("=========Pressed FAQ=========")
-           let storyboard = UIStoryboard(name: "Main", bundle: nil)
-           let secondVC = storyboard.instantiateViewController(identifier: "enter")
+          let alertController = UIAlertController(title: "إضافة عضو", message: "أدخل رقم هاتف العضو الذي ترغب بدعوته", preferredStyle: .alert)
            
-            navigationController?.pushViewController(secondVC, animated: true)
+                   //the confirm action taking the inputs
+                   let confirmAction = UIAlertAction(title: "إرسال الدعوة", style: .default) { (_) in
+                       //getting id
+                       //let id = task1.id
+                       //getting new values
+                       let Family_Phone = alertController.textFields?[0].text
+                       //let assignedMember = alertController.textFields?[1].text
+           
+                       //calling the update method to update artist
+                    self.AddFamilyMember(Family_Phone: Family_Phone!)
+                   }
+           
+            let cancelAction = UIAlertAction(title: "الغاء", style: .cancel) { (_) in }
 
-            
+           //adding two textfields to alert
+            alertController.addTextField { (textField) in
+                            textField.placeholder = "05XXXXXXXX"
+                        }
+                           //adding action
+                        alertController.addAction(confirmAction)
+                        alertController.addAction(cancelAction)
+            present(alertController, animated: true, completion: nil)
+
         }
+    
+    func AddFamilyMember(Family_Phone: String!){
+        if Family_Phone != "" {
+            if isValidNumber(Family_Phone: Family_Phone) == true {
+                  let alert = self.alertContent(title:  "تم بنجاح!", message: "شكرا لك تم إرسال الدعوة" )
+                self.present(alert, animated: true, completion: nil)
 
+                 let member = ["Name" : Family_Phone , "Status" : "Pending"]
+                let ref = Database.database().reference().child("Users").child(userID!).child("FamilyList")
+                let key = ref.childByAutoId().key
+                ref.child(key!).setValue(member)
+                print("Success Add family Member")
+            }
+            else {
+                let alert = self.alertContent(title:  "رقم الهاتف غير صالح!", message: " من فضلِك، أدخل رقم الهاتف بشكل صحيح" )
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+          let alert = self.alertContent(title:  "بياناتك غير مكتملة!", message:"مِن فضلك أدخِل رقمك")
+          self.present(alert, animated: true, completion: nil)
+    }
+    func isValidNumber(Family_Phone:String) -> Bool{
+        let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        return phoneTest.evaluate(with: Family_Phone)
+        }
 
         lazy var Email : UIButton = {
             $0.addTarget(self, action: #selector(EmailAction), for: .touchUpInside)
@@ -78,7 +124,7 @@ class FamilyViewController: UIViewController {
             }(UIButton(type: .system))
         @objc func EmailAction() {
          let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let secondVC = storyboard.instantiateViewController(identifier: "FamilyList")
+                    let secondVC = storyboard.instantiateViewController(identifier: "FList")
                     
                      navigationController?.pushViewController(secondVC, animated: true)
         }
@@ -117,5 +163,13 @@ class FamilyViewController: UIViewController {
                       ])
                      
                    
+    }
+    func alertContent(title: String, message: String)-> UIAlertController{
+        
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: NSLocalizedString("حسنًا", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        return alertVC
     }
     }

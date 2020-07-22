@@ -36,6 +36,8 @@
 		D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B5249F3037001851A9 /* LaunchScreen.storyboard */; };
 		D641E9C1249F5252001851A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D641E9C0249F5252001851A9 /* GoogleService-Info.plist */; };
 		D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65DA8C324C4366300092918 /* CustomCells.xib */; };
+		D65DA8C824C5BAF000092918 /* ViewFamilyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C724C5BAF000092918 /* ViewFamilyListViewController.swift */; };
+		D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */; };
 		D6D150E424BB38CE00547B97 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D150E324BB38CE00547B97 /* ScannerViewController.swift */; };
 		D6D150E624BC6D9C00547B97 /* textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D150E524BC6D9C00547B97 /* textField.swift */; };
 		D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CCD24A8773E00FAAFAF /* XUI.swift */; };
@@ -96,6 +98,8 @@
 		D641E9B8249F3037001851A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D641E9C0249F5252001851A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D65DA8C324C4366300092918 /* CustomCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCells.xib; sourceTree = "<group>"; };
+		D65DA8C724C5BAF000092918 /* ViewFamilyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFamilyListViewController.swift; sourceTree = "<group>"; };
+		D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6D150E324BB38CE00547B97 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D6D150E524BC6D9C00547B97 /* textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textField.swift; sourceTree = "<group>"; };
 		D6D44CCD24A8773E00FAAFAF /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				D6E8F25B24BF134000A4AA9D /* EntryViewController.swift */,
 				D6E8F25D24BF138800A4AA9D /* ViewFamilyViewController.swift */,
 				D6DA493424C05A6F0020DB22 /* CustomCells.swift */,
+				D65DA8C724C5BAF000092918 /* ViewFamilyListViewController.swift */,
+				D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */,
 			);
 			path = "MC Mazaya";
 			sourceTree = "<group>";
@@ -411,6 +417,8 @@
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
 				3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */,
 				D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */,
+				D65DA8C824C5BAF000092918 /* ViewFamilyListViewController.swift in Sources */,
+				D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */,
 				D6381EB124ADD3F7004569D6 /* FamilyViewController.swift in Sources */,
 				D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */,
 				D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */,
