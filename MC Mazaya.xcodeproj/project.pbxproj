@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		116D568DDAAAC0B3B4A41EC0 /* Pods_MC_Mazaya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA67390707D5EA351875ADF8 /* Pods_MC_Mazaya.framework */; };
+		3B89A3D224E15866008CDE95 /* stc_font_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B89A3D024E15866008CDE95 /* stc_font_regular.ttf */; };
+		3B89A3D724E1592E008CDE95 /* stc_font_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B89A3D624E1592E008CDE95 /* stc_font_light.otf */; };
+		3B89A3D924E159F7008CDE95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B89A3D824E159F7008CDE95 /* GoogleService-Info.plist */; };
+		3B89A3E924E15CB8008CDE95 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89A3E224E15CB8008CDE95 /* GalleryCollectionViewCell.swift */; };
+		3B89A3EA24E15CB8008CDE95 /* DscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89A3E324E15CB8008CDE95 /* DscriptionViewController.swift */; };
+		3B89A3EB24E15CB8008CDE95 /* NewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89A3E424E15CB8008CDE95 /* NewTableViewController.swift */; };
+		3B89A3EC24E15CB8008CDE95 /* CollectionviewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B89A3E524E15CB8008CDE95 /* CollectionviewTableCell.xib */; };
+		3B89A3ED24E15CB8008CDE95 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B89A3E624E15CB8008CDE95 /* GalleryCollectionViewCell.xib */; };
+		3B89A3EE24E15CB8008CDE95 /* CollectionviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89A3E724E15CB8008CDE95 /* CollectionviewTableCell.swift */; };
+		3B89A3EF24E15CB8008CDE95 /* DscriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B89A3E824E15CB8008CDE95 /* DscriptionViewController.xib */; };
 		3B97E2C724A346D200D0D965 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2C624A346D200D0D965 /* BaseCell.swift */; };
 		3B97E2C924A346D900D0D965 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2C824A346D900D0D965 /* BaseListController.swift */; };
 		3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2CA24A346DC00D0D965 /* DownloaderX.swift */; };
@@ -16,7 +26,6 @@
 		3B97E2D124A346E700D0D965 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2D024A346E700D0D965 /* MainTabBarController.swift */; };
 		D620C51B24B1B7C50085B937 /* MenuListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620C51A24B1B7C50085B937 /* MenuListController.swift */; };
 		D620C51D24B1C35E0085B937 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620C51C24B1C35E0085B937 /* MapViewController.swift */; };
-		D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EA824AB3B1F004569D6 /* TabBarController.swift */; };
 		D6381EAB24AC89F7004569D6 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */; };
 		D6381EAD24AC921D004569D6 /* profilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EAC24AC921D004569D6 /* profilePresenter.swift */; };
 		D6381EB124ADD3F7004569D6 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */; };
@@ -34,7 +43,6 @@
 		D641E9B2249F3031001851A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B0249F3031001851A9 /* Main.storyboard */; };
 		D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B3249F3037001851A9 /* Assets.xcassets */; };
 		D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B5249F3037001851A9 /* LaunchScreen.storyboard */; };
-		D641E9C1249F5252001851A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D641E9C0249F5252001851A9 /* GoogleService-Info.plist */; };
 		D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65DA8C324C4366300092918 /* CustomCells.xib */; };
 		D65DA8C824C5BAF000092918 /* ViewFamilyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C724C5BAF000092918 /* ViewFamilyListViewController.swift */; };
 		D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */; };
@@ -42,8 +50,6 @@
 		D6D150E624BC6D9C00547B97 /* textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D150E524BC6D9C00547B97 /* textField.swift */; };
 		D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CCD24A8773E00FAAFAF /* XUI.swift */; };
 		D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */; };
-		D6D44CDF24A8BC8E00FAAFAF /* stc_font_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D44CDE24A8BC8E00FAAFAF /* stc_font_regular.ttf */; };
-		D6D44CE124A8BC9B00FAAFAF /* stc_font_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6D44CE024A8BC9B00FAAFAF /* stc_font_light.otf */; };
 		D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA493424C05A6F0020DB22 /* CustomCells.swift */; };
 		D6DC5C0024B5BC320063CF8D /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC5BFF24B5BC320063CF8D /* FAQViewController.swift */; };
 		D6E1285E24A07F6400977D26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E1285D24A07F6400977D26 /* LoginViewController.swift */; };
@@ -66,6 +72,16 @@
 
 /* Begin PBXFileReference section */
 		23096477DA04583DCAF7E84F /* Pods-MC Mazaya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.release.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.release.xcconfig"; sourceTree = "<group>"; };
+		3B89A3D024E15866008CDE95 /* stc_font_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = stc_font_regular.ttf; path = ../../../../Downloads/stc_font_regular.ttf; sourceTree = "<group>"; };
+		3B89A3D624E1592E008CDE95 /* stc_font_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = stc_font_light.otf; path = ../../../../Downloads/stc_font_light.otf; sourceTree = "<group>"; };
+		3B89A3D824E159F7008CDE95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B89A3E224E15CB8008CDE95 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B89A3E324E15CB8008CDE95 /* DscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DscriptionViewController.swift; sourceTree = "<group>"; };
+		3B89A3E424E15CB8008CDE95 /* NewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTableViewController.swift; path = CollectionviewTableCell/NewTableViewController.swift; sourceTree = "<group>"; };
+		3B89A3E524E15CB8008CDE95 /* CollectionviewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionviewTableCell.xib; sourceTree = "<group>"; };
+		3B89A3E624E15CB8008CDE95 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		3B89A3E724E15CB8008CDE95 /* CollectionviewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionviewTableCell.swift; sourceTree = "<group>"; };
+		3B89A3E824E15CB8008CDE95 /* DscriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DscriptionViewController.xib; sourceTree = "<group>"; };
 		3B97E2C624A346D200D0D965 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		3B97E2C824A346D900D0D965 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		3B97E2CA24A346DC00D0D965 /* DownloaderX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderX.swift; sourceTree = "<group>"; };
@@ -76,7 +92,6 @@
 		C637480B2916BA532CF0622D /* Pods-MC Mazaya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.debug.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.debug.xcconfig"; sourceTree = "<group>"; };
 		D620C51A24B1B7C50085B937 /* MenuListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListController.swift; sourceTree = "<group>"; };
 		D620C51C24B1C35E0085B937 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		D6381EA824AB3B1F004569D6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		D6381EAC24AC921D004569D6 /* profilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilePresenter.swift; sourceTree = "<group>"; };
 		D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +111,6 @@
 		D641E9B3249F3037001851A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D641E9B6249F3037001851A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D641E9B8249F3037001851A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D641E9C0249F5252001851A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D65DA8C324C4366300092918 /* CustomCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCells.xib; sourceTree = "<group>"; };
 		D65DA8C724C5BAF000092918 /* ViewFamilyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFamilyListViewController.swift; sourceTree = "<group>"; };
 		D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -104,8 +118,6 @@
 		D6D150E524BC6D9C00547B97 /* textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textField.swift; sourceTree = "<group>"; };
 		D6D44CCD24A8773E00FAAFAF /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
 		D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassPresenter.swift; sourceTree = "<group>"; };
-		D6D44CDE24A8BC8E00FAAFAF /* stc_font_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = stc_font_regular.ttf; path = "MC Mazaya/Extensions/stc_font_regular.ttf"; sourceTree = SOURCE_ROOT; };
-		D6D44CE024A8BC9B00FAAFAF /* stc_font_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = stc_font_light.otf; path = "MC Mazaya/Extensions/stc_font_light.otf"; sourceTree = SOURCE_ROOT; };
 		D6DA493424C05A6F0020DB22 /* CustomCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
 		D6DC5BFF24B5BC320063CF8D /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		D6E1285D24A07F6400977D26 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +157,19 @@
 				23096477DA04583DCAF7E84F /* Pods-MC Mazaya.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3B89A3DA24E15A41008CDE95 /* CollectionviewTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				3B89A3E724E15CB8008CDE95 /* CollectionviewTableCell.swift */,
+				3B89A3E524E15CB8008CDE95 /* CollectionviewTableCell.xib */,
+				3B89A3E324E15CB8008CDE95 /* DscriptionViewController.swift */,
+				3B89A3E824E15CB8008CDE95 /* DscriptionViewController.xib */,
+				3B89A3E224E15CB8008CDE95 /* GalleryCollectionViewCell.swift */,
+				3B89A3E624E15CB8008CDE95 /* GalleryCollectionViewCell.xib */,
+			);
+			path = CollectionviewTableCell;
 			sourceTree = "<group>";
 		};
 		3B97E2C324A3455A00D0D965 /* TabBarContro */ = {
@@ -196,21 +221,22 @@
 				D641E9AA249F3031001851A9 /* AppDelegate.swift */,
 				D641E9AC249F3031001851A9 /* SceneDelegate.swift */,
 				D641E9AE249F3031001851A9 /* ViewController.swift */,
+				3B89A3DA24E15A41008CDE95 /* CollectionviewTableCell */,
+				3B89A3E424E15CB8008CDE95 /* NewTableViewController.swift */,
+				D6F89BBD24A204CC000357BF /* homeViewController.swift */,
 				D641E9B0249F3031001851A9 /* Main.storyboard */,
-				D641E9C0249F5252001851A9 /* GoogleService-Info.plist */,
 				D641E9B3249F3037001851A9 /* Assets.xcassets */,
 				D641E9B5249F3037001851A9 /* LaunchScreen.storyboard */,
+				3B89A3D824E159F7008CDE95 /* GoogleService-Info.plist */,
 				D641E9B8249F3037001851A9 /* Info.plist */,
 				D6E1285D24A07F6400977D26 /* LoginViewController.swift */,
 				D6E1286824A0A55600977D26 /* SignUpViewController.swift */,
 				D6E1286A24A0B1FE00977D26 /* ResetPassViewController.swift */,
-				D6F89BBD24A204CC000357BF /* homeViewController.swift */,
 				D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */,
 				D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */,
 				D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */,
 				D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */,
 				D639206A24AA0BEB0008F28E /* firstViewController.swift */,
-				D6381EA824AB3B1F004569D6 /* TabBarController.swift */,
 				D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */,
 				D6381EAC24AC921D004569D6 /* profilePresenter.swift */,
 				D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */,
@@ -239,8 +265,8 @@
 		D6D44CDB24A8BC3400FAAFAF /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				D6D44CDE24A8BC8E00FAAFAF /* stc_font_regular.ttf */,
-				D6D44CE024A8BC9B00FAAFAF /* stc_font_light.otf */,
+				3B89A3D024E15866008CDE95 /* stc_font_regular.ttf */,
+				3B89A3D624E1592E008CDE95 /* stc_font_light.otf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -328,13 +354,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6D44CE124A8BC9B00FAAFAF /* stc_font_light.otf in Resources */,
+				3B89A3D724E1592E008CDE95 /* stc_font_light.otf in Resources */,
 				D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */,
 				D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */,
-				D641E9C1249F5252001851A9 /* GoogleService-Info.plist in Resources */,
-				D6D44CDF24A8BC8E00FAAFAF /* stc_font_regular.ttf in Resources */,
+				3B89A3EC24E15CB8008CDE95 /* CollectionviewTableCell.xib in Resources */,
 				D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */,
+				3B89A3EF24E15CB8008CDE95 /* DscriptionViewController.xib in Resources */,
+				3B89A3D224E15866008CDE95 /* stc_font_regular.ttf in Resources */,
 				D641E9B2249F3031001851A9 /* Main.storyboard in Resources */,
+				3B89A3ED24E15CB8008CDE95 /* GalleryCollectionViewCell.xib in Resources */,
+				3B89A3D924E159F7008CDE95 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +438,7 @@
 				3B97E2D124A346E700D0D965 /* MainTabBarController.swift in Sources */,
 				D6E1286524A08EC700977D26 /* UIcolors.swift in Sources */,
 				D6E8F25A24BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift in Sources */,
+				3B89A3EE24E15CB8008CDE95 /* CollectionviewTableCell.swift in Sources */,
 				D6E8F25824BDB2AB00A4AA9D /* FamilyMember.swift in Sources */,
 				D6D150E424BB38CE00547B97 /* ScannerViewController.swift in Sources */,
 				D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */,
@@ -426,8 +456,11 @@
 				3B97E2C724A346D200D0D965 /* BaseCell.swift in Sources */,
 				D639206B24AA0BEB0008F28E /* firstViewController.swift in Sources */,
 				D6381EAB24AC89F7004569D6 /* EditProfilePresenter.swift in Sources */,
+				3B89A3EB24E15CB8008CDE95 /* NewTableViewController.swift in Sources */,
 				D6FF724024A49C4400EFA660 /* ProfileViewController.swift in Sources */,
+				3B89A3EA24E15CB8008CDE95 /* DscriptionViewController.swift in Sources */,
 				D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */,
+				3B89A3E924E15CB8008CDE95 /* GalleryCollectionViewCell.swift in Sources */,
 				D6E8F25E24BF138800A4AA9D /* ViewFamilyViewController.swift in Sources */,
 				D620C51B24B1B7C50085B937 /* MenuListController.swift in Sources */,
 				D6381EAD24AC921D004569D6 /* profilePresenter.swift in Sources */,
@@ -440,7 +473,6 @@
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
 				D6E8F25C24BF134000A4AA9D /* EntryViewController.swift in Sources */,
 				D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */,
-				D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */,
 				3B97E2C924A346D900D0D965 /* BaseListController.swift in Sources */,
 				D6D150E624BC6D9C00547B97 /* textField.swift in Sources */,
 				D6381EB724ADD479004569D6 /* NewOffersViewController.swift in Sources */,
@@ -596,13 +628,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 275CGUH5G5;
+				DEVELOPMENT_TEAM = W6PU9BC6FT;
 				INFOPLIST_FILE = "MC Mazaya/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.MC.Mazaya-Mazaya";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MC.Mazaya.MC-Mazaya";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -615,13 +647,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 275CGUH5G5;
+				DEVELOPMENT_TEAM = W6PU9BC6FT;
 				INFOPLIST_FILE = "MC Mazaya/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.MC.Mazaya-Mazaya";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MC.Mazaya.MC-Mazaya";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
