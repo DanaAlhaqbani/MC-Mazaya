@@ -8,7 +8,36 @@
 
 import Foundation
 
-struct FamilyMember {
-    var Phone : String
-    var key: String
+class FamilyMemebr{
+
+    var Phone : String?
+    var Status : String?
+    var key: String?
+
+  
+    init(Phone: String?, Status: String?, key: String?){
+        self.Phone = Phone
+        self.Status = Status
+        self.key = key
+        
+    }
 }
+
+/*
+ import Foundation
+ class fMember {
+  
+  var number: String?
+  var status: String?
+ var id: String?
+  
+  init(number: String?, status: String?, id: String?){
+      self.number = number
+      self.status = status
+      self.id = id
+      
+  }
+ }
+
+ */
+ 

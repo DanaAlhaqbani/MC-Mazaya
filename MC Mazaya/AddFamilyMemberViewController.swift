@@ -34,14 +34,14 @@ class AddFamilyMemberViewController: UIViewController {
     //    var open = [Bool]()
     
     //creating array contains sections
-    var sections = [FamilyMember]()
+    var sections = [FamilyMemebr]()
     
     var pageTitle = ""
     // to decide which section is selected
     //var sectionIndicator: PSection?
     
     // to know the next section
-    var nextSectionIndicator: FamilyMember?
+    var nextSectionIndicator: FamilyMemebr?
     
     
     //    var Usections = [UserPSection]()
@@ -70,12 +70,7 @@ class AddFamilyMemberViewController: UIViewController {
       
         
         // append sections names and scores to an arrays to put them into the cells
-        for sec in sections {
-            levelsCount = 0
-            titleArray.append(sec.Phone)
-   
-            
-        } // end for
+    
         
         
         
@@ -99,7 +94,7 @@ class AddFamilyMemberViewController: UIViewController {
 
     
     
-    func setSections(sections: [FamilyMember]){
+    func setSections(sections: [FamilyMemebr]){
         self.sections = sections
     }
     

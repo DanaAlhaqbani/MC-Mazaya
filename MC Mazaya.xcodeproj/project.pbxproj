@@ -14,6 +14,9 @@
 		3B97E2CD24A346E000D0D965 /* ExpertTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2CC24A346E000D0D965 /* ExpertTabBarController.swift */; };
 		3B97E2CF24A346E400D0D965 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2CE24A346E300D0D965 /* HeaderCell.swift */; };
 		3B97E2D124A346E700D0D965 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97E2D024A346E700D0D965 /* MainTabBarController.swift */; };
+		D60EE82224E93B8A0034F81C /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EE82124E93B8A0034F81C /* SideMenuViewController.swift */; };
+		D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619D71124F16C570037150E /* MyFamilyViewController.swift */; };
+		D619D71424F171EB0037150E /* familyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619D71324F171EB0037150E /* familyCell.swift */; };
 		D620C51B24B1B7C50085B937 /* MenuListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620C51A24B1B7C50085B937 /* MenuListController.swift */; };
 		D620C51D24B1C35E0085B937 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620C51C24B1C35E0085B937 /* MapViewController.swift */; };
 		D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EA824AB3B1F004569D6 /* TabBarController.swift */; };
@@ -55,8 +58,6 @@
 		D6E8F25124BDAA1300A4AA9D /* MakeDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25024BDAA1300A4AA9D /* MakeDropDown.swift */; };
 		D6E8F25824BDB2AB00A4AA9D /* FamilyMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25724BDB2AB00A4AA9D /* FamilyMember.swift */; };
 		D6E8F25A24BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25924BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift */; };
-		D6E8F25C24BF134000A4AA9D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25B24BF134000A4AA9D /* EntryViewController.swift */; };
-		D6E8F25E24BF138800A4AA9D /* ViewFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25D24BF138800A4AA9D /* ViewFamilyViewController.swift */; };
 		D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F89BBD24A204CC000357BF /* homeViewController.swift */; };
 		D6FF724024A49C4400EFA660 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */; };
 		D6FF724224A4A09000EFA660 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */; };
@@ -74,6 +75,9 @@
 		3B97E2D024A346E700D0D965 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		AA67390707D5EA351875ADF8 /* Pods_MC_Mazaya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC_Mazaya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637480B2916BA532CF0622D /* Pods-MC Mazaya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.debug.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.debug.xcconfig"; sourceTree = "<group>"; };
+		D60EE82124E93B8A0034F81C /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		D619D71124F16C570037150E /* MyFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFamilyViewController.swift; sourceTree = "<group>"; };
+		D619D71324F171EB0037150E /* familyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = familyCell.swift; sourceTree = "<group>"; };
 		D620C51A24B1B7C50085B937 /* MenuListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListController.swift; sourceTree = "<group>"; };
 		D620C51C24B1C35E0085B937 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D6381EA824AB3B1F004569D6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -117,8 +121,6 @@
 		D6E8F25024BDAA1300A4AA9D /* MakeDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeDropDown.swift; sourceTree = "<group>"; };
 		D6E8F25724BDB2AB00A4AA9D /* FamilyMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMember.swift; sourceTree = "<group>"; };
 		D6E8F25924BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFamilyMemberViewController.swift; sourceTree = "<group>"; };
-		D6E8F25B24BF134000A4AA9D /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
-		D6E8F25D24BF138800A4AA9D /* ViewFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFamilyViewController.swift; sourceTree = "<group>"; };
 		D6F89BBD24A204CC000357BF /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
 		D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -227,11 +229,12 @@
 				D6D150E324BB38CE00547B97 /* ScannerViewController.swift */,
 				D6E8F25024BDAA1300A4AA9D /* MakeDropDown.swift */,
 				D6E8F25924BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift */,
-				D6E8F25B24BF134000A4AA9D /* EntryViewController.swift */,
-				D6E8F25D24BF138800A4AA9D /* ViewFamilyViewController.swift */,
 				D6DA493424C05A6F0020DB22 /* CustomCells.swift */,
 				D65DA8C724C5BAF000092918 /* ViewFamilyListViewController.swift */,
 				D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */,
+				D60EE82124E93B8A0034F81C /* SideMenuViewController.swift */,
+				D619D71124F16C570037150E /* MyFamilyViewController.swift */,
+				D619D71324F171EB0037150E /* familyCell.swift */,
 			);
 			path = "MC Mazaya";
 			sourceTree = "<group>";
@@ -417,18 +420,20 @@
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
 				3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */,
 				D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */,
+				D619D71424F171EB0037150E /* familyCell.swift in Sources */,
 				D65DA8C824C5BAF000092918 /* ViewFamilyListViewController.swift in Sources */,
 				D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */,
 				D6381EB124ADD3F7004569D6 /* FamilyViewController.swift in Sources */,
+				D60EE82224E93B8A0034F81C /* SideMenuViewController.swift in Sources */,
 				D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */,
 				D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */,
+				D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */,
 				D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */,
 				3B97E2C724A346D200D0D965 /* BaseCell.swift in Sources */,
 				D639206B24AA0BEB0008F28E /* firstViewController.swift in Sources */,
 				D6381EAB24AC89F7004569D6 /* EditProfilePresenter.swift in Sources */,
 				D6FF724024A49C4400EFA660 /* ProfileViewController.swift in Sources */,
 				D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */,
-				D6E8F25E24BF138800A4AA9D /* ViewFamilyViewController.swift in Sources */,
 				D620C51B24B1B7C50085B937 /* MenuListController.swift in Sources */,
 				D6381EAD24AC921D004569D6 /* profilePresenter.swift in Sources */,
 				D6381EB324ADD417004569D6 /* RegionViewController.swift in Sources */,
@@ -438,7 +443,6 @@
 				D6E1286B24A0B1FE00977D26 /* ResetPassViewController.swift in Sources */,
 				D6E1286324A08E4B00977D26 /* XUB.swift in Sources */,
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
-				D6E8F25C24BF134000A4AA9D /* EntryViewController.swift in Sources */,
 				D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */,
 				D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */,
 				3B97E2C924A346D900D0D965 /* BaseListController.swift in Sources */,

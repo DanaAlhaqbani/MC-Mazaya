@@ -12,6 +12,7 @@ class CommunicateUsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
       setUpUI()
     }
     let upperView : UIImageView = {
@@ -108,13 +109,14 @@ class CommunicateUsViewController: UIViewController {
                
                FAQ.heightAnchor.constraint(equalToConstant: 160),
                FAQ.widthAnchor.constraint(equalToConstant: 160),
-               FAQ.centerXAnchor.constraint(equalTo: upperView.centerXAnchor),
-               FAQ.topAnchor.constraint(equalTo: upperView.centerYAnchor, constant: -10),
-                            
+               FAQ.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+               //FAQ.topAnchor.constraint(equalTo: upperView.centerYAnchor, constant: -10),
+               FAQ.topAnchor.constraint(equalTo: view.topAnchor , constant: 240),
+
                 Email.heightAnchor.constraint(equalToConstant: 160),
                 Email.widthAnchor.constraint(equalToConstant: 160),
                 Email.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                Email.topAnchor.constraint(equalTo: view.topAnchor , constant: 360),
+                Email.topAnchor.constraint(equalTo: view.topAnchor , constant: 420),
 
                CommunicationLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,  constant: 20),
                CommunicationLabel.centerXAnchor.constraint(equalTo: upperView.centerXAnchor),

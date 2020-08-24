@@ -25,7 +25,7 @@ class SignUpViewController: UIViewController {
     var isValidConfirmPass = false
     var isFilledData = false
     var isPassContainChar = false
-    var FM = [FamilyMember]()
+    var FM = [FamilyMemebr]()
 
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -256,14 +256,14 @@ class SignUpViewController: UIViewController {
                                      if let error = error {
                                          print("failed to update database values with error", error.localizedDescription)
                                          return }
-                            for sec in self.FM {
+                          /*  for sec in self.FM {
                             //self.pLevelsDatabase.removeAll()
                                                     
                     let values = ["Phone": sec.Phone] as [String : Any]
                                                     
                      let ref = Database.database().reference().child("Users").child(uid).child("Family Members").child(sec.key)
                                                     ref.setValue(values)
-                                    }
+                                    }*/
                         
                         print("successfuly signed user up")
                        

@@ -22,6 +22,9 @@ class SuggestOfferViewController: UIViewController {
     @IBOutlet weak var phone: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        self.title = "إقترح عرضاً"
+
 /*
         tradeMarkName?.backgroundUnderlined()
         email?.backgroundUnderlined()
@@ -48,18 +51,7 @@ class SuggestOfferViewController: UIViewController {
            return $0
        }(UIImageView())
        
-       
-       let editPageLabel : UILabel = {
-           $0.translatesAutoresizingMaskIntoConstraints = false
-           $0.text = "اقترح عرضاً"
-           $0.textAlignment = .right
-           $0.font = .boldSystemFont(ofSize: 20)
-           $0.font = UIFont(name: "stc", size: 35)
-           $0.textColor = .darkGray
-           
-           return $0
-       }(UILabel())
-       
+ 
        
        let nameLabel : UILabel = {
            $0.translatesAutoresizingMaskIntoConstraints = false
@@ -172,7 +164,6 @@ class SuggestOfferViewController: UIViewController {
               
               view.addSubview(upperView)
               //upperView.addSubview(userIcon)
-              upperView.addSubview(editPageLabel)
               
               view.addSubview(nameLabel)
               view.addSubview(nameTextField)

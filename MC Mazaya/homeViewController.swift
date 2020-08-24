@@ -18,11 +18,10 @@ struct userData {
     static var gender = ""
     static var phone = ""
     static var points = ""
-
+    static var family = [String]()
 
 }
 class homeViewController: UIViewController, MenuListControllerDelegate {
-   //private let Region = RegionViewController()
     private let ViewFamily = FamilyViewController()
     private let Faviorate = FavoriteViewController()
     private let NewOffers = NewOffersViewController()
@@ -31,7 +30,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
     private let Vouchers = VouchersViewController()
     private let Communication = CommunicateUsViewController()
 
-    
+
     
   let user = Auth.auth().currentUser
      var ref: DatabaseReference?
@@ -48,7 +47,6 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         SideMenu?.statusBarEndAlpha = 0
         menu.delegate = self
-
        addChildController()
 
     }

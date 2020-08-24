@@ -9,5 +9,10 @@
 import UIKit
 
 class FamilyCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var phone: UILabel!
+    
+    @IBOutlet weak var imageF: UIImageView!
+ 
+    
     
 }

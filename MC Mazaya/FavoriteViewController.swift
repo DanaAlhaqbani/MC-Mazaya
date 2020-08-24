@@ -13,6 +13,7 @@ class FavoriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
+        self.title = "المفضلة"
         // Do any additional setup after loading the view.
     }
     

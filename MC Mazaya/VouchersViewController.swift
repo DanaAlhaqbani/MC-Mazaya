@@ -13,6 +13,7 @@ class VouchersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
+        self.title = "القسائم الشرائية"
 
         // Do any additional setup after loading the view.
     }

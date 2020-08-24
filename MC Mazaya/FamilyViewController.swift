@@ -8,16 +8,37 @@
 
 import UIKit
 import Firebase
+import MessageUI
+protocol familyPassData {
+func passDataBack(numbers: [String])
 
-class FamilyViewController: UIViewController {
+}
+class FamilyViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+   
+ 
+    var projectsRef: DatabaseReference!
+       let userID = Auth.auth().currentUser?.uid
+       var Phones = [String]()
+    weak var delegate: ViewFamilyListViewController!
+
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-    let userID = Auth.auth().currentUser?.uid
-
  
         override func viewDidLoad() {
             super.viewDidLoad()
+            view.backgroundColor = .white
+            setUpUI()
 
-          setUpUI()
+            delegate?.passDataBack(numbers: Phones)
+            let vc = storyboard?.instantiateViewController(withIdentifier: "FList") as? ViewFamilyListViewController
+            vc?.phones = Phones
+         
         }
         let upperView : UIImageView = {
              $0.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +103,7 @@ class FamilyViewController: UIViewController {
         }
     
     func AddFamilyMember(Family_Phone: String!){
+        self.sendInvitation(Family_Phone: Family_Phone)
         if Family_Phone != "" {
             if isValidNumber(Family_Phone: Family_Phone) == true {
                   let alert = self.alertContent(title:  "تم بنجاح!", message: "شكرا لك تم إرسال الدعوة" )
@@ -100,6 +122,21 @@ class FamilyViewController: UIViewController {
         }
           let alert = self.alertContent(title:  "بياناتك غير مكتملة!", message:"مِن فضلك أدخِل رقمك")
           self.present(alert, animated: true, completion: nil)
+    }
+    func sendInvitation(Family_Phone: String){
+        let composeVC = MFMessageComposeViewController()
+        composeVC.messageComposeDelegate = self
+        
+        // Configure the fields of the interface.
+        composeVC.recipients = [Family_Phone]
+        composeVC.body = "قم بتحميل تطبيق مزايا"
+        
+        // Present the view controller modally.
+        if MFMessageComposeViewController.canSendText() {
+            self.present(composeVC, animated: true, completion: nil)
+        } else {
+            print("Can't send messages.")
+        }
     }
     func isValidNumber(Family_Phone:String) -> Bool{
         let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
@@ -146,17 +183,17 @@ class FamilyViewController: UIViewController {
                    upperView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor , constant: 30),
                    
                    FAQ.topAnchor.constraint(equalTo: upperView.centerYAnchor, constant: -10),
-                   
-                   FAQ.heightAnchor.constraint(equalToConstant: 160),
-                   FAQ.widthAnchor.constraint(equalToConstant: 160),
-                   FAQ.centerXAnchor.constraint(equalTo: upperView.centerXAnchor),
-                   FAQ.topAnchor.constraint(equalTo: upperView.centerYAnchor, constant: -10),
                                 
-                    Email.heightAnchor.constraint(equalToConstant: 160),
-                    Email.widthAnchor.constraint(equalToConstant: 160),
-                    Email.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                    Email.topAnchor.constraint(equalTo: view.topAnchor , constant: 360),
+                   FAQ.heightAnchor.constraint(equalToConstant: 160),
+                    FAQ.widthAnchor.constraint(equalToConstant: 160),
+                    FAQ.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                //FAQ.topAnchor.constraint(equalTo: upperView.centerYAnchor, constant: -10),
+                    FAQ.topAnchor.constraint(equalTo: view.topAnchor , constant: 240),
 
+                                 Email.heightAnchor.constraint(equalToConstant: 160),
+                                 Email.widthAnchor.constraint(equalToConstant: 160),
+                                 Email.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                 Email.topAnchor.constraint(equalTo: view.topAnchor , constant: 420),
                    CommunicationLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,  constant: 20),
                    CommunicationLabel.centerXAnchor.constraint(equalTo: upperView.centerXAnchor),
                    

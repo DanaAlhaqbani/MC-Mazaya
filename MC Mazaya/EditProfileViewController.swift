@@ -101,6 +101,7 @@ class EditProfileViewController: UIViewController , EditProfileDelegate {
     }
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.isHidden = true
         ref = Database.database().reference()
         handle = ref?.child("Users").child((user?.uid)!).child("Name").observe(.value, with: { (snapshot) in
             if let currentName = snapshot.value as? String {
