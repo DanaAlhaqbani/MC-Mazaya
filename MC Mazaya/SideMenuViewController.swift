@@ -162,7 +162,7 @@ class SideMenuViewController: UIViewController {
 
         @objc func menuButtonsActions(_ sender : UIButton) {
             if sender.tag == 10 {
-                navigationController?.pushViewController(FavoriteViewController(), animated: true)
+                navigationController?.pushViewController(RegionViewController(), animated: true)
             }
             else if sender.tag == 11 {
                 navigationController?.pushViewController(FamilyViewController(), animated: true)

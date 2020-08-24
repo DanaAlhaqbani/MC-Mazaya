@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="stc_font_regular.ttf">
+            <string>STC-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="jBL-0G-21h">
+            <objects>
+                <navigationController storyboardIdentifier="adminPages" id="yOt-RK-k1c" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="m1W-he-6lN"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8E2-iy-I6c">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tw-5i-5dw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6404" y="3039"/>
+        </scene>
+        <!--Add SectionsVC-->
+        <scene sceneID="ARf-jf-QAc">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zFY-e6-ua1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController modalPresentationStyle="fullScreen" id="T1y-6B-Ute" customClass="AddSectionsVC" customModule="سيار" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eh7-4a-CCM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="اسم المستوى:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvP-dH-dc4">
+                                <rect key="frame" x="232" y="390" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vg0-Xb-Lvm">
+                                <rect key="frame" x="88" y="429" width="238" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="المراحل الحالية:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwT-tM-R8d">
+                                <rect key="frame" x="220" y="495" width="97" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="لا يوجد" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="LMg-1Z-Cyh">
+                                <rect key="frame" x="87" y="524" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zip-4o-Psy">
+                                <rect key="frame" x="132" y="694" width="152" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                <state key="normal" title="أضف مرحله أخرى">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAnotherLevel:" destination="T1y-6B-Ute" eventType="touchUpInside" id="uRE-yL-ztd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znY-3W-5nw">
+                                <rect key="frame" x="132" y="565" width="152" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                <state key="normal" title="إبدأ إضافة المراحل">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addLevels:" destination="T1y-6B-Ute" eventType="touchUpInside" id="Fhj-Li-b5D"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="uploadPic" translatesAutoresizingMaskIntoConstraints="NO" id="9bx-n7-Tew">
+                                <rect key="frame" x="110" y="172" width="194" height="156"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtK-bh-RC7">
+                                <rect key="frame" x="157" y="336" width="100" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                <state key="normal" title="أضف صورة">
+                                    <color key="titleColor" red="0.53285974260000002" green="0.4512053728" blue="0.67116904259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPic:" destination="T1y-6B-Ute" eventType="touchUpInside" id="ezN-YI-0nH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="tintColor" red="0.42780825500000003" green="0.37951165440000001" blue="0.57830226419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="UJK-vH-L52"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tWc-1X-owF">
+                        <barButtonItem key="backBarButtonItem" title="العودة" id="ZiJ-eG-G05"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="LevelsTextArea" destination="LMg-1Z-Cyh" id="361-Jl-3sY"/>
+                        <outlet property="addAnotherLevel" destination="Zip-4o-Psy" id="PuR-b0-FwF"/>
+                        <outlet property="addLevels" destination="znY-3W-5nw" id="pbv-rH-Oo7"/>
+                        <outlet property="addPic" destination="vtK-bh-RC7" id="3Yq-9r-vlD"/>
+                        <outlet property="currentLevels" destination="lwT-tM-R8d" id="xyc-Af-wVe"/>
+                        <outlet property="sectionImg" destination="9bx-n7-Tew" id="6dY-ft-Qxd"/>
+                        <outlet property="sectionName" destination="Vg0-Xb-Lvm" id="t6M-A7-ibA"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-3933.3333333333335" y="2293.5267857142858"/>
+        </scene>
+        <!--Admin TsectionsVC-->
+        <scene sceneID="pk1-mb-eH0">
+            <objects>
+                <viewController id="m1L-iI-Caa" customClass="AdminTsectionsVC" customModule="سيار" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HVf-5R-JJn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qLj-uS-kUq">
+                                <rect key="frame" x="49" y="192" width="316" height="542"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="542" id="uN1-6a-2Uo"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F9R-r0-gF5">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مستويات الجزء النظري" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PI-4S-1T9">
+                                <rect key="frame" x="48.5" y="121" width="317" height="47"/>
+                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JP4-nC-JXe">
+                                <rect key="frame" x="162.5" y="773" width="89" height="89"/>
+                                <state key="normal" image="addingButton">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewSection:" destination="m1L-iI-Caa" eventType="touchUpInside" id="DHE-3b-Rte"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqn-Ii-WBC">
+                                <rect key="frame" x="76.5" y="788.5" width="58" height="58"/>
+                                <state key="normal" image="editingButton">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="editSection:" destination="m1L-iI-Caa" eventType="touchUpInside" id="tvD-3C-lse"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eF4-x1-UUc">
+                                <rect key="frame" x="279.5" y="788.5" width="63.5" height="58"/>
+                                <state key="normal" image="cancelingButton">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteSection:" destination="m1L-iI-Caa" eventType="touchUpInside" id="ogD-XE-xgM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="tintColor" red="0.42780825500000003" green="0.37951165440000001" blue="0.57830226419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qLj-uS-kUq" firstAttribute="leading" secondItem="VtM-tD-QOv" secondAttribute="leading" constant="49" id="44s-Zz-2E3"/>
+                            <constraint firstItem="qLj-uS-kUq" firstAttribute="centerX" secondItem="4PI-4S-1T9" secondAttribute="centerX" id="6r1-iu-bGM"/>
+                            <constraint firstItem="qLj-uS-kUq" firstAttribute="top" secondItem="4PI-4S-1T9" secondAttribute="bottom" constant="24" id="D7A-kU-b4Z"/>
+                            <constraint firstItem="JP4-nC-JXe" firstAttribute="centerX" secondItem="HVf-5R-JJn" secondAttribute="centerX" id="H3x-I1-b1W"/>
+                            <constraint firstItem="qLj-uS-kUq" firstAttribute="top" secondItem="HVf-5R-JJn" secondAttribute="top" constant="192" id="J9W-JN-sPZ"/>
+                            <constraint firstItem="JP4-nC-JXe" firstAttribute="leading" secondItem="cqn-Ii-WBC" secondAttribute="trailing" constant="28" id="UhX-2O-L0E"/>
+                            <constraint firstItem="cqn-Ii-WBC" firstAttribute="bottom" secondItem="eF4-x1-UUc" secondAttribute="bottom" id="iBv-QM-mZE"/>
+                            <constraint firstItem="JP4-nC-JXe" firstAttribute="centerY" secondItem="eF4-x1-UUc" secondAttribute="centerY" id="kkt-rv-BE2"/>
+                            <constraint firstItem="JP4-nC-JXe" firstAttribute="centerX" secondItem="4PI-4S-1T9" secondAttribute="centerX" id="oSA-qJ-jdx"/>
+                            <constraint firstItem="VtM-tD-QOv" firstAttribute="trailing" secondItem="eF4-x1-UUc" secondAttribute="trailing" constant="71" id="vss-bb-Y1S"/>
+                            <constraint firstItem="JP4-nC-JXe" firstAttribute="bottom" secondItem="VtM-tD-QOv" secondAttribute="bottom" id="xEh-xH-B2b"/>
+                            <constraint firstItem="eF4-x1-UUc" firstAttribute="leading" secondItem="JP4-nC-JXe" secondAttribute="trailing" constant="28" id="yLl-wZ-w7g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VtM-tD-QOv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WgU-jr-mbj">
+                        <barButtonItem key="backBarButtonItem" title="العودة" id="9Hi-Ib-NuV"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="Add" destination="JP4-nC-JXe" id="uuf-SK-7cn"/>
+                        <outlet property="Delete" destination="eF4-x1-UUc" id="J05-3h-LkM"/>
+                        <outlet property="Edit" destination="cqn-Ii-WBC" id="5Jj-kc-yHt"/>
+                        <outlet property="sectionCollectionView" destination="qLj-uS-kUq" id="DHo-Vg-nYw"/>
+                        <segue destination="ZtY-2N-UaY" kind="show" identifier="theoLevels" id="fD0-1v-pV1"/>
+                        <segue destination="T1y-6B-Ute" kind="show" identifier="addNewSection" id="g9N-aT-Ntz"/>
+                    </connections>
+                </viewController>
+                <navigationItem id="Dok-F7-CQ1">
+                    <barButtonItem key="backBarButtonItem" title="العود" id="FTa-5Q-JP8"/>
+                </navigationItem>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vgb-4Q-q4H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4694.202898550725" y="3027.4553571428569"/>
+        </scene>
+        <!--AdminT LevelsVC-->
+        <scene sceneID="MhG-Zr-mRK">
+            <objects>
+                <viewController id="ZtY-2N-UaY" customClass="AdminTLevelsVC" customModule="سيار" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E0U-Rt-fv4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="55t-Du-P0u">
+                                <rect key="frame" x="20" y="63" width="374" height="558"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="558" id="NX3-eM-8Bm"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="54L-zz-5na">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="23" minY="10" maxX="22" maxY="20"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adminBackground" translatesAutoresizingMaskIntoConstraints="NO" id="fQh-na-RSV">
+                                <rect key="frame" x="-13" y="757" width="440" height="223"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="223" id="7V9-AZ-EMM"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGg-zS-XF9">
+                                <rect key="frame" x="77" y="709" width="57.5" height="58"/>
+                                <state key="normal" image="editingButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="editPressed:" destination="ZtY-2N-UaY" eventType="touchUpInside" id="xa8-Dt-nb0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ago-81-ptL">
+                                <rect key="frame" x="162.5" y="719" width="89" height="89"/>
+                                <state key="normal" image="addingButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addLevel:" destination="ZtY-2N-UaY" eventType="touchUpInside" id="x6U-0s-Npu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIS-kR-q2M">
+                                <rect key="frame" x="279.5" y="709" width="58" height="58"/>
+                                <state key="normal" image="cancelingButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteAction:" destination="ZtY-2N-UaY" eventType="touchUpInside" id="z9A-Nu-26N"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="tintColor" red="0.42780825500000003" green="0.37951165440000001" blue="0.57830226419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ago-81-ptL" firstAttribute="centerX" secondItem="fQh-na-RSV" secondAttribute="centerX" id="29G-2v-Vgl"/>
+                            <constraint firstItem="yIS-kR-q2M" firstAttribute="leading" secondItem="Ago-81-ptL" secondAttribute="trailing" constant="28" id="Iwb-qC-NVt"/>
+                            <constraint firstItem="fGg-zS-XF9" firstAttribute="leading" secondItem="Vqz-ee-1D9" secondAttribute="leading" constant="77" id="OoX-G9-YGU"/>
+                            <constraint firstItem="55t-Du-P0u" firstAttribute="top" secondItem="Vqz-ee-1D9" secondAttribute="top" constant="63" id="THl-5u-KHF"/>
+                            <constraint firstItem="Ago-81-ptL" firstAttribute="centerX" secondItem="55t-Du-P0u" secondAttribute="centerX" id="YFc-zX-H2R"/>
+                            <constraint firstItem="Ago-81-ptL" firstAttribute="leading" secondItem="fGg-zS-XF9" secondAttribute="trailing" constant="28" id="mqr-Tu-6em"/>
+                            <constraint firstItem="fQh-na-RSV" firstAttribute="centerX" secondItem="E0U-Rt-fv4" secondAttribute="centerX" id="n9N-4D-Oeu"/>
+                            <constraint firstItem="55t-Du-P0u" firstAttribute="leading" secondItem="E0U-Rt-fv4" secondAttribute="leadingMargin" id="pOH-Ei-5ld"/>
+                            <constraint firstItem="fGg-zS-XF9" firstAttribute="top" secondItem="55t-Du-P0u" secondAttribute="bottom" constant="88" id="r5n-Zg-eA4"/>
+                            <constraint firstItem="fGg-zS-XF9" firstAttribute="top" secondItem="yIS-kR-q2M" secondAttribute="top" id="r65-rP-niP"/>
+                            <constraint firstItem="fQh-na-RSV" firstAttribute="leading" secondItem="E0U-Rt-fv4" secondAttribute="leadingMargin" constant="-33" id="sF7-3W-0Ua"/>
+                            <constraint firstItem="fQh-na-RSV" firstAttribute="top" secondItem="E0U-Rt-fv4" secondAttribute="top" constant="757" id="w5V-s0-FFZ"/>
+                            <constraint firstItem="Ago-81-ptL" firstAttribute="bottom" secondItem="Vqz-ee-1D9" secondAttribute="bottom" id="zhh-lh-HMg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vqz-ee-1D9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="q7M-yr-n8l">
+                        <barButtonItem key="backBarButtonItem" title="العودة" id="sK1-O2-VP7"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="DeleteLevelBtn" destination="yIS-kR-q2M" id="0Pc-dt-ClV"/>
+                        <outlet property="EditLevelBtn" destination="fGg-zS-XF9" id="Ost-wB-Nmc"/>
+                        <outlet property="addLevelBtn" destination="Ago-81-ptL" id="RzJ-4i-nep"/>
+                        <outlet property="levelCollectionView" destination="55t-Du-P0u" id="HAz-Ng-cyv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VJp-w4-ZQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3890" y="3027"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="addingButton" width="89" height="89"/>
+        <image name="adminBackground" width="396" height="87"/>
+        <image name="cancelingButton" width="58" height="58"/>
+        <image name="editingButton" width="58" height="58"/>
+        <image name="uploadPic" width="128" height="128"/>
+    </resources>
+</document>

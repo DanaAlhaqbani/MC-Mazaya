@@ -23,7 +23,6 @@
 		D6381EAB24AC89F7004569D6 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */; };
 		D6381EAD24AC921D004569D6 /* profilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EAC24AC921D004569D6 /* profilePresenter.swift */; };
 		D6381EB124ADD3F7004569D6 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */; };
-		D6381EB324ADD417004569D6 /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB224ADD417004569D6 /* RegionViewController.swift */; };
 		D6381EB524ADD461004569D6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB424ADD461004569D6 /* FavoriteViewController.swift */; };
 		D6381EB724ADD479004569D6 /* NewOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB624ADD479004569D6 /* NewOffersViewController.swift */; };
 		D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB824ADD48E004569D6 /* UsedOffersViewController.swift */; };
@@ -41,6 +40,8 @@
 		D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65DA8C324C4366300092918 /* CustomCells.xib */; };
 		D65DA8C824C5BAF000092918 /* ViewFamilyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C724C5BAF000092918 /* ViewFamilyListViewController.swift */; };
 		D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */; };
+		D6A8F37D24F3ABD3007DDBDB /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A8F37C24F3ABD3007DDBDB /* Admin.storyboard */; };
+		D6A8F37F24F3B537007DDBDB /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F37E24F3B537007DDBDB /* RegionViewController.swift */; };
 		D6D150E424BB38CE00547B97 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D150E324BB38CE00547B97 /* ScannerViewController.swift */; };
 		D6D150E624BC6D9C00547B97 /* textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D150E524BC6D9C00547B97 /* textField.swift */; };
 		D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CCD24A8773E00FAAFAF /* XUI.swift */; };
@@ -84,7 +85,6 @@
 		D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		D6381EAC24AC921D004569D6 /* profilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilePresenter.swift; sourceTree = "<group>"; };
 		D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
-		D6381EB224ADD417004569D6 /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
 		D6381EB424ADD461004569D6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		D6381EB624ADD479004569D6 /* NewOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOffersViewController.swift; sourceTree = "<group>"; };
 		D6381EB824ADD48E004569D6 /* UsedOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedOffersViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +104,8 @@
 		D65DA8C324C4366300092918 /* CustomCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCells.xib; sourceTree = "<group>"; };
 		D65DA8C724C5BAF000092918 /* ViewFamilyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFamilyListViewController.swift; sourceTree = "<group>"; };
 		D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6A8F37C24F3ABD3007DDBDB /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
+		D6A8F37E24F3B537007DDBDB /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
 		D6D150E324BB38CE00547B97 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D6D150E524BC6D9C00547B97 /* textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textField.swift; sourceTree = "<group>"; };
 		D6D44CCD24A8773E00FAAFAF /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
@@ -216,7 +218,6 @@
 				D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */,
 				D6381EAC24AC921D004569D6 /* profilePresenter.swift */,
 				D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */,
-				D6381EB224ADD417004569D6 /* RegionViewController.swift */,
 				D6381EB424ADD461004569D6 /* FavoriteViewController.swift */,
 				D6381EB624ADD479004569D6 /* NewOffersViewController.swift */,
 				D6381EB824ADD48E004569D6 /* UsedOffersViewController.swift */,
@@ -235,6 +236,8 @@
 				D60EE82124E93B8A0034F81C /* SideMenuViewController.swift */,
 				D619D71124F16C570037150E /* MyFamilyViewController.swift */,
 				D619D71324F171EB0037150E /* familyCell.swift */,
+				D6A8F37C24F3ABD3007DDBDB /* Admin.storyboard */,
+				D6A8F37E24F3B537007DDBDB /* RegionViewController.swift */,
 			);
 			path = "MC Mazaya";
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A8F37D24F3ABD3007DDBDB /* Admin.storyboard in Resources */,
 				D6D44CE124A8BC9B00FAAFAF /* stc_font_light.otf in Resources */,
 				D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */,
 				D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */,
@@ -415,6 +419,7 @@
 				D6E8F25824BDB2AB00A4AA9D /* FamilyMember.swift in Sources */,
 				D6D150E424BB38CE00547B97 /* ScannerViewController.swift in Sources */,
 				D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */,
+				D6A8F37F24F3B537007DDBDB /* RegionViewController.swift in Sources */,
 				D6381EBD24ADD4C5004569D6 /* VouchersViewController.swift in Sources */,
 				D6381EBF24ADD4DA004569D6 /* CommunicateUsViewController.swift in Sources */,
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
@@ -436,7 +441,6 @@
 				D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */,
 				D620C51B24B1B7C50085B937 /* MenuListController.swift in Sources */,
 				D6381EAD24AC921D004569D6 /* profilePresenter.swift in Sources */,
-				D6381EB324ADD417004569D6 /* RegionViewController.swift in Sources */,
 				D6DC5C0024B5BC320063CF8D /* FAQViewController.swift in Sources */,
 				D6FF724224A4A09000EFA660 /* EditProfileViewController.swift in Sources */,
 				D6381EB524ADD461004569D6 /* FavoriteViewController.swift in Sources */,
