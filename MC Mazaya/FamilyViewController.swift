@@ -19,7 +19,6 @@ class FamilyViewController: UIViewController, MFMessageComposeViewControllerDele
     var projectsRef: DatabaseReference!
        let userID = Auth.auth().currentUser?.uid
        var Phones = [String]()
-    weak var delegate: ViewFamilyListViewController!
 
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         
@@ -35,9 +34,7 @@ class FamilyViewController: UIViewController, MFMessageComposeViewControllerDele
             view.backgroundColor = .white
             setUpUI()
 
-            delegate?.passDataBack(numbers: Phones)
-            let vc = storyboard?.instantiateViewController(withIdentifier: "FList") as? ViewFamilyListViewController
-            vc?.phones = Phones
+          
          
         }
         let upperView : UIImageView = {

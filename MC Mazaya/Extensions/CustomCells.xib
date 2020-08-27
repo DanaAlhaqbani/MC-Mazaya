@@ -30,13 +30,13 @@
                             <constraint firstAttribute="height" constant="150" id="abn-BP-Y1W"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCp-IF-1gw">
-                        <rect key="frame" x="26" y="106" width="98" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCp-IF-1gw">
+                        <rect key="frame" x="26" y="106.5" width="98" height="23.5"/>
                         <attributedString key="attributedText">
-                            <fragment content="05XXXXXXXX">
+                            <fragment content="تسوق">
                                 <attributes>
                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <font key="NSFont" metaFont="message" size="11"/>
+                                    <font key="NSFont" size="20" name="SSTArabic-Light"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
                             </fragment>
@@ -47,16 +47,19 @@
             </view>
             <constraints>
                 <constraint firstItem="qic-wo-TW5" firstAttribute="centerX" secondItem="rHU-gd-Znc" secondAttribute="centerX" id="4Zy-aO-IUF"/>
+                <constraint firstAttribute="trailing" secondItem="pCp-IF-1gw" secondAttribute="trailing" constant="26" id="9LQ-VS-o2E"/>
+                <constraint firstItem="pCp-IF-1gw" firstAttribute="leading" secondItem="rHU-gd-Znc" secondAttribute="leading" constant="26" id="GQD-xd-zLg"/>
                 <constraint firstItem="qic-wo-TW5" firstAttribute="leading" secondItem="rHU-gd-Znc" secondAttribute="leading" id="Hpb-2P-MTb"/>
+                <constraint firstAttribute="bottom" secondItem="pCp-IF-1gw" secondAttribute="bottom" constant="20" id="eHN-Qp-wRd"/>
                 <constraint firstItem="qic-wo-TW5" firstAttribute="top" secondItem="rHU-gd-Znc" secondAttribute="top" id="f3f-sQ-FoI"/>
                 <constraint firstItem="qic-wo-TW5" firstAttribute="centerY" secondItem="rHU-gd-Znc" secondAttribute="centerY" id="sGG-a5-V91"/>
                 <constraint firstItem="pCp-IF-1gw" firstAttribute="centerX" secondItem="rHU-gd-Znc" secondAttribute="centerX" id="vYe-Hu-w9v"/>
-                <constraint firstItem="pCp-IF-1gw" firstAttribute="top" secondItem="rHU-gd-Znc" secondAttribute="top" constant="106" id="ymM-qX-Pp0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ero-a9-5ex"/>
             <size key="customSize" width="150" height="150"/>
             <connections>
                 <outlet property="label" destination="pCp-IF-1gw" id="ltG-1T-XUY"/>
+                <outlet property="sectionImage" destination="Hcc-RB-e0a" id="L9l-sW-SwS"/>
             </connections>
             <point key="canvasLocation" x="175.36231884057972" y="178.125"/>
         </collectionViewCell>

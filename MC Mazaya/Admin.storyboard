@@ -12,25 +12,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="jBL-0G-21h">
-            <objects>
-                <navigationController storyboardIdentifier="adminPages" id="yOt-RK-k1c" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="m1W-he-6lN"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8E2-iy-I6c">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7tw-5i-5dw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-6404" y="3039"/>
-        </scene>
-        <!--Add SectionsVC-->
+        <!--View Controller-->
         <scene sceneID="ARf-jf-QAc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFY-e6-ua1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController modalPresentationStyle="fullScreen" id="T1y-6B-Ute" customClass="AddSectionsVC" customModule="سيار" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="T1y-6B-Ute" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eh7-4a-CCM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-3933.3333333333335" y="2293.5267857142858"/>
         </scene>
-        <!--Admin TsectionsVC-->
+        <!--View Controller-->
         <scene sceneID="pk1-mb-eH0">
             <objects>
-                <viewController id="m1L-iI-Caa" customClass="AdminTsectionsVC" customModule="سيار" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="adminPages" id="m1L-iI-Caa" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HVf-5R-JJn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="-4694.202898550725" y="3027.4553571428569"/>
         </scene>
-        <!--AdminT LevelsVC-->
+        <!--View Controller-->
         <scene sceneID="MhG-Zr-mRK">
             <objects>
-                <viewController id="ZtY-2N-UaY" customClass="AdminTLevelsVC" customModule="سيار" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZtY-2N-UaY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E0U-Rt-fv4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

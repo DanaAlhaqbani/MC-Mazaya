@@ -10,13 +10,9 @@ import UIKit
 import Firebase
 
 
-class ViewFamilyListViewController: UIViewController, familyPassData {
+class ViewFamilyListViewController: UIViewController {
     
-      func passDataBack(numbers: [String]) {
-            userData.family = numbers
-        print("")
-        print(numbers)
-        }
+    
 
 
     var projectsRef: DatabaseReference!
@@ -24,17 +20,16 @@ class ViewFamilyListViewController: UIViewController, familyPassData {
     let green = UIColor(rgb: 0x38a089)
     var count = 0
     //creating array contains title
-    var phones = [String]()
+    var categories = ["المنزل","المطاعم","السفر","السيارات","رياضة","الكترونيات"]
 
     @IBOutlet weak var collectionView: FamilyCollectionViewCell!
     
-    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var name: UILabel!
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("========is Empty?????==========")
-       print(phones)
+       
     }
 
 
@@ -42,7 +37,7 @@ class ViewFamilyListViewController: UIViewController, familyPassData {
 extension ViewFamilyListViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return phones.count
+        return categories.count
         
     }
     
@@ -53,7 +48,7 @@ extension ViewFamilyListViewController : UICollectionViewDelegate, UICollectionV
         cell.layer.borderWidth = 3
         cell.layer.shadowOffset = CGSize(width: -1, height: 1)
         cell.layer.borderColor = UIColor.gray.cgColor
-        let number = phones[indexPath.row]
+        let number = categories[indexPath.row]
         cell.phone.text = number
         cell.contentView.backgroundColor = green
         return cell

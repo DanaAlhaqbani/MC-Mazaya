@@ -123,9 +123,24 @@ class LoginViewController: UIViewController {
     func successful(){
         //=====Transfer to home page=====
         self.removeSpinner()
+    if(emailTextField.text != "mazaya@mc.gov.sa"){
+
         self.moveToTheTabBarViewController()
 
+        }
+    else {
+        self.moveToAdmin()
 
+        }
+    }
+    func moveToAdmin() {
+        if let storyboard = self.storyboard{
+            
+            let newViewController = storyboard.instantiateViewController(withIdentifier: "adminPages") as! UINavigationController
+           
+            newViewController.modalPresentationStyle = .fullScreen
+            self.present(newViewController, animated: true, completion: nil)
+        }
     }
    func moveToTheTabBarViewController () {
           
