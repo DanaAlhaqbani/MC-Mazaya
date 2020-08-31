@@ -31,7 +31,8 @@ class LoginViewController: UIViewController {
                loginBtn.setButton()
         emailTextField.addDoneButtonOnKeyboard()
         passwordTextField.addDoneButtonOnKeyboard()
-        view.generalGradiantView()
+            
+        //view.generalGradiantView()
         
 
     }

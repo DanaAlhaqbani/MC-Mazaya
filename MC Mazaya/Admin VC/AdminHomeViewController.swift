@@ -17,15 +17,22 @@ class AdminHomeViewController: UIViewController {
         let userID = Auth.auth().currentUser?.uid
         let green = UIColor(rgb: 0x38a089)
         var count = 0
+      var pageTitle = ""
+
         //creating array contains title
-        var categories = ["المنزل","المطاعم","السفر","السيارات","رياضة","الكترونيات"]
-         var iconsArray = [#imageLiteral(resourceName: "cancelingButton"), #imageLiteral(resourceName: "QA 40"), #imageLiteral(resourceName: "femaleGender"),#imageLiteral(resourceName: "check"),#imageLiteral(resourceName: "male"),#imageLiteral(resourceName: "addingButton-1")] // change this later
+        var categories = ["المنزل","الأغذية ","السفر","السيارات","رياضة","الكترونيات","تسوق","مدارس","خدمات"]
+  var iconsArray = [#imageLiteral(resourceName: "home"), #imageLiteral(resourceName: "food"), #imageLiteral(resourceName: "plane"),#imageLiteral(resourceName: "pickup-car"),#imageLiteral(resourceName: "sport"),#imageLiteral(resourceName: "tablet"),#imageLiteral(resourceName: "shopping-cart"),#imageLiteral(resourceName: "Schools"),#imageLiteral(resourceName: "support")] // change this later
 
         @IBOutlet weak var collectionView: FamilyCollectionViewCell!
         
         @IBOutlet weak var name: UILabel!
        
-        
+        //Side Menu Code
+    
+    var leftBarButtonItem = UIBarButtonItem()
+    var mainViewXConstraint : NSLayoutConstraint!
+    var sideMenuWidth = CGFloat()
+    
         override func viewDidLoad() {
             super.viewDidLoad()
            
@@ -58,8 +65,12 @@ class AdminHomeViewController: UIViewController {
       
 
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let size = (collectionView.frame.size.width - 27) / 2
+            let size = (collectionView.frame.size.width - 30) / 3
             return CGSize(width: size, height: size)
+        }
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+              print(indexPath.row)
+              pageTitle = categories[indexPath.row]
         }
 /*
     @IBOutlet weak var delete: UIButton!
