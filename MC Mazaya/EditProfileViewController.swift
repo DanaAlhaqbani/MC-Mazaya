@@ -44,6 +44,9 @@ class EditProfileViewController: UIViewController{
 import Foundation
 import Firebase
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
+
 
 protocol EditProfilePassData {
     func passDataBack(name: String , phone: String)

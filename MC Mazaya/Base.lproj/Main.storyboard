@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -330,15 +330,26 @@
         <scene sceneID="yOw-sH-0xD">
             <objects>
                 <viewController id="CGu-Lx-FZD" customClass="SideMenuViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZEs-fi-T9h">
+                    <view key="view" contentMode="scaleToFill" id="Meh-HL-9Wf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="sKq-Fn-E91"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W75-ZK-Bde">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="W75-ZK-Bde" firstAttribute="top" secondItem="Q3q-9f-SBt" secondAttribute="top" id="7Vq-hd-9EI"/>
+                            <constraint firstItem="Q3q-9f-SBt" firstAttribute="bottom" secondItem="W75-ZK-Bde" secondAttribute="bottom" id="9Tc-LK-0kA"/>
+                            <constraint firstItem="W75-ZK-Bde" firstAttribute="leading" secondItem="Q3q-9f-SBt" secondAttribute="leading" id="ZlP-0z-QDG"/>
+                            <constraint firstItem="Q3q-9f-SBt" firstAttribute="trailing" secondItem="W75-ZK-Bde" secondAttribute="trailing" id="mgc-25-R1o"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q3q-9f-SBt"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="الرئيسية" id="X1u-yY-oQg"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="dQG-cy-D2U" kind="show" identifier="toFAQ" id="U1R-Of-DWb"/>
                     </connections>
@@ -384,7 +395,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="FAQ" id="dQG-cy-D2U" customClass="FAQViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="l5a-5P-MFd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -527,7 +538,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="CGu-Lx-FZD" kind="relationship" relationship="rootViewController" id="Lfy-uE-KNa"/>
+                        <segue destination="n6k-Gw-S4l" kind="relationship" relationship="rootViewController" id="TpT-cx-S1i"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plE-aN-xFP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1434,9 +1445,72 @@
             </objects>
             <point key="canvasLocation" x="-3784.057971014493" y="2280.8035714285711"/>
         </scene>
+        <!--Last View Controller-->
+        <scene sceneID="vGb-bT-xgS">
+            <objects>
+                <viewController id="n6k-Gw-S4l" customClass="LastViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fo3-zr-qg2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XNg-ZY-cqS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XNg-ZY-cqS" firstAttribute="leading" secondItem="InI-dY-beF" secondAttribute="leading" id="68X-9f-m8l"/>
+                            <constraint firstItem="XNg-ZY-cqS" firstAttribute="top" secondItem="InI-dY-beF" secondAttribute="top" id="I1S-Yh-tJW"/>
+                            <constraint firstItem="InI-dY-beF" firstAttribute="trailing" secondItem="XNg-ZY-cqS" secondAttribute="trailing" id="gOL-th-lCO"/>
+                            <constraint firstItem="InI-dY-beF" firstAttribute="bottom" secondItem="XNg-ZY-cqS" secondAttribute="bottom" id="ska-1n-UdH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="InI-dY-beF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="d4C-eW-pHp"/>
+                    <connections>
+                        <outlet property="tbleList" destination="XNg-ZY-cqS" id="jjU-GX-td4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J4Z-Y7-be2" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4793" y="-1580"/>
+        </scene>
+        <!--Dscription View Controller-->
+        <scene sceneID="SsU-Wj-pdJ">
+            <objects>
+                <viewController storyboardIdentifier="DscriptionViewController" id="XI6-rJ-AMG" customClass="DscriptionViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sfw-gz-s2f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LogoMaz" translatesAutoresizingMaskIntoConstraints="NO" id="8YQ-YJ-1gT">
+                                <rect key="frame" x="87" y="154" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zdM-tt-DUO">
+                                <rect key="frame" x="55" y="318" width="282" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="العروض"/>
+                                    <segment title="الفروع"/>
+                                    <segment title="من نحن "/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.21960784310000001" green="0.62745098040000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="p8O-99-al0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="y3C-B5-XrZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5CK-16-kh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5613" y="-1580"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T7e-NZ-StE"/>
+        <segue reference="U1R-Of-DWb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LogoMaz" width="807" height="767"/>

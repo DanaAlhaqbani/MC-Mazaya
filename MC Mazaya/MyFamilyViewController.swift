@@ -8,6 +8,11 @@
 
 import UIKit
 import Firebase
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
+
+
 class MyFamilyViewController: UIViewController {
     var projectsList = [FamilyMemebr]()
         var projectsKeys = [String]()

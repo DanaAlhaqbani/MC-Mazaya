@@ -8,9 +8,11 @@
 
 import UIKit
 import SideMenu
-import Firebase
-import FirebaseAuth
 import DropDown
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
+
 struct userData {
     static var name = ""
     static var email = ""

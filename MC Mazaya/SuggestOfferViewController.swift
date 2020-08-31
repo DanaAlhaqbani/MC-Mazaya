@@ -8,6 +8,11 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseAuth
+
+
+
 class SuggestOfferViewController: UIViewController {
     @IBOutlet weak var tradeMarkName: UITextField!
     @IBOutlet weak var email: UITextField!

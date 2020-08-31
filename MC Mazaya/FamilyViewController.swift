@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 import MessageUI
+import FirebaseDatabase
+import FirebaseAuth
+
 protocol familyPassData {
 func passDataBack(numbers: [String])
 
