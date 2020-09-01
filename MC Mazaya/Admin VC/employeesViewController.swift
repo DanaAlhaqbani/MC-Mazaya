@@ -12,6 +12,9 @@ class employeesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .yellow
+        self.title = "إدارة الموظفين"
+        
 
         // Do any additional setup after loading the view.
     }
