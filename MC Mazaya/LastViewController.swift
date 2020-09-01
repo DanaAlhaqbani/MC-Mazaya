@@ -7,11 +7,16 @@
 //
 
 import UIKit
-
+import FirebaseAuth
+import FirebaseDatabase
+import SideMenu
 class LastViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
   
     /// MainHomeViewController
-    
+    let user = Auth.auth().currentUser
+        var ref: DatabaseReference?
+        var handle: DatabaseHandle?
+       var SideMenu: SideMenuNavigationController?
     
     @IBOutlet weak var tbleList: UITableView!
     
@@ -42,6 +47,7 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            dataUser()
             // Do any additional setup after loading the view.
             setDatSourceForCollectionView()
             tbleList.tableFooterView = UIView(frame: .zero)
@@ -70,8 +76,32 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
         }
     
     
-    
-    
+    func dataUser () {
+           
+           ref = Database.database().reference()
+           handle = ref?.child("Users").child((user?.uid)!).child("Name").observe(.value, with: { (snapshot) in
+               let currentName = snapshot.value as? String
+               userData.name = currentName!
+           })
+           handle = ref?.child("Users").child((user?.uid)!).child("Email").observe(.value, with: { (snapshot) in
+               let currentEmail = snapshot.value as? String
+               userData.email  = currentEmail!
+           })
+           handle = ref?.child("Users").child((user?.uid)!).child("Gender").observe(.value, with: { (snapshot) in
+               let currentGender = snapshot.value as? String
+               userData.gender  = currentGender!
+               
+           })
+          handle = ref?.child("Users").child((user?.uid)!).child("Phone").observe(.value, with: { (snapshot) in
+                  let currentPhone = snapshot.value as? String
+                  userData.phone = currentPhone!
+              })
+        handle = ref?.child("Users").child((user?.uid)!).child("Points").observe(.value, with: { (snapshot) in
+            let currentPoints = snapshot.value as? String
+             userData.points = currentPoints!
+               })
+       
+       }
     
     
     
