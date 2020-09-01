@@ -12,6 +12,8 @@ class EndOffersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .brown
+        self.title = "العروض قريبة الإنتهاء"
 
         // Do any additional setup after loading the view.
     }

@@ -12,6 +12,8 @@ class AdminRegionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .blue
+        self.title = "المنطقة"
 
         // Do any additional setup after loading the view.
     }
