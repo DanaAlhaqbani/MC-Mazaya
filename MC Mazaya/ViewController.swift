@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         print("Pleaaaaaase run")
         print("Commit all files")
         print("تكفي ")
+        print("يرحم أمك و أبوك")
     }
 
 
