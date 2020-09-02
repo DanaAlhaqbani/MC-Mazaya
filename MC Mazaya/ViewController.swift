@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         print( " hi ")
         print("hi")
         print("Dana")
+        print("Pleaaaaaase run")
+        print("Commit all files")
     }
 
 
