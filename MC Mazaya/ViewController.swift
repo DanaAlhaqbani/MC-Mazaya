@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         print("Dana")
         print("Pleaaaaaase run")
         print("Commit all files")
+        print("تكفي ")
     }
 
 
