@@ -26,6 +26,7 @@
 		3BD3530A24FD26260053BC66 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530824FD26250053BC66 /* CustomSegmentedControl.swift */; };
 		3BD3530B24FD26260053BC66 /* CustomSegmentedControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */; };
 		3BD3530F24FDACA40053BC66 /* LastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530E24FDACA40053BC66 /* LastViewController.swift */; };
+		D60B6BDB24FF8947006552AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D60B6BDA24FF8947006552AC /* GoogleService-Info.plist */; };
 		D60EE82224E93B8A0034F81C /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EE82124E93B8A0034F81C /* SideMenuViewController.swift */; };
 		D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619D71124F16C570037150E /* MyFamilyViewController.swift */; };
 		D619D71424F171EB0037150E /* familyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619D71324F171EB0037150E /* familyCell.swift */; };
@@ -48,7 +49,6 @@
 		D641E9B2249F3031001851A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B0249F3031001851A9 /* Main.storyboard */; };
 		D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B3249F3037001851A9 /* Assets.xcassets */; };
 		D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B5249F3037001851A9 /* LaunchScreen.storyboard */; };
-		D641E9C1249F5252001851A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D641E9C0249F5252001851A9 /* GoogleService-Info.plist */; };
 		D6521A4724F4F5ED00382FFD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6521A4624F4F5ED00382FFD /* Category.swift */; };
 		D6521A4924F4F62A00382FFD /* Trademark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6521A4824F4F62A00382FFD /* Trademark.swift */; };
 		D6521A4B24F5215D00382FFD /* AdminTrademarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6521A4A24F5215D00382FFD /* AdminTrademarksViewController.swift */; };
@@ -104,6 +104,7 @@
 		3BD3530E24FDACA40053BC66 /* LastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastViewController.swift; sourceTree = "<group>"; };
 		AA67390707D5EA351875ADF8 /* Pods_MC_Mazaya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC_Mazaya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637480B2916BA532CF0622D /* Pods-MC Mazaya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.debug.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.debug.xcconfig"; sourceTree = "<group>"; };
+		D60B6BDA24FF8947006552AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Users/danaalhaqbani/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D60EE82124E93B8A0034F81C /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		D619D71124F16C570037150E /* MyFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFamilyViewController.swift; sourceTree = "<group>"; };
 		D619D71324F171EB0037150E /* familyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = familyCell.swift; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		D641E9B3249F3037001851A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D641E9B6249F3037001851A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D641E9B8249F3037001851A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D641E9C0249F5252001851A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6521A4624F4F5ED00382FFD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D6521A4824F4F62A00382FFD /* Trademark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trademark.swift; sourceTree = "<group>"; };
 		D6521A4A24F5215D00382FFD /* AdminTrademarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTrademarksViewController.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 				D641E9AC249F3031001851A9 /* SceneDelegate.swift */,
 				D641E9AE249F3031001851A9 /* ViewController.swift */,
 				D641E9B0249F3031001851A9 /* Main.storyboard */,
-				D641E9C0249F5252001851A9 /* GoogleService-Info.plist */,
+				D60B6BDA24FF8947006552AC /* GoogleService-Info.plist */,
 				D641E9B3249F3037001851A9 /* Assets.xcassets */,
 				D641E9B5249F3037001851A9 /* LaunchScreen.storyboard */,
 				D641E9B8249F3037001851A9 /* Info.plist */,
@@ -412,8 +412,8 @@
 				3BD3530424FD25580053BC66 /* GalleryCollectionViewCell.xib in Resources */,
 				3BD3530024FD25580053BC66 /* DscriptionViewController.xib in Resources */,
 				3BD3530324FD25580053BC66 /* CollectionviewTableCell.xib in Resources */,
-				D641E9C1249F5252001851A9 /* GoogleService-Info.plist in Resources */,
 				D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */,
+				D60B6BDB24FF8947006552AC /* GoogleService-Info.plist in Resources */,
 				3BD352F724FD1D570053BC66 /* stc_font_regular.ttf in Resources */,
 				D641E9B2249F3031001851A9 /* Main.storyboard in Resources */,
 			);
