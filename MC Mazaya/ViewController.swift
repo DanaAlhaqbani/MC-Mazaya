@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         print("Commit all files")
         print("تكفي ")
         print("يرحم أمك و أبوك")
+        
     }
 
 

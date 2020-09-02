@@ -27,6 +27,10 @@
 		3BD3530B24FD26260053BC66 /* CustomSegmentedControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */; };
 		3BD3530F24FDACA40053BC66 /* LastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530E24FDACA40053BC66 /* LastViewController.swift */; };
 		A99D996624FF8AB60035D2FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99D996524FF8AB50035D2FF /* GoogleService-Info.plist */; };
+		A99D996824FF93910035D2FF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996724FF93900035D2FF /* Utilities.swift */; };
+		A99D996C24FF93B20035D2FF /* AddTrademark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996924FF93B20035D2FF /* AddTrademark.swift */; };
+		A99D996D24FF93B20035D2FF /* AddOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996A24FF93B20035D2FF /* AddOffersViewController.swift */; };
+		A99D996E24FF93B20035D2FF /* BranchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996B24FF93B20035D2FF /* BranchesViewController.swift */; };
 		D60EE82224E93B8A0034F81C /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EE82124E93B8A0034F81C /* SideMenuViewController.swift */; };
 		D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619D71124F16C570037150E /* MyFamilyViewController.swift */; };
 		D619D71424F171EB0037150E /* familyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619D71324F171EB0037150E /* familyCell.swift */; };
@@ -103,6 +107,10 @@
 		3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControlDelegate.swift; sourceTree = "<group>"; };
 		3BD3530E24FDACA40053BC66 /* LastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastViewController.swift; sourceTree = "<group>"; };
 		A99D996524FF8AB50035D2FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A99D996724FF93900035D2FF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		A99D996924FF93B20035D2FF /* AddTrademark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrademark.swift; sourceTree = "<group>"; };
+		A99D996A24FF93B20035D2FF /* AddOffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOffersViewController.swift; sourceTree = "<group>"; };
+		A99D996B24FF93B20035D2FF /* BranchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchesViewController.swift; sourceTree = "<group>"; };
 		AA67390707D5EA351875ADF8 /* Pods_MC_Mazaya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC_Mazaya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637480B2916BA532CF0622D /* Pods-MC Mazaya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.debug.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.debug.xcconfig"; sourceTree = "<group>"; };
 		D60EE82124E93B8A0034F81C /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +283,9 @@
 				D639206A24AA0BEB0008F28E /* firstViewController.swift */,
 				D6381EA824AB3B1F004569D6 /* TabBarController.swift */,
 				D6381EAA24AC89F7004569D6 /* EditProfilePresenter.swift */,
+				A99D996A24FF93B20035D2FF /* AddOffersViewController.swift */,
+				A99D996924FF93B20035D2FF /* AddTrademark.swift */,
+				A99D996B24FF93B20035D2FF /* BranchesViewController.swift */,
 				D6381EAC24AC921D004569D6 /* profilePresenter.swift */,
 				D6381EB024ADD3F7004569D6 /* FamilyViewController.swift */,
 				D6381EB424ADD461004569D6 /* FavoriteViewController.swift */,
@@ -326,6 +337,7 @@
 			children = (
 				D6E1286024A0805900977D26 /* XTF.swift */,
 				D6E1286224A08E4B00977D26 /* XUB.swift */,
+				A99D996724FF93900035D2FF /* Utilities.swift */,
 				D6E1286424A08EC700977D26 /* UIcolors.swift */,
 				D6FF724524A4A52100EFA660 /* profileTextField.swift */,
 				D6D44CCD24A8773E00FAAFAF /* XUI.swift */,
@@ -502,6 +514,7 @@
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
 				3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */,
 				D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */,
+				A99D996C24FF93B20035D2FF /* AddTrademark.swift in Sources */,
 				D619D71424F171EB0037150E /* familyCell.swift in Sources */,
 				3BD3530B24FD26260053BC66 /* CustomSegmentedControlDelegate.swift in Sources */,
 				D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */,
@@ -536,12 +549,15 @@
 				D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */,
 				D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */,
 				3B97E2C924A346D900D0D965 /* BaseListController.swift in Sources */,
+				A99D996824FF93910035D2FF /* Utilities.swift in Sources */,
+				A99D996D24FF93B20035D2FF /* AddOffersViewController.swift in Sources */,
 				D6D150E624BC6D9C00547B97 /* textField.swift in Sources */,
 				D6381EB724ADD479004569D6 /* NewOffersViewController.swift in Sources */,
 				D6A8F39224F3C15D007DDBDB /* AdminHomeViewController.swift in Sources */,
 				3BD3530F24FDACA40053BC66 /* LastViewController.swift in Sources */,
 				D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */,
 				D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */,
+				A99D996E24FF93B20035D2FF /* BranchesViewController.swift in Sources */,
 				D620C51D24B1C35E0085B937 /* MapViewController.swift in Sources */,
 				D6381EBB24ADD4A5004569D6 /* SuggestOfferViewController.swift in Sources */,
 				D6E1286124A0805900977D26 /* XTF.swift in Sources */,
