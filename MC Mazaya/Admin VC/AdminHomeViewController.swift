@@ -19,12 +19,20 @@ class AdminHomeViewController: UIViewController {
         let userID = Auth.auth().currentUser?.uid
         let green = UIColor(rgb: 0x38a089)
         var count = 0
-      var pageTitle = ""
+    //creating array contains categories
+
+    var sections = [Category]()
+    // section number clicked
+    var sectionNumberClicked = 0
+    var pageTitle = ""
+    // to decide which section is selected
+    var sectionIndicator: Category?
+    
     var rightBarButtonItem = UIBarButtonItem()
               var mainViewXConstraint : NSLayoutConstraint!
               var sideMenuWidth = CGFloat()
         //creating array contains title
-        var categories = ["المنزل","الأغذية ","السفر","سيارات","رياضة","الكترونيات","تسوق","مدارس","خدمات"]
+        var categories = ["المنزل","الأغذية ","السفر","السيارات","رياضة","الكترونيات","تسوق","مدارس","خدمات"]
   var iconsArray = [#imageLiteral(resourceName: "home"), #imageLiteral(resourceName: "food"), #imageLiteral(resourceName: "plane"),#imageLiteral(resourceName: "pickup-car"),#imageLiteral(resourceName: "sport"),#imageLiteral(resourceName: "tablet"),#imageLiteral(resourceName: "shopping-cart"),#imageLiteral(resourceName: "Schools"),#imageLiteral(resourceName: "support")] // change this later
 
         @IBOutlet weak var collectionView: FamilyCollectionViewCell!
@@ -36,7 +44,7 @@ class AdminHomeViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
-            setUpUI()
+            //setUpUI()
         }
     //    Side Menu Code
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -67,7 +75,7 @@ class AdminHomeViewController: UIViewController {
            }
 
            let mainView : UIView = {
-               $0.translatesAutoresizingMaskIntoConstraints = false
+               //$0.translatesAutoresizingMaskIntoConstraints = false
                //$0.backgroundColor = .init(white: 0.95, alpha: 1)
                $0.layer.zPosition = 100
                return $0
@@ -216,7 +224,19 @@ class AdminHomeViewController: UIViewController {
         }
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
               print(indexPath.row)
-              pageTitle = categories[indexPath.row]
+            performSegue(withIdentifier: "toTrademarks", sender: self)
+
+        }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toTrademarks" {
+                let nextVC = segue.destination as? AdminTrademarksViewController
+                //nextVC?.pageTitle = pageTitle
+                //nextVC?.setSection(section: sectionIndicator!)
+               // nextVC?.Usections = self.Usections
+               // nextVC?.sectionNumber = sectionNumberClicked
+                
+          
+            }
         }
         func setUpUI(){
                   self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
