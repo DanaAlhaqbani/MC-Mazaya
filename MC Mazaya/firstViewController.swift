@@ -67,17 +67,34 @@ class firstViewController: UIViewController {
        }(UIImageView())
     func authenticateUserAndConfigureView(){
        
-            if Auth.auth().currentUser?.uid != nil {
-               
-               //user is logged in
-               moveToTheTabBarViewController()
-               print("444444444444444444444444444///")
-           }else{
-               //user is not logged in
-               moveToLoginViewController()
-               print("/////////////////////")
-           }
+            if Auth.auth().currentUser?.email == "mazaya@mc.gov.sa" {
+                       moveToAdminViewController()
+                   }
+                   else if Auth.auth().currentUser?.uid != nil {
+                       
+                       //user is logged in
+                       moveToTheTabBarViewController()
+                       print("444444444444444444444444444///")
+                   }else{
+                       //user is not logged in
+                       moveToLoginViewController()
+                       print("/////////////////////")
+                   }
        }
+        func moveToAdminViewController () {
+            
+            if let storyboard = self.storyboard{
+                
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "adminPages") as! UINavigationController
+                if let adminHomeViewController = navigationController.viewControllers.first as? AdminHomeViewController {
+
+                }
+                navigationController.modalPresentationStyle = .fullScreen
+                self.present(navigationController, animated: true, completion: nil)
+                
+                
+            }
+        }
     func moveToTheTabBarViewController () {
         let homeViewController = storyboard?.instantiateViewController(withIdentifier: "VCTabBar") as? UITabBarController
 

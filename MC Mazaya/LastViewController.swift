@@ -22,8 +22,7 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
            var sideMenuWidth = CGFloat()
            let green = UIColor(rgb: 0x38a089)
     @IBOutlet weak var tbleList: UITableView!
-    
-    
+
 //    Side Menu Code
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
                isMenuShow = false
@@ -52,10 +51,12 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
                isMenuShow.toggle()
            }
 
-           let mainView : UIView = {
+          let mainView : UIView = {
+     
                $0.translatesAutoresizingMaskIntoConstraints = false
                //$0.backgroundColor = .init(white: 0.95, alpha: 1)
                $0.layer.zPosition = 100
+            $0.isUserInteractionEnabled = true
                return $0
            }(UIView())
 
@@ -226,6 +227,8 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
         
         override func viewDidLoad() {
             super.viewDidLoad()
+          // view.translatesAutoresizingMaskIntoConstraints = false
+
             dataUser()
             setUpUI()
             // Do any additional setup after loading the view.
@@ -298,51 +301,52 @@ extension LastViewController {
            self.navigationController?.navigationBar.barTintColor = .white
 
                     sideMenuWidth = view.frame.width / 2
-            
-                    view.addSubview(mainView)
-                    view.addSubview(sideMenu)
-                    sideMenu.addSubview(separatorView)
-                    sideMenu.addSubview(sideMenuStackView)
-                    sideMenuStackView.addArrangedSubview(openRegionVC)
-                    sideMenuStackView.addArrangedSubview(openFamilyVC)
-                    sideMenuStackView.addArrangedSubview(openFavVC)
-                    sideMenuStackView.addArrangedSubview(openNewOffersVC)
-                     sideMenuStackView.addArrangedSubview(openSuggestVC)
-                     sideMenuStackView.addArrangedSubview(openVouchersVC)
-                     sideMenuStackView.addArrangedSubview(openHelpVC)
-                    sideMenuStackView.addArrangedSubview(logoutVS)
+        
 
+                                 view.addSubview(mainView)
+                                 view.addSubview(sideMenu)
+                                 sideMenu.addSubview(separatorView)
+                                 sideMenu.addSubview(sideMenuStackView)
+                                 sideMenuStackView.addArrangedSubview(openRegionVC)
+                                 sideMenuStackView.addArrangedSubview(openFamilyVC)
+                                 sideMenuStackView.addArrangedSubview(openFavVC)
+                                 sideMenuStackView.addArrangedSubview(openNewOffersVC)
+                                  sideMenuStackView.addArrangedSubview(openSuggestVC)
+                                  sideMenuStackView.addArrangedSubview(openVouchersVC)
+                                  sideMenuStackView.addArrangedSubview(openHelpVC)
+                                 sideMenuStackView.addArrangedSubview(logoutVS)
+
+                                 
+                                 rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: #selector(menuTapped))
+                                 rightBarButtonItem.tintColor = green
+                                 navigationItem.rightBarButtonItem = rightBarButtonItem
+                               
+                                 NSLayoutConstraint.activate([
+                                 
+                                     mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                                     mainView.heightAnchor.constraint(equalTo: view.heightAnchor),
+                                     mainView.widthAnchor.constraint(equalTo: view.widthAnchor),
+                                     
+                                     sideMenu.heightAnchor.constraint(equalTo: mainView.heightAnchor),
+                                     sideMenu.widthAnchor.constraint(equalTo: view.widthAnchor),
+                                     sideMenu.leftAnchor.constraint(equalTo: mainView.rightAnchor),
+                                     sideMenu.centerYAnchor.constraint(equalTo: mainView.centerYAnchor),
+                                     
+                                     separatorView.heightAnchor.constraint(equalTo: sideMenu.heightAnchor),
+                                     separatorView.widthAnchor.constraint(equalToConstant: 3),
+                                     separatorView.leftAnchor.constraint(equalTo: sideMenu.leftAnchor),
+                                     separatorView.centerYAnchor.constraint(equalTo: sideMenu.centerYAnchor),
+                                     
+                                     sideMenuStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                                     sideMenuStackView.leftAnchor.constraint(equalTo: separatorView.rightAnchor),
+                                     sideMenuStackView.widthAnchor.constraint(equalToConstant: sideMenuWidth),
+                                     
+                                     openRegionVC.heightAnchor.constraint(equalToConstant: 50),
+                                     
+                                     
+                                 ])
+                                mainViewXConstraint = mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+                                mainViewXConstraint.isActive = true
                     
-                    rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: #selector(menuTapped))
-                    rightBarButtonItem.tintColor = green
-                    navigationItem.rightBarButtonItem = rightBarButtonItem
-                  
-                    NSLayoutConstraint.activate([
-                    
-                        mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                        mainView.heightAnchor.constraint(equalTo: view.heightAnchor),
-                        mainView.widthAnchor.constraint(equalTo: view.widthAnchor),
-                        
-                        sideMenu.heightAnchor.constraint(equalTo: mainView.heightAnchor),
-                        sideMenu.widthAnchor.constraint(equalTo: view.widthAnchor),
-                        sideMenu.leftAnchor.constraint(equalTo: mainView.rightAnchor),
-                        sideMenu.centerYAnchor.constraint(equalTo: mainView.centerYAnchor),
-                        
-                        separatorView.heightAnchor.constraint(equalTo: sideMenu.heightAnchor),
-                        separatorView.widthAnchor.constraint(equalToConstant: 3),
-                        separatorView.leftAnchor.constraint(equalTo: sideMenu.leftAnchor),
-                        separatorView.centerYAnchor.constraint(equalTo: sideMenu.centerYAnchor),
-                        
-                        sideMenuStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-                        sideMenuStackView.leftAnchor.constraint(equalTo: separatorView.rightAnchor),
-                        sideMenuStackView.widthAnchor.constraint(equalToConstant: sideMenuWidth),
-                        
-                        openRegionVC.heightAnchor.constraint(equalToConstant: 50),
-                        
-                        
-                    ])
-                   mainViewXConstraint = mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-                   mainViewXConstraint.isActive = true
-       
-       }
+                    }
    }
