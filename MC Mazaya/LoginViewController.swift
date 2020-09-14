@@ -135,6 +135,7 @@ class LoginViewController: UIViewController {
         }
     }
     func moveToAdmin() {
+        /*
         if let storyboard = self.storyboard{
             
             let newViewController = storyboard.instantiateViewController(withIdentifier: "adminPages") as! UINavigationController
@@ -142,18 +143,25 @@ class LoginViewController: UIViewController {
             newViewController.modalPresentationStyle = .fullScreen
             self.present(newViewController, animated: true, completion: nil)
         }
+ */
+        let AdminhomeViewController = storyboard?.instantiateViewController(withIdentifier: "AdminTabBar") as? UITabBarController
+               let userNavViewController = AdminhomeViewController?.viewControllers![1] as? UINavigationController
+               let userHomeViewController = userNavViewController?.viewControllers[0] as? AdminHomeViewController
+
+             
+               self.view.window?.rootViewController = AdminhomeViewController
+               self.view.window?.makeKeyAndVisible()
     }
    func moveToTheTabBarViewController () {
           
   //        TrophyVC.newUsections = self.UTsections
   //        TrophyVC.newUPsections = self.UPsections
+    // AdminTabBar
           
           let homeViewController = storyboard?.instantiateViewController(withIdentifier: "VCTabBar") as? UITabBarController
           let userNavViewController = homeViewController?.viewControllers![1] as? UINavigationController
           let userHomeViewController = userNavViewController?.viewControllers[0] as? homeViewController
 
-        
-          
           self.view.window?.rootViewController = homeViewController
           self.view.window?.makeKeyAndVisible()
       }

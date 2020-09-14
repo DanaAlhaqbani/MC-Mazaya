@@ -1,21 +1,18 @@
 //
-//  FavoriteViewController.swift
+//  BigOffersViewController.swift
 //  MC Mazaya
 //
-//  Created by دانة الحقباني on 11/11/1441 AH.
-//  Copyright © 1441 MC. All rights reserved.
+//  Created by دانة الحقباني on 25/01/1442 AH.
+//  Copyright © 1442 MC. All rights reserved.
 //
-
 import UIKit
-
-class FavoriteViewController: UIViewController {
+class BigOffersViewController: UIViewController {
     @IBOutlet weak var trademarksTableView: UITableView!
     var trademarks = ["باتشي","جوديفا","ماكدونالدز","هرفي"] //[String]()
    var trademarksImages = ["patchi","patchi","patchi","patchi"] //[String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "مفضلتي"
         trademarksTableView.delegate = self
         trademarksTableView.dataSource = self
         // Make the table view looks good
@@ -30,7 +27,7 @@ class FavoriteViewController: UIViewController {
 
 }
 
-extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
+extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -57,3 +54,4 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
+

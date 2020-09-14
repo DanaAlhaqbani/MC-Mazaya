@@ -85,12 +85,15 @@ class firstViewController: UIViewController {
             
             if let storyboard = self.storyboard{
                 
-                let navigationController = storyboard.instantiateViewController(withIdentifier: "adminPages") as! UINavigationController
-                if let adminHomeViewController = navigationController.viewControllers.first as? AdminHomeViewController {
+                let AdminHomeVC = storyboard.instantiateViewController(withIdentifier: "adminHome") as! UIViewController
+              
+        
+                     // home page
+                     //let userNavViewController = AdminHomeViewController?.viewControllers![1] as? UINavigationController
+                    // let userHomeViewController = userNavViewController?.viewControllers[0] as? homeViewController
 
-                }
-                navigationController.modalPresentationStyle = .fullScreen
-                self.present(navigationController, animated: true, completion: nil)
+                     self.view.window?.rootViewController = AdminHomeVC
+                     self.view.window?.makeKeyAndVisible()
                 
                 
             }

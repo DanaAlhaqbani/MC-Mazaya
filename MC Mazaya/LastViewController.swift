@@ -10,6 +10,16 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import SideMenu
+struct userData {
+    static var name = ""
+    static var email = ""
+    static var password = ""
+    static var gender = ""
+    static var phone = ""
+    static var points = ""
+    static var family = [String]()
+
+}
 class LastViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
   
     /// MainHomeViewController
@@ -56,7 +66,8 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
                $0.translatesAutoresizingMaskIntoConstraints = false
                //$0.backgroundColor = .init(white: 0.95, alpha: 1)
                $0.layer.zPosition = 100
-            $0.isUserInteractionEnabled = true
+               $0.isUserInteractionEnabled = true
+             $0.isHidden = true
                return $0
            }(UIView())
 
@@ -150,6 +161,7 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
        lazy var logoutVS : UIButton = {
             $0.setTitle("تسجيل الخروج", for: .normal)
             $0.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.6274509804, blue: 0.537254902, alpha: 1)
+            $0.imageView?.image = #imageLiteral(resourceName: "FAQ icon")
             $0.titleLabel?.font = UIFont(name: "STC", size: 20)
             $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             $0.tag = 17
@@ -159,25 +171,37 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
 
            @objc func menuButtonsActions(_ sender : UIButton) {
                if sender.tag == 10 {
+                
                    navigationController?.pushViewController(RegionViewController(), animated: true)
                }
                else if sender.tag == 11 {
-                   navigationController?.pushViewController(FamilyViewController(), animated: true)
+                performSegue(withIdentifier: "toFamily", sender: self)
+                
+                   //navigationController?.pushViewController(FamilyViewController(), animated: true)
                }
                    else if sender.tag == 12 {
-                   navigationController?.pushViewController(FavoriteViewController(), animated: true)
+                performSegue(withIdentifier: "toFav", sender: self)
+                  // navigationController?.pushViewController(FavoriteViewController(), animated: true)
                }
                else if sender.tag == 13 {
-                   navigationController?.pushViewController(NewOffersViewController(), animated: true)
+                performSegue(withIdentifier: "toNewOffers", sender: self)
+
+                   //navigationController?.pushViewController(NewOffersViewController(), animated: true)
                       }
                else if sender.tag == 14 {
-                   navigationController?.pushViewController(SuggestOfferViewController(), animated: true)
+                performSegue(withIdentifier: "toSuggest", sender: self)
+            
+                   //navigationController?.pushViewController(SuggestOfferViewController(), animated: true)
                       }
               else if sender.tag == 15 {
-                   navigationController?.pushViewController(VouchersViewController(), animated: true)
+                performSegue(withIdentifier: "toVouchers", sender: self)
+                
+                   //navigationController?.pushViewController(VouchersViewController(), animated: true)
                       }
              else if sender.tag == 16 {
-                   navigationController?.pushViewController(CommunicateUsViewController(), animated: true)
+                performSegue(withIdentifier: "toCom", sender: self)
+
+                  // navigationController?.pushViewController(CommunicateUsViewController(), animated: true)
                       }
                else if  sender.tag == 17 {
                    logout()

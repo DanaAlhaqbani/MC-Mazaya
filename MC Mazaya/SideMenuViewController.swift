@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class SideMenuViewController: UIViewController {
-      
+      /*
     let user = Auth.auth().currentUser
        var ref: DatabaseReference?
        var handle: DatabaseHandle?
@@ -233,12 +233,12 @@ class SideMenuViewController: UIViewController {
                })
        
        }
-    
+    */
     }
 
     extension SideMenuViewController {
         
-       
+       /*
         func setUpUI(){
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.navigationBar.barTintColor = .white
@@ -291,4 +291,5 @@ class SideMenuViewController: UIViewController {
                     mainViewXConstraint.isActive = true
         
         }
+ */
     }

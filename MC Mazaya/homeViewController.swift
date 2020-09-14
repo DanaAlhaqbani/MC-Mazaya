@@ -12,7 +12,7 @@ import DropDown
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
-
+/*
 struct userData {
     static var name = ""
     static var email = ""
@@ -23,7 +23,9 @@ struct userData {
     static var family = [String]()
 
 }
-class homeViewController: UIViewController, MenuListControllerDelegate {
+ */
+class homeViewController: UIViewController {
+    /*
     private let ViewFamily = FamilyViewController()
     private let Faviorate = FavoriteViewController()
     private let NewOffers = NewOffersViewController()
@@ -41,7 +43,7 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataUser()
-        let menu = MenuListController(MeniItems: ["المنطقة","عائلتي","المفضلة","جديد العروض","الصفقات المستخدمة","إقترح عرضاً","القسائم الشرائية","تواصل معنا","تسجيل الخروج"])
+      //  let menu = MenuListController(MeniItems: ["المنطقة","عائلتي","المفضلة","جديد العروض","الصفقات المستخدمة","إقترح عرضاً","القسائم الشرائية","تواصل معنا","تسجيل الخروج"])
         SideMenu = SideMenuNavigationController(rootViewController: menu)
         SideMenu?.leftSide = true
         SideMenu?.setNavigationBarHidden(true, animated: false)
@@ -231,4 +233,5 @@ class homeViewController: UIViewController, MenuListControllerDelegate {
              userData.points = currentPoints!
                })
        }
+ */
 }

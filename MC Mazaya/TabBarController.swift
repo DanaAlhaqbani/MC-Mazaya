@@ -8,17 +8,15 @@
 
 import UIKit
 
-class GradientTabBarController: UITabBarController {
-
+class TabBarController: UITabBarController {
     let layerGradient = CAGradientLayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     override func viewWillAppear(_ animated: Bool) {
-       self.selectedIndex = 4  //enter your tabbar no.
-        //self.navigationController?.navigationBar.setGradientBackground(colors: [.clear,.clear ] )
+        self.selectedIndex = 4  //enter your tabbar no.
+        self.navigationController?.navigationBar.setGradientBackground(colorOne: .white, colorTwo: .green)
 
     }
     

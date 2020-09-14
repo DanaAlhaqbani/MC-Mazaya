@@ -13,11 +13,11 @@ class ReviewSuggestionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        self.title = "مراجعة المقترحات"
+        //self.title = "مراجعة المقترحات"
 
         // Do any additional setup after loading the view.
     }
-    
+ 
 
     /*
     // MARK: - Navigation

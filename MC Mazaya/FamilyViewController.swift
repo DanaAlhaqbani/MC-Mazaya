@@ -160,10 +160,13 @@ class FamilyViewController: UIViewController, MFMessageComposeViewControllerDele
                 return $0
             }(UIButton(type: .system))
         @objc func EmailAction() {
+            performSegue(withIdentifier: "toFamilyList", sender: self)
+            /*
          let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let secondVC = storyboard.instantiateViewController(identifier: "FList")
                     
                      navigationController?.pushViewController(secondVC, animated: true)
+ */
         }
           
               
