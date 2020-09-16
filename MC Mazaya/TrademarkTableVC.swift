@@ -10,7 +10,7 @@ import UIKit
 
 class TrademarkTableVC: UIViewController {
     @IBOutlet weak var trademarksTableView: UITableView!
-    var trademarks = ["باتشي","جوديفا","ماكدونالدز","هرفي"] //[String]()
+    var trades = [Trademark]()//[String]()
    var trademarksImages = ["patchi","patchi","patchi","patchi"] //[String]()
 
     override func viewDidLoad() {
@@ -20,7 +20,7 @@ class TrademarkTableVC: UIViewController {
         // Make the table view looks good
         trademarksTableView.separatorStyle = .none
         trademarksTableView.showsVerticalScrollIndicator = false
-        
+    
 
     }
     
@@ -33,23 +33,24 @@ extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
         return 100
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trademarks.count
+        return trades.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
-        let trademarkName = trademarks[indexPath.row]
-        let trademarkImage = trademarksImages[indexPath.row]
+        let trademarkName = trades[indexPath.row].Name
+      //  let trademarkImage = trademarksImages[indexPath.row]
         cell.trademarkName.text = trademarkName
-        cell.trademarkImage.image = UIImage(named: trademarkImage)
+        //cell.trademarkImage.image = UIImage(named: trademarkImage)
         //make the cell looks good
         cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 3
         cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-        cell.trademarkView.layer.borderWidth = 1.5
+        cell.trademarkView.layer.borderWidth = 1
         cell.trademarkView.layer.borderColor = UIColor.gray.cgColor
-        cell.bringSubviewToFront(cell.trademarkImage)
+       
+       // cell.trademarkImage.bringSubviewToFront(cell.trademarkView.tr)
 
-        //cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
+        cell.trademarkImage.bringSubviewToFront(cell)
 
         return cell
     }

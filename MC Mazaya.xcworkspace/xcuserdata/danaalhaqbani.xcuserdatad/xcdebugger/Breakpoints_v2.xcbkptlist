@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "964558CF-7AD9-468F-98D9-F0DFDE3948FA"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "FEAB8952-4290-4A6B-98AD-299CFDEFF3B4"
+            shouldBeEnabled = "Yes"
+            nameForDebugger = "UIViewAlertForUnsatisfiableConstraints"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

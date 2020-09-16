@@ -20,6 +20,7 @@ class BigOffersViewController: UIViewController {
         trademarksTableView.showsVerticalScrollIndicator = false
          let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
         cell.trademarkImage.sendSubviewToBack(cell.trademarkView)
+        
 
     }
     

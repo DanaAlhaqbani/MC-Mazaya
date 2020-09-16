@@ -20,8 +20,17 @@ struct userData {
     static var family = [String]()
 
 }
-class LastViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
-  
+class LastViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, CollectionCellDelegator {
+  func selectedCategory(myData dataobject: [Trademark]) {
+         self.performSegue(withIdentifier: "trademarks", sender: dataobject)
+     }
+     
+     //MARK: -Protocols' functions
+
+     func callSegueFromCell(myData dataobject: Trademark) {
+         self.performSegue(withIdentifier: "disc", sender:dataobject )
+
+     }
     /// MainHomeViewController
     let user = Auth.auth().currentUser
         var ref: DatabaseReference?
@@ -232,55 +241,64 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
     
         var list = [[Dictionary<String, Any>]]()
         
-        //MARK:- setDatSourceForCollectionView
-        func setDatSourceForCollectionView() {
-            for _ in 0...4 {
-                var cellArray = [Dictionary<String, Any>]()
-                for i in 0...8 {
-                    var dict = Dictionary<String, Any>()
-                    if i%2 == 0 {
-                        dict.updateValue( UIColor.blue, forKey: "color")
-                    } else {
-                        dict.updateValue( UIColor.systemPink, forKey: "color")
-                    }
-                    cellArray.append(dict)
-                }
-                list.append(cellArray)
-            }
-        }
+    //MARK: -Variables for category fetching
+    var catName : Array<Any> = []
+    var key1 = [Any]()
+    var key2 : NSDictionary = [:]
+    var cat : NSDictionary = [:]
+    var trades : NSDictionary = [:]
+    var catID : Array<Any> = []
+    var Categories = [Category]()
+    var category : Category!
+    
+  
         
         override func viewDidLoad() {
             super.viewDidLoad()
-          // view.translatesAutoresizingMaskIntoConstraints = false
-
-            dataUser()
-            setUpUI()
-            // Do any additional setup after loading the view.
-            setDatSourceForCollectionView()
-            tbleList.tableFooterView = UIView(frame: .zero)
-            tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
-            tbleList.dataSource = self
-            tbleList.delegate = self
-            
+              super.viewDidLoad()
+              getCategories()
+              dataUser()
+              setUpUI()
+              tbleList.tableFooterView = UIView(frame: .zero)
+              tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
+              tbleList.dataSource = self
+              tbleList.delegate = self
             
 
         }
 
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return list.count
-        }
+          //MARK: Table View delegate and datasource
+              func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+                  return Categories.count
+    }
+          func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //            let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell") as! CollectionviewTableCell
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell", for: indexPath) as! CollectionviewTableCell
+                    // Sort the results
+                    Categories = Categories.sorted {
+                        guard let first = $0.Name else {
+                            return false
+                        }
+                        guard let second = $1.Name else {
+                            return true
+                        }
+                        return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending }
+                    DispatchQueue.main.async {
+        //                cell.galleryCollectionView.contentOffset = .zero
+                        cell.nameLabel.text = self.Categories[indexPath.row].Name
+                        cell.catId = self.Categories[indexPath.row].key ?? ""
+                        cell.setUpDataSource()
+                        cell.delegate = self
+                        self.Categories[indexPath.row].trademarks = self.Trades
+                    }
+
+                    return cell
+                }
         
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell") as! CollectionviewTableCell
-            cell.infoArray = list[indexPath.row]
-            cell.setUpDataSource()
-            return cell
-        }
-        
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 200.0
-        }
+         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+                return 160
+            }
     
     
     func dataUser () {
@@ -313,7 +331,64 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
     
     
 
+    
+
+    
+    var Trades = [Trademark]()
+    var trade : Trademark!
+    
+//     Get Categories
+    func getCategories(){
+        self.Categories = []
+        self.key1 = [Any]()
+        self.key2 = [:]
+        self.Trades = []
+        let catRef = Database.database().reference()
+        catRef.child("Categories").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snap) in
+            if let dict = snap.value as? [String : AnyObject] {
+                self.cat = dict as NSDictionary
+                for item in dict {
+                    self.key1.append(item.key)
+                }
+                for c in self.key1 {
+                    self.key2 = self.cat[c] as! NSDictionary
+                    self.catID.append(c)
+                    self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.Trades)
+                    self.Categories.append(self.category)
+//                    print(self.Categories)
+                }
+            }
+            DispatchQueue.main.async {
+                self.tbleList.reloadData()
+            }
+
+        })
     }
+    
+
+    
+
+    
+    
+    
+
+    
+    //MARK: - Segue preparation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "disc" {
+            let dis = segue.destination as! DscriptionViewController
+            dis.tradeInfo = sender as? Trademark
+        } // Show Description Segue
+        
+        if segue.identifier == "trademarks" {
+            let dis = segue.destination as! TrademarkTableVC
+            dis.trades = sender as? [Trademark] ?? []
+        } // Show Trademarks Segue
+    } // Prepare Function
+
+} // Class end
+
 
 
 
@@ -374,3 +449,38 @@ extension LastViewController {
                     
                     }
    }
+
+extension UITableView {
+
+    func indicatorView() -> UIActivityIndicatorView{
+        var activityIndicatorView = UIActivityIndicatorView()
+        if self.tableFooterView == nil{
+            let indicatorFrame = CGRect(x: 0, y: 0, width: self.bounds.width, height: 40)
+            activityIndicatorView = UIActivityIndicatorView(frame: indicatorFrame)
+            activityIndicatorView.isHidden = false
+            activityIndicatorView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+            activityIndicatorView.isHidden = true
+            self.tableFooterView = activityIndicatorView
+            return activityIndicatorView
+        }else{
+            return activityIndicatorView
+        }
+    }
+
+    func addLoading(_ indexPath:IndexPath, closure: @escaping (() -> Void)){
+        indicatorView().startAnimating()
+        if let lastVisibleIndexPath = self.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath && indexPath.row == self.numberOfRows(inSection: 0) - 1 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    closure()
+                }
+            }
+        }
+        indicatorView().isHidden = false
+    }
+
+    func stopLoading(){
+        indicatorView().stopAnimating()
+        indicatorView().isHidden = true
+    }
+}

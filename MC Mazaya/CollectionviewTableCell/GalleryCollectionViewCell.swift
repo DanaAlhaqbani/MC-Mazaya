@@ -42,7 +42,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return data.count
 //    }
-//
+
 //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        <#code#>
 //    }
@@ -51,6 +51,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //
 //        let vc = storyboard.instantiateViewController( withIdentifier : "DscriptionViewController") as? DscriptionViewController
+//
 //    }
 //
 //
