@@ -14,15 +14,12 @@ import UIKit
 protocol CollectionCellDelegator {
     func callSegueFromCell(myData dataobject: Trademark)
     func selectedCategory(myData dataobject: [Trademark])
-
 }
 
 
 class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UICollectionViewDelegate{
 
-    var commodity = ""
     var delegate : CollectionCellDelegator!
-    @IBOutlet weak var detailsTextView: UITextView!
     var didSelectItemAction: ((IndexPath) -> Void)?
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView2: UIImageView!
@@ -36,10 +33,10 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     var ID : Array<Any>=[]
     var catId = String()
     var cat : NSDictionary = [:]
+    var category : Category!
 
     @IBAction func allBtn(_ sender: Any) {
             if self.delegate != nil {
-               print(self.Trades)
                 self.delegate.selectedCategory(myData: self.Trades)
         }
     }
@@ -49,37 +46,35 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     lazy var  infoArray = [Any]()
     
     
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-
         allBtn.layer.cornerRadius = 5
         allBtn.clipsToBounds = true
 //        galleryCollectionView.delegate = self
 //        galleryCollectionView.dataSource = self
         // Initialization code
+        galleryCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 120.00, height: 120.00)
+        flowLayout.itemSize = CGSize(width: 150.00, height: 150.00)
         flowLayout.minimumInteritemSpacing = 1.0
         galleryCollectionView.collectionViewLayout = flowLayout
-        galleryCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
-        
+        galleryCollectionView.delegate = self
+        galleryCollectionView.dataSource = self
     }
     
     
-    
-    
-    
+
     
     //MARK:- setUpDataSource
     func setUpDataSource() {
-        galleryCollectionView.delegate = self
-        galleryCollectionView.dataSource = self
-        getTrades()
-
+        DispatchQueue.main.async {
+            self.convertToTrades()
+        }
     }
     
+
     
     //MARK:- UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -91,30 +86,34 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
         Trades = Trades.sorted {
-            guard let first = $0.Name else {
-                return false
-            }
-            guard let second = $1.Name else {
-                return true
-            }
-            return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending }
-        cell.imgvAvatar.tag = indexPath.row
-        cell.NameLabel.text = Trades[indexPath.row].Name
-        let url = URL(string: Trades[indexPath.row].brandImage ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png" )
-        if url != nil {
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                if error != nil {
-                    print("Error: \(String(describing: error?.localizedDescription))")
-                    return
-                }
-                DispatchQueue.main.async {
-                    cell.imgvAvatar.image = UIImage(data: data!)
-                }
-            }).resume()
+        guard let first = $0.BrandName else {
+            return false
         }
+        guard let second = $1.BrandName else {
+            return true
+        }
+        return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending }
+        DispatchQueue.main.async {
+            
+
+        cell.imgvAvatar.tag = indexPath.row
+            cell.percent.text = self.Trades[indexPath.row].offerTitle ?? ""
+            let url = URL(string: self.Trades[indexPath.row].brandImage ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png" )
+            if url != nil {
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    if error != nil {
+                        print("Error: \(String(describing: error?.localizedDescription))")
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        cell.imgvAvatar.image = UIImage(data: data!)
+                    }
+                }).resume()
+            }
         cell.imgvAvatar.clipsToBounds = true
-        cell.imgvAvatar.image = UIImage(named: "LogoMaz")
+        cell.imgvAvatar.image = UIImage(named: "whiteBG")
         cell.imgvAvatar.layer.cornerRadius =  20
+        }
         return cell
     }
     
@@ -126,43 +125,28 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-                galleryCollectionView.dataSource = self
-                galleryCollectionView.delegate = self
-    }
+
     
 
 
     var Trades = [Trademark]()
     var currentTrade : Trademark!
+    var tradeDict : [String : Any]!
+    var tradeInfo : NSDictionary!
     
-    
-    func getTrades(){
-        self.key1 = [Any]()
-        self.key2 = [:]
-        self.ID = []
+    func convertToTrades(){
+        self.tradeInfo = [:]
         self.Trades = []
-        let ref = Database.database().reference()
-        ref.child("Categories/\(catId)/TradeMarks").observeSingleEvent(of: .value, with: { (snap) in
-            if let dict = snap.value as? [String : AnyObject] {
-                self.cat = dict as NSDictionary
-                for item in dict {
-                    self.key1.append(item.key)
-                }
-                for i in self.key1 {
-                    self.key2 = self.cat[i] as? NSDictionary
-                    if (self.key2?["BrandName"] != nil) {
-                        self.ID.append(i)
-                        self.currentTrade = Trademark(key: i as? String, name: self.key2?["BrandName"] as? String, link: self.key2?["BranchLink"] as? String, branchName: self.key2?["BrancheName"] as? String, num: self.key2?["Contact Number"] as? String, desc: self.key2?["Description"] as? String, email: self.key2?["Email"] as? String, fb: self.key2?["Facebook"] as? String, insta: self.key2?["Instagram"] as? String, twit: self.key2?["Twitter"] as? String, web: self.key2?["WebURl"] as? String, image: self.key2?["BrandImage"] as? String)
-                        self.Trades.append(self.currentTrade)
-                    }
-                }
+        if tradeDict != nil {
+            for i in tradeDict.values {
+                self.tradeInfo = i as? NSDictionary
+                self.currentTrade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo?["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.tradeInfo?["Branches"] as? [String : Any], offerTitle: self.tradeInfo?["OffersDescription"] as? String, offerType: self.tradeInfo?["offerType"] as? String, offerDetails: self.tradeInfo?["offerDetails"] as? String,numberOfCoupons: self.tradeInfo?["numberOfCoupons"] as? Int, numberOfPoints: self.tradeInfo?["numberOfPoints"] as? Int, serviceType: self.tradeInfo?["serviceType"] as? String, endDate: self.tradeInfo?["endDate"] as? String, startDate: self.tradeInfo?["startDate"] as? String)
+                self.Trades.append(self.currentTrade)
             }
-                self.galleryCollectionView.reloadData()
-        })
-
+        }
+        self.galleryCollectionView.reloadData()
     }
-
+    
     
 }
 

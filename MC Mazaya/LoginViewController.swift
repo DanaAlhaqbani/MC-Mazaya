@@ -175,13 +175,13 @@ class LoginViewController: UIViewController {
         }))
         return alertVC
     }
-    func showSpinner(){
-           self.showActivityIndicator(uiView: self.view)
-       }
-       
-       func removeSpinner(){
-           self.hideActivityIndicator(uiView: self.view)
-       }
+//    func showSpinner(){
+//           self.showActivityIndicator(uiView: self.view)
+//       }
+//       
+//       func removeSpinner(){
+//           self.hideActivityIndicator(uiView: self.view)
+//       }
        func showActivityIndicator(uiView: UIView) {
              container.frame = uiView.frame
              container.center = uiView.center

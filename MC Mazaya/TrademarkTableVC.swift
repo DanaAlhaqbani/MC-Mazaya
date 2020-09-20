@@ -34,11 +34,8 @@ class TrademarkTableVC: UIViewController, CollectionCellDelegator {
         trademarksTableView.separatorStyle = .none
         trademarksTableView.showsVerticalScrollIndicator = false
     
-
     }
     
-
-
 }
 
 extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{

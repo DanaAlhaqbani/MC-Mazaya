@@ -8,10 +8,9 @@
 import Foundation
 struct Trademark {
 
-    var key: String?
-    var Name : String?
-    var branchLink : String?
-    var branchName : String?
+    var BrandName : String?
+//    var branchLink : String?
+    var branches : [String: Any]?
     var contactNum : String?
     var description : String?
     var email : String?
@@ -20,12 +19,18 @@ struct Trademark {
     var twitter : String?
     var webUrl : String?
     var brandImage : String?
-
-    public init(key: String?, name: String?, link: String?, branchName: String?, num: String?, desc: String?, email: String?, fb: String?, insta: String?, twit: String?, web: String?, image : String?) {
-        self.key = key
-        self.Name = name
-        self.branchLink = link
-        self.branchName = branchName
+    var offerTitle : String?
+    var offerType : String?
+    var offersDetails : String?
+    var numberOfCoupons : Int?
+    var numberOfPoints : Int?
+    var serviceType : String?
+    var endDate : String?
+    var startDate : String?
+    
+    public init(BrandName: String?, num: String?, desc: String?, email: String?, fb: String?, insta: String?, twit: String?, web: String?, image : String?, branches: [String: Any]?, offerTitle : String?, offerType : String?, offerDetails : String?, numberOfCoupons: Int?, numberOfPoints : Int?, serviceType : String?, endDate : String?, startDate : String?) {
+        self.BrandName = BrandName
+        self.branches = branches
         self.contactNum = num
         self.description = desc
         self.email = email
@@ -34,6 +39,14 @@ struct Trademark {
         self.twitter = twit
         self.webUrl = web
         self.brandImage = image
+        self.offerTitle = offerTitle
+        self.offerType = offerType
+        self.offersDetails = offerDetails
+        self.numberOfCoupons = numberOfCoupons
+        self.numberOfPoints = numberOfPoints
+        self.serviceType = serviceType
+        self.endDate = endDate
+        self.startDate = startDate
     }
     
 }
