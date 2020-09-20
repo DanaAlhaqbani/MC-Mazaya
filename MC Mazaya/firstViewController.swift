@@ -37,19 +37,18 @@ class firstViewController: UIViewController {
         super.viewDidLoad()
         view.generalGradiantView()
         DispatchQueue.main.async {
-                self.showApp()
-                self.tabBarController?.tabBar.isUserInteractionEnabled = true
-                }
+            self.showApp()
+            self.tabBarController?.tabBar.isUserInteractionEnabled = true
+        }
                 //UI
-                setupUI()
-                logoImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
-                titleImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
-                UIView.animate(withDuration: 1.5, delay: 2, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.4, options: .curveEaseInOut, animations: {
-                self.logoImage.transform = .identity
-                self.titleImage.transform = .identity
-                }) { (true) in
-//            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.showApp), userInfo: nil, repeats: false)
-          self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.nothing), userInfo: nil, repeats: false)
+        setupUI()
+        logoImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
+        titleImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
+        UIView.animate(withDuration: 1.5, delay: 2, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.4, options: .curveEaseInOut, animations: {
+            self.logoImage.transform = .identity
+            self.titleImage.transform = .identity
+        }) { (true) in
+        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.nothing), userInfo: nil, repeats: false)
                 }
             }
     var aView : UIView?
@@ -57,7 +56,6 @@ class firstViewController: UIViewController {
     @objc func nothing() {
         aView = UIView(frame: self.view.bounds)
         aView?.backgroundColor = .white
-    
         ai.center = aView!.center
         ai.color = .black
         ai.startAnimating()
@@ -123,19 +121,17 @@ class firstViewController: UIViewController {
     
     
     func authenticateUserAndConfigureView(){
-            if Auth.auth().currentUser?.email == "mazaya@mc.gov.sa" {
-                       moveToAdminViewController()
-                   }
-                   else if Auth.auth().currentUser?.uid != nil {
-                        getCategories()
-                        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 4) {
-
-                        }
-                   } else {
-                       //user is not logged in
-                       moveToLoginViewController()
-                       print("/////////////////////")
-                   }
+        if Auth.auth().currentUser?.email == "mazaya@mc.gov.sa" {
+            moveToAdminViewController()
+        }
+        else if Auth.auth().currentUser?.uid != nil {
+            getCategories()
+            
+        } else {
+        //user is not logged in
+            moveToLoginViewController()
+            print("/////////////////////")
+        }
 
        }
     

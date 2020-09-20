@@ -255,28 +255,10 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
     var list = [[Dictionary<String, Any>]]()
         
     //MARK: -Variables for category fetching
-    var catName : Array<Any> = []
-    var key1 = [Any]()
-    var key2 : NSDictionary = [:]
-    var cat : NSDictionary = [:]
-    var catID : Array<Any> = []
+
     var Categories = [Category]()
-    var category : Category!
     var Trades = [Trademark]()
-    var trade : Trademark!
-    var trades : [String: Any]!
 
-    
-    
-    //For Pagination
-    var isDataLoading:Bool=false
-    var pageNo:Int=0
-    var limit:Int=20
-    var offset:Int=0 //pageNo*limit
-    var didEndReached:Bool=false
-
-    
-    
     
         override func viewDidLoad() {
             super.viewDidLoad()
