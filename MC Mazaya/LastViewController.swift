@@ -18,7 +18,6 @@ struct userData {
     static var phone = ""
     static var points = ""
     static var family = [String]()
-
 }
 class LastViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, CollectionCellDelegator {
   func selectedCategory(myData dataobject: [Trademark]) {

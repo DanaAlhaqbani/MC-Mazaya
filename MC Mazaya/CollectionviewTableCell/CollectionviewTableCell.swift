@@ -101,17 +101,17 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         cell.imgvAvatar.tag = indexPath.row
         cell.NameLabel.text = Trades[indexPath.row].Name
         let url = URL(string: Trades[indexPath.row].brandImage ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png" )
-            if url != nil {
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                    if error != nil {
-                        print("Error: \(String(describing: error?.localizedDescription))")
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        cell.imgvAvatar.image = UIImage(data: data!)
-                    }
-                }).resume()
-            }
+        if url != nil {
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print("Error: \(String(describing: error?.localizedDescription))")
+                    return
+                }
+                DispatchQueue.main.async {
+                    cell.imgvAvatar.image = UIImage(data: data!)
+                }
+            }).resume()
+        }
         cell.imgvAvatar.clipsToBounds = true
         cell.imgvAvatar.image = UIImage(named: "LogoMaz")
         cell.imgvAvatar.layer.cornerRadius =  20
