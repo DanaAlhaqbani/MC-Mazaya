@@ -48,7 +48,7 @@ extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
-        let trademarkName = trades[indexPath.row].Name
+        let trademarkName = trades[indexPath.row].BrandName
         let trademarkDes = trades[indexPath.row].description        
       //  let trademarkImage = trademarksImages[indexPath.row]
         cell.trademarkName.text = trademarkName
