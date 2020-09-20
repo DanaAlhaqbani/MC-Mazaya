@@ -24,7 +24,7 @@
 //                               self.present(navController, animated: true, completion: nil)
 //
 ////                let firstPageController = FirstPageController()
-////                UIApplication.shared.windows.first?.rootViewController = firstPageController
+//                UIApplication.shared.windows.first?.rootViewController = firstPageController
 ////                UIApplication.shared.windows.first?.makeKeyAndVisible()
 //            }
 //

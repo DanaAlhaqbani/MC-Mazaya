@@ -21,11 +21,8 @@ class TrademarkTableVC: UIViewController {
         trademarksTableView.separatorStyle = .none
         trademarksTableView.showsVerticalScrollIndicator = false
     
-
     }
     
-
-
 }
 
 extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
@@ -38,7 +35,7 @@ extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
-        let trademarkName = trades[indexPath.row].Name
+        let trademarkName = trades[indexPath.row].BrandName
       //  let trademarkImage = trademarksImages[indexPath.row]
         cell.trademarkName.text = trademarkName
         //cell.trademarkImage.image = UIImage(named: trademarkImage)

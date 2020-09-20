@@ -7,6 +7,10 @@
 //
 
 import UIKit
+
+var aView : UIView?
+
+
 extension UIView {
    
     //this is the gradient colors
@@ -88,3 +92,59 @@ extension UIView {
          self.layer.mask = mask
     }
 }
+
+
+extension UIViewController {
+    
+    func Alert (Message: String) {
+        let alert = UIAlertController(title: "", message: Message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    func showSpinner(){
+         aView = UIView(frame: self.view.bounds)
+         aView?.backgroundColor = UIColor(white: 0, alpha: 0.2)
+
+         let ai = UIActivityIndicatorView(style: .large)
+         ai.center = aView!.center
+         ai.color = .white
+         ai.startAnimating()
+         aView?.addSubview(ai)
+         self.view.addSubview(aView!)
+
+         Timer.scheduledTimer(withTimeInterval: 20, repeats: false, block: {_ in self.removeSpinner()})
+     }
+
+     func removeSpinner(){
+        
+         aView?.removeFromSuperview()
+         aView = nil
+     }
+    
+}
+
+extension UITableView {
+    func showActivityIndicator() {
+        
+        DispatchQueue.main.async {
+            let activityView = UIActivityIndicatorView(style: .large)
+            let aView = UIView(frame: self.bounds)
+//            aView.backgroundColor = .white
+            activityView.center = aView.center
+            self.separatorStyle = .none
+            activityView.startAnimating()
+            aView.addSubview(activityView)
+//            self.addSubview(aView)
+            self.backgroundView = aView
+        }
+        
+    }
+
+    func hideActivityIndicator() {
+        DispatchQueue.main.async {
+            self.separatorStyle = .singleLine
+            self.backgroundView = nil
+        }
+    }
+}
+ 

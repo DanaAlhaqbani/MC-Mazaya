@@ -27,9 +27,9 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.label.text = tradeInfo.Name
-        //self.nav.leftBarButtonItem?.title = "عودة"
-        //loadImage()
+//        self.label.text = tradeInfo.Name
+//        self.nav.leftBarButtonItem?.title = "عودة"
+//        loadImage()
         
 
     }

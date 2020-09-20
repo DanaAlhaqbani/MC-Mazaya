@@ -18,7 +18,6 @@ extension UITextField {
          self.layer.addSublayer(border1)
         border1.addSublayer(border1)
         border1.setShadow()
-        
     }
   
     
@@ -29,7 +28,6 @@ extension UITextField {
             $0.backgroundColor = .gray
             return $0
         }(UIView())
-        
         
         self.addSubview(separatorView)
         NSLayoutConstraint.activate([

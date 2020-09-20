@@ -14,15 +14,17 @@ struct Category {
     
     var Name : String?
     var key: String?
-    var trademarks : [Trademark]?
+    var trademarks : [String: Any]?
     
-    public init(Name : String?, key : String?, trademarks: [Trademark]?) {
+    public init(Name : String?, key : String?, trademarks: [String: Any]?) {
         self.Name = Name
         self.key = key
         self.trademarks = trademarks
     }
     
-    
 }
+
+    
+
 
 

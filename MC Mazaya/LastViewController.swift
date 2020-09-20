@@ -18,30 +18,44 @@ struct userData {
     static var phone = ""
     static var points = ""
     static var family = [String]()
-
 }
-class LastViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, CollectionCellDelegator {
-  func selectedCategory(myData dataobject: [Trademark]) {
-         self.performSegue(withIdentifier: "trademarks", sender: dataobject)
-     }
-     
+
+
+
+class LastViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, CollectionCellDelegator, handleRetrievedData {
+
+    
+
      //MARK: -Protocols' functions
 
      func callSegueFromCell(myData dataobject: Trademark) {
          self.performSegue(withIdentifier: "disc", sender:dataobject )
-
      }
+      func retrievedCategories(myData dataObject: [Category]) {
+          self.Categories = dataObject
+      }
+      
+      func reloadTable() {
+        self.removeSpinner()
+        self.tbleList.reloadData()
+      }
+      
+    func selectedCategory(myData dataobject: [Trademark]) {
+           self.performSegue(withIdentifier: "trademarks", sender: dataobject)
+    }
+    
+    
     /// MainHomeViewController
     let user = Auth.auth().currentUser
-        var ref: DatabaseReference?
-        var handle: DatabaseHandle?
-       var SideMenu: SideMenuNavigationController?
+    var ref: DatabaseReference?
+    var handle: DatabaseHandle?
+    var SideMenu: SideMenuNavigationController?
     var rightBarButtonItem = UIBarButtonItem()
-           var mainViewXConstraint : NSLayoutConstraint!
-           var sideMenuWidth = CGFloat()
-           let green = UIColor(rgb: 0x38a089)
+    var mainViewXConstraint : NSLayoutConstraint!
+    var sideMenuWidth = CGFloat()
+    let green = UIColor(rgb: 0x38a089)
     @IBOutlet weak var tbleList: UITableView!
-
+    let firstInitailizer = firstViewController()
 //    Side Menu Code
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
                isMenuShow = false
@@ -227,82 +241,91 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
            
            
            func logout(){
-                          try! Auth.auth().signOut()
-                                
-                                if let storyboard = self.storyboard {
-                                    let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
-                                    self.present(vc, animated: true, completion: nil)
+                try! Auth.auth().signOut()
+                if let storyboard = self.storyboard {
+                    let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+                        self.present(vc, animated: true, completion: nil)
                       }
-                      }
+            }
        
     
     
     
     
-        var list = [[Dictionary<String, Any>]]()
+    var list = [[Dictionary<String, Any>]]()
         
     //MARK: -Variables for category fetching
     var catName : Array<Any> = []
     var key1 = [Any]()
     var key2 : NSDictionary = [:]
     var cat : NSDictionary = [:]
-    var trades : NSDictionary = [:]
     var catID : Array<Any> = []
     var Categories = [Category]()
     var category : Category!
+    var Trades = [Trademark]()
+    var trade : Trademark!
+    var trades : [String: Any]!
+
     
-  
-        
+    
+    //For Pagination
+    var isDataLoading:Bool=false
+    var pageNo:Int=0
+    var limit:Int=20
+    var offset:Int=0 //pageNo*limit
+    var didEndReached:Bool=false
+
+    
+    
+    
         override func viewDidLoad() {
             super.viewDidLoad()
-              super.viewDidLoad()
-              getCategories()
-              dataUser()
-              setUpUI()
-              tbleList.tableFooterView = UIView(frame: .zero)
-              tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
-              tbleList.dataSource = self
-              tbleList.delegate = self
-            
-
+            firstInitailizer.deleagte = self
+            dataUser()
+            setUpUI()
+            tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
+            tbleList.dataSource = self
+            tbleList.delegate = self
+            if let cell = tbleList.dequeueReusableCell(withIdentifier: "CollectionviewTableCell") as? CollectionviewTableCell {
+                cell.setUpDataSource()
+            }
         }
 
         
           //MARK: Table View delegate and datasource
               func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                  return Categories.count
-    }
+                return 9
+            }
+    
           func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //            let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell") as! CollectionviewTableCell
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell", for: indexPath) as! CollectionviewTableCell
-                    // Sort the results
-                    Categories = Categories.sorted {
-                        guard let first = $0.Name else {
-                            return false
-                        }
-                        guard let second = $1.Name else {
-                            return true
-                        }
-                        return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending }
-                    DispatchQueue.main.async {
-        //                cell.galleryCollectionView.contentOffset = .zero
-                        cell.nameLabel.text = self.Categories[indexPath.row].Name
-                        cell.catId = self.Categories[indexPath.row].key ?? ""
-                        cell.setUpDataSource()
-                        cell.delegate = self
-                        self.Categories[indexPath.row].trademarks = self.Trades
-                    }
 
-                    return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell", for: indexPath) as! CollectionviewTableCell
+
+            self.Categories = self.Categories.sorted {
+                guard let first = $0.Name else {
+                    return false
+                }
+                guard let second = $1.Name else {
+                    return true
+                }
+                return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
+            } // End of sorting result
+            
+            
+            cell.tradeDict = self.Categories[indexPath.row].trademarks
+            cell.setUpDataSource()
+            cell.nameLabel.text = self.Categories[indexPath.row].Name
+            cell.catId = self.Categories[indexPath.row].key ?? ""
+            cell.delegate = self
+            return cell
                 }
         
          func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-                return 160
+            return 200.0
             }
-    
+
     
     func dataUser () {
-           
            ref = Database.database().reference()
            handle = ref?.child("Users").child((user?.uid)!).child("Name").observe(.value, with: { (snapshot) in
                let currentName = snapshot.value as? String
@@ -327,51 +350,6 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
                })
        
        }
-    
-    
-    
-
-    
-
-    
-    var Trades = [Trademark]()
-    var trade : Trademark!
-    
-//     Get Categories
-    func getCategories(){
-        self.Categories = []
-        self.key1 = [Any]()
-        self.key2 = [:]
-        self.Trades = []
-        let catRef = Database.database().reference()
-        catRef.child("Categories").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snap) in
-            if let dict = snap.value as? [String : AnyObject] {
-                self.cat = dict as NSDictionary
-                for item in dict {
-                    self.key1.append(item.key)
-                }
-                for c in self.key1 {
-                    self.key2 = self.cat[c] as! NSDictionary
-                    self.catID.append(c)
-                    self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.Trades)
-                    self.Categories.append(self.category)
-//                    print(self.Categories)
-                }
-            }
-            DispatchQueue.main.async {
-                self.tbleList.reloadData()
-            }
-
-        })
-    }
-    
-
-    
-
-    
-    
-    
-
     
     //MARK: - Segue preparation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -450,6 +428,8 @@ extension LastViewController {
                     }
    }
 
+
+
 extension UITableView {
 
     func indicatorView() -> UIActivityIndicatorView{
@@ -483,4 +463,6 @@ extension UITableView {
         indicatorView().stopAnimating()
         indicatorView().isHidden = true
     }
+    
+    
 }
