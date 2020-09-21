@@ -21,4 +21,5 @@ pod 'RealmSwift'
 pod 'FirebaseUI/Google'
 pod 'FLAnimatedImage'
 pod 'SideMenu'
+pod 'SDWebImage'
 end

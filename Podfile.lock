@@ -114,6 +114,9 @@ PODS:
   - Realm/Headers (5.4.2)
   - RealmSwift (5.4.2):
     - Realm (= 5.4.2)
+  - SDWebImage (5.9.1):
+    - SDWebImage/Core (= 5.9.1)
+  - SDWebImage/Core (5.9.1)
   - SideMenu (6.4.9)
 
 DEPENDENCIES:
@@ -127,6 +130,7 @@ DEPENDENCIES:
   - FLAnimatedImage
   - IQKeyboardManagerSwift
   - RealmSwift
+  - SDWebImage
   - SideMenu
 
 SPEC REPOS:
@@ -155,6 +159,7 @@ SPEC REPOS:
     - PromisesObjC
     - Realm
     - RealmSwift
+    - SDWebImage
     - SideMenu
 
 SPEC CHECKSUMS:
@@ -182,8 +187,9 @@ SPEC CHECKSUMS:
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   Realm: ced868eb0254f8d33a21c06981355e5aa33bc005
   RealmSwift: aedc4363150f3c61f91ae0537ed116d2d080a4dd
+  SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
   SideMenu: 8ef57a3cfc024a2d3fc1c036c7fe98537baec9e0
 
-PODFILE CHECKSUM: 98ee50d3b8e8a1d34f5a9f147fd6df7fd8def762
+PODFILE CHECKSUM: a4b9201e96684a75b395e4bea81e5e8ad8d129eb
 
 COCOAPODS: 1.9.3

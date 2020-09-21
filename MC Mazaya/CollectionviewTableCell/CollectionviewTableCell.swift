@@ -2,14 +2,14 @@
 //  CollectionviewTableCell.swift
 //  UICollectionViewInsideUitableViewCell
 //
-//  Created by Aman Aggarwal on 27/09/19.
-//  Copyright © 2019 Aman Aggarwal. All rights reserved.
+//  Created by Alhanouf Khalid on 21/09/20.
+//  Copyright © 2020 Alhanouf Khalid. All rights reserved.
 //
 
 
 import Firebase
 import UIKit
-
+import SDWebImage
 
 protocol CollectionCellDelegator {
     func callSegueFromCell(myData dataobject: Trademark)
@@ -93,9 +93,11 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     }
     
     
-        
+    var url = URL(string: "")
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
+//        cell.imgvAvatar.image = UIImage()
+        
         Trades = Trades.sorted {
         guard let first = $0.BrandName else {
             return false
@@ -105,26 +107,11 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         }
         return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending }
         DispatchQueue.main.async {
-            
-
-        cell.imgvAvatar.tag = indexPath.row
-//            cell.percent.text = self.Trades[indexPath.row].offerTitle ?? ""
-            
-            if let imageURL =  self.Trades[indexPath.row].brandImage {
-                let url = URL(string: imageURL)
-                URLSession.shared.dataTask(with: (url ?? URL(string: "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))!, completionHandler: { (data, response, error) in
-                    if error != nil {
-                        print("Error: \(String(describing: error?.localizedDescription))")
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        cell.imgvAvatar.image = UIImage(data: data!)
-                    }
-                }).resume()
-            }
-        cell.imgvAvatar.clipsToBounds = true
-        cell.imgvAvatar.image = UIImage(named: "whiteBG")
-        cell.imgvAvatar.layer.cornerRadius =  20
+            cell.percent.text = self.Trades[indexPath.row].BrandName ?? ""
+            let imageURL = self.Trades[indexPath.row].brandImage
+            cell.imgvAvatar.sd_setImage(with: URL(string: imageURL ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
+            cell.imgvAvatar.clipsToBounds = true
+            cell.imgvAvatar.layer.cornerRadius =  20
         }
         return cell
     }
@@ -132,16 +119,16 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         didSelectItemAction?(indexPath)
+        
         if (self.delegate != nil) {
             self.delegate.callSegueFromCell(myData: Trades[indexPath.row])
         }
+        
     }
+
+    // function to convert image url into UIImage
     
-
     
-
-
-
     
 }
 

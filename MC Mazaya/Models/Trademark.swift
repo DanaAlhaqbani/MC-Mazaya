@@ -6,6 +6,7 @@
 //  Copyright © 1442 MC. All rights reserved.
 //
 import Foundation
+import UIKit
 struct Trademark {
 
     var BrandName : String?
@@ -38,3 +39,5 @@ struct Trademark {
     }
     
 }
+
+
