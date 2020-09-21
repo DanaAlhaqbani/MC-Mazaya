@@ -20,6 +20,7 @@ class TrademarkCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+//        print(nam)
 
         // Configure the view for the selected state
     }

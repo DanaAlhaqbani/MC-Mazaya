@@ -12,6 +12,7 @@ class TrademarkTableVC: UIViewController {
     @IBOutlet weak var trademarksTableView: UITableView!
     var trades = [Trademark]()//[String]()
    var trademarksImages = ["patchi","patchi","patchi","patchi"] //[String]()
+    var name = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class TrademarkTableVC: UIViewController {
         // Make the table view looks good
         trademarksTableView.separatorStyle = .none
         trademarksTableView.showsVerticalScrollIndicator = false
-    
+    print(name)
     }
     
 }

@@ -17,8 +17,17 @@ protocol CollectionCellDelegator {
 }
 
 
-class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UICollectionViewDelegate{
-
+class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UICollectionViewDelegate {
+    func convertrdTrades(myData dataObject: [Trademark]) {
+        self.Trades = dataObject
+    }
+    
+    
+    func reloadCollection() {
+        self.galleryCollectionView.reloadData()
+    }
+    
+    let firstInitializer = firstViewController()
     var delegate : CollectionCellDelegator!
     var didSelectItemAction: ((IndexPath) -> Void)?
     @IBOutlet weak var nameLabel: UILabel!
@@ -34,6 +43,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     var catId = String()
     var cat : NSDictionary = [:]
     var category : Category!
+    var Trades = [Trademark]()
 
     @IBAction func allBtn(_ sender: Any) {
             if self.delegate != nil {
@@ -51,6 +61,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         super.awakeFromNib()
         allBtn.layer.cornerRadius = 5
         allBtn.clipsToBounds = true
+//        self.firstInitializer.tradeMArksDelegate = self
 //        galleryCollectionView.delegate = self
 //        galleryCollectionView.dataSource = self
         // Initialization code
@@ -70,7 +81,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     //MARK:- setUpDataSource
     func setUpDataSource() {
         DispatchQueue.main.async {
-            self.convertToTrades()
+            self.galleryCollectionView.reloadData()
         }
     }
     
@@ -97,10 +108,11 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
             
 
         cell.imgvAvatar.tag = indexPath.row
-            cell.percent.text = self.Trades[indexPath.row].offerTitle ?? ""
-            let url = URL(string: self.Trades[indexPath.row].brandImage ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png" )
-            if url != nil {
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//            cell.percent.text = self.Trades[indexPath.row].offerTitle ?? ""
+            
+            if let imageURL =  self.Trades[indexPath.row].brandImage {
+                let url = URL(string: imageURL)
+                URLSession.shared.dataTask(with: (url ?? URL(string: "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))!, completionHandler: { (data, response, error) in
                     if error != nil {
                         print("Error: \(String(describing: error?.localizedDescription))")
                         return
@@ -129,24 +141,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     
 
 
-    var Trades = [Trademark]()
-    var currentTrade : Trademark!
-    var tradeDict : [String : Any]!
-    var tradeInfo : NSDictionary!
-    
-    func convertToTrades(){
-        self.tradeInfo = [:]
-        self.Trades = []
-        if tradeDict != nil {
-            for i in tradeDict.values {
-                self.tradeInfo = i as? NSDictionary
-                self.currentTrade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo?["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.tradeInfo?["Branches"] as? [String : Any], offerTitle: self.tradeInfo?["OffersDescription"] as? String, offerType: self.tradeInfo?["offerType"] as? String, offerDetails: self.tradeInfo?["offerDetails"] as? String,numberOfCoupons: self.tradeInfo?["numberOfCoupons"] as? Int, numberOfPoints: self.tradeInfo?["numberOfPoints"] as? Int, serviceType: self.tradeInfo?["serviceType"] as? String, endDate: self.tradeInfo?["endDate"] as? String, startDate: self.tradeInfo?["startDate"] as? String)
-                self.Trades.append(self.currentTrade)
-            }
-        }
-        self.galleryCollectionView.reloadData()
-    }
-    
+
     
 }
 

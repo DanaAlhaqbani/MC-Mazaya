@@ -85,7 +85,9 @@
 		E73A421A25120A3F00F45CC5 /* CollectionviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A421325120A3F00F45CC5 /* CollectionviewTableCell.swift */; };
 		E73A421B25120A3F00F45CC5 /* DscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A421425120A3F00F45CC5 /* DscriptionViewController.swift */; };
 		E73A421C25120A3F00F45CC5 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73A421525120A3F00F45CC5 /* GalleryCollectionViewCell.xib */; };
-		E7ABDCF8251737BF00B6C4B9 /* stc_font_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E73A420B251209F700F45CC5 /* stc_font_regular.ttf */; };
+		E7ABDCFB25173DF900B6C4B9 /* stc_font_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7ABDCFA25173DF900B6C4B9 /* stc_font_regular.ttf */; };
+		E7ABDCFD2517710B00B6C4B9 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ABDCFC2517710B00B6C4B9 /* Offer.swift */; };
+		E7ABDCFF251771F500B6C4B9 /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ABDCFE251771F500B6C4B9 /* Branch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,7 +167,6 @@
 		D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		D6FF724524A4A52100EFA660 /* profileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileTextField.swift; sourceTree = "<group>"; };
-		E73A420B251209F700F45CC5 /* stc_font_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stc_font_regular.ttf; sourceTree = "<group>"; };
 		E73A420F25120A3D00F45CC5 /* NewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTableViewController.swift; sourceTree = "<group>"; };
 		E73A421025120A3E00F45CC5 /* CollectionviewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionviewTableCell.xib; sourceTree = "<group>"; };
 		E73A421125120A3E00F45CC5 /* DscriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DscriptionViewController.xib; sourceTree = "<group>"; };
@@ -173,6 +174,9 @@
 		E73A421325120A3F00F45CC5 /* CollectionviewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionviewTableCell.swift; sourceTree = "<group>"; };
 		E73A421425120A3F00F45CC5 /* DscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DscriptionViewController.swift; sourceTree = "<group>"; };
 		E73A421525120A3F00F45CC5 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		E7ABDCFA25173DF900B6C4B9 /* stc_font_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stc_font_regular.ttf; sourceTree = "<group>"; };
+		E7ABDCFC2517710B00B6C4B9 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		E7ABDCFE251771F500B6C4B9 /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,7 +324,7 @@
 		D6D44CDB24A8BC3400FAAFAF /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E73A420B251209F700F45CC5 /* stc_font_regular.ttf */,
+				E7ABDCFA25173DF900B6C4B9 /* stc_font_regular.ttf */,
 				3BD352F424FD1D560053BC66 /* stc_font_light.otf */,
 			);
 			path = fonts;
@@ -347,6 +351,8 @@
 				D6E8F25724BDB2AB00A4AA9D /* FamilyMember.swift */,
 				D6521A4824F4F62A00382FFD /* Trademark.swift */,
 				D60B6BDC24FFA40E006552AC /* Category.swift */,
+				E7ABDCFC2517710B00B6C4B9 /* Offer.swift */,
+				E7ABDCFE251771F500B6C4B9 /* Branch.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -430,10 +436,10 @@
 				D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */,
 				E73A421825120A3F00F45CC5 /* DscriptionViewController.xib in Resources */,
 				E73A421C25120A3F00F45CC5 /* GalleryCollectionViewCell.xib in Resources */,
-				E7ABDCF8251737BF00B6C4B9 /* stc_font_regular.ttf in Resources */,
 				D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */,
 				E73A421725120A3F00F45CC5 /* CollectionviewTableCell.xib in Resources */,
 				D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */,
+				E7ABDCFB25173DF900B6C4B9 /* stc_font_regular.ttf in Resources */,
 				A99D996624FF8AB60035D2FF /* GoogleService-Info.plist in Resources */,
 				D641E9B2249F3031001851A9 /* Main.storyboard in Resources */,
 			);
@@ -520,6 +526,7 @@
 				D6521A4B24F5215D00382FFD /* AdminTrademarksViewController.swift in Sources */,
 				D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */,
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
+				E7ABDCFD2517710B00B6C4B9 /* Offer.swift in Sources */,
 				3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */,
 				D65880C42508B29A00BE29F9 /* TrademarkTableVC.swift in Sources */,
 				D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */,
@@ -531,6 +538,7 @@
 				D6381EB124ADD3F7004569D6 /* FamilyViewController.swift in Sources */,
 				D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */,
 				3BD3530A24FD26260053BC66 /* CustomSegmentedControl.swift in Sources */,
+				E7ABDCFF251771F500B6C4B9 /* Branch.swift in Sources */,
 				D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */,
 				E73A421A25120A3F00F45CC5 /* CollectionviewTableCell.swift in Sources */,
 				D6A8F38A24F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift in Sources */,

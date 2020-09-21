@@ -19,7 +19,7 @@ protocol handleRetrievedData {
 
 class firstViewController: UIViewController {
     var timer = Timer()
-    
+    var trades2 = [Trademark]()
     //MARK: -Variables for category fetching
     var catName : Array<Any> = []
     var key1 = [Any]()
@@ -28,13 +28,24 @@ class firstViewController: UIViewController {
     var catID : Array<Any> = []
     var Categories = [Category]()
     var category : Category!
-    var Trades = [Trademark]()
     var trade : Trademark!
     var trades : [String: Any]!
     var deleagte : handleRetrievedData?
-    
+    var currentTrade : Trademark!
+    var tradeInfo : NSDictionary!
+    var offer : Offer!
+    var offersDict = [String : Any]()
+    var offers = [Offer]()
+    var offerInfo : NSDictionary!
+    var branch : Branch!
+    var branchInfo : NSDictionary!
+    var branches = [Branch]()
+    var branchDict = [String : Any]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("hh")
+
         view.generalGradiantView()
         DispatchQueue.main.async {
             self.showApp()
@@ -156,6 +167,7 @@ class firstViewController: UIViewController {
         let userNavViewController = homeViewController?.viewControllers![4] as? UINavigationController
         let lastView = userNavViewController?.viewControllers[0]  as! LastViewController
         lastView.Categories = self.Categories
+        lastView.Trades = self.trades2
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
     }
@@ -186,40 +198,58 @@ class firstViewController: UIViewController {
             ])
         }
 
-        //     Get Categories
+       
+        // Get Categories
         func getCategories(){
             self.Categories = []
             self.key1 = [Any]()
+            self.tradeInfo = [:]
             self.key2 = [:]
-            self.Trades = []
             self.trades = [:]
+            self.trades2 = []
 
             let catRef = Database.database().reference()
             catRef.child("Categories").observeSingleEvent(of: .value, with: { (snap) in
-                print("Hiiiiiiiiiiieiieie")
                 if let dict = snap.value as? [String : AnyObject] {
                     self.cat = dict as NSDictionary
                     for item in dict {
                         self.key1.append(item.key)
                     }
                     for c in self.key1 {
+                        self.trades = [:]
+                        self.trades2 = []
                         self.key2 = self.cat[c] as! NSDictionary
                         self.catID.append(c)
                         self.trades = self.key2["TradeMarks"] as? [String: AnyObject]
-                        self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades)
+                        
+                        if self.trades != nil {
+                            for i in self.trades.values {
+                                self.tradeInfo = i as? NSDictionary
+                                self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.tradeInfo?["Branches"] as? [Branch], offers: self.tradeInfo?["Offers"] as? [Offer])
+                                self.trades2.append(self.trade)
+                            }
+                        }
+                        self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades2)
                         self.Categories.append(self.category)
                     }
                 }
                 self.deleagte?.reloadTable()
                 self.deleagte?.retrievedCategories(myData: self.Categories)
                 self.moveToTheTabBarViewController()
-            }, withCancel: { error in
-                print("error.localizedDescription")
-            }
-            )
+            })
         }
         
+        
+        
 
+//        func convertOffers(tradeInfo: NSDictionary){
+//
+//                }
+//        }
+//
+//        func convertBranches(tradeInfo: NSDictionary){
+//
+//        }
         
     }
 

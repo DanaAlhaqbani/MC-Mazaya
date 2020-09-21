@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import SideMenu
+
 struct userData {
     static var name = ""
     static var email = ""
@@ -22,7 +23,7 @@ struct userData {
 
 
 
-class LastViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, CollectionCellDelegator, handleRetrievedData {
+class LastViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, CollectionCellDelegator, handleRetrievedData, UISearchBarDelegate {
 
     
 
@@ -44,6 +45,7 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
            self.performSegue(withIdentifier: "trademarks", sender: dataobject)
     }
     
+    let searchBar = UISearchController(searchResultsController: nil)
     
     /// MainHomeViewController
     let user = Auth.auth().currentUser
@@ -263,6 +265,11 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
         override func viewDidLoad() {
             super.viewDidLoad()
             firstInitailizer.deleagte = self
+            self.searchBar.searchBar.delegate = self
+            self.navigationItem.searchController = self.searchBar
+            self.searchBar.searchBar.searchBarStyle = .prominent
+            self.searchBar.searchBar.placeholder = "ما الذي تبحث عنه ؟"
+            self.searchBar.searchBar.semanticContentAttribute = .forceRightToLeft
             dataUser()
             setUpUI()
             tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
@@ -276,12 +283,18 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
         
           //MARK: Table View delegate and datasource
               func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+                if searchBar.isActive == true && searchBar.searchBar.text != "" {
+                    return filteredData.count
+                }
                 return 9
             }
     
           func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
             let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell", for: indexPath) as! CollectionviewTableCell
+
+            if searchBar.isActive == true && searchBar.searchBar.text != "" {
+
+            }
 
             self.Categories = self.Categories.sorted {
                 guard let first = $0.Name else {
@@ -294,11 +307,13 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
             } // End of sorting result
             
             
-            cell.tradeDict = self.Categories[indexPath.row].trademarks
+            cell.Trades = self.Categories[indexPath.row].trademarks ?? []
             cell.setUpDataSource()
             cell.nameLabel.text = self.Categories[indexPath.row].Name
             cell.catId = self.Categories[indexPath.row].key ?? ""
             cell.delegate = self
+//            cell.allBtn.tag = indexPath.row
+            
             return cell
                 }
         
@@ -342,11 +357,38 @@ class LastViewController: UIViewController , UITableViewDataSource, UITableViewD
         } // Show Description Segue
         
         if segue.identifier == "trademarks" {
-            let dis = segue.destination as! TrademarkTableVC
-            dis.trades = sender as? [Trademark] ?? []
+//            let dis = segue.destination as! TrademarkTableVC
+
+//            if let indexPath = tbleList.indexPathForSelectedRow {
+//                 let selectedRow = indexPath.row
+//                print(selectedRow)
+//                dis.name = self.Categories[selectedRow].Name ?? <#default value#>
+//                }
+                let dis = segue.destination as! TrademarkTableVC
+                dis.trades = sender as? [Trademark] ?? []
+//
+//                dis.name = self.Categories[selectedRow].Name ?? ""
+            
+            
         } // Show Trademarks Segue
     } // Prepare Function
-
+    
+    
+    
+    
+    var filteredData = [Category]()
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = Categories
+        for c in Categories {
+            let tradeMarks = c.trademarks
+//            var names = tradeMarks?["BrandName"]
+//            print(names)
+        }
+        self.tbleList.reloadData()
+    }
+    
+    
 } // Class end
 
 
@@ -408,6 +450,9 @@ extension LastViewController {
                                 mainViewXConstraint.isActive = true
                     
                     }
+    
+    
+    
    }
 
 
@@ -416,7 +461,7 @@ extension UITableView {
 
     func indicatorView() -> UIActivityIndicatorView{
         var activityIndicatorView = UIActivityIndicatorView()
-        if self.tableFooterView == nil{
+        if self.tableFooterView == nil {
             let indicatorFrame = CGRect(x: 0, y: 0, width: self.bounds.width, height: 40)
             activityIndicatorView = UIActivityIndicatorView(frame: indicatorFrame)
             activityIndicatorView.isHidden = false
@@ -424,7 +469,7 @@ extension UITableView {
             activityIndicatorView.isHidden = true
             self.tableFooterView = activityIndicatorView
             return activityIndicatorView
-        }else{
+        } else {
             return activityIndicatorView
         }
     }
@@ -438,7 +483,9 @@ extension UITableView {
                 }
             }
         }
+        
         indicatorView().isHidden = false
+    
     }
 
     func stopLoading(){
