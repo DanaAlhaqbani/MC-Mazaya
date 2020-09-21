@@ -62,6 +62,7 @@
 		D6D150E624BC6D9C00547B97 /* textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D150E524BC6D9C00547B97 /* textField.swift */; };
 		D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CCD24A8773E00FAAFAF /* XUI.swift */; };
 		D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */; };
+		D6D87CBE25174A4D00CCFED5 /* stc_font_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D87CBD25174A4D00CCFED5 /* stc_font_regular.ttf */; };
 		D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA493424C05A6F0020DB22 /* CustomCells.swift */; };
 		D6DC5C0024B5BC320063CF8D /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC5BFF24B5BC320063CF8D /* FAQViewController.swift */; };
 		D6E1285E24A07F6400977D26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E1285D24A07F6400977D26 /* LoginViewController.swift */; };
@@ -151,6 +152,7 @@
 		D6D150E524BC6D9C00547B97 /* textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textField.swift; sourceTree = "<group>"; };
 		D6D44CCD24A8773E00FAAFAF /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
 		D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassPresenter.swift; sourceTree = "<group>"; };
+		D6D87CBD25174A4D00CCFED5 /* stc_font_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stc_font_regular.ttf; sourceTree = "<group>"; };
 		D6DA493424C05A6F0020DB22 /* CustomCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
 		D6DC5BFF24B5BC320063CF8D /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		D6E1285D24A07F6400977D26 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
