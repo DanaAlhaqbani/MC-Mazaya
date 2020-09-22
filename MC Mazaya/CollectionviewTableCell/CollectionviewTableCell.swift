@@ -111,10 +111,6 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         }
         return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending }
         DispatchQueue.main.async {
-            self.Offers = self.Trades[indexPath.row].offers ?? []
-            self.branches = self.Trades[indexPath.row].branches ?? []
-//            cell.p
-            cell.offerTitle.text = self.Trades[indexPath.row].BrandName
             let imageURL = self.Trades[indexPath.row].brandImage
             cell.imgvAvatar.sd_setImage(with: URL(string: imageURL ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
             cell.imgvAvatar.clipsToBounds = true

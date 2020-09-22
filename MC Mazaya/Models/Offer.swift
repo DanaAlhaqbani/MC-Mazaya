@@ -10,8 +10,8 @@ import Foundation
 
 struct Offer {
     var DiscountCode : String?
-    var numberOfCoupons : Int?
-    var numberOfPoints : Int?
+    var numberOfCoupons : String?
+    var numberOfPoints : String?
     var offerType : String?
     var offerDiscription : String?
     var offersDetails : String?
@@ -20,7 +20,7 @@ struct Offer {
     var endDate : String?
     var startDate : String?
     
-    init(discountCode : String?, numberOfCoupons : Int?, numberOfPoints : Int?, offerType : String?, offerDiscription : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?) {
+    init(discountCode : String?, numberOfCoupons : String?, numberOfPoints : String?, offerType : String?, offerDiscription : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?) {
         self.DiscountCode = discountCode
         self.numberOfCoupons = numberOfCoupons
         self.numberOfPoints = numberOfPoints

@@ -255,7 +255,7 @@ extension launchViewController {
             if arrayOffers != nil {
                 for i in arrayOffers {
                     offersDict = i as! [String : Any]
-                    self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["numberOfCoupons"] as? Int, numberOfPoints: self.offersDict["numberOfPoints"] as? Int, offerType: self.offersDict["offerType"] as? String, offerDiscription: self.offersDict["offerDiscription"] as? String, offersDetails: self.offersDict["offersDetails"] as? String, offerTitle: self.offersDict["offerTitle"] as? String, serviceType: self.offersDict["serviceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String)
+                    self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["NumberOfCoupons"] as? String, numberOfPoints: self.offersDict["NumberOfPoints"] as? String, offerType: self.offersDict["OfferType"] as? String, offerDiscription: self.offersDict["OffersDescription"] as? String, offersDetails: self.offersDict["OffersDetails"] as? String, offerTitle: self.offersDict["OffersTitle"] as? String, serviceType: self.offersDict["ServiceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String)
                     self.offers.append(self.offer)
                 }
             }
