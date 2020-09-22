@@ -15,24 +15,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GalleryCollectionViewCell" customModule="MC_Mazaya" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="146" height="137"/>
+            <rect key="frame" x="0.0" y="0.0" width="153" height="160"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="146" height="137"/>
+                <rect key="frame" x="0.0" y="0.0" width="153" height="160"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-O9-OV5">
-                        <rect key="frame" x="23" y="115" width="100" height="17"/>
-                        <color key="backgroundColor" red="0.12718924879999999" green="0.55440622569999998" blue="0.52718424799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-O9-OV5">
+                        <rect key="frame" x="26.5" y="118.5" width="100" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="0IS-uo-hnn"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" red="0.12718924879999999" green="0.55440622569999998" blue="0.52718424799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dQQ-zA-OAE">
-                        <rect key="frame" x="23" y="10.5" width="100" height="100"/>
+                        <rect key="frame" x="26.5" y="10.5" width="100" height="100"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -40,23 +39,34 @@
                             <constraint firstAttribute="height" constant="100" id="cOE-5Y-yBw"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMP-Js-chP">
+                        <rect key="frame" x="11" y="140.5" width="130" height="18.5"/>
+                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="14"/>
+                        <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="cnS-O9-OV5" firstAttribute="top" secondItem="dQQ-zA-OAE" secondAttribute="bottom" constant="8" id="1Qs-SB-sDV"/>
+                <constraint firstItem="CMP-Js-chP" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="11" id="45h-IP-dQt"/>
                 <constraint firstItem="cnS-O9-OV5" firstAttribute="trailing" secondItem="dQQ-zA-OAE" secondAttribute="trailing" id="78Y-Rf-yVc"/>
                 <constraint firstItem="cnS-O9-OV5" firstAttribute="leading" secondItem="dQQ-zA-OAE" secondAttribute="leading" id="Hkl-hz-4pT"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="cnS-O9-OV5" secondAttribute="bottom" constant="5" id="R0W-Qy-h6y"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="CMP-Js-chP" secondAttribute="trailing" constant="12" id="IFh-26-PYp"/>
                 <constraint firstItem="dQQ-zA-OAE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="WGp-f7-2nO"/>
                 <constraint firstItem="dQQ-zA-OAE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10.5" id="c3d-z2-fGV"/>
+                <constraint firstAttribute="bottom" secondItem="CMP-Js-chP" secondAttribute="bottom" constant="1" id="fuo-wK-0ZN"/>
+                <constraint firstItem="CMP-Js-chP" firstAttribute="top" secondItem="cnS-O9-OV5" secondAttribute="bottom" constant="5" id="mCc-Ii-4ww"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="146" height="137"/>
+            <size key="customSize" width="153" height="161"/>
             <connections>
                 <outlet property="imgvAvatar" destination="dQQ-zA-OAE" id="XZe-M8-UT7"/>
-                <outlet property="percent" destination="cnS-O9-OV5" id="d2K-zt-pU4"/>
+                <outlet property="offerDetails" destination="CMP-Js-chP" id="f9P-TL-U7d"/>
+                <outlet property="offerTitle" destination="cnS-O9-OV5" id="auW-8k-QWv"/>
             </connections>
-            <point key="canvasLocation" x="207.24637681159422" y="130.91517857142856"/>
+            <point key="canvasLocation" x="212.31884057971016" y="136.60714285714286"/>
         </collectionViewCell>
     </objects>
 </document>

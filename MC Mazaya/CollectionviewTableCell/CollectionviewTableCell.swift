@@ -2,8 +2,8 @@
 //  CollectionviewTableCell.swift
 //  UICollectionViewInsideUitableViewCell
 //
-//  Created by Alhanouf Khalid on 21/09/20.
-//  Copyright © 2020 Alhanouf Khalid. All rights reserved.
+//  Created by Alhanouf khalid on 04/02/1442 AH.
+//  Copyright © 1442 MC. All rights reserved.
 //
 
 
@@ -25,9 +25,9 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     
     func reloadCollection() {
         self.galleryCollectionView.reloadData()
+        self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
     }
     
-    let firstInitializer = firstViewController()
     var delegate : CollectionCellDelegator!
     var didSelectItemAction: ((IndexPath) -> Void)?
     @IBOutlet weak var nameLabel: UILabel!
@@ -44,7 +44,8 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     var cat : NSDictionary = [:]
     var category : Category!
     var Trades = [Trademark]()
-
+    var Offers = [Offer]()
+    var branches = [Branch]()
     @IBAction func allBtn(_ sender: Any) {
             if self.delegate != nil {
                 self.delegate.selectedCategory(myData: self.Trades)
@@ -52,27 +53,27 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     }
     
     @IBOutlet weak var galleryCollectionView: UICollectionView!
-    
     lazy var  infoArray = [Any]()
-    
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         allBtn.layer.cornerRadius = 5
         allBtn.clipsToBounds = true
-//        self.firstInitializer.tradeMArksDelegate = self
-//        galleryCollectionView.delegate = self
-//        galleryCollectionView.dataSource = self
+//      self.firstInitializer.tradeMArksDelegate = self
+//      galleryCollectionView.delegate = self
+//      galleryCollectionView.dataSource = self
         // Initialization code
         galleryCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 150.00, height: 150.00)
+        flowLayout.itemSize = CGSize(width: 155.00, height: 155.00)
         flowLayout.minimumInteritemSpacing = 1.0
         galleryCollectionView.collectionViewLayout = flowLayout
         galleryCollectionView.delegate = self
         galleryCollectionView.dataSource = self
+        galleryCollectionView.semanticContentAttribute = .forceRightToLeft
+
     }
     
     
@@ -82,6 +83,9 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     func setUpDataSource() {
         DispatchQueue.main.async {
             self.galleryCollectionView.reloadData()
+            self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
+            self.galleryCollectionView.scrollsToTop = true
+
         }
     }
     
@@ -107,11 +111,17 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         }
         return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending }
         DispatchQueue.main.async {
-            cell.percent.text = self.Trades[indexPath.row].BrandName ?? ""
+            self.Offers = self.Trades[indexPath.row].offers ?? []
+            self.branches = self.Trades[indexPath.row].branches ?? []
+//            cell.p
+            cell.offerTitle.text = self.Trades[indexPath.row].BrandName
             let imageURL = self.Trades[indexPath.row].brandImage
             cell.imgvAvatar.sd_setImage(with: URL(string: imageURL ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
             cell.imgvAvatar.clipsToBounds = true
+            cell.imgvAvatar.layer.borderColor = UIColor.systemGray3.cgColor
+            cell.imgvAvatar.layer.borderWidth = 0.3
             cell.imgvAvatar.layer.cornerRadius =  20
+            
         }
         return cell
     }
@@ -125,10 +135,6 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         }
         
     }
-
-    // function to convert image url into UIImage
-    
-    
     
 }
 

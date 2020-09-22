@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TrademarkTableVC: UIViewController, CollectionCellDelegator {
     var delegate : CollectionCellDelegator!
@@ -55,18 +56,8 @@ extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
         cell.trademarkName.text = trademarkName
         cell.Des.text = trademarkDes
         //cell.trademarkImage.image = UIImage(named: trademarkImage ?? "")
-        let url = URL(string: trades[indexPath.row].brandImage ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png" )
-        if url != nil {
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                if error != nil {
-                    print("Error: \(String(describing: error?.localizedDescription))")
-                    return
-                }
-                DispatchQueue.main.async {
-                    cell.trademarkImage.image = UIImage(data: data!)
-                }
-            }).resume()
-        }        //make the cell looks good
+        let imageURL = trades[indexPath.row].brandImage
+        cell.trademarkImage.sd_setImage(with: URL(string: imageURL ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
         cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 3
         cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
         cell.trademarkView.layer.borderWidth = 1

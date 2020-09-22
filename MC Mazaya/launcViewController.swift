@@ -1,9 +1,9 @@
 //
-//  firstViewController.swift
+//  launcViewController.swift
 //  MC Mazaya
 //
-//  Created by دانة الحقباني on 08/11/1441 AH.
-//  Copyright © 1441 MC. All rights reserved.
+//  Created by Alhanouf khalid on 04/02/1442 AH.
+//  Copyright © 1442 MC. All rights reserved.
 //
 
 import UIKit
@@ -17,41 +17,54 @@ protocol handleRetrievedData {
 }
 
 
-class firstViewController: UIViewController {
+class launchViewController: UIViewController {
     var timer = Timer()
     var trades2 = [Trademark]()
+    
     //MARK: -Variables for category fetching
-    var catName : Array<Any> = []
     var key1 = [Any]()
     var key2 : NSDictionary = [:]
     var cat : NSDictionary = [:]
     var catID : Array<Any> = []
     var Categories = [Category]()
     var category : Category!
+    //MARK: - Variables for trademarks fetching
     var trade : Trademark!
     var trades : [String: Any]!
     var deleagte : handleRetrievedData?
     var currentTrade : Trademark!
     var tradeInfo : NSDictionary!
+    //MARK: - Variables for offers fetching
     var offer : Offer!
     var offersDict = [String : Any]()
     var offers = [Offer]()
     var offerInfo : NSDictionary!
+    var arrayOffers : NSArray!
+
+    //MARK: - Variables for branches fetching
     var branch : Branch!
     var branchInfo : NSDictionary!
     var branches = [Branch]()
     var branchDict = [String : Any]()
-
+    var arrayBranches : NSArray!
+    //MARK: - Variables of Views
+    var aView : UIView?
+    var bView = UIView()
+    
+    //MARK: - Lets
+    let ai = UIActivityIndicatorView(style: .large)
+    let reloadButton = UIButton()
+    let reloadLabel = UILabel()
+    
+    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hh")
-
         view.generalGradiantView()
         DispatchQueue.main.async {
             self.showApp()
             self.tabBarController?.tabBar.isUserInteractionEnabled = true
         }
-                //UI
         setupUI()
         logoImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
         titleImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
@@ -60,10 +73,10 @@ class firstViewController: UIViewController {
             self.titleImage.transform = .identity
         }) { (true) in
         self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.nothing), userInfo: nil, repeats: false)
-                }
             }
-    var aView : UIView?
-    let ai = UIActivityIndicatorView(style: .large)
+        }
+    
+    //MARK: - Loading Launch screen & luanch the app
     @objc func nothing() {
         aView = UIView(frame: self.view.bounds)
         aView?.backgroundColor = .white
@@ -75,9 +88,6 @@ class firstViewController: UIViewController {
         self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.showReloadButton), userInfo: nil, repeats: false)
         }
     
-    let reloadButton = UIButton()
-    let reloadLabel = UILabel()
-    var bView = UIView()
     @objc func showReloadButton(){
         bView = UIView(frame: self.view.bounds)
         bView.backgroundColor = .white
@@ -108,81 +118,83 @@ class firstViewController: UIViewController {
         self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(showReloadButton), userInfo: nil, repeats: false)
     }
        
-       @objc func showApp() {
+    @objc func showApp() {
         self.authenticateUserAndConfigureView()
     }
        
-
-       let logoImage : UIImageView = {
-           $0.translatesAutoresizingMaskIntoConstraints = false
-           $0.image = #imageLiteral(resourceName: "LogoMaz")
-           $0.clipsToBounds = true
-           $0.contentMode = .scaleAspectFit
-           return $0
-       }(UIImageView())
+    
+    //MARK: - UI Lets
+    let logoImage : UIImageView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.image = #imageLiteral(resourceName: "LogoMaz")
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFit
+        return $0
+    }(UIImageView())
        
     
-       let titleImage : UIImageView = {
-           $0.translatesAutoresizingMaskIntoConstraints = false
-           $0.image = #imageLiteral(resourceName: "utBt")
-           $0.clipsToBounds = true
-           $0.contentMode = .scaleAspectFit
-           return $0
-       }(UIImageView())
+    let titleImage : UIImageView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.image = #imageLiteral(resourceName: "utBt")
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFit
+        return $0
+    }(UIImageView())
     
     
+    //MARK: -Direct user based on type
     func authenticateUserAndConfigureView(){
         if Auth.auth().currentUser?.email == "mazaya@mc.gov.sa" {
+            // User logged as Admin
             moveToAdminViewController()
         }
         else if Auth.auth().currentUser?.uid != nil {
+            // User logged as employee or family member
             getCategories()
-            
         } else {
         //user is not logged in
             moveToLoginViewController()
-            print("/////////////////////")
         }
-
-       }
+    }
     
-    
-        func moveToAdminViewController () {
-            if let storyboard = self.storyboard{
-                let AdminHomeVC = storyboard.instantiateViewController(withIdentifier: "adminHome") as! UIViewController
-                     // home page
-                     //let userNavViewController = AdminHomeViewController?.viewControllers![1] as? UINavigationController
-                    // let userHomeViewController = userNavViewController?.viewControllers[0] as? homeViewController
-                     self.view.window?.rootViewController = AdminHomeVC
-                     self.view.window?.makeKeyAndVisible()
-            }
+    func moveToAdminViewController () {
+        if let storyboard = self.storyboard{
+            let AdminHomeVC = storyboard.instantiateViewController(withIdentifier: "adminHome")
+            // home page
+            //let userNavViewController = AdminHomeViewController?.viewControllers![1] as? UINavigationController
+            // let userHomeViewController = userNavViewController?.viewControllers[0] as? homeViewController
+            self.view.window?.rootViewController = AdminHomeVC
+            self.view.window?.makeKeyAndVisible()
         }
-    
+    }
     
     
     func moveToTheTabBarViewController () {
         let homeViewController = storyboard?.instantiateViewController(withIdentifier: "VCTabBar") as? UITabBarController
-        
         // home page
         let userNavViewController = homeViewController?.viewControllers![4] as? UINavigationController
-        let lastView = userNavViewController?.viewControllers[0]  as! LastViewController
+        let lastView = userNavViewController?.viewControllers[0]  as! homePageViewController
         lastView.Categories = self.Categories
         lastView.Trades = self.trades2
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
     }
-       func moveToLoginViewController () {
-           if let storyboard = self.storyboard{
-               let newViewController = storyboard.instantiateViewController(withIdentifier: "loginNV") as! UINavigationController
-               newViewController.modalPresentationStyle = .fullScreen
-               self.present(newViewController, animated: true, completion: nil)
-           }
-       }
+    
+    func moveToLoginViewController () {
+        if let storyboard = self.storyboard{
+            let newViewController = storyboard.instantiateViewController(withIdentifier: "loginNV") as! UINavigationController
+            newViewController.modalPresentationStyle = .fullScreen
+            self.present(newViewController, animated: true, completion: nil)
+        }
+    }
     
 
-}
-    extension firstViewController {
-        
+} // End of the class
+
+
+
+extension launchViewController {
+        //MARK: - User interface Setup
         func setupUI() {
             view.addSubview(logoImage)
             view.addSubview(titleImage)
@@ -199,7 +211,7 @@ class firstViewController: UIViewController {
         }
 
        
-        // Get Categories
+        // MARK: - Get Categories & store trademarks info 
         func getCategories(){
             self.Categories = []
             self.key1 = [Any]()
@@ -221,13 +233,9 @@ class firstViewController: UIViewController {
                         self.key2 = self.cat[c] as! NSDictionary
                         self.catID.append(c)
                         self.trades = self.key2["TradeMarks"] as? [String: AnyObject]
-                        
                         if self.trades != nil {
-                            for i in self.trades.values {
-                                self.tradeInfo = i as? NSDictionary
-                                self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.tradeInfo?["Branches"] as? [Branch], offers: self.tradeInfo?["Offers"] as? [Offer])
-                                self.trades2.append(self.trade)
-                            }
+                            self.converTrades()
+                                                        
                         }
                         self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades2)
                         self.Categories.append(self.category)
@@ -239,17 +247,42 @@ class firstViewController: UIViewController {
             })
         }
         
-        
-        
+        func convertOffers(tradeInfo: NSDictionary){
+            self.arrayOffers = []
+            self.offersDict = [:]
+            self.offers = []
+            self.arrayOffers = tradeInfo["Offers"] as? NSArray
+            if arrayOffers != nil {
+                for i in arrayOffers {
+                    offersDict = i as! [String : Any]
+                    self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["numberOfCoupons"] as? Int, numberOfPoints: self.offersDict["numberOfPoints"] as? Int, offerType: self.offersDict["offerType"] as? String, offerDiscription: self.offersDict["offerDiscription"] as? String, offersDetails: self.offersDict["offersDetails"] as? String, offerTitle: self.offersDict["offerTitle"] as? String, serviceType: self.offersDict["serviceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String)
+                    self.offers.append(self.offer)
+                }
+            }
+        }
 
-//        func convertOffers(tradeInfo: NSDictionary){
-//
-//                }
-//        }
-//
-//        func convertBranches(tradeInfo: NSDictionary){
-//
-//        }
+        func convertBranches(tradeInfo: NSDictionary){
+            self.arrayBranches = []
+            self.branchDict = [:]
+            self.branches = []
+            self.arrayBranches = tradeInfo["Branches"] as? NSArray
+            if arrayBranches != nil {
+                for i in arrayBranches {
+                    branchDict = i as! [String : Any]
+                    self.branch = Branch(BranchLink: self.branchDict["BranchLink"] as? String, BrancheName: self.branchDict["BrancheName"] as? String, DescriptionBranch: self.branchDict["DescriptionBranch"] as? String)
+                    self.branches.append(self.branch)
+                }
+            }
+        }
         
+        func converTrades(){
+            for i in self.trades.values {
+                self.tradeInfo = i as? NSDictionary
+                convertBranches(tradeInfo: self.tradeInfo)
+                convertOffers(tradeInfo: self.tradeInfo)
+                self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers)
+                self.trades2.append(self.trade)
+            }
+        }
     }
 

@@ -10,17 +10,16 @@ import UIKit
 
 class GalleryCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var offerTitle: UILabel!
     @IBOutlet weak var imgvAvatar: UIImageView!
 //    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var percent: UILabel!
 
-   
+    @IBOutlet weak var offerDetails: UILabel!
+    
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-       
         
     }
 
