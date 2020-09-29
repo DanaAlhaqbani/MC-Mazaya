@@ -35,6 +35,9 @@ class BranchesViewController: UIViewController {
     
     @IBOutlet weak var NextButton: UIButton!
     
+    @IBOutlet weak var InformUser: UILabel!
+    
+    
      var ref : DatabaseReference?
       var myindex = 0
     
@@ -96,6 +99,7 @@ class BranchesViewController: UIViewController {
     DescriptionBranchTxt.text! = ""
     BranchLinkTxt.text! = ""
         
+        InformUser.text="تم اضافة من الفروع \(myindex)"
         
      //let MoreBranches = ["BrancheName":BrancheName.text! ,"DescriptionBranch": DescriptionBranchTxt.text! ,"BranchLink":BranchLinkTxt.text! ]
         

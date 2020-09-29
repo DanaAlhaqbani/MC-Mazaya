@@ -70,7 +70,7 @@ class AddTrademark : UIViewController, UITextFieldDelegate , UIPickerViewDelegat
     
     @IBOutlet weak var Instagram: UITextField!
     
-     @IBOutlet var imageview: UIImageView!
+     //@IBOutlet var imageview: UIImageView!
    
     @IBOutlet weak var Twitter: UITextField!
     

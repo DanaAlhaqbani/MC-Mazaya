@@ -46,6 +46,7 @@ class AddOffersViewController: UIViewController {
     
     @IBOutlet weak var couponOffer: UIButton!
     
+    
     //MARK: - Properties
     var ref : DatabaseReference?
     var datePicker = UIDatePicker()
