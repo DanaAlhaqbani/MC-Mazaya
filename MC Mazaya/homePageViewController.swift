@@ -196,6 +196,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         cell.setUpDataSource()
         cell.nameLabel.text = self.Categories[indexPath.row].Name
         cell.catId = self.Categories[indexPath.row].key ?? ""
+//        cell.Offers = self
         cell.delegate = self
         return cell
     }

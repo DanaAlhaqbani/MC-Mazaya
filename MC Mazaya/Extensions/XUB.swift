@@ -152,9 +152,8 @@ extension UIButton {
             white.cornerRadius = 25
             self.layer.addSublayer(white)
             white.setShadow()
-           
-            
         }
+    
 }
 
 extension CGLayer {
@@ -170,10 +169,18 @@ extension CGLayer {
     func generalGradiantView() {
         let green = UIColor(rgb: 0x38a089)
         let dark = UIColor(rgb: 0x00524d)
-
         let topColor = UIColor.green
         let bottomColor =  UIColor.white
-        
         self.setGradientBackground(colorOne: topColor, colorTwo: bottomColor)
     }
 }
+
+extension UIButton {
+   func setBackgroundColor(_ color: UIColor, forState controlState: UIControl.State) {
+     let colorImage = UIGraphicsImageRenderer(size: CGSize(width: 1, height: 1)).image { _ in
+       color.setFill()
+       UIBezierPath(rect: CGRect(x: 0, y: 0, width: 1, height: 1)).fill()
+     }
+     setBackgroundImage(colorImage, for: controlState)
+   }
+ }

@@ -82,6 +82,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     //MARK:- setUpDataSource
     func setUpDataSource() {
         DispatchQueue.main.async {
+            self.Offers = []
             self.galleryCollectionView.reloadData()
             self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
 //            self.galleryCollectionView.scrollsToTop = true
@@ -119,6 +120,12 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
             cell.imgvAvatar.layer.borderWidth = 0.3
             cell.imgvAvatar.layer.cornerRadius =  20
             
+            self.Offers = self.Trades[indexPath.row].offers ?? []
+            if self.Offers.count != 0 {
+                cell.offerTitle.text = self.Offers[0].offerTitle
+                cell.offerDetails.text = self.Offers[0].offersDetails
+                
+            }
         }
         return cell
     }
@@ -130,6 +137,10 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         if (self.delegate != nil) {
             self.delegate.callSegueFromCell(myData: Trades[indexPath.row])
         }
+        
+    }
+    
+    func getBigOffer(){
         
     }
     

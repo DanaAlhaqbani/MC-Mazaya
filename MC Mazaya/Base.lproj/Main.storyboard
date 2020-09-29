@@ -683,8 +683,8 @@
                                         <rect key="frame" x="0.0" y="162" width="414" height="280"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="التصنيف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-Zi-t6W">
-                                                <rect key="frame" x="320" y="25" width="59" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="316" y="25" width="63" height="33.5"/>
+                                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="20"/>
                                                 <color key="textColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -762,35 +762,38 @@
                                         <rect key="frame" x="0.0" y="444" width="414" height="308"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نوع المتجر" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQx-Y2-jZP">
-                                                <rect key="frame" x="307.5" y="25" width="71.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="312.5" y="40" width="66.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                 <color key="textColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gKg-Cc-iWd">
-                                                <rect key="frame" x="108" y="74" width="198" height="30"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqM-ai-VPH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOJ-6k-B3d">
-                                                        <rect key="frame" x="76" y="0.0" width="46" height="30"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7c-PH-t13">
-                                                        <rect key="frame" x="152" y="0.0" width="46" height="30"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
-                                                </subviews>
+                                                <rect key="frame" x="41" y="74" width="332" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="13E-xV-qwM"/>
+                                                </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jr-Ra-BwY">
+                                                <rect key="frame" x="37.5" y="194" width="339" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="339" id="wur-G0-nIf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="WQx-Y2-jZP" firstAttribute="top" secondItem="hSi-BO-FOv" secondAttribute="top" constant="25" id="3b7-lL-C2U"/>
+                                            <constraint firstItem="WQx-Y2-jZP" firstAttribute="top" secondItem="hSi-BO-FOv" secondAttribute="top" constant="40" id="3b7-lL-C2U"/>
+                                            <constraint firstAttribute="trailing" secondItem="gKg-Cc-iWd" secondAttribute="trailing" constant="41" id="ADR-H5-0tq"/>
+                                            <constraint firstAttribute="bottom" secondItem="7Jr-Ra-BwY" secondAttribute="bottom" constant="50" id="E3L-wJ-U5U"/>
                                             <constraint firstItem="gKg-Cc-iWd" firstAttribute="top" secondItem="hSi-BO-FOv" secondAttribute="top" constant="74" id="X99-bI-NlQ"/>
+                                            <constraint firstItem="gKg-Cc-iWd" firstAttribute="top" secondItem="WQx-Y2-jZP" secondAttribute="bottom" constant="15" id="fBg-Wm-rjd"/>
+                                            <constraint firstItem="7Jr-Ra-BwY" firstAttribute="centerX" secondItem="hSi-BO-FOv" secondAttribute="centerX" id="hhO-An-w7u"/>
                                             <constraint firstItem="gKg-Cc-iWd" firstAttribute="centerX" secondItem="hSi-BO-FOv" secondAttribute="centerX" id="lLJ-d9-Vdq"/>
+                                            <constraint firstItem="7Jr-Ra-BwY" firstAttribute="top" secondItem="gKg-Cc-iWd" secondAttribute="bottom" constant="70" id="oNm-zd-ZGq"/>
                                             <constraint firstAttribute="trailing" secondItem="WQx-Y2-jZP" secondAttribute="trailing" constant="35" id="uCH-EW-crP"/>
+                                            <constraint firstItem="gKg-Cc-iWd" firstAttribute="leading" secondItem="hSi-BO-FOv" secondAttribute="leading" constant="41" id="unX-hU-Qf1"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -821,6 +824,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="PNo-NH-vaU"/>
                     <connections>
+                        <outlet property="applyBtn" destination="7Jr-Ra-BwY" id="29N-JP-M1X"/>
                         <outlet property="collectionView" destination="IDl-4w-A97" id="1Tc-CW-m1K"/>
                         <outlet property="orderStack" destination="GcK-6o-WOW" id="xqK-gZ-Ahq"/>
                         <outlet property="storeType" destination="gKg-Cc-iWd" id="Uns-vS-dZg"/>
