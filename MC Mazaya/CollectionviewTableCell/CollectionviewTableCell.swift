@@ -18,15 +18,15 @@ protocol CollectionCellDelegator {
 
 
 class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UICollectionViewDelegate {
-    func convertrdTrades(myData dataObject: [Trademark]) {
-        self.Trades = dataObject
-    }
-    
-    
-    func reloadCollection() {
-        self.galleryCollectionView.reloadData()
-        self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
-    }
+//    func convertrdTrades(myData dataObject: [Trademark]) {
+//        self.Trades = dataObject
+//    }
+//
+//
+//    func reloadCollection() {
+//        self.galleryCollectionView.reloadData()
+//        self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
+//    }
     
     var delegate : CollectionCellDelegator!
     var didSelectItemAction: ((IndexPath) -> Void)?
@@ -84,7 +84,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         DispatchQueue.main.async {
             self.galleryCollectionView.reloadData()
             self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
-            self.galleryCollectionView.scrollsToTop = true
+//            self.galleryCollectionView.scrollsToTop = true
 
         }
     }
@@ -113,6 +113,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         DispatchQueue.main.async {
             let imageURL = self.Trades[indexPath.row].brandImage
             cell.imgvAvatar.sd_setImage(with: URL(string: imageURL ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
+            print()
             cell.imgvAvatar.clipsToBounds = true
             cell.imgvAvatar.layer.borderColor = UIColor.systemGray3.cgColor
             cell.imgvAvatar.layer.borderWidth = 0.3

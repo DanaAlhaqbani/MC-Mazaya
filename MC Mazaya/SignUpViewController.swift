@@ -236,7 +236,10 @@ class SignUpViewController: UIViewController {
         }
         return false
     }
-    func signUp(email:String, password:String, confirmPassword:String, name:String, gender:String, phone: String){
+    
+    
+    
+    func signUp(email:String, password:String, confirmPassword:String, name:String, gender:String, phone: String) {
           // sign up
       
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
