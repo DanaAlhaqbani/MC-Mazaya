@@ -125,8 +125,8 @@ class LoginViewController: UIViewController {
         //=====Transfer to home page=====
         self.removeSpinner()
     if(emailTextField.text != "mazaya@mc.gov.sa"){
-
-        self.moveToTheTabBarViewController()
+        getCategories()
+//        self.moveToTheTabBarViewController()
 
         }
     else {
@@ -144,24 +144,23 @@ class LoginViewController: UIViewController {
             self.present(newViewController, animated: true, completion: nil)
         }
  */
-        let AdminhomeViewController = storyboard?.instantiateViewController(withIdentifier: "AdminTabBar") as? UITabBarController
-               let userNavViewController = AdminhomeViewController?.viewControllers![1] as? UINavigationController
-               let userHomeViewController = userNavViewController?.viewControllers[0] as? AdminHomeViewController
+        let AdminhomeViewController = storyboard?.instantiateViewController(withIdentifier: "adminHome")
+//               let userNavViewController = AdminhomeViewController?.viewControllers![1] as? UINavigationController
+//               let userHomeViewController = userNavViewController?.viewControllers[0] as? AdminHomeViewController
 
              
                self.view.window?.rootViewController = AdminhomeViewController
                self.view.window?.makeKeyAndVisible()
     }
    func moveToTheTabBarViewController () {
-          
-  //        TrophyVC.newUsections = self.UTsections
-  //        TrophyVC.newUPsections = self.UPsections
-    // AdminTabBar
-          
           let homeViewController = storyboard?.instantiateViewController(withIdentifier: "VCTabBar") as? UITabBarController
-          let userNavViewController = homeViewController?.viewControllers![1] as? UINavigationController
-          let userHomeViewController = userNavViewController?.viewControllers[0] as? homeViewController
-
+          let userNavViewController = homeViewController?.viewControllers![4] as? UINavigationController
+          let lastView = userNavViewController?.viewControllers[0]  as! homePageViewController
+          let userNavViewController2 = homeViewController?.viewControllers![3] as? UINavigationController
+          let bigOffers = userNavViewController2?.viewControllers[0] as! BigOffersViewController
+          bigOffers.Categories = self.Categories
+          lastView.Categories = self.Categories
+          lastView.Trades = self.trades2
           self.view.window?.rootViewController = homeViewController
           self.view.window?.makeKeyAndVisible()
       }
@@ -217,5 +216,106 @@ class LoginViewController: UIViewController {
                let blue = CGFloat(rgbValue & 0xFF)/256.0
                return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
            }
+    var trades2 = [Trademark]()
+    
+    //MARK: -Variables for category fetching
+    var key1 = [Any]()
+    var key2 : NSDictionary = [:]
+    var cat : NSDictionary = [:]
+    var catID : Array<Any> = []
+    var Categories = [Category]()
+    var category : Category!
+    //MARK: - Variables for trademarks fetching
+    var trade : Trademark!
+    var trades : [String: Any]!
+    var deleagte : handleRetrievedData?
+    var currentTrade : Trademark!
+    var tradeInfo : NSDictionary!
+    //MARK: - Variables for offers fetching
+    var offer : Offer!
+    var offersDict = [String : Any]()
+    var offers = [Offer]()
+    var offerInfo : NSDictionary!
+    var arrayOffers : NSArray!
+
+    //MARK: - Variables for branches fetching
+    var branch : Branch!
+    var branchInfo : NSDictionary!
+    var branches = [Branch]()
+    var branchDict = [String : Any]()
+    var arrayBranches : NSArray!
+    // MARK: - Get Categories & store trademarks info
+    func getCategories(){
+        self.Categories = []
+        self.key1 = [Any]()
+        self.tradeInfo = [:]
+        self.key2 = [:]
+        self.trades = [:]
+        self.trades2 = []
+
+        let catRef = Database.database().reference()
+        catRef.child("Categories").observeSingleEvent(of: .value, with: { (snap) in
+            if let dict = snap.value as? [String : AnyObject] {
+                self.cat = dict as NSDictionary
+                for item in dict {
+                    self.key1.append(item.key)
+                }
+                for c in self.key1 {
+                    self.trades = [:]
+                    self.trades2 = []
+                    self.key2 = self.cat[c] as! NSDictionary
+                    self.catID.append(c)
+                    self.trades = self.key2["TradeMarks"] as? [String: AnyObject]
+                    if self.trades != nil {
+                        self.converTrades()
+                                                    
+                    }
+                    self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades2)
+                    self.Categories.append(self.category)
+                }
+            }
+            self.deleagte?.reloadTable()
+            self.deleagte?.retrievedCategories(myData: self.Categories)
+            self.moveToTheTabBarViewController()
+        })
+    }
+    
+    func convertOffers(tradeInfo: NSDictionary){
+        self.arrayOffers = []
+        self.offersDict = [:]
+        self.offers = []
+        self.arrayOffers = tradeInfo["Offers"] as? NSArray
+        if arrayOffers != nil {
+            for i in arrayOffers {
+                offersDict = i as! [String : Any]
+                self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["NumberOfCoupons"] as? String, numberOfPoints: self.offersDict["NumberOfPoints"] as? String, offerType: self.offersDict["OfferType"] as? String, offerDiscription: self.offersDict["OffersDescription"] as? String, offersDetails: self.offersDict["OffersDetails"] as? String, offerTitle: self.offersDict["OffersTitle"] as? String, serviceType: self.offersDict["ServiceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String)
+                self.offers.append(self.offer)
+            }
+        }
+    }
+
+    func convertBranches(tradeInfo: NSDictionary){
+        self.arrayBranches = []
+        self.branchDict = [:]
+        self.branches = []
+        self.arrayBranches = tradeInfo["Branches"] as? NSArray
+        if arrayBranches != nil {
+            for i in arrayBranches {
+                branchDict = i as! [String : Any]
+                self.branch = Branch(BranchLink: self.branchDict["BranchLink"] as? String, BrancheName: self.branchDict["BrancheName"] as? String, DescriptionBranch: self.branchDict["DescriptionBranch"] as? String)
+                self.branches.append(self.branch)
+            }
+        }
+    }
+    
+    func converTrades(){
+        for i in self.trades.values {
+            self.tradeInfo = i as? NSDictionary
+            convertBranches(tradeInfo: self.tradeInfo)
+            convertOffers(tradeInfo: self.tradeInfo)
+            self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers)
+            self.trades2.append(self.trade)
+        }
+    }
         
 }

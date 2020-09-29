@@ -174,6 +174,9 @@ class launchViewController: UIViewController {
         // home page
         let userNavViewController = homeViewController?.viewControllers![4] as? UINavigationController
         let lastView = userNavViewController?.viewControllers[0]  as! homePageViewController
+        let userNavViewController2 = homeViewController?.viewControllers![3] as? UINavigationController
+        let bigOffers = userNavViewController2?.viewControllers[0] as! BigOffersViewController
+        bigOffers.Categories = self.Categories
         lastView.Categories = self.Categories
         lastView.Trades = self.trades2
         self.view.window?.rootViewController = homeViewController

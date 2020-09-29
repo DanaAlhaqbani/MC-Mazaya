@@ -7,9 +7,19 @@
 //
 import UIKit
 import Firebase
-class BigOffersViewController: UIViewController {
+class BigOffersViewController: UIViewController, handleRetrievedData {
+    func reloadTable() {
+        self.trademarksTableView.reloadData()
+    }
+    
+    func retrievedCategories(myData dataObject: [Category]) {
+        self.Categories = dataObject
+    }
+    
+    
     var Categories = [Category]()
       var Trades = [Trademark]()
+    let first = launchViewController()
     var BigOffersTitles = [String]()
     var BigOffersNames = [String]()
     var ref: DatabaseReference?
@@ -22,6 +32,8 @@ class BigOffersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.first.deleagte = self
+        print(Categories)
        // retrieveTrades()
         trademarksTableView.delegate = self
         trademarksTableView.dataSource = self
@@ -40,16 +52,16 @@ class BigOffersViewController: UIViewController {
            self.ref?.observe(.value) { (snapshot) in
               // self.imagesGroup.enter()
 
-               
+
                if snapshot.childrenCount > 0 {
                    self.Categories.removeAll()
-                   
+
                    // get sections
                    for cate in snapshot.children.allObjects as![DataSnapshot] {
                        let category = cate.value as?[String: AnyObject]
                        let name = category?["Name"]
                        let key = cate.key
-                    
+
                        let ref2 = Database.database().reference().child("Categories").child(key).child("TradeMarks")
                        ref2.observe(.value) { (snapshot) in
                        self.Trades.removeAll()
@@ -60,17 +72,17 @@ class BigOffersViewController: UIViewController {
                            let name = trademark?["BrandName"] as! String
                            let offerTitle = trademark?["OffersTitle"] as! String
                            let levKey = trad.key
-                           
+
                            if offerTitle == "صفقة" {
                                self.BigOffersNames.append(name)
                                self.BigOffersTitles.append(offerTitle)
                            }
                            }
 
-                           
+
 
                        }
-                   
+
                        } // end second observe
                    } // end for each sec
                } // end if has childeren
@@ -86,16 +98,16 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
         return 105
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trademarks.count
+        return Trades.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
-        //let trademarkName = BigOffersNames[indexPath.row]
-        //let trademarkImage = trademarksImages[indexPath.row]
-        //cell.trademarkName.text = trademarkName
-        //cell.trademarkImage.image = UIImage(named: trademarkImage)
-        //make the cell looks good
+        let trademarkName = BigOffersNames[indexPath.row]
+        let trademarkImage = trademarksImages[indexPath.row]
+        cell.trademarkName.text = trademarkName
+        cell.trademarkImage.image = UIImage(named: trademarkImage)
+//        make the cell looks good
         cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 3
         cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
         cell.trademarkView.layer.borderWidth = 1.5
