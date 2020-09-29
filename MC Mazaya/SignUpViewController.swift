@@ -93,6 +93,7 @@ class SignUpViewController: UIViewController {
         super.viewWillAppear(animated)
         
     }
+    
     func validateData(email:String, password:String, confirmPassword:String, name:String, gender:String, phone:String) {
           
         if name.isEmpty || email.isEmpty  || password.isEmpty  || confirmPassword.isEmpty || phone.isEmpty {

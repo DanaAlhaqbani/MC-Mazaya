@@ -2,8 +2,8 @@
 //  DscriptionViewController.swift
 //  MC Mazaya
 //
-//  Created by ALHANOUF  on 7/5/20.
-//  Copyright © 2020 MC. All rights reserved.
+//  Created by Ajwan Alshaye  on 21/9/20.
+//  Copyright © 2020 Ajwan Alshaye. All rights reserved.
 //
 
 import UIKit
@@ -17,14 +17,7 @@ class DscriptionViewController : UIViewController , UITextViewDelegate{
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var img: UIImageView!
     
-//    fileprivate var texts = ["مستعمل","جديد"]
-//
-//    fileprivate var popover: Popover!
-//     fileprivate var popoverOptions: [PopoverOption] = [
-//         .type(.up),
-//         .blackOverlayColor(UIColor(white: 0.0, alpha: 0.6))
-//     ]
-//class DscriptionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+
 
  
     func createSegmentedControl(){
@@ -96,189 +89,32 @@ class DscriptionViewController : UIViewController , UITextViewDelegate{
     var items : [String] = []
 
 
-//   //////// 33333333333333
-//    let productName: UITextField = {
-//          let tf = UITextField()
-//          tf.placeholder = "Email"
-//          tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
-//          tf.borderStyle = .roundedRect
-//          tf.font = UIFont.systemFont(ofSize: 14)
-//          return tf
-//      }()
-//
-//
-//      let phoneNumTxtField: UITextField = {
-//          let tf = UITextField()
-//          tf.placeholder = "Email"
-//          tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
-//          tf.borderStyle = .roundedRect
-//          tf.font = UIFont.systemFont(ofSize: 14)
-//          return tf
-//      }()
-//
-//
-//      let emailTextField: UITextField = {
-//          let tf = UITextField()
-//          tf.placeholder = "Email"
-//          tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
-//          tf.borderStyle = .roundedRect
-//          tf.font = UIFont.systemFont(ofSize: 14)
-//          return tf
-//      }()
-//
-//
-//      let locationTxtField: UITextField = {
-//          let tf = UITextField()
-//          tf.placeholder = "Email"
-//          tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
-//          tf.borderStyle = .roundedRect
-//          tf.font = UIFont.systemFont(ofSize: 14)
-//          return tf
-//      }()
-//
-//
-//        let descriptionLabel: UILabel = {
-//            let label = UILabel()
-//            label.textColor = .lightGray
-//            return label
-//        }()
-//
-//        lazy var descriptionTextView: UITextView = {
-//            let tv = UITextView()
-//            tv.translatesAutoresizingMaskIntoConstraints = false
-//            tv.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular)
-//            tv.backgroundColor = UIColor.rgb(red: 234, green: 234, blue: 234)
-//
-//            tv.delegate = self
-//            tv.becomeFirstResponder()
-//            return tv
-//        }()
-//
-//        lazy var itemLabel: UILabel = {
-//              let label = UILabel()
-//              label.text = "جديد  ▼"
-//              label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMore)))
-//              label.textAlignment = .center
-//              label.isUserInteractionEnabled = true
-//
-//              return label
-//          }()
-//
-//
-//
-//
-//        lazy var itemConditionView: Popover = {
-//            let view = Popover()
-//            view.backgroundColor = .lightGray
-//
-//            view.animationIn = 0.6
-//            view.animationOut = 0.3
-//            view.popoverType = .down
-//            let startPoint = CGPoint(x: view.frame.width - 60, y: 55)
-//            //60
-//            let width = view.frame.width / 4
-//            let aView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 220))
-//            let options: [PopoverOption] = [.type(.up), .cornerRadius(width / 5), .showBlackOverlay(false)]
-//            let popover = Popover(options: options, showHandler: nil, dismissHandler: nil)
-//            popover.show(aView, fromView: itemLabel)
-//            view.show(aView, point: startPoint)
-//            return view
-//        }()
-//
-//
-//
-//
-//
-//        @objc func handleMore() {
-//
-//            let tableView = UITableView(frame: CGRect(x: 0, y: 0, width:  view.frame.width / 2, height: 250))
-//            tableView.delegate = self
-//            tableView.dataSource = self
-//            tableView.isScrollEnabled = true
-//
-//            let width = view.frame.width / 2
-//
-//            self.popover = Popover(options: self.popoverOptions)
-//            self.popover.willShowHandler = {
-//                print("willShowHandler")
-//            }
-//            self.popover.didShowHandler = {
-//                print("didDismissHandler")
-//            }
-//            self.popover.willDismissHandler = {
-//                print("willDismissHandler")
-//            }
-//            self.popover.didDismissHandler = {
-//                print("didDismissHandler")
-//            }
-//            self.popover.show(tableView, fromView: self.itemLabel)
-//
-//        }
-//
-//
-//
-//
-//
-//        let addPictures: UIButton = {
-//            let button = UIButton()
-//            button.setTitle("اضف صوره", for: .normal)
-//            return button
-//        }()
-//
-//
 
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            //            \\\\\\\\\\
+           
                         let codeSegmented = CustomSegmentedControl(frame: CGRect(x: 0, y: 50, width: self.view.frame.width, height: 50), buttonTitle: ["من نحن ", "الفروع ", "العروض  "])
                                codeSegmented.backgroundColor = .clear
                                view.addSubview(codeSegmented)
-            //            \\\\\\\\\\
+            
     }
-//            let stack1 = UIStackView(arrangedSubviews: [productName,phoneNumTxtField])
-//            stack1.distribution = .fillEqually
-//            stack1.axis = .vertical
-//            stack1.spacing = 5
-//
-//
-//
-//            let stack2 = UIStackView(arrangedSubviews: [itemConditionView,emailTextField])
-//            stack2.distribution = .fillEqually
-//            stack2.axis = .vertical
-//            stack1.spacing = 5
-//
-//
-//
-//            view.addSubview(emailTextField)
-//            emailTextField.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 12, paddingLeft: 12, paddingBottom: 12, paddingRight: 12, width: 0, height: 0)
-//
+//    extension UIImage {
+//        var circleMask: UIImage? {
+//            let square = CGSize(width: min(size.width, size.height), height: min(size.width, size.height))
+//            let imageView = UIImageView(frame: .init(origin: .init(x: 0, y: 0), size: square))
+//            imageView.contentMode = .scaleAspectFill
+//            imageView.image = self
+//            imageView.layer.cornerRadius = square.width/2
+//            imageView.layer.borderColor = UIColor.white.cgColor
+//            imageView.layer.borderWidth = 5
+//            imageView.layer.masksToBounds = true
+//            UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
+//            defer { UIGraphicsEndImageContext() }
+//            guard let context = UIGraphicsGetCurrentContext() else { return nil }
+//            imageView.layer.render(in: context)
+//            return UIGraphicsGetImageFromCurrentImageContext()
 //        }
 //    }
-//
-//
-//    extension DscriptionViewController: UITableViewDelegate {
-//        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//            self.popover?.dismiss()
-//            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-//            cell.textLabel?.text = self.texts[(indexPath as NSIndexPath).row]
-//            itemLabel.text = cell.textLabel?.text
-//            itemLabel.font = UIFont.boldSystemFont(ofSize: 16)
-//        }
-//    }
-//
-//
-//    extension DscriptionViewController: UITableViewDataSource {
-//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//            return texts.count
-//        }
-//
-//        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-//            cell.textLabel?.text = self.texts[(indexPath as NSIndexPath).row]
-//
-//            return cell
-//        }
-//
-//
+
 }
