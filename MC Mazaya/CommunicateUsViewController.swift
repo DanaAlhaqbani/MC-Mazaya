@@ -51,10 +51,13 @@ class CommunicateUsViewController: UIViewController {
         }(UIButton(type: .system))
     @objc func FAQAction() {
        print("=========Pressed FAQ=========")
+        /*
        let storyboard = UIStoryboard(name: "Main", bundle: nil)
        let secondVC = storyboard.instantiateViewController(identifier: "FAQ")
        
         navigationController?.pushViewController(secondVC, animated: true)
+*/
+        performSegue(withIdentifier: "toFAQPage", sender: self)
 
         
     }

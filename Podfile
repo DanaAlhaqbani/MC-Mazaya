@@ -16,11 +16,10 @@ pod 'Firebase/Database'
 pod 'Firebase/Core'
 pod 'FirebaseUI/Auth'
 pod 'Firebase/Storage'
-
 pod 'DropDown'
 pod 'RealmSwift'
-
 pod 'FirebaseUI/Google'
 pod 'FLAnimatedImage'
 pod 'SideMenu'
+pod 'SDWebImage'
 end

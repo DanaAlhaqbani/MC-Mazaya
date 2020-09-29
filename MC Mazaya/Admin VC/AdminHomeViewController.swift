@@ -44,12 +44,31 @@ class AdminHomeViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
-            //setUpUI()
+            self.title = "الرئيسية"
+            
+          // self.tabBarController?.tabBar.isHidden = false
+
+          setUpUI()
         }
+    /*
+   override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+           self.tabBarController?.tabBar.isHidden = false
+        
+      }
+    
+      override func viewWillDisappear(_ animated: Bool) {
+          super.viewWillDisappear(animated)
+          self.tabBarController?.tabBar.isHidden = false
+      }
+ */
     //    Side Menu Code
+    @IBAction func logoutAction(_ sender: Any) {
+        logout()
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
                isMenuShow = false
-               mainViewXConstraint.constant = 0
+              // mainViewXConstraint.constant = 0
                rightBarButtonItem.tintColor = green
                UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
                    self.view.layoutIfNeeded()
@@ -75,9 +94,10 @@ class AdminHomeViewController: UIViewController {
            }
 
            let mainView : UIView = {
-               //$0.translatesAutoresizingMaskIntoConstraints = false
+               $0.translatesAutoresizingMaskIntoConstraints = false
                //$0.backgroundColor = .init(white: 0.95, alpha: 1)
                $0.layer.zPosition = 100
+               $0.isHidden = true
                return $0
            }(UIView())
 
@@ -157,13 +177,16 @@ class AdminHomeViewController: UIViewController {
                    navigationController?.pushViewController(AdminRegionsViewController(), animated: true)
                }
                else if sender.tag == 11 {
-                   navigationController?.pushViewController(employeesViewController(), animated: true)
+                performSegue(withIdentifier: "toManageEmp", sender: self)
+                   //navigationController?.pushViewController(employeesViewController(), animated: true)
                }
                    else if sender.tag == 12 {
-                   navigationController?.pushViewController(ReviewSuggestionsViewController(), animated: true)
+                performSegue(withIdentifier: "toReviewSug", sender: self)
+                   //navigationController?.pushViewController(ReviewSuggestionsViewController(), animated: true)
                }
                else if sender.tag == 13 {
-                   navigationController?.pushViewController(EndOffersViewController(), animated: true)
+                performSegue(withIdentifier: "toEngOffers", sender: self)
+                   //navigationController?.pushViewController(EndOffersViewController(), animated: true)
                       }
               
                else if  sender.tag == 14 {
@@ -189,9 +212,6 @@ class AdminHomeViewController: UIViewController {
                       }
                       }
        
-    
-    
-    
 
     }
     extension AdminHomeViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -224,19 +244,21 @@ class AdminHomeViewController: UIViewController {
         }
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
               print(indexPath.row)
-            performSegue(withIdentifier: "toTrademarks", sender: self)
+           performSegue(withIdentifier: "toTrademarks", sender: self)
 
         }
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "toTrademarks" {
                 let nextVC = segue.destination as? AdminTrademarksViewController
-                //nextVC?.pageTitle = pageTitle
+                nextVC?.pageTitle = pageTitle
+                self.hidesBottomBarWhenPushed = true
                 //nextVC?.setSection(section: sectionIndicator!)
                // nextVC?.Usections = self.Usections
                // nextVC?.sectionNumber = sectionNumberClicked
                 
           
             }
+            
         }
         func setUpUI(){
                   self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
