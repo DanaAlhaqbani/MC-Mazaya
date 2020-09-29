@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -458,7 +458,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp0-Uo-p6V">
-                                                            <rect key="frame" x="180" y="5" width="89" height="28"/>
+                                                            <rect key="frame" x="57" y="5" width="212" height="28"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -476,9 +476,10 @@
                                                         <constraint firstAttribute="bottom" secondItem="Sp0-Uo-p6V" secondAttribute="bottom" constant="45" id="3ZA-Om-Lfm"/>
                                                         <constraint firstItem="XEK-C9-q6B" firstAttribute="leading" secondItem="Sp0-Uo-p6V" secondAttribute="trailing" constant="25" id="3hC-Yp-oU5"/>
                                                         <constraint firstAttribute="trailing" secondItem="XEK-C9-q6B" secondAttribute="trailing" id="980-XM-6nN"/>
+                                                        <constraint firstItem="Sp0-Uo-p6V" firstAttribute="leading" secondItem="enM-Qe-s1d" secondAttribute="leading" constant="57" id="DLV-4v-5oA"/>
+                                                        <constraint firstItem="Sp0-Uo-p6V" firstAttribute="top" secondItem="enM-Qe-s1d" secondAttribute="top" constant="5" id="Glr-TL-PRJ"/>
                                                         <constraint firstAttribute="bottom" secondItem="dD0-7Y-DbU" secondAttribute="bottom" constant="15" id="MT4-es-hU6"/>
                                                         <constraint firstItem="dD0-7Y-DbU" firstAttribute="leading" secondItem="enM-Qe-s1d" secondAttribute="leading" constant="45" id="NPa-TX-imX"/>
-                                                        <constraint firstItem="Sp0-Uo-p6V" firstAttribute="leading" secondItem="enM-Qe-s1d" secondAttribute="leading" constant="180" id="NVi-Om-BGg"/>
                                                         <constraint firstItem="Sp0-Uo-p6V" firstAttribute="top" secondItem="enM-Qe-s1d" secondAttribute="top" constant="5" id="dC6-Au-vH2"/>
                                                         <constraint firstItem="dD0-7Y-DbU" firstAttribute="top" secondItem="Sp0-Uo-p6V" secondAttribute="bottom" constant="1" id="ffw-9h-N3F"/>
                                                         <constraint firstItem="XEK-C9-q6B" firstAttribute="leading" secondItem="dD0-7Y-DbU" secondAttribute="trailing" constant="25" id="mXv-zH-4We"/>
@@ -513,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wmf-hp-XFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3029" y="-1598"/>
+            <point key="canvasLocation" x="3028.985507246377" y="-1598.4375"/>
         </scene>
         <!--استخدام العرض-->
         <scene sceneID="vB0-Jw-WeQ">
@@ -656,13 +657,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ترتيب بحسب" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkD-4K-ebF">
-                                                <rect key="frame" x="280" y="40" width="99" height="33.5"/>
+                                                <rect key="frame" x="290.5" y="40" width="88.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="20"/>
                                                 <color key="textColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GcK-6o-WOW">
-                                                <rect key="frame" x="41" y="88.5" width="332" height="50"/>
+                                                <rect key="frame" x="41" y="78.5" width="332" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3Bi-Qs-L6H"/>
                                                 </constraints>
