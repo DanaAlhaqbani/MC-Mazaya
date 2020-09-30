@@ -7,22 +7,24 @@
 //
 import UIKit
 import Firebase
-class BigOffersViewController: UIViewController, handleRetrievedData {
+import SDWebImage
+
+class BigOffersViewController: UIViewController, handleRetrievedData{
     func reloadTable() {
-        self.trademarksTableView.reloadData()
+        trademarksTableView.reloadData()
     }
     
     func retrievedCategories(myData dataObject: [Category]) {
         self.Categories = dataObject
     }
     
-    
     var Categories = [Category]()
       var Trades = [Trademark]()
-    let first = launchViewController()
     var BigOffersTitles = [String]()
     var BigOffersNames = [String]()
+    var BigOffersImage = [String]()
     var ref: DatabaseReference?
+    let firstVC = launchViewController()
     // for trademarks images
     var sectionsImages : [[String: Any]] = []
     
@@ -32,8 +34,12 @@ class BigOffersViewController: UIViewController, handleRetrievedData {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.first.deleagte = self
+        print("=========is passed categories?=======")
         print(Categories)
+        print("==========is passed trades?========")
+        print(Trades)
+        getBigOffers()
+        firstVC.deleagte = self
        // retrieveTrades()
         trademarksTableView.delegate = self
         trademarksTableView.dataSource = self
@@ -44,51 +50,37 @@ class BigOffersViewController: UIViewController, handleRetrievedData {
         cell.trademarkImage.sendSubviewToBack(cell.trademarkView)
 
     }
-    
-    func retrieveTrades(){
 
-           // Retrieve all Sections with their content
-           self.ref = Database.database().reference().child("Categories")
-           self.ref?.observe(.value) { (snapshot) in
-              // self.imagesGroup.enter()
-
-
-               if snapshot.childrenCount > 0 {
-                   self.Categories.removeAll()
-
-                   // get sections
-                   for cate in snapshot.children.allObjects as![DataSnapshot] {
-                       let category = cate.value as?[String: AnyObject]
-                       let name = category?["Name"]
-                       let key = cate.key
-
-                       let ref2 = Database.database().reference().child("Categories").child(key).child("TradeMarks")
-                       ref2.observe(.value) { (snapshot) in
-                       self.Trades.removeAll()
-
-
-                       for trad in snapshot.children.allObjects as![DataSnapshot] {
-                           let trademark = trad.value as?[String: AnyObject]
-                           let name = trademark?["BrandName"] as! String
-                           let offerTitle = trademark?["OffersTitle"] as! String
-                           let levKey = trad.key
-
-                           if offerTitle == "صفقة" {
-                               self.BigOffersNames.append(name)
-                               self.BigOffersTitles.append(offerTitle)
-                           }
-                           }
-
-
-
-                       }
-
-                       } // end second observe
-                   } // end for each sec
-               } // end if has childeren
-           } // end first observe
            
-
+    func getBigOffers(){
+        for cat in Categories {
+            let trades = cat.trademarks ?? []
+             for trad in trades{
+            let name = trad.BrandName ?? ""
+                let image = trad.brandImage ?? ""
+            let tradOffers = trad.offers ?? []
+            print("=============is print trades========")
+            print(trad)
+             for offer in tradOffers {
+                print("================is print offer===========")
+                print(offer)
+                if offer.offerType == "صفقة" {
+                    let offerTilte = offer.offerTitle ?? ""
+                    BigOffersNames.append(name)
+                    BigOffersImage.append(image)
+                    BigOffersTitles.append(offerTilte)
+                    
+               
+                }
+                
+            }
+            }
+        }
+        print("========print Big offers==========")
+                       print(BigOffersNames)
+                       print(BigOffersTitles)
+         
+    }
 
 
 }
@@ -98,16 +90,20 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
         return 105
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Trades.count
+        return BigOffersNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
         let trademarkName = BigOffersNames[indexPath.row]
-        let trademarkImage = trademarksImages[indexPath.row]
-        cell.trademarkName.text = trademarkName
-        cell.trademarkImage.image = UIImage(named: trademarkImage)
-//        make the cell looks good
+        let offerTitle = BigOffersTitles[indexPath.row]
+        let offerImage = BigOffersImage[indexPath.row]
+        //let trademarkImage = trademarksImages[indexPath.row]
+         cell.trademarkName.text = trademarkName
+         cell.Des.text = offerTitle
+         cell.trademarkImage.sd_setImage(with: URL(string: offerImage ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
+        //cell.trademarkImage.image = UIImage(named: trademarkImage)
+        //make the cell looks good
         cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 3
         cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
         cell.trademarkView.layer.borderWidth = 1.5
@@ -123,6 +119,5 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
         
     }
     
-
 
 
