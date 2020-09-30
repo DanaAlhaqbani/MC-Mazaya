@@ -42,6 +42,8 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("============is there categories=============")
+        print(Categories)
         setupSearchBar()
         handleDelegates()
         dataUser()
@@ -242,14 +244,14 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 let dis = segue.destination as! TrademarkTableVC
                 dis.trades = sender as? [Trademark] ?? []
         } // Show Trademarks Segue
+        if segue.identifier == "toNewOffers" {
+                     let dis = segue.destination as! NewOffersViewController
+                  dis.Categories = self.Categories
+             } // Show Trademarks Segue
     } // Prepare Function
     
 
 } // Class end
-
-
-
-
 
 
 //MARK: - Extension "setup userinterface and search bar"
