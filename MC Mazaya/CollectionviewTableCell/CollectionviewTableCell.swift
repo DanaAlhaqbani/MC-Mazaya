@@ -119,11 +119,10 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
             cell.imgvAvatar.layer.borderColor = UIColor.systemGray3.cgColor
             cell.imgvAvatar.layer.borderWidth = 0.3
             cell.imgvAvatar.layer.cornerRadius =  20
-            
+            cell.offerTitle.text = self.Trades[indexPath.row].BrandName
             self.Offers = self.Trades[indexPath.row].offers ?? []
             if self.Offers.count != 0 {
-                cell.offerTitle.text = self.Offers[0].offerTitle
-                cell.offerDetails.text = self.Offers[0].offersDetails
+                cell.offerDetails.text = self.Offers[0].offerTitle
                 
             }
         }
