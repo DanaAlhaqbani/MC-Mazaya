@@ -2,7 +2,7 @@
 //  DscriptionViewController.swift
 //  MC Mazaya
 //
-//  Created by ALHANOUF  on 7/5/20.
+//  Created by Ajwan Alshaye on 10/02/1442 AH.
 //  Copyright © 2020 MC. All rights reserved.
 //
 
@@ -14,41 +14,78 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
     
     
     //MARK: - IBOutlets
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var img: UIImageView!
-    @IBOutlet weak var nav: UINavigationItem!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var BrandLogo: UIImageView!
+    
+    @IBOutlet weak var BackgroundView: UIImageView!
+    
+    @IBOutlet weak var line: UIView!
+    
+    @IBOutlet weak var star: UIButton!
+    @IBOutlet weak var upperline: UIView!
+    
+    @IBOutlet weak var Replacement: UIButton!
     
     //MARK:- Variables
-    let identifier = "dis"
+   var checked = false
     var tradeInfo : Trademark!
-    var name = String()
-
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.label.text = tradeInfo.Name
-//        self.nav.leftBarButtonItem?.title = "عودة"
-//        loadImage()
+        segmentedControl.addUnderlineForSelectedSegment()
         
+        addTopAndBottomBorders()
+        
+        let yourImage:UIImage = UIImage(named: "images")!
+        BrandLogo.maskCircle(inputImage: yourImage)
+        
+        
+        upperline.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
+        
+        line.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
+        
+        Utilities.styleFilledButton(Replacement)
 
     }
     
     
-    //MARK: -Fetch Trademark Logo
-    func loadImage(){
-        let url = URL(string: tradeInfo.brandImage ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png")
-            if url != nil {
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                    if error != nil {
-                        print("Error: \(String(describing: error?.localizedDescription))")
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.img.image = UIImage(data: data!)
-                    }
-                }).resume()
-            }
+    //MARK: -
+    @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl){
+        segmentedControl.changeUnderlinePosition()
     }
+
+    func addTopAndBottomBorders() {
+       let thickness: CGFloat = 1.0
+       let topBorder = CALayer()
+       let bottomBorder = CALayer()
+       topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.BackgroundView.frame.size.width, height: thickness)
+        topBorder.backgroundColor = UIColor.white.cgColor
+       bottomBorder.frame = CGRect(x:0, y: self.BackgroundView.frame.size.height - thickness, width: self.BackgroundView.frame.size.width, height:thickness)
+       bottomBorder.backgroundColor = UIColor.gray.cgColor
+       BackgroundView.layer.addSublayer(topBorder)
+       BackgroundView.layer.addSublayer(bottomBorder)
+    }
+    
+    
+    @IBAction func IsFavorite(_ sender: UIButton) {
+        
+        if checked {
+            UIImage(named:"Unchecked") != nil
+            sender.setImage(UIImage(named:"Checked"), for: .normal)
+                self.checked = true
+            
+        }
+        else{
+        UIImage(named:"Checked") != nil
+            sender.setImage( UIImage(named:"Unchecked"), for:.normal)
+             checked = true
+            
+            }
+        }
+        
+    
+    
 
 }

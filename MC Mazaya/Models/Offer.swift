@@ -30,5 +30,6 @@ struct Offer {
         self.offerTitle = offerTitle
         self.serviceType = serviceType
         self.endDate = endDate
+        self.startDate = startDate
     }
 }

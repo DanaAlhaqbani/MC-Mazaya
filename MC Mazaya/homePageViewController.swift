@@ -46,6 +46,8 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     override func viewDidLoad() {
 //        self.categoriesCopy = c
         super.viewDidLoad()
+        print("============is there categories=============")
+        print(Categories)
         setupSearchBar()
         handleDelegates()
         dataUser()

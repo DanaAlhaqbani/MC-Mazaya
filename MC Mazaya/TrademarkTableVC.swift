@@ -58,10 +58,13 @@ extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
         //cell.trademarkImage.image = UIImage(named: trademarkImage ?? "")
         let imageURL = trades[indexPath.row].brandImage
         cell.trademarkImage.sd_setImage(with: URL(string: imageURL ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
-        cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 3
-        cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-        cell.trademarkView.layer.borderWidth = 1
-        cell.trademarkView.layer.borderColor = UIColor.lightGray.cgColor
+             cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 2
+             cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
+             cell.trademarkView.layer.borderWidth = 1.5
+             cell.trademarkImage.layer.borderWidth = 1.5
+             cell.trademarkView.layer.borderColor = UIColor.gray.cgColor
+             cell.trademarkImage.layer.borderColor = UIColor.gray.cgColor
+             cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
        // cell.trademarkView.backgroundColor = .lightGray
        // cell.trademarkImage.bringSubviewToFront(cell.trademarkView.tr)
 
