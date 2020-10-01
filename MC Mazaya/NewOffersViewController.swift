@@ -29,8 +29,7 @@ class NewOffersViewController: UIViewController, handleRetrievedData {
     override func viewDidLoad() {
         super.viewDidLoad()
         firstVC.deleagte = self
-        print("==========Is passed Categories=========")
-        print(Categories)
+      
         getNewOffers()
         trademarksTableView.dataSource = self
         // Make the table view looks good
@@ -51,17 +50,13 @@ class NewOffersViewController: UIViewController, handleRetrievedData {
                 for offer in tradOffers {
                  let offerDate = offer.startDate ?? ""
                 let offerTilte = offer.offerTitle ?? ""
-                    print("==============Is there start date==============")
-                    print(offerDate)
+                
                  if self.isNewOffer(offerDate: offerDate){
-                    print("===========inside if==========")
+                    
                     newOffersNames.append(name)
                     newOffersImages.append(image)
                     newOffersTitles.append(offerTilte)
-                    print("=============New offers names============")
-                    print(newOffersNames)
-                    print("=============New offers titles===========")
-                    print(newOffersTitles)
+                  
                
                 }
                 
