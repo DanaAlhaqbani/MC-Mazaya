@@ -24,6 +24,7 @@ struct Trademark {
     init() {
         
     }
+    
     public init(BrandName: String?, num: String?, desc: String?, email: String?, fb: String?, insta: String?, twit: String?, web: String?, image : String?, branches: [Branch]?, offers : [Offer]?) {
         self.BrandName = BrandName
         self.branches = branches

@@ -58,8 +58,10 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        allBtn.layer.cornerRadius = 5
+        allBtn.layer.cornerRadius = 10
         allBtn.clipsToBounds = true
+        allBtn.layer.borderWidth = 1.00
+        allBtn.layer.borderColor = UIColor(rgb: 0x75E5CE).cgColor
 //      self.firstInitializer.tradeMArksDelegate = self
 //      galleryCollectionView.delegate = self
 //      galleryCollectionView.dataSource = self
@@ -82,9 +84,9 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     //MARK:- setUpDataSource
     func setUpDataSource() {
         DispatchQueue.main.async {
-            self.Offers = []
             self.galleryCollectionView.reloadData()
             self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
+//            self.Offers = []
 //            self.galleryCollectionView.scrollsToTop = true
 
         }
@@ -120,10 +122,13 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
             cell.imgvAvatar.layer.borderWidth = 0.3
             cell.imgvAvatar.layer.cornerRadius =  20
             cell.offerTitle.text = self.Trades[indexPath.row].BrandName
-            self.Offers = self.Trades[indexPath.row].offers ?? []
-            if self.Offers.count != 0 {
+
+            cell.offerDetails.text = ""
+            if let o = self.Trades[indexPath.row].offers {
+                self.Offers = o
+                if self.Offers.count != 0 {
                 cell.offerDetails.text = self.Offers[0].offerTitle
-                
+                }
             }
         }
         return cell
@@ -138,10 +143,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         }
         
     }
-    
-    func getBigOffer(){
-        
-    }
+
     
 }
 

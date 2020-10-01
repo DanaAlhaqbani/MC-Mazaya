@@ -14,6 +14,7 @@ import FirebaseAuth
 protocol handleRetrievedData {
     func reloadTable()
     func retrievedCategories(myData dataObject: [Category])
+    func retrievedcopyCategories(myData dataObject: [Category])
 }
 
 
@@ -27,6 +28,7 @@ class launchViewController: UIViewController {
     var cat : NSDictionary = [:]
     var catID : Array<Any> = []
     var Categories = [Category]()
+    var categoriesCopy = [Category]()
     var category : Category!
     //MARK: - Variables for trademarks fetching
     var trade : Trademark!
@@ -178,6 +180,7 @@ class launchViewController: UIViewController {
         let bigOffers = userNavViewController2?.viewControllers[0] as! BigOffersViewController
         bigOffers.Categories = self.Categories
         lastView.Categories = self.Categories
+        lastView.categoriesCopy = self.categoriesCopy
         lastView.Trades = self.trades2
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
@@ -242,10 +245,12 @@ extension launchViewController {
                         }
                         self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades2)
                         self.Categories.append(self.category)
+                        self.categoriesCopy.append(self.category)
                     }
                 }
                 self.deleagte?.reloadTable()
                 self.deleagte?.retrievedCategories(myData: self.Categories)
+                self.deleagte?.retrievedcopyCategories(myData: self.categoriesCopy)
                 self.moveToTheTabBarViewController()
             })
         }

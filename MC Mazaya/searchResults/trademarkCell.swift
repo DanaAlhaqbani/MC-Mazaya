@@ -15,7 +15,7 @@ class trademarkCell: UICollectionViewCell {
     @IBOutlet weak var offerDetails: UILabel!
     
     override func awakeFromNib() {
-        
+
     }
     
 }

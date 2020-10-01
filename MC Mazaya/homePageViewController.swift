@@ -11,6 +11,8 @@ import FirebaseAuth
 import FirebaseDatabase
 import SideMenu
 
+
+
 class homePageViewController: UIViewController , UITableViewDataSource, UITableViewDelegate  {
 
     //MARK: - Lets
@@ -18,7 +20,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     let green = UIColor(rgb: 0x38a089)
     let firstInitailizer = launchViewController()
     var searchBar : UISearchController!
-    
+    var categoriesCopy = [Category]()
     //MARK: - Vars
     var ref: DatabaseReference?
     var handle: DatabaseHandle?
@@ -33,22 +35,26 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var filteredData = [String]()
     var filteredTradeMarks = [Trademark]()
     var resultCollectionViewController : searchResult!
-
-
+    var filteredCategoriesName = [String]()
+    var filterVC = filterViewController()
+    
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
+//        self.categoriesCopy = c
         super.viewDidLoad()
         setupSearchBar()
         handleDelegates()
         dataUser()
         setUpUI()
+        filterVC.delegate = self
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
     }
+
 
     let mainView : UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -174,7 +180,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
 
     //MARK:- Table View delegate and datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return Categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -182,6 +188,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         if searchBar.isActive {
             self.tbleList.isHidden = true
         }
+        
         self.Categories = self.Categories.sorted {
                 guard let first = $0.Name else {
                     return false
@@ -191,20 +198,21 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 }
                 return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
             } // End of sorting result
-//        if Categories != nil {
         cell.Trades = self.Categories[indexPath.row].trademarks ?? []
         cell.setUpDataSource()
         cell.nameLabel.text = self.Categories[indexPath.row].Name
         cell.catId = self.Categories[indexPath.row].key ?? ""
 //        cell.Offers = self
         cell.delegate = self
+        if self.filteredCategoriesName.count != 0 {
+            print(self.filteredCategoriesName)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 210.0
     }
-    
     
     func dataUser () {
         ref = Database.database().reference()
@@ -242,13 +250,22 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 let dis = segue.destination as! TrademarkTableVC
                 dis.trades = sender as? [Trademark] ?? []
         } // Show Trademarks Segue
+        if segue.identifier == "filter" {
+            let dis = segue.destination as! UINavigationController
+            let filterVC = dis.viewControllers[0] as! filterViewController
+            filterVC.Categories = self.categoriesCopy
+            filterVC.dismissHandler = {
+                self.Categories = self.categoriesCopy
+                self.Categories = filterVC.passedCategories
+//                print(self.Categories)
+                self.tbleList.reloadData()
+                print(self.categoriesCopy)
+        }
     } // Prepare Function
-    
-
 } // Class end
 
 
-
+}
 
 
 
@@ -306,8 +323,8 @@ extension homePageViewController {
         searchBar.searchBar.delegate = self
         searchBar.obscuresBackgroundDuringPresentation = false
         searchBar.searchBar.showsSearchResultsButton = true
-        searchBar.searchBar.showsBookmarkButton = true
-        searchBar.searchBar.setImage(UIImage(named: "filter"), for: .bookmark, state: .normal)
+//        searchBar.searchBar.showsBookmarkButton = true
+//        searchBar.searchBar.setImage(UIImage(named: "filter"), for: .bookmark, state: .normal)
         navigationItem.searchController = self.searchBar
         searchBar.searchBar.searchBarStyle = .default
         searchBar.searchBar.placeholder = "ما الذي تبحث عنه ؟"
@@ -329,12 +346,22 @@ extension homePageViewController {
 
 //MARK: - Extension "Protocols' functions"
 
-extension homePageViewController : CollectionCellDelegator, handleRetrievedData, reloadResultsCollection, ResultCollectionCellDelegator {
+extension homePageViewController : CollectionCellDelegator, handleRetrievedData, reloadResultsCollection, ResultCollectionCellDelegator, sendBackSelectedOptions {
+    func retrievedcopyCategories(myData dataObject: [Category]) {
+        self.categoriesCopy = dataObject
+    }
+    
+    func sendCategories(categories dataobject: [String]) {
+        self.filteredCategoriesName = dataobject
+        self.tbleList.reloadData()
+    }
+    
     func callSegueFromCell(myData dataobject: Trademark) {
         self.performSegue(withIdentifier: "tradeInfo", sender:dataobject )
     } // end of 1 protocol function
     func reloadCollection() {
         resultCollectionViewController.collectionView.reloadData()
+        resultCollectionViewController.offers = []
     } // end of 2 protocol function
     func retrievedCategories(myData dataObject: [Category]) {
         self.Categories = dataObject
@@ -353,6 +380,8 @@ extension homePageViewController : CollectionCellDelegator, handleRetrievedData,
     func handleDelegates(){
         resultCollectionViewController.delegate = self
         resultCollectionViewController.tradeDelegate = self
+//        filterVC.delegate = self
+//        filterVC.tableDelegate = self
         firstInitailizer.deleagte = self
         tbleList.dataSource = self
         tbleList.delegate = self
@@ -445,6 +474,7 @@ extension homePageViewController {
                
         isMenuShow.toggle()
     }
+    
     @objc func filterTapped() {
         self.performSegue(withIdentifier: "filter", sender: self)
     }

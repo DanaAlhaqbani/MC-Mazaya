@@ -10,6 +10,10 @@ import Firebase
 import SDWebImage
 
 class BigOffersViewController: UIViewController, handleRetrievedData{
+    func retrievedcopyCategories(myData dataObject: [Category]) {
+        
+    }
+    
     func reloadTable() {
         trademarksTableView.reloadData()
     }
