@@ -18,6 +18,7 @@
 		3BD3530A24FD26260053BC66 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530824FD26250053BC66 /* CustomSegmentedControl.swift */; };
 		3BD3530B24FD26260053BC66 /* CustomSegmentedControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */; };
 		3BD3530F24FDACA40053BC66 /* homePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530E24FDACA40053BC66 /* homePageViewController.swift */; };
+		A92802EF2524946B00C67FB3 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92802EE2524946B00C67FB3 /* UISegmentedControl.swift */; };
 		A99D996624FF8AB60035D2FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99D996524FF8AB50035D2FF /* GoogleService-Info.plist */; };
 		A99D996824FF93910035D2FF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996724FF93900035D2FF /* Utilities.swift */; };
 		A99D996C24FF93B20035D2FF /* AddTrademark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996924FF93B20035D2FF /* AddTrademark.swift */; };
@@ -110,6 +111,7 @@
 		3BD3530824FD26250053BC66 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControlDelegate.swift; sourceTree = "<group>"; };
 		3BD3530E24FDACA40053BC66 /* homePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homePageViewController.swift; sourceTree = "<group>"; };
+		A92802EE2524946B00C67FB3 /* UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		A99D996524FF8AB50035D2FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A99D996724FF93900035D2FF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A99D996924FF93B20035D2FF /* AddTrademark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrademark.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				D63C3F652511F996004A4CF5 /* CollectionviewTableCell */,
 				3BD3530824FD26250053BC66 /* CustomSegmentedControl.swift */,
 				3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */,
+				A92802EE2524946B00C67FB3 /* UISegmentedControl.swift */,
 			);
 			path = SegmentedControl;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				3B97E2CF24A346E400D0D965 /* HeaderCell.swift in Sources */,
 				3B97E2CD24A346E000D0D965 /* ExpertTabBarController.swift in Sources */,
 				D60B6BDD24FFA40E006552AC /* Category.swift in Sources */,
+				A92802EF2524946B00C67FB3 /* UISegmentedControl.swift in Sources */,
 				E73A421B25120A3F00F45CC5 /* DscriptionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
