@@ -2167,7 +2167,7 @@
             </objects>
             <point key="canvasLocation" x="-900" y="1656"/>
         </scene>
-        <!--Home Page View Controller-->
+        <!--الرئيسية-->
         <scene sceneID="vGb-bT-xgS">
             <objects>
                 <viewController id="n6k-Gw-S4l" customClass="homePageViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
@@ -2189,7 +2189,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="InI-dY-beF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="d4C-eW-pHp"/>
+                    <navigationItem key="navigationItem" title="الرئيسية" id="d4C-eW-pHp"/>
                     <connections>
                         <outlet property="tbleList" destination="XNg-ZY-cqS" id="jjU-GX-td4"/>
                         <segue destination="tis-Zx-Ujz" kind="show" identifier="toNewOffers" id="Ane-Mx-fHz"/>
