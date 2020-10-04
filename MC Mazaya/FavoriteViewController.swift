@@ -19,6 +19,7 @@ class FavoriteViewController: UIViewController, handleRetrievedData {
         }
         
         @IBOutlet weak var trademarksTableView: UITableView!
+        var checked = false
         var Categories = [Category]()
         var Trades = [Trademark]()
         let firstVC = launchViewController()
@@ -45,6 +46,21 @@ class FavoriteViewController: UIViewController, handleRetrievedData {
             cell.trademarkImage.sendSubviewToBack(cell.trademarkView)
 
         }
+    @IBAction func pressedStar(_ sender: Any) {
+        if checked {
+             UIImage(named:"Unchecked") != nil
+            (sender as AnyObject).setImage(UIImage(named:"Checked"), for: .normal)
+                 self.checked = true
+             
+         }
+         else{
+         UIImage(named:"Checked") != nil
+            (sender as AnyObject).setImage( UIImage(named:"Unchecked"), for:.selected)
+              checked = true
+             
+             }
+    }
+    
         func getFavOffers(){
             for cat in self.Categories {
                 let trades = cat.trademarks ?? []
@@ -54,9 +70,9 @@ class FavoriteViewController: UIViewController, handleRetrievedData {
                   let tradOffers = trad.offers ?? []
                     for offer in tradOffers {
                        // let isFavOffer = offer.isFav
-                        let offerTilte = offer.offerTitle ?? ""
+                        let offerTilte = offer.offerType ?? ""
                         print("-----------outside if----------")
-                       /* if isFavOffer == true {
+                       if offerTilte == "عرض" {
                         print("-----------inside if---------")
                         newOffersNames.append(name)
                         newOffersImage.append(image)
@@ -67,7 +83,7 @@ class FavoriteViewController: UIViewController, handleRetrievedData {
                         print(newOffersTitles)
                    
                     }
- */
+ 
                     
                 }
                 }
@@ -89,16 +105,18 @@ class FavoriteViewController: UIViewController, handleRetrievedData {
             let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
             let trademarkName = newOffersNames[indexPath.row]
             let offerTitle = newOffersTitles[indexPath.row]
-            //let trademarkImage = trademarksImages[indexPath.row]
+            let trademarkImage = trademarksImages[indexPath.row]
             cell.trademarkName.text = trademarkName
             cell.Des.text = offerTitle
-            cell.trademarkImage.sd_setImage(with: URL(string: trademarkName ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
+            cell.trademarkImage.sd_setImage(with: URL(string: trademarkImage ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
             //make the cell looks good
-            cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 3
-            cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-            cell.trademarkView.layer.borderWidth = 1.5
-            cell.trademarkView.layer.borderColor = UIColor.gray.cgColor
-            cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
+                   cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 2
+                   cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
+                   cell.trademarkView.layer.borderWidth = 1.5
+                   cell.trademarkImage.layer.borderWidth = 1.5
+                   cell.trademarkView.layer.borderColor = UIColor.gray.cgColor
+                   cell.trademarkImage.layer.borderColor = UIColor.gray.cgColor
+                   cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
 
             //cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
 
