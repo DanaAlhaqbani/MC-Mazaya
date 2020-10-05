@@ -11,16 +11,15 @@ import FirebaseAuth
 import FirebaseDatabase
 import SideMenu
 
-
-
 class homePageViewController: UIViewController , UITableViewDataSource, UITableViewDelegate  {
-
+    
     //MARK: - Lets
     let user = Auth.auth().currentUser
     let green = UIColor(rgb: 0x38a089)
     let firstInitailizer = launchViewController()
     var searchBar : UISearchController!
     var categoriesCopy = [Category]()
+    
     //MARK: - Vars
     var ref: DatabaseReference?
     var handle: DatabaseHandle?
@@ -41,13 +40,10 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
-    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
 //        self.categoriesCopy = c
         super.viewDidLoad()
-        print("============is there categories=============")
-        print(Categories)
         setupSearchBar()
         handleDelegates()
         dataUser()
@@ -257,15 +253,17 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             let filterVC = dis.viewControllers[0] as! filterViewController
             filterVC.Categories = self.categoriesCopy
             filterVC.dismissHandler = {
-                self.Categories = self.categoriesCopy
-                self.Categories = filterVC.passedCategories
-//                print(self.Categories)
-                self.tbleList.reloadData()
-                print(self.categoriesCopy)
+                if filterVC.selectedChecker == false {
+                    self.Categories = self.categoriesCopy
+                    self.Categories = filterVC.passedCategories
+                    self.tbleList.reloadData()
+                } else {
+                    self.Categories = self.categoriesCopy
+                    self.tbleList.reloadData()
+                }
+            }
         }
-    } // Prepare Function
-} // Class end
-
+    }
 
 }
 
@@ -512,7 +510,6 @@ extension homePageViewController {
         else if  sender.tag == 17 {
             logout()
         }
-              
         mainViewXConstraint.constant = 0
         UIView.animate(withDuration: 0.5, delay: 0.0,
                        usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,

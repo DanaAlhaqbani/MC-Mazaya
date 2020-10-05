@@ -670,7 +670,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GcK-6o-WOW">
-                                                <rect key="frame" x="41" y="88.5" width="332" height="50"/>
+                                                <rect key="frame" x="41" y="78.5" width="332" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3Bi-Qs-L6H"/>
                                                 </constraints>
@@ -681,9 +681,6 @@
                                                 <state key="normal" title="تعطيل الكل">
                                                     <color key="titleColor" red="0.66666666666666663" green="0.14901960784313725" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="disableAll:" destination="hEx-gq-0er" eventType="touchUpInside" id="WoT-GT-Hq8"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -830,6 +827,7 @@
                         <outlet property="categoryContainerStackView" destination="rp3-KL-Rv4" id="CHp-ln-nHI"/>
                         <outlet property="categoryFirstSubStack" destination="Cvf-by-Soy" id="Grs-3b-fpF"/>
                         <outlet property="categorySecondSubStack" destination="Vn8-DT-f2G" id="j9f-iV-96y"/>
+                        <outlet property="disableAll" destination="Zhy-Et-WN4" id="ICc-JR-zxk"/>
                         <outlet property="orderStack" destination="GcK-6o-WOW" id="xqK-gZ-Ahq"/>
                         <outlet property="storeType" destination="gKg-Cc-iWd" id="Uns-vS-dZg"/>
                     </connections>
