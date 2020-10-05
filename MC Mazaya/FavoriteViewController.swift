@@ -9,6 +9,10 @@
 import UIKit
 
 class FavoriteViewController: UIViewController, handleRetrievedData {
+    func retrievedcopyCategories(myData dataObject: [Category]) {
+        
+    }
+    
        func reloadTable() {
             trademarksTableView.reloadData()
         }

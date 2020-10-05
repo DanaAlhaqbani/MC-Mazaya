@@ -263,9 +263,21 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 }
             }
         }
+        if segue.identifier == "toNewOffers" {
+                     let dis = segue.destination as! NewOffersViewController
+                  dis.Categories = self.Categories
+             } // Show new offers Segue
+         if segue.identifier == "toFav" {
+                    let dis = segue.destination as! FavoriteViewController
+                 dis.Categories = self.Categories
+                    } // Show new offers Segue
+        if segue.identifier == "toVouchers" {
+                let dis = segue.destination as! VouchersViewController
+                  dis.Categories = self.Categories
+             } // Show new offers Segue
     }
-
-}
+    } // Prepare Function
+    
 
 
 
