@@ -13,6 +13,8 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 10)!], for: .normal)
+    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 10)!], for: .selected)
     }
     override func viewWillAppear(_ animated: Bool) {
         self.selectedIndex = 4  //enter your tabbar no.

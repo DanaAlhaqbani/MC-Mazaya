@@ -39,10 +39,7 @@ class BigOffersViewController: UIViewController, handleRetrievedData{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("=========is passed categories?=======")
-        print(Categories)
-        print("==========is passed trades?========")
-        print(Trades)
+      
         getBigOffers()
         firstVC.deleagte = self
        // retrieveTrades()
@@ -64,11 +61,9 @@ class BigOffersViewController: UIViewController, handleRetrievedData{
             let name = trad.BrandName ?? ""
                 let image = trad.brandImage ?? ""
             let tradOffers = trad.offers ?? []
-            print("=============is print trades========")
-            print(trad)
+            
              for offer in tradOffers {
-                print("================is print offer===========")
-                print(offer)
+                
                 if offer.offerType == "صفقة" {
                     let offerTilte = offer.offerTitle ?? ""
                     BigOffersNames.append(name)
@@ -81,9 +76,7 @@ class BigOffersViewController: UIViewController, handleRetrievedData{
             }
             }
         }
-        print("========print Big offers==========")
-                       print(BigOffersNames)
-                       print(BigOffersTitles)
+      
          
     }
 
