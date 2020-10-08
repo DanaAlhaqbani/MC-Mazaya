@@ -77,5 +77,13 @@ extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
          if (self.delegate != nil) {
         self.delegate.callSegueFromCell(myData: trades[indexPath.row])
                }
+        let trade = trades[indexPath.row]
+        performSegue(withIdentifier: "toDetails", sender: trade)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "toDetails" {
+               let dis = segue.destination as! DscriptionViewController
+               dis.tradeInfo = sender as? Trademark
+           } // Show Description Segue
     }
 }

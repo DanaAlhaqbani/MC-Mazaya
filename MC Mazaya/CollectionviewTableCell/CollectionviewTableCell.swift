@@ -135,7 +135,9 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         
         if (self.delegate != nil) {
             self.delegate.callSegueFromCell(myData: Trades[indexPath.row])
+            
         }
+        
         
     }
     
