@@ -152,6 +152,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
                 }
             })
             self.delegate.callSegueFromCell(myData: Trades[indexPath.row])
+            
         }
     }
 
