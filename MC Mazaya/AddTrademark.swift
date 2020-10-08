@@ -265,7 +265,7 @@ class AddTrademark : UIViewController, UITextFieldDelegate , UIPickerViewDelegat
                 imageRef.downloadURL { (url, error) in
                     if error == nil {
                         // after getting imageURL now start saving the data
-                        let BrandInfo = ["BrandName" : self.BrandName.text! ,"BrandImage" : url!.absoluteString ,"Description" : self.DescriptionTxt.text! , "Contact Number" : self.NumberTxt.text! , "Email" : self.EmailTxt.text! , "WebURl" : self.WebURlTxt.text! , "Instagram" : self.Instagram.text! , "Twitter" : self.Twitter.text! , "Facebook": self.Facebook.text!  ] as [String : Any]
+                        let BrandInfo = ["BrandName" : self.BrandName.text! ,"BrandImage" : url!.absoluteString ,"Description" : self.DescriptionTxt.text! , "Contact Number" : self.NumberTxt.text! , "Email" : self.EmailTxt.text! , "WebURl" : self.WebURlTxt.text! , "Instagram" : self.Instagram.text! , "Twitter" : self.Twitter.text! , "Facebook": self.Facebook.text! , "Views" : 0 ] as [String : Any]
                         
                         
                         

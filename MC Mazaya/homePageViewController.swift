@@ -36,13 +36,16 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var resultCollectionViewController : searchResult!
     var filteredCategoriesName = [String]()
     var filterVC = filterViewController()
+//    var filteredServiceType = [String]()
+//    var filteredSortedBy = [String]()
+    var sortByString : String?
+    var serviceTypeString : String?
     
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
-//        self.categoriesCopy = c
         super.viewDidLoad()
         setupSearchBar()
         handleDelegates()
@@ -186,7 +189,6 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         if searchBar.isActive {
             self.tbleList.isHidden = true
         }
-        
         self.Categories = self.Categories.sorted {
                 guard let first = $0.Name else {
                     return false
@@ -196,15 +198,31 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 }
                 return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
             } // End of sorting result
+        if serviceTypeString != nil {
+            getFilteredByServiceTypeTradeMarks(index: indexPath)
+            cell.Trades = filteredByServiceType
+            cell.setUpDataSource()
+            cell.nameLabel.text = self.Categories[indexPath.row].Name
+            cell.catId = self.Categories[indexPath.row].key ?? ""
+            cell.delegate = self
+        }
+        if sortByString != nil {
+            if sortByString == "الأكثر مشاهدة" {
+                cell.sortedBy = self.sortByString!
+            } else {
+                cell.sortedBy = nil
+                cell.delegate = self
+            }
+            cell.setUpDataSource()
+            cell.nameLabel.text = self.Categories[indexPath.row].Name
+            cell.catId = self.Categories[indexPath.row].key ?? ""
+            cell.delegate = self
+        }
         cell.Trades = self.Categories[indexPath.row].trademarks ?? []
         cell.setUpDataSource()
         cell.nameLabel.text = self.Categories[indexPath.row].Name
         cell.catId = self.Categories[indexPath.row].key ?? ""
-//        cell.Offers = self
         cell.delegate = self
-        if self.filteredCategoriesName.count != 0 {
-            print(self.filteredCategoriesName)
-        }
         return cell
     }
     
@@ -252,15 +270,22 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             let dis = segue.destination as! UINavigationController
             let filterVC = dis.viewControllers[0] as! filterViewController
             filterVC.Categories = self.categoriesCopy
+            filterVC.selectedSortByString = nil
+            filterVC.selectedServiceString = nil
             filterVC.dismissHandler = {
                 if filterVC.selectedChecker == false {
                     self.Categories = self.categoriesCopy
                     self.Categories = filterVC.passedCategories
+                    self.sortByString = filterVC.selectedSortByString
+                    self.serviceTypeString = filterVC.selectedServiceString
                     self.tbleList.reloadData()
                 } else {
                     self.Categories = self.categoriesCopy
+                    self.sortByString = nil
+                    self.serviceTypeString = nil
                     self.tbleList.reloadData()
                 }
+                self.tbleList.reloadData()
             }
         }
         if segue.identifier == "toNewOffers" {
@@ -275,8 +300,37 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 let dis = segue.destination as! VouchersViewController
                   dis.Categories = self.Categories
              } // Show new offers Segue
-    }
-    } // Prepare Function
+    }// Prepare Function
+    
+    
+    
+    var filteredByServiceType = [Trademark]()
+    
+    func getFilteredByServiceTypeTradeMarks(index : IndexPath) {
+        self.filteredByServiceType = []
+        let trades = Categories[index.row].trademarks!
+        for trade in trades {
+            let offers = trade.offers!
+            for offer in offers {
+                if offer.serviceType == self.serviceTypeString {
+                        if !self.filteredByServiceType.contains(where: {$0.BrandName == trade.BrandName}) {
+                            self.filteredByServiceType.append(trade)
+                        } // Ensure not duplicate trademarks
+                    } // Add offer if it's selected
+            } // Iterate over offers
+        } // iterate over trademarks
+    } // Get filtered by service type trademarks function
+    
+    
+    
+////    func getSortedTra
+//    func getSortedCategories(index: IndexPath){
+//    }
+    
+}
+
+
+
     
 
 
@@ -359,6 +413,7 @@ extension homePageViewController {
 //MARK: - Extension "Protocols' functions"
 
 extension homePageViewController : CollectionCellDelegator, handleRetrievedData, reloadResultsCollection, ResultCollectionCellDelegator, sendBackSelectedOptions {
+    
     func retrievedcopyCategories(myData dataObject: [Category]) {
         self.categoriesCopy = dataObject
     }
@@ -524,13 +579,12 @@ extension homePageViewController {
         }
         mainViewXConstraint.constant = 0
         UIView.animate(withDuration: 0.5, delay: 0.0,
-                       usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
-                       options: .curveEaseInOut, animations: {
-                        self.view.layoutIfNeeded()
-                        }, completion: nil)
+            usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
+            options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+            }, completion: nil)
         isMenuShow = false
         rightBarButtonItem.tintColor = green
         }
-           
 
 }

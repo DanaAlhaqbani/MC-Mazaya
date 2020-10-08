@@ -18,16 +18,7 @@ protocol CollectionCellDelegator {
 
 
 class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UICollectionViewDelegate {
-//    func convertrdTrades(myData dataObject: [Trademark]) {
-//        self.Trades = dataObject
-//    }
-//
-//
-//    func reloadCollection() {
-//        self.galleryCollectionView.reloadData()
-//        self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
-//    }
-    
+
     var delegate : CollectionCellDelegator!
     var didSelectItemAction: ((IndexPath) -> Void)?
     @IBOutlet weak var nameLabel: UILabel!
@@ -37,7 +28,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     @IBOutlet weak var allBtn : UIButton!
     var database: Database!
     var key1 = [Any]()
-    var key2 : NSDictionary? = [:]
+    var key2 : NSDictionary = [:]
     var Name : Array<Any>!
     var ID : Array<Any>=[]
     var catId = String()
@@ -46,6 +37,10 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     var Trades = [Trademark]()
     var Offers = [Offer]()
     var branches = [Branch]()
+    var filteredServiceType = [String]()
+    var sortedBy : String?
+    var filteredTrades = [Trademark]()
+    var trade : NSDictionary = [:]
     @IBAction func allBtn(_ sender: Any) {
             if self.delegate != nil {
                 self.delegate.selectedCategory(myData: self.Trades)
@@ -62,9 +57,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         allBtn.clipsToBounds = true
         allBtn.layer.borderWidth = 1.00
         allBtn.layer.borderColor = UIColor(rgb: 0x75E5CE).cgColor
-//      self.firstInitializer.tradeMArksDelegate = self
-//      galleryCollectionView.delegate = self
-//      galleryCollectionView.dataSource = self
+        self.sortedBy = nil
         // Initialization code
         galleryCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
         let flowLayout = UICollectionViewFlowLayout()
@@ -86,9 +79,6 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         DispatchQueue.main.async {
             self.galleryCollectionView.reloadData()
             self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
-//            self.Offers = []
-//            self.galleryCollectionView.scrollsToTop = true
-
         }
     }
     
@@ -103,8 +93,12 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     var url = URL(string: "")
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
-//        cell.imgvAvatar.image = UIImage()
-        
+        if self.sortedBy != nil {
+            if self.sortedBy == "الأكثر مشاهدة" {
+                self.Trades = self.Trades.sorted(by: {$1.views ?? 0 < $0.views ?? 0 })
+            }
+            
+        } else {
         Trades = Trades.sorted {
         guard let first = $0.BrandName else {
             return false
@@ -113,21 +107,20 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
             return true
         }
         return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending }
+        }
         DispatchQueue.main.async {
             let imageURL = self.Trades[indexPath.row].brandImage
             cell.imgvAvatar.sd_setImage(with: URL(string: imageURL ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
-            print()
             cell.imgvAvatar.clipsToBounds = true
             cell.imgvAvatar.layer.borderColor = UIColor.systemGray3.cgColor
             cell.imgvAvatar.layer.borderWidth = 0.3
             cell.imgvAvatar.layer.cornerRadius =  20
             cell.offerTitle.text = self.Trades[indexPath.row].BrandName
-
             cell.offerDetails.text = ""
             if let o = self.Trades[indexPath.row].offers {
                 self.Offers = o
                 if self.Offers.count != 0 {
-                cell.offerDetails.text = self.Offers[0].offerTitle
+                    cell.offerDetails.text = self.Offers[0].offerTitle
                 }
             }
         }
@@ -137,14 +130,31 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         didSelectItemAction?(indexPath)
-        
+        self.key2 = [:]
+        self.key1 = []
         if (self.delegate != nil) {
+            let ref = Database.database().reference()
+            ref.child("Categories/\(catId)/TradeMarks").observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dict = snapshot.value as? [String : AnyObject] {
+                    self.trade = dict as NSDictionary
+                for i in dict {
+                    self.key1.append(i.key)
+                }
+                for key in self.key1 {
+                    self.key2 = self.trade[key] as! NSDictionary
+                    if self.key2["BrandName"] as? String == self.Trades[indexPath.row].BrandName {
+//                        (self.key2["Views"]) as! Int += 1
+                        var views = self.key2["Views"] as? Int ?? 0
+                        views += 1
+                        ref.child("Categories/\(self.catId)/TradeMarks/\(key)/Views").setValue(views)
+                        }
+                    }
+                }
+            })
             self.delegate.callSegueFromCell(myData: Trades[indexPath.row])
         }
-        
     }
 
-    
 }
 
 

@@ -20,6 +20,7 @@ class filterViewController: UIViewController {
     @IBOutlet weak var categoryContainerStackView: UIStackView!
     @IBOutlet weak var categoryFirstSubStack: UIStackView!
     @IBOutlet weak var categorySecondSubStack: UIStackView!
+    @IBOutlet weak var categoryThirdSubStack: UIStackView!
     @IBOutlet weak var backgroundView: UIView!
     var Categories = [Category]()
     var trademarks = [Trademark]()
@@ -28,47 +29,57 @@ class filterViewController: UIViewController {
     var selectedCategory : [Category]!
     var selectedCategoryName = [String]()
     var delegate : sendBackSelectedOptions! = nil
-    var buttonsArray = [CustomButton]()
+    var serviceTypeButtonsArray = [CustomButton]()
+    var sortByButtonsArray = [CustomButton]()
     var categoryButtonsArray = [categoryButton]()
     var selectedChecker : Bool! = false
     var selectedSortingMethod = [String]()
     var selectedServiceType = [String]()
     var passedTradeMarks = [Trademark]()
-    var featuredChoice : CustomButton = {
-        $0.setTitle("مميز", for: .normal)
-        return $0
-    }(CustomButton())
+    var selectedSortedBy = [String]()
+    var selectedServiceString : String?
+    var selectedSortByString : String?
     var dismissHandler: (() -> Void)!
-    var mostWatched : CustomButton = {
-        $0.setTitle("الأكثر مشاهدة", for: .normal)
+    
+    lazy var featuredChoice : CustomButton = {
+        $0.setTitle("مميز", for: .normal)
+        $0.addTarget(self, action: #selector(orderedByBtnClicked(_:)), for: .touchUpInside)
         return $0
     }(CustomButton())
     
-    var online : CustomButton = {
+    
+    lazy var mostWatched : CustomButton = {
+        $0.setTitle("الأكثر مشاهدة", for: .normal)
+        $0.addTarget(self, action: #selector(orderedByBtnClicked(_:)), for: .touchUpInside)
+        return $0
+    }(CustomButton())
+    
+    lazy var online : CustomButton = {
         $0.setTitle("أونلاين", for: .normal)
         $0.addTarget(self, action: #selector(serviceTypeBtnClicked(_:)), for: .touchUpInside)
         return $0
     }(CustomButton())
     
-    var nearest : CustomButton = {
+    lazy var nearest : CustomButton = {
         $0.setTitle("قريب مني", for: .normal)
+        $0.addTarget(self, action: #selector(orderedByBtnClicked(_:)), for: .touchUpInside)
         return $0
     }(CustomButton())
     
-    var all : CustomButton = {
+    lazy var all : CustomButton = {
         $0.setTitle("الكل", for: .normal)
         $0.addTarget(self, action: #selector(serviceTypeBtnClicked(_:)), for: .touchUpInside)
         return $0
     }(CustomButton())
     
-    var local : CustomButton = {
+    lazy var local : CustomButton = {
         $0.setTitle("محلي", for: .normal)
         $0.addTarget(self, action: #selector(serviceTypeBtnClicked(_:)), for: .touchUpInside)
         return $0
     }(CustomButton())
     
     
-    var electronicsCategory : categoryButton = {
+    lazy var electronicsCategory : categoryButton = {
         $0.Label.text = "الكترونيات"
         $0.image.image = UIImage(named: "Electronics")
         $0.image.image = $0.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
@@ -76,7 +87,7 @@ class filterViewController: UIViewController {
         return $0
     }(categoryButton())
     
-    var carsCategory : categoryButton = {
+    lazy var carsCategory : categoryButton = {
         $0.Label.text = "السيارات"
         $0.image.image = UIImage(named: "Cars")
         $0.image.image = $0.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
@@ -84,7 +95,7 @@ class filterViewController: UIViewController {
         return $0
     }(categoryButton())
     
-    var foodCategory : categoryButton = {
+    lazy var foodCategory : categoryButton = {
         $0.Label.text = "الأغذية"
         $0.image.image = UIImage(named: "Restaurants")
         $0.image.image = $0.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
@@ -93,7 +104,7 @@ class filterViewController: UIViewController {
         return $0
     }(categoryButton())
     
-    var clothesCategory : categoryButton = {
+    lazy var clothesCategory : categoryButton = {
         $0.Label.text = "التسوق"
         $0.image.image = UIImage(named: "Clothes")
         $0.image.image = $0.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
@@ -101,16 +112,15 @@ class filterViewController: UIViewController {
         return $0
     }(categoryButton())
     
-    var travelCategory : categoryButton = {
+    lazy var travelCategory : categoryButton = {
         $0.Label.text = "السفر"
         $0.image.image = UIImage(named: "Travel")
         $0.image.image = $0.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
         $0.addTarget(self, action: #selector(categoryBtnClicked), for: .touchUpInside)
-
         return $0
     }(categoryButton())
     
-    var healthCategory : categoryButton = {
+    lazy var healthCategory : categoryButton = {
         $0.Label.text = "الرياضة"
         $0.image.image = UIImage(named: "sports")
         $0.image.image = $0.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
@@ -119,24 +129,27 @@ class filterViewController: UIViewController {
         return $0
     }(categoryButton())
     
-    var homeCategory : categoryButton = {
+    lazy var homeCategory : categoryButton = {
         $0.Label.text = "المنزل"
         $0.image.image = UIImage(named: "Home-1")
+         $0.image.image = $0.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
         $0.addTarget(self, action: #selector(categoryBtnClicked), for: .touchUpInside)
         return $0
     }(categoryButton())
     
-    var schoolsCategory : categoryButton = {
+    lazy var schoolsCategory : categoryButton = {
         $0.Label.text = "المدارس"
-        $0.image.image = UIImage(named: "schools")
+        $0.image.image = UIImage(named: "Schools")
+        $0.image.image = $0.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
         $0.addTarget(self, action: #selector(categoryBtnClicked), for: .touchUpInside)
         return $0
     }(categoryButton())
     
-    var servicesCategory : categoryButton = {
+    lazy var servicesCategory : categoryButton = {
         $0.Label.text = "خدمات"
-        $0.image.image = UIImage(named: "Cars")
+        $0.image.image = UIImage(named: "Services")
         $0.image.image = $0.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
+        $0.addTarget(self, action: #selector(categoryBtnClicked), for: .touchUpInside)
         return $0
     }(categoryButton())
     
@@ -144,7 +157,6 @@ class filterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "تصفية النتائج"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(rgb: 0x38a089), NSAttributedString.Key.font: UIFont(name: "STC", size: 25.0)!]
         self.navigationController?.navigationBar.barTintColor = .white
         setOrderedByStack()
         setStoreTypeStack()
@@ -162,9 +174,9 @@ class filterViewController: UIViewController {
         orderStack.addArrangedSubview(featuredChoice)
         orderStack.addArrangedSubview(mostWatched)
         orderStack.addArrangedSubview(nearest)
-        buttonsArray.append(featuredChoice)
-        buttonsArray.append(mostWatched)
-        buttonsArray.append(nearest)
+        sortByButtonsArray.append(featuredChoice)
+        sortByButtonsArray.append(mostWatched)
+        sortByButtonsArray.append(nearest)
     } // End of Ordered by stack setup
     
     func setStoreTypeStack(){
@@ -175,9 +187,9 @@ class filterViewController: UIViewController {
         storeType.addArrangedSubview(all)
         storeType.addArrangedSubview(online)
         storeType.addArrangedSubview(local)
-        buttonsArray.append(all)
-        buttonsArray.append(online)
-        buttonsArray.append(local)
+        serviceTypeButtonsArray.append(all)
+        serviceTypeButtonsArray.append(online)
+        serviceTypeButtonsArray.append(local)
     } // End of store type stack setup
     
     func setCategoryStackView(){
@@ -191,46 +203,90 @@ class filterViewController: UIViewController {
         categoryFirstSubStack.distribution = .fillEqually
         categorySecondSubStack.alignment = .fill
         categorySecondSubStack.distribution = .fillEqually
+        categoryThirdSubStack.alignment = .fill
+        categoryThirdSubStack.distribution = .fillEqually
         categoryFirstSubStack.addArrangedSubview(electronicsCategory)
         categoryFirstSubStack.addArrangedSubview(foodCategory)
         categoryFirstSubStack.addArrangedSubview(carsCategory)
         categorySecondSubStack.addArrangedSubview(clothesCategory)
         categorySecondSubStack.addArrangedSubview(travelCategory)
         categorySecondSubStack.addArrangedSubview(healthCategory)
+        categoryThirdSubStack.addArrangedSubview(homeCategory)
+        categoryThirdSubStack.addArrangedSubview(schoolsCategory)
+        categoryThirdSubStack.addArrangedSubview(servicesCategory)
         categoryButtonsArray.append(electronicsCategory)
         categoryButtonsArray.append(foodCategory)
         categoryButtonsArray.append(carsCategory)
         categoryButtonsArray.append(clothesCategory)
         categoryButtonsArray.append(travelCategory)
         categoryButtonsArray.append(healthCategory)
+        categoryButtonsArray.append(homeCategory)
+        categoryButtonsArray.append(schoolsCategory)
+        categoryButtonsArray.append(servicesCategory)
     }
     
     // MARK: - Apply button handling
     @IBAction func applyBtnAction(_ sender : UIButton) {
-        self.passedCategories = []
-        self.passedTradeMarks = []
+//        self.passedCategories = []
+//        self.passedTradeMarks = []
         if selectedChecker == true {
             passedCategories.removeAll()
-//            self.dismissHandler()
-//            handleServiceType()
             self.dismiss(animated: true)
         }
         else {
-//            handleSelectedCategory()
-            handleServiceType()
-            self.dismissHandler()
+            if selectedSortByString == nil && selectedCategoryName != [] && selectedServiceString != nil {
+                handleSelectedCategory()
+                self.dismissHandler()
+                self.dismiss(animated: true)
+            }
+            if selectedServiceString == nil && selectedSortByString != nil && selectedCategoryName != [] {
+                handleSelectedCategory()
+                self.dismissHandler()
+                self.dismiss(animated: true)
+            }
+            if selectedCategoryName == [] && selectedSortByString != nil && selectedServiceString != nil {
+                self.passedCategories = Categories
+                handleSelectedCategory()
+                self.dismissHandler()
+                self.dismiss(animated: true)
+            }
+//             if selectedSortByString == nil && selectedServiceString == nil && selectedCategoryName == [] {
+////                handleSelectedCategory()
+////                self.dismissHandler()
+//                self.dismiss(animated: true)
+//            }
+            if selectedSortByString == nil && selectedServiceString == nil && selectedCategoryName != [] {
+                handleSelectedCategory()
+                self.dismissHandler()
+                self.dismiss(animated: true)
+            }
+            if selectedSortByString != nil && selectedServiceString != nil && selectedCategoryName != [] {
+                handleSelectedCategory()
+                self.dismissHandler()
+                self.dismiss(animated: true)
+            }
             self.dismiss(animated: true)
         }
+
     }
     
     //MARK: - Reset button handling
-    func resetButtonStates() {
-        for button in buttonsArray {
+    func resetServiceTypeButtonStates() {
+        for button in serviceTypeButtonsArray {
             button.isSelected = false
             button.backgroundColor = .white
             button.layer.borderColor = UIColor(rgb: 0x38a089).cgColor
             button.layer.borderWidth = 0.5
-            self.selectedCategoryName = []
+        }
+        
+    }
+    
+    func resetSortByButtons(){
+        for button in sortByButtonsArray {
+            button.isSelected = false
+            button.backgroundColor = .white
+            button.layer.borderColor = UIColor(rgb: 0x38a089).cgColor
+            button.layer.borderWidth = 0.5
         }
     }
     
@@ -240,21 +296,24 @@ class filterViewController: UIViewController {
             button.Label.textColor = UIColor(rgb: 0xA5A7A7)
             button.image.image = button.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
         }
+        
     }
     
     @objc func disableAllBtn(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         self.passedCategories = []
         self.selectedCategoryName = []
-        self.selectedServiceType = []
         if sender.isSelected == true {
+            self.selectedCategoryName = []
+            self.selectedSortByString = nil
+            self.selectedServiceString = nil
             self.selectedChecker = true
-            resetButtonStates()
+            resetServiceTypeButtonStates()
+            resetSortByButtons()
             resetCategoryButtonStates()
             self.passedCategories = []
             print("button selected")
             self.dismissHandler()
-//            sender.backgroundColor = .whit
             sender.tintColor = .white
             sender.titleLabel?.textColor = .red
             sender.setTitleColor(UIColor(rgb: 0xAA262E), for: .selected)
@@ -285,85 +344,53 @@ class filterViewController: UIViewController {
     
     //MARK: - Selected service type handling
     @objc func serviceTypeBtnClicked(_ sender: CustomButton){
+        resetServiceTypeButtonStates()
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             sender.backgroundColor = UIColor(rgb: 0x38a089)
+            sender.titleLabel?.textColor = .white
             sender.layer.borderColor = UIColor.white.cgColor
-            self.selectedServiceType.append((sender.titleLabel?.text)!)
+//            self.selectedServiceType.append((sender.titleLabel?.text)!)
+            self.selectedServiceString = sender.titleLabel?.text
+            
         } else {
             sender.backgroundColor = .white
             sender.layer.borderColor =  UIColor(rgb: 0x38a089).cgColor
-            self.selectedServiceType.removeLast()
+//            self.selectedServiceType.removeLast()
+            self.selectedServiceString = nil
         }
     }
     
-    func handleServiceType(){
-//        self.passedCategories = []
-//        self.pa
-        if selectedCategoryName.count == 0 {
-            for cat in Categories {
-                var category = cat
-                let trades = cat.trademarks!
-                for type in selectedServiceType {
-//                print(type)
-                    let serviceType = type
-//                   print("-------------- iterate over Categories")
-                    for trade in trades {
-                        let offers = trade.offers!
-                        for offer in offers {
-//                          print("---------iterate over offers")
-                            if offer.serviceType == serviceType {
-                                self.passedTradeMarks.append(trade)
-                                category.trademarks = self.passedTradeMarks
-                            } // add trade to passed array
-                        } // Iterate over offers
-                    } // Iterate over trades
-                    self.passedCategories.append(category)
-                    } // iterate over selected service type
-                self.dismissHandler()
-            }
+    @objc func orderedByBtnClicked(_ sender: CustomButton){
+        resetSortByButtons()
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            sender.backgroundColor = UIColor(rgb: 0x38a089)
+            sender.titleLabel?.textColor = .white
+            sender.layer.borderColor = UIColor.white.cgColor
+//            self.selectedSortedBy.append((sender.titleLabel?.text)!)
+            self.selectedSortByString = sender.titleLabel?.text
+            
         } else {
-            for name in selectedCategoryName {
-                let catName = name
-                for category in Categories {
-                    var category = category
-                    let trades = category.trademarks!
-                    if category.Name == catName {
-                        for type in selectedServiceType{
-                            let serviceType = type
-                            for trade in trades {
-                                let offers = trade.offers!
-                                for offer in offers {
-                                    if offer.serviceType == serviceType {
-                                        self.passedTradeMarks.append(trade)
-                                        category.trademarks = self.passedTradeMarks
-                                    }
-                                }
-                            }
-                        }
-                    self.passedCategories.append(category)
-                    }
-                }
-                self.dismissHandler()
-            }
+            sender.backgroundColor = .white
+            sender.layer.borderColor =  UIColor(rgb: 0x38a089).cgColor
+//            self.selectedSortedBy.removeLast()
+            self.selectedSortByString = nil
         }
-        
     }
+
     
-    
-//    func handleSelectedCategory(){
-////        self.passedCategories = []
-//        for name in selectedCategoryName {
-//            let catName = name
-//            for category in Categories {
-//                if category.Name == catName {
-//                    self.passedCategories.append(category)
-//                }
-//            }
-////            handleServiceType()
-//            self.dismissHandler()
-//        }
-//    }
+    func handleSelectedCategory(){
+        for name in selectedCategoryName {
+            let catName = name
+            for category in Categories {
+                if category.Name == catName {
+                    self.passedCategories.append(category)
+                }
+            }
+            self.dismissHandler()
+        }
+    }
     
     
     //MARK: - Setup Apply button

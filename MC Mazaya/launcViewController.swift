@@ -30,25 +30,28 @@ class launchViewController: UIViewController {
     var Categories = [Category]()
     var categoriesCopy = [Category]()
     var category : Category!
+    
     //MARK: - Variables for trademarks fetching
     var trade : Trademark!
     var trades : [String: Any]!
     var deleagte : handleRetrievedData?
     var currentTrade : Trademark!
     var tradeInfo : NSDictionary!
+    
     //MARK: - Variables for offers fetching
     var offer : Offer!
     var offersDict = [String : Any]()
     var offers = [Offer]()
     var offerInfo : NSDictionary!
     var arrayOffers : NSArray!
-
+    
     //MARK: - Variables for branches fetching
     var branch : Branch!
     var branchInfo : NSDictionary!
     var branches = [Branch]()
     var branchDict = [String : Any]()
     var arrayBranches : NSArray!
+    
     //MARK: - Variables of Views
     var aView : UIView?
     var bView = UIView()
@@ -57,7 +60,6 @@ class launchViewController: UIViewController {
     let ai = UIActivityIndicatorView(style: .large)
     let reloadButton = UIButton()
     let reloadLabel = UILabel()
-    
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -230,9 +232,11 @@ extension launchViewController {
             catRef.child("Categories").observeSingleEvent(of: .value, with: { (snap) in
                 if let dict = snap.value as? [String : AnyObject] {
                     self.cat = dict as NSDictionary
+                    
                     for item in dict {
                         self.key1.append(item.key)
                     }
+                    
                     for c in self.key1 {
                         self.trades = [:]
                         self.trades2 = []
@@ -241,13 +245,14 @@ extension launchViewController {
                         self.trades = self.key2["TradeMarks"] as? [String: AnyObject]
                         if self.trades != nil {
                             self.converTrades()
-                                                        
                         }
+                        
                         self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades2)
                         self.Categories.append(self.category)
                         self.categoriesCopy.append(self.category)
                     }
                 }
+                
                 self.deleagte?.reloadTable()
                 self.deleagte?.retrievedCategories(myData: self.Categories)
                 self.deleagte?.retrievedcopyCategories(myData: self.categoriesCopy)
@@ -288,7 +293,7 @@ extension launchViewController {
                 self.tradeInfo = i as? NSDictionary
                 convertBranches(tradeInfo: self.tradeInfo)
                 convertOffers(tradeInfo: self.tradeInfo)
-                self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers)
+                self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: tradeInfo?["Views"] as? Int)
                 self.trades2.append(self.trade)
             }
         }
