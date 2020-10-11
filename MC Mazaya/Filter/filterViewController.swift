@@ -33,10 +33,7 @@ class filterViewController: UIViewController {
     var sortByButtonsArray = [CustomButton]()
     var categoryButtonsArray = [categoryButton]()
     var selectedChecker : Bool! = false
-    var selectedSortingMethod = [String]()
-    var selectedServiceType = [String]()
     var passedTradeMarks = [Trademark]()
-    var selectedSortedBy = [String]()
     var selectedServiceString : String?
     var selectedSortByString : String?
     var dismissHandler: (() -> Void)!
@@ -251,6 +248,7 @@ class filterViewController: UIViewController {
                 self.dismiss(animated: true)
             }
              if selectedSortByString == nil && selectedServiceString == nil && selectedCategoryName == [] {
+                self.passedCategories = Categories
 //                handleSelectedCategory()
 //                self.dismissHandler()
                 self.dismiss(animated: true)
@@ -261,6 +259,18 @@ class filterViewController: UIViewController {
                 self.dismiss(animated: true)
             }
             if selectedSortByString != nil && selectedServiceString != nil && selectedCategoryName != [] {
+                handleSelectedCategory()
+                self.dismissHandler()
+                self.dismiss(animated: true)
+            }
+            if selectedSortByString != nil && selectedServiceString == nil && selectedCategoryName == [] {
+                self.passedCategories = Categories
+                handleSelectedCategory()
+                self.dismissHandler()
+                self.dismiss(animated: true)
+            }
+            if selectedSortByString == nil && selectedServiceString != nil && selectedCategoryName == [] {
+                self.passedCategories = Categories
                 handleSelectedCategory()
                 self.dismissHandler()
                 self.dismiss(animated: true)
@@ -311,15 +321,12 @@ class filterViewController: UIViewController {
             resetServiceTypeButtonStates()
             resetSortByButtons()
             resetCategoryButtonStates()
-            self.passedCategories = []
-            print("button selected")
             self.dismissHandler()
             sender.tintColor = .white
             sender.titleLabel?.textColor = .red
             sender.setTitleColor(UIColor(rgb: 0xAA262E), for: .selected)
         } else {
             self.selectedChecker = false
-            print("button unselected")
             self.dismissHandler()
         }
         
@@ -350,13 +357,11 @@ class filterViewController: UIViewController {
             sender.backgroundColor = UIColor(rgb: 0x38a089)
             sender.titleLabel?.textColor = .white
             sender.layer.borderColor = UIColor.white.cgColor
-//            self.selectedServiceType.append((sender.titleLabel?.text)!)
             self.selectedServiceString = sender.titleLabel?.text
             
         } else {
             sender.backgroundColor = .white
             sender.layer.borderColor =  UIColor(rgb: 0x38a089).cgColor
-//            self.selectedServiceType.removeLast()
             self.selectedServiceString = nil
         }
     }
@@ -368,13 +373,11 @@ class filterViewController: UIViewController {
             sender.backgroundColor = UIColor(rgb: 0x38a089)
             sender.titleLabel?.textColor = .white
             sender.layer.borderColor = UIColor.white.cgColor
-//            self.selectedSortedBy.append((sender.titleLabel?.text)!)
             self.selectedSortByString = sender.titleLabel?.text
             
         } else {
             sender.backgroundColor = .white
             sender.layer.borderColor =  UIColor(rgb: 0x38a089).cgColor
-//            self.selectedSortedBy.removeLast()
             self.selectedSortByString = nil
         }
     }

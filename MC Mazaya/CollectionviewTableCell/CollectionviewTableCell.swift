@@ -93,20 +93,25 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     var url = URL(string: "")
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
+        
+        Trades = Trades.sorted {
+            guard let first = $0.BrandName else {
+                return false
+            }
+            guard let second = $1.BrandName else {
+                return true
+            }
+            return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
+        }
+        
         if self.sortedBy != nil {
             if self.sortedBy == "الأكثر مشاهدة" {
                 self.Trades = self.Trades.sorted(by: {$1.views ?? 0 < $0.views ?? 0 })
+            } else if self.sortedBy == "مميز" {
+//                self.Trades = self.Trades.sorted(by: {})
+            } else if self.sortedBy == "قريب مني" {
+                
             }
-            
-        } else {
-        Trades = Trades.sorted {
-        guard let first = $0.BrandName else {
-            return false
-        }
-        guard let second = $1.BrandName else {
-            return true
-        }
-        return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending }
         }
         DispatchQueue.main.async {
             let imageURL = self.Trades[indexPath.row].brandImage

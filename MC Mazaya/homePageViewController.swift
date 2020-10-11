@@ -186,46 +186,67 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell") as! CollectionviewTableCell
-        if searchBar.isActive {
-            self.tbleList.isHidden = true
-        }
         self.Categories = self.Categories.sorted {
-                guard let first = $0.Name else {
-                    return false
-                }
-                guard let second = $1.Name else {
-                    return true
-                }
-                return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
-            } // End of sorting result
-
-        if sortByString != nil {
+            guard let first = $0.Name else {
+                return false
+            }
+            guard let second = $1.Name else {
+                return true
+            }
+            return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
+        } // End of sorting result
+        if sortByString != nil && serviceTypeString != nil {
             if sortByString == "الأكثر مشاهدة" {
+                getFilteredByServiceTypeTradeMarks(index: indexPath)
                 cell.sortedBy = self.sortByString!
-            } else {
-                cell.sortedBy = nil
+                cell.Trades = filteredByServiceType
+                cell.setUpDataSource()
+                cell.delegate = self
+            } else if sortByString == "مميز" {
+                getFilteredByServiceTypeTradeMarks(index: indexPath)
+                cell.Trades = filteredByServiceType
+//                cell.Trades = self.Categories[indexPath.row].trademarks ?? [] // Trmporarily
+                cell.setUpDataSource()
+                cell.delegate = self
+            } else if sortByString == "قريب مني" {
+                getFilteredByServiceTypeTradeMarks(index: indexPath)
+                cell.Trades = filteredByServiceType
+//                cell.Trades = self.Categories[indexPath.row].trademarks ?? [] // Trmporarily
+                cell.setUpDataSource()
+                cell.delegate = self
+            }
+        } else if sortByString != nil && serviceTypeString == nil {
+            if sortByString == "الأكثر مشاهدة" {
+                cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+                cell.sortedBy = self.sortByString!
+                cell.setUpDataSource()
+                cell.delegate = self
+            } else if sortByString == "مميز" {
+                cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+                cell.sortedBy = self.sortByString!
+                cell.setUpDataSource()
+                cell.delegate = self
+            } else if sortByString == "قريب مني" {
+                cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+                cell.sortedBy = self.sortByString!
+                cell.setUpDataSource()
                 cell.delegate = self
             }
             
-            cell.setUpDataSource()
-            cell.nameLabel.text = self.Categories[indexPath.row].Name
-            cell.catId = self.Categories[indexPath.row].key ?? ""
-            cell.delegate = self
-        }
-        if serviceTypeString != nil {
+        } else if serviceTypeString != nil && sortByString == nil {
             getFilteredByServiceTypeTradeMarks(index: indexPath)
             cell.Trades = filteredByServiceType
             cell.setUpDataSource()
-            cell.nameLabel.text = self.Categories[indexPath.row].Name
-            cell.catId = self.Categories[indexPath.row].key ?? ""
             cell.delegate = self
-        } else {
-        cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+        } else if serviceTypeString == nil && sortByString == nil {
+            cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+            cell.sortedBy = nil
+            cell.setUpDataSource()
+            cell.delegate = self
         }
-        cell.setUpDataSource()
         cell.nameLabel.text = self.Categories[indexPath.row].Name
-        cell.catId = self.Categories[indexPath.row].key ?? ""
         cell.delegate = self
+        cell.setUpDataSource()
         return cell
     }
     
