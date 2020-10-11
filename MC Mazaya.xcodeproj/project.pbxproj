@@ -51,6 +51,7 @@
 		D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65DA8C324C4366300092918 /* CustomCells.xib */; };
 		D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */; };
 		D6979632250E4320006439BD /* BigOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6979631250E4320006439BD /* BigOffersViewController.swift */; };
+		D6997B142529E37B00072AE7 /* VoucherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6997B132529E37A00072AE7 /* VoucherDetailsVC.swift */; };
 		D6A8F37F24F3B537007DDBDB /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F37E24F3B537007DDBDB /* RegionViewController.swift */; };
 		D6A8F38A24F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38924F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift */; };
 		D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38B24F3C029007DDBDB /* AdminRegionsViewController.swift */; };
@@ -149,6 +150,7 @@
 		D65DA8C324C4366300092918 /* CustomCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCells.xib; sourceTree = "<group>"; };
 		D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6979631250E4320006439BD /* BigOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigOffersViewController.swift; sourceTree = "<group>"; };
+		D6997B132529E37A00072AE7 /* VoucherDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherDetailsVC.swift; sourceTree = "<group>"; };
 		D6A8F37E24F3B537007DDBDB /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
 		D6A8F38924F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSuggestionsViewController.swift; sourceTree = "<group>"; };
 		D6A8F38B24F3C029007DDBDB /* AdminRegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminRegionsViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				D65880C12508B22D00BE29F9 /* TrademarkCell.swift */,
 				D65880C32508B29A00BE29F9 /* TrademarkTableVC.swift */,
 				D6979631250E4320006439BD /* BigOffersViewController.swift */,
+				D6997B132529E37A00072AE7 /* VoucherDetailsVC.swift */,
 			);
 			path = "MC Mazaya";
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				D6381EB524ADD461004569D6 /* FavoriteViewController.swift in Sources */,
 				D6E1286B24A0B1FE00977D26 /* ResetPassViewController.swift in Sources */,
 				D6E1286324A08E4B00977D26 /* XUB.swift in Sources */,
+				D6997B142529E37B00072AE7 /* VoucherDetailsVC.swift in Sources */,
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
 				D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */,
 				E703C8AD2520AA5D00C5F110 /* trademarkCell.swift in Sources */,

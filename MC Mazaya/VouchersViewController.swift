@@ -13,10 +13,11 @@ class VouchersViewController: UIViewController {
      @IBOutlet weak var trademarksTableView: UITableView!
     
     @IBOutlet weak var VoucherSC: UISegmentedControl!
-    
+    var vouchersTrade = [Trademark]()
      var Categories = [Category]()
      var Trades = [Trademark]()
      let firstVC = launchViewController()
+    var VouchersTrade = [Trademark]()
      var AvaVouchersTitles = [String]()
      var AvaVouchersNames = [String]()
      var AvaVouchersImage = [String]()
@@ -31,6 +32,8 @@ class VouchersViewController: UIViewController {
     lazy var imagesToDisplay = AvaVouchersImage
      override func viewDidLoad() {
          super.viewDidLoad()
+        print("============is there trades============")
+        print(Trades)
         //trademarksTableView.reloadData()
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         VoucherSC.setTitleTextAttributes(titleTextAttributes, for: .normal)
@@ -41,6 +44,7 @@ class VouchersViewController: UIViewController {
         VoucherSC.addTarget(self, action: #selector(handleSCChange), for: .valueChanged)
          getVouchers()
          trademarksTableView.dataSource = self
+        trademarksTableView.delegate = self
          // Make the table view looks good
          trademarksTableView.separatorStyle = .none
          trademarksTableView.showsVerticalScrollIndicator = false
@@ -80,6 +84,7 @@ class VouchersViewController: UIViewController {
                      AvaVouchersNames.append(name)
                      AvaVouchersImage.append(image)
                      AvaVouchersTitles.append(offerTilte)
+                    vouchersTrade.append(trad)
                  }
                  
              }
@@ -100,7 +105,13 @@ class VouchersViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "toVoucherDetails" {
+               let dis = segue.destination as! VoucherDetailsVC
+               dis.tradeInfo = sender as? Trademark
+               dis.Categories = self.Categories
+           } // Show Description Segue
+    }
 }
 extension VouchersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -109,7 +120,10 @@ extension VouchersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titlesToDisplay.count
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let trade = vouchersTrade[indexPath.row]
+        performSegue(withIdentifier: "toVoucherDetails", sender: trade)
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
         let trademarkName = namesToDisplay[indexPath.row]
