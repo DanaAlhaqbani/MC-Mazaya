@@ -198,14 +198,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 }
                 return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
             } // End of sorting result
-        if serviceTypeString != nil {
-            getFilteredByServiceTypeTradeMarks(index: indexPath)
-            cell.Trades = filteredByServiceType
-            cell.setUpDataSource()
-            cell.nameLabel.text = self.Categories[indexPath.row].Name
-            cell.catId = self.Categories[indexPath.row].key ?? ""
-            cell.delegate = self
-        }
+
         if sortByString != nil {
             if sortByString == "الأكثر مشاهدة" {
                 cell.sortedBy = self.sortByString!
@@ -213,12 +206,22 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 cell.sortedBy = nil
                 cell.delegate = self
             }
+            
             cell.setUpDataSource()
             cell.nameLabel.text = self.Categories[indexPath.row].Name
             cell.catId = self.Categories[indexPath.row].key ?? ""
             cell.delegate = self
         }
+        if serviceTypeString != nil {
+            getFilteredByServiceTypeTradeMarks(index: indexPath)
+            cell.Trades = filteredByServiceType
+            cell.setUpDataSource()
+            cell.nameLabel.text = self.Categories[indexPath.row].Name
+            cell.catId = self.Categories[indexPath.row].key ?? ""
+            cell.delegate = self
+        } else {
         cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+        }
         cell.setUpDataSource()
         cell.nameLabel.text = self.Categories[indexPath.row].Name
         cell.catId = self.Categories[indexPath.row].key ?? ""

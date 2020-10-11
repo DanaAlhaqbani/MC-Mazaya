@@ -250,11 +250,11 @@ class filterViewController: UIViewController {
                 self.dismissHandler()
                 self.dismiss(animated: true)
             }
-//             if selectedSortByString == nil && selectedServiceString == nil && selectedCategoryName == [] {
-////                handleSelectedCategory()
-////                self.dismissHandler()
-//                self.dismiss(animated: true)
-//            }
+             if selectedSortByString == nil && selectedServiceString == nil && selectedCategoryName == [] {
+//                handleSelectedCategory()
+//                self.dismissHandler()
+                self.dismiss(animated: true)
+            }
             if selectedSortByString == nil && selectedServiceString == nil && selectedCategoryName != [] {
                 handleSelectedCategory()
                 self.dismissHandler()

@@ -11,85 +11,43 @@ import UIKit
 
 class DscriptionViewController : UIViewController , UITextViewDelegate {
 
-    
-      //var myTableView: UITableView  =   UITableView()
-      //  var itemsToLoad: [String] = ["One", "Two", "Three"]
-        
-        
-       
-        
+
+    var offerVC : OfferView?
     var tradeInfo : Trademark!
-       
-        
-   //     @IBOutlet weak var containerView: UIView!
-        
-        private var currentView : UIView?
+    private var currentView : UIView?
     @IBOutlet weak var BrandName: UILabel!
-    
-        @IBOutlet weak var OffersView: UIView!
-    
-        @IBOutlet weak var WhoAreWeView: UIView!
-    
-        @IBOutlet weak var BranchView: UIView!
+    @IBOutlet weak var OffersView: UIView!
+    @IBOutlet weak var WhoAreWeView: UIView!
+    @IBOutlet weak var BranchView: UIView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var BrandLogo: UIImageView!
+    @IBOutlet weak var BackgroundView: UIImageView!
+    @IBOutlet weak var line: UIView!
+    @IBOutlet weak var star: UIButton!
+    @IBOutlet weak var upperline: UIView!
+    var checked = false
         
-        @IBOutlet weak var segmentedControl: UISegmentedControl!
-        
-        @IBOutlet weak var BrandLogo: UIImageView!
-        
-        @IBOutlet weak var BackgroundView: UIImageView!
-        
-        @IBOutlet weak var line: UIView!
-        
-        @IBOutlet weak var star: UIButton!
-        @IBOutlet weak var upperline: UIView!
-        
-       // @IBOutlet weak var Replacement: UIButton!
-        
-        
-        var checked = false
-        
-        override func viewDidLoad() {
-               super.viewDidLoad()
-            print("===========is printed selected row============")
-            print(tradeInfo)
-            
-            BrandName.text = tradeInfo.BrandName
-            
-            performSegue(withIdentifier: "info", sender: tradeInfo)
-          WhoAreWeView.alpha = 0
-                BranchView.alpha = 0
-                OffersView.alpha = 1
-            segmentedControl.addUnderlineForSelectedSegment()
-            
-            addTopAndBottomBorders()
-            let yourImage:UIImage = UIImage(named: "images")!
-            BrandLogo.maskCircle(inputImage: yourImage)
-           
-            
-            upperline.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
-            
-             line.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
-            
-          //  Utilities.styleFilledButton(Replacement)
-            
-            // Get main screen bounds
-            let screenSize: CGRect = UIScreen.main.bounds
-                   
-                   let screenWidth = screenSize.width
-                   let screenHeight = screenSize.height
-            
-
-
-            
-    }
-        
-        
-        
-       
-        private func setInitialView(){
-          //  setChildView(subview: firstView)
-            
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        BrandName.text = tradeInfo.BrandName
+        let imgURL = tradeInfo.brandImage
+        BrandLogo.sd_setImage(with: URL(string: imgURL ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
+        WhoAreWeView.alpha = 0
+        BranchView.alpha = 0
+        OffersView.alpha = 1
+        segmentedControl.addUnderlineForSelectedSegment()
+        addTopAndBottomBorders()
+        upperline.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
+        line.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
+        // Get main screen bounds
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
         }
+
+    private func setInitialView(){
+        //  setChildView(subview: firstView)
+    }
         
         
         
@@ -153,10 +111,9 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
                 }
             }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "info"{
-            let des = segue.destination as! OffersView
-//            des.Trade = self.tradeInfo
-            des.Trade = self.tradeInfo
+        if let vc = segue.destination as? OfferView, segue.identifier == "info" {
+            vc.Trade = self.tradeInfo
+            self.offerVC = vc
         }
     }
             
