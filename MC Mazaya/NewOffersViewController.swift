@@ -17,6 +17,9 @@ class NewOffersViewController: UIViewController, handleRetrievedData {
     func retrievedCategories(myData dataObject: [Category]) {
         self.Categories = dataObject
     }
+    func retrievedcopyCategories(myData dataObject: [Category]) {
+        self.Categories = dataObject
+    }
     
     @IBOutlet weak var trademarksTableView: UITableView!
     var Categories = [Category]()

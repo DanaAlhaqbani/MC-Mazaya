@@ -20,6 +20,7 @@ class searchResult: UICollectionViewController, UICollectionViewDelegateFlowLayo
     var didSelectItemAction: ((IndexPath) -> Void)?
     var tradeDelegate : ResultCollectionCellDelegator! = nil
     var delegate : reloadResultsCollection! = nil
+    var offers : [Offer]!
     var trademarks : [Trademark]?
     {
         didSet {
@@ -34,12 +35,8 @@ class searchResult: UICollectionViewController, UICollectionViewDelegateFlowLayo
         super.viewDidLoad()
         collectionView.semanticContentAttribute = .forceRightToLeft
         collectionView.register(UINib(nibName: "trademarkCell", bundle: nil), forCellWithReuseIdentifier: "trademarkCell")
-//        collectionView.de
     }
     
-//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 1
-//    }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return trademarks?.count ?? 0
     }
@@ -54,6 +51,15 @@ class searchResult: UICollectionViewController, UICollectionViewDelegateFlowLayo
         cell.brandLogo.layer.borderColor = UIColor.systemGray3.cgColor
         cell.brandLogo.layer.borderWidth = 0.3
         cell.brandLogo.layer.cornerRadius =  20
+        cell.offerTitle.text = trademarks?[indexPath.row].BrandName
+        cell.offerDetails.text = ""
+        cell.offerDetails.text = ""
+        if let o = self.trademarks?[indexPath.row].offers {
+            self.offers = o
+            if self.offers.count != 0 {
+            cell.offerDetails.text = self.offers[0].offerTitle
+            }
+        }
         return cell
     }
 
@@ -63,7 +69,6 @@ class searchResult: UICollectionViewController, UICollectionViewDelegateFlowLayo
         if (self.tradeDelegate != nil) {
             self.tradeDelegate.callSegueFromTradeCell(myData: trademarks![indexPath.row] )
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

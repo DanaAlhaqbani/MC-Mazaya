@@ -11,81 +11,111 @@ import UIKit
 
 class DscriptionViewController : UIViewController , UITextViewDelegate {
 
-    
-    
-    //MARK: - IBOutlets
+
+    var offerVC : OfferView?
+    var tradeInfo : Trademark!
+    private var currentView : UIView?
+    @IBOutlet weak var BrandName: UILabel!
+    @IBOutlet weak var OffersView: UIView!
+    @IBOutlet weak var WhoAreWeView: UIView!
+    @IBOutlet weak var BranchView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
     @IBOutlet weak var BrandLogo: UIImageView!
-    
     @IBOutlet weak var BackgroundView: UIImageView!
-    
     @IBOutlet weak var line: UIView!
-    
     @IBOutlet weak var star: UIButton!
     @IBOutlet weak var upperline: UIView!
-    
-    @IBOutlet weak var Replacement: UIButton!
-    
-    //MARK:- Variables
-   var checked = false
-    var tradeInfo : Trademark!
-    
-    //MARK: - View Life Cycle
+    var checked = false
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        BrandName.text = tradeInfo.BrandName
+        let imgURL = tradeInfo.brandImage
+        BrandLogo.sd_setImage(with: URL(string: imgURL ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
+        WhoAreWeView.alpha = 0
+        BranchView.alpha = 0
+        OffersView.alpha = 1
         segmentedControl.addUnderlineForSelectedSegment()
-        
         addTopAndBottomBorders()
-        
-        let yourImage:UIImage = UIImage(named: "images")!
-        BrandLogo.maskCircle(inputImage: yourImage)
-        
-        
         upperline.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
-        
         line.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
-        
-        Utilities.styleFilledButton(Replacement)
+        // Get main screen bounds
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        }
 
+    private func setInitialView(){
+        //  setChildView(subview: firstView)
     }
-    
-    
-    //MARK: -
-    @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl){
-        segmentedControl.changeUnderlinePosition()
-    }
-
-    func addTopAndBottomBorders() {
-       let thickness: CGFloat = 1.0
-       let topBorder = CALayer()
-       let bottomBorder = CALayer()
-       topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.BackgroundView.frame.size.width, height: thickness)
-        topBorder.backgroundColor = UIColor.white.cgColor
-       bottomBorder.frame = CGRect(x:0, y: self.BackgroundView.frame.size.height - thickness, width: self.BackgroundView.frame.size.width, height:thickness)
-       bottomBorder.backgroundColor = UIColor.gray.cgColor
-       BackgroundView.layer.addSublayer(topBorder)
-       BackgroundView.layer.addSublayer(bottomBorder)
-    }
-    
-    
-    @IBAction func IsFavorite(_ sender: UIButton) {
         
-        if checked {
-            UIImage(named:"Unchecked") != nil
-            sender.setImage(UIImage(named:"Checked"), for: .normal)
-                self.checked = true
+        
+        
+        
+        @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl){
+            
+          //  guard let segmentcontrol = sender as? UISegmentedControl else {return }
+        
+            segmentedControl.changeUnderlinePosition()
+            
+            print(segmentedControl.selectedSegmentIndex)
+            
+          
+            
+            if sender.selectedSegmentIndex == 0 {
+                       WhoAreWeView.alpha = 1
+                       BranchView.alpha = 0
+                       OffersView.alpha = 0
+                   }
+                if sender.selectedSegmentIndex == 1 {
+                    WhoAreWeView.alpha = 0
+                    BranchView.alpha = 1
+                    OffersView.alpha = 0
+                }
+                    
+       if sender.selectedSegmentIndex == 2 {
+                       WhoAreWeView.alpha = 0
+                       BranchView.alpha = 0
+                       OffersView.alpha = 1
+                   }
+            
             
         }
-        else{
-        UIImage(named:"Checked") != nil
-            sender.setImage( UIImage(named:"Unchecked"), for:.normal)
-             checked = true
+
+        func addTopAndBottomBorders() {
+           let thickness: CGFloat = 1.0
+           let topBorder = CALayer()
+           let bottomBorder = CALayer()
+           topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.BackgroundView.frame.size.width, height: thickness)
+            topBorder.backgroundColor = UIColor.white.cgColor
+           bottomBorder.frame = CGRect(x:0, y: self.BackgroundView.frame.size.height - thickness, width: self.BackgroundView.frame.size.width, height:thickness)
+           bottomBorder.backgroundColor = UIColor.gray.cgColor
+           BackgroundView.layer.addSublayer(topBorder)
+           BackgroundView.layer.addSublayer(bottomBorder)
+        }
+        
+        
+        @IBAction func IsFavorite(_ sender: UIButton) {
             
+            if checked {
+                UIImage(named:"Unchecked") != nil
+                sender.setImage(UIImage(named:"Checked"), for: .normal)
+                    self.checked = true
+                
             }
+            else{
+            UIImage(named:"Checked") != nil
+                sender.setImage( UIImage(named:"Unchecked"), for:.normal)
+                 checked = true
+                
+                }
+            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? OfferView, segue.identifier == "info" {
+            vc.Trade = self.tradeInfo
+            self.offerVC = vc
         }
-        
-    
-    
+    }
+            
 
 }

@@ -19,6 +19,8 @@
 		3BD3530B24FD26260053BC66 /* CustomSegmentedControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */; };
 		3BD3530F24FDACA40053BC66 /* homePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530E24FDACA40053BC66 /* homePageViewController.swift */; };
 		A92802EF2524946B00C67FB3 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92802EE2524946B00C67FB3 /* UISegmentedControl.swift */; };
+		A93540F7252DBDF200E8E375 /* OfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93540F6252DBDF200E8E375 /* OfferView.swift */; };
+		A93540F9252DC11A00E8E375 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93540F8252DC11900E8E375 /* CustomTableViewCell.swift */; };
 		A99D996624FF8AB60035D2FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99D996524FF8AB50035D2FF /* GoogleService-Info.plist */; };
 		A99D996824FF93910035D2FF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996724FF93900035D2FF /* Utilities.swift */; };
 		A99D996C24FF93B20035D2FF /* AddTrademark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996924FF93B20035D2FF /* AddTrademark.swift */; };
@@ -113,6 +115,8 @@
 		3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControlDelegate.swift; sourceTree = "<group>"; };
 		3BD3530E24FDACA40053BC66 /* homePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homePageViewController.swift; sourceTree = "<group>"; };
 		A92802EE2524946B00C67FB3 /* UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
+		A93540F6252DBDF200E8E375 /* OfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferView.swift; sourceTree = "<group>"; };
+		A93540F8252DC11900E8E375 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		A99D996524FF8AB50035D2FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A99D996724FF93900035D2FF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A99D996924FF93B20035D2FF /* AddTrademark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrademark.swift; sourceTree = "<group>"; };
@@ -244,6 +248,15 @@
 			path = SegmentedControl;
 			sourceTree = "<group>";
 		};
+		A93540F5252DBC6300E8E375 /* DescriptionView */ = {
+			isa = PBXGroup;
+			children = (
+				A93540F6252DBDF200E8E375 /* OfferView.swift */,
+				A93540F8252DC11900E8E375 /* CustomTableViewCell.swift */,
+			);
+			path = DescriptionView;
+			sourceTree = "<group>";
+		};
 		C656F210F2AF57F7CC302653 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +286,7 @@
 		D641E9A9249F3031001851A9 /* MC Mazaya */ = {
 			isa = PBXGroup;
 			children = (
+				A93540F5252DBC6300E8E375 /* DescriptionView */,
 				E73A420E25120A2400F45CC5 /* CollectionviewTableCell */,
 				D6A8F38624F3BE3B007DDBDB /* Admin VC */,
 				D6E8F25624BDB29200A4AA9D /* Models */,
@@ -572,6 +586,7 @@
 				D6A8F37F24F3B537007DDBDB /* RegionViewController.swift in Sources */,
 				D6381EBD24ADD4C5004569D6 /* VouchersViewController.swift in Sources */,
 				E7784CC12518FFB60020BDB0 /* userData.swift in Sources */,
+				A93540F9252DC11A00E8E375 /* CustomTableViewCell.swift in Sources */,
 				D6381EBF24ADD4DA004569D6 /* CommunicateUsViewController.swift in Sources */,
 				D6521A4B24F5215D00382FFD /* AdminTrademarksViewController.swift in Sources */,
 				D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */,
@@ -632,6 +647,7 @@
 				D620C51D24B1C35E0085B937 /* MapViewController.swift in Sources */,
 				D6381EBB24ADD4A5004569D6 /* SuggestOfferViewController.swift in Sources */,
 				D6E1286124A0805900977D26 /* XTF.swift in Sources */,
+				A93540F7252DBDF200E8E375 /* OfferView.swift in Sources */,
 				3B97E2CF24A346E400D0D965 /* HeaderCell.swift in Sources */,
 				3B97E2CD24A346E000D0D965 /* ExpertTabBarController.swift in Sources */,
 				D60B6BDD24FFA40E006552AC /* Category.swift in Sources */,
@@ -782,7 +798,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W6PU9BC6FT;
+				DEVELOPMENT_TEAM = GUMBR5MAD3;
 				INFOPLIST_FILE = "MC Mazaya/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -801,7 +817,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W6PU9BC6FT;
+				DEVELOPMENT_TEAM = GUMBR5MAD3;
 				INFOPLIST_FILE = "MC Mazaya/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
