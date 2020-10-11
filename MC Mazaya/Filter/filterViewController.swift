@@ -7,12 +7,15 @@
 //
 
 import UIKit
+
 protocol sendBackSelectedOptions {
     func sendCategories(categories dataobject: [String])
 }
 
 class filterViewController: UIViewController {
-    let FilterNotification = NSNotification.Name("FilterNotification")
+    
+    
+    //MARK: - Outlets
     @IBOutlet weak var disableAll: UIButton!
     @IBOutlet weak var orderStack: UIStackView!
     @IBOutlet weak var storeType: UIStackView!
@@ -22,6 +25,8 @@ class filterViewController: UIViewController {
     @IBOutlet weak var categorySecondSubStack: UIStackView!
     @IBOutlet weak var categoryThirdSubStack: UIStackView!
     @IBOutlet weak var backgroundView: UIView!
+    
+    //MARK: - Variables
     var Categories = [Category]()
     var trademarks = [Trademark]()
     var passedCategories = [Category]()
@@ -38,22 +43,16 @@ class filterViewController: UIViewController {
     var selectedSortByString : String?
     var dismissHandler: (() -> Void)!
     
+    //MARK:- "Sorted By" Buttons Variables
     lazy var featuredChoice : CustomButton = {
         $0.setTitle("مميز", for: .normal)
         $0.addTarget(self, action: #selector(orderedByBtnClicked(_:)), for: .touchUpInside)
         return $0
     }(CustomButton())
     
-    
     lazy var mostWatched : CustomButton = {
         $0.setTitle("الأكثر مشاهدة", for: .normal)
         $0.addTarget(self, action: #selector(orderedByBtnClicked(_:)), for: .touchUpInside)
-        return $0
-    }(CustomButton())
-    
-    lazy var online : CustomButton = {
-        $0.setTitle("أونلاين", for: .normal)
-        $0.addTarget(self, action: #selector(serviceTypeBtnClicked(_:)), for: .touchUpInside)
         return $0
     }(CustomButton())
     
@@ -63,6 +62,13 @@ class filterViewController: UIViewController {
         return $0
     }(CustomButton())
     
+    //MARK: - "Service Type" Buttons Variables
+    lazy var online : CustomButton = {
+        $0.setTitle("أونلاين", for: .normal)
+        $0.addTarget(self, action: #selector(serviceTypeBtnClicked(_:)), for: .touchUpInside)
+        return $0
+    }(CustomButton())
+        
     lazy var all : CustomButton = {
         $0.setTitle("الكل", for: .normal)
         $0.addTarget(self, action: #selector(serviceTypeBtnClicked(_:)), for: .touchUpInside)
@@ -75,7 +81,7 @@ class filterViewController: UIViewController {
         return $0
     }(CustomButton())
     
-    
+    //MARK: - "Categories" Buttons Variables
     lazy var electronicsCategory : categoryButton = {
         $0.Label.text = "الكترونيات"
         $0.image.image = UIImage(named: "Electronics")
@@ -150,6 +156,7 @@ class filterViewController: UIViewController {
         return $0
     }(categoryButton())
     
+    
     // MARK: - View Lify Cecle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -220,16 +227,14 @@ class filterViewController: UIViewController {
         categoryButtonsArray.append(homeCategory)
         categoryButtonsArray.append(schoolsCategory)
         categoryButtonsArray.append(servicesCategory)
-    }
+    } // End of category stack setup
     
-    // MARK: - Apply button handling
+    // MARK: - "Apply" button handling
     @IBAction func applyBtnAction(_ sender : UIButton) {
-//        self.passedCategories = []
-//        self.passedTradeMarks = []
         if selectedChecker == true {
             passedCategories.removeAll()
             self.dismiss(animated: true)
-        }
+        } // Handling "Disable button" clicked
         else {
             if selectedSortByString == nil && selectedCategoryName != [] && selectedServiceString != nil {
                 handleSelectedCategory()
@@ -249,7 +254,6 @@ class filterViewController: UIViewController {
             }
              if selectedSortByString == nil && selectedServiceString == nil && selectedCategoryName == [] {
                 self.passedCategories = Categories
-//                handleSelectedCategory()
 //                self.dismissHandler()
                 self.dismiss(animated: true)
             }
@@ -277,10 +281,9 @@ class filterViewController: UIViewController {
             }
             self.dismiss(animated: true)
         }
-
-    }
+    } // End of Apply button
     
-    //MARK: - Reset button handling
+    //MARK: - Reset buttons handling
     func resetServiceTypeButtonStates() {
         for button in serviceTypeButtonsArray {
             button.isSelected = false
@@ -288,8 +291,7 @@ class filterViewController: UIViewController {
             button.layer.borderColor = UIColor(rgb: 0x38a089).cgColor
             button.layer.borderWidth = 0.5
         }
-        
-    }
+    } // End of Reset Service Type buttons
     
     func resetSortByButtons(){
         for button in sortByButtonsArray {
@@ -298,7 +300,7 @@ class filterViewController: UIViewController {
             button.layer.borderColor = UIColor(rgb: 0x38a089).cgColor
             button.layer.borderWidth = 0.5
         }
-    }
+    } // End of Reset Sort By Buttons
     
     func resetCategoryButtonStates() {
         for button in categoryButtonsArray {
@@ -306,9 +308,9 @@ class filterViewController: UIViewController {
             button.Label.textColor = UIColor(rgb: 0xA5A7A7)
             button.image.image = button.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
         }
-        
-    }
+    } // End of Reset Categories buttons
     
+    //MARK: - "Disable" Button handling
     @objc func disableAllBtn(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         self.passedCategories = []
@@ -329,60 +331,50 @@ class filterViewController: UIViewController {
             self.selectedChecker = false
             self.dismissHandler()
         }
-        
-    }
-    
-    // MARK: - Selected Category handling
+    } // End of "disable" button handling
+ 
+    //MARK: - Selected Options handling
     @objc func categoryBtnClicked (_ sender:categoryButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             sender.Label.textColor = UIColor(rgb: 0x38a089)
             sender.image.image = sender.image.image?.imageWithColor(color: UIColor(rgb: 0x38a089))
             self.selectedCategoryName.append(sender.Label.text!)
-        }
-            
-        else {
+        } else {
             sender.Label.textColor = UIColor(rgb: 0xA5A7A7)
             sender.image.image = sender.image.image?.imageWithColor(color: UIColor(rgb:0xA5A7A7))
             self.selectedCategoryName.removeLast()
         }
-    }
+    } // End of "Category" buttons handling
     
-    
-    //MARK: - Selected service type handling
     @objc func serviceTypeBtnClicked(_ sender: CustomButton){
-        resetServiceTypeButtonStates()
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             sender.backgroundColor = UIColor(rgb: 0x38a089)
             sender.titleLabel?.textColor = .white
             sender.layer.borderColor = UIColor.white.cgColor
             self.selectedServiceString = sender.titleLabel?.text
-            
         } else {
             sender.backgroundColor = .white
             sender.layer.borderColor =  UIColor(rgb: 0x38a089).cgColor
             self.selectedServiceString = nil
         }
-    }
+    } // End of "service type" button handling
     
     @objc func orderedByBtnClicked(_ sender: CustomButton){
-        resetSortByButtons()
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             sender.backgroundColor = UIColor(rgb: 0x38a089)
             sender.titleLabel?.textColor = .white
             sender.layer.borderColor = UIColor.white.cgColor
             self.selectedSortByString = sender.titleLabel?.text
-            
         } else {
             sender.backgroundColor = .white
             sender.layer.borderColor =  UIColor(rgb: 0x38a089).cgColor
             self.selectedSortByString = nil
         }
-    }
+    } // End of selected "order by" button handling
 
-    
     func handleSelectedCategory(){
         for name in selectedCategoryName {
             let catName = name
@@ -393,7 +385,7 @@ class filterViewController: UIViewController {
             }
             self.dismissHandler()
         }
-    }
+    } // End of handling filtered trademarks with selected categories
     
     
     //MARK: - Setup Apply button
@@ -405,9 +397,5 @@ class filterViewController: UIViewController {
         applyBtn.clipsToBounds = true
         applyBtn.titleLabel?.font = UIFont(name: "STC", size: 25)
     } // End of button setup
-    
-
-    
-    
     
 }

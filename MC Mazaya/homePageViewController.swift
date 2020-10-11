@@ -13,7 +13,7 @@ import SideMenu
 
 class homePageViewController: UIViewController , UITableViewDataSource, UITableViewDelegate  {
     
-    //MARK: - Lets
+    //MARK: - Constants
     let user = Auth.auth().currentUser
     let green = UIColor(rgb: 0x38a089)
     let firstInitailizer = launchViewController()
@@ -36,10 +36,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var resultCollectionViewController : searchResult!
     var filteredCategoriesName = [String]()
     var filterVC = filterViewController()
-//    var filteredServiceType = [String]()
-//    var filteredSortedBy = [String]()
     var sortByString : String?
     var serviceTypeString : String?
+    var filteredByServiceType = [Trademark]()
     
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
@@ -56,7 +55,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         tbleList.separatorStyle = .none
     }
 
-
+    //MARK: - "Side Menue" Constants and Variables
     let mainView : UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         //$0.backgroundColor = .init(white: 0.95, alpha: 1)
@@ -169,6 +168,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         return $0
     }(UIButton(type: .system))
 
+    
     //MARK: - Logout Function
     func logout(){
         try! Auth.auth().signOut()
@@ -177,7 +177,6 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             self.present(vc, animated: true, completion: nil)
         }
     }
-       
 
     //MARK:- Table View delegate and datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -205,13 +204,15 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             } else if sortByString == "مميز" {
                 getFilteredByServiceTypeTradeMarks(index: indexPath)
                 cell.Trades = filteredByServiceType
-//                cell.Trades = self.Categories[indexPath.row].trademarks ?? [] // Trmporarily
+                cell.sortedBy = self.sortByString!
+                cell.Trades = filteredByServiceType
                 cell.setUpDataSource()
                 cell.delegate = self
             } else if sortByString == "قريب مني" {
                 getFilteredByServiceTypeTradeMarks(index: indexPath)
                 cell.Trades = filteredByServiceType
-//                cell.Trades = self.Categories[indexPath.row].trademarks ?? [] // Trmporarily
+                cell.sortedBy = self.sortByString!
+                cell.Trades = filteredByServiceType
                 cell.setUpDataSource()
                 cell.delegate = self
             }
@@ -245,6 +246,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             cell.delegate = self
         }
         cell.nameLabel.text = self.Categories[indexPath.row].Name
+        cell.catId = self.Categories[indexPath.row].key!
         cell.delegate = self
         cell.setUpDataSource()
         return cell
@@ -311,25 +313,22 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 }
                 self.tbleList.reloadData()
             }
-        }
+        } // Handling Filter Segue
         if segue.identifier == "toNewOffers" {
-                     let dis = segue.destination as! NewOffersViewController
-                  dis.Categories = self.Categories
-             } // Show new offers Segue
+            let dis = segue.destination as! NewOffersViewController
+            dis.Categories = self.Categories
+        } // Show new offers Segue
          if segue.identifier == "toFav" {
-                    let dis = segue.destination as! FavoriteViewController
-                 dis.Categories = self.Categories
-                    } // Show new offers Segue
+            let dis = segue.destination as! FavoriteViewController
+            dis.Categories = self.Categories
+        } // Show new offers Segue
         if segue.identifier == "toVouchers" {
-                let dis = segue.destination as! VouchersViewController
-                  dis.Categories = self.Categories
-             } // Show new offers Segue
+            let dis = segue.destination as! VouchersViewController
+            dis.Categories = self.Categories
+        } // Show new offers Segue
     }// Prepare Function
-    
-    
-    
-    var filteredByServiceType = [Trademark]()
-    
+
+    //MARK: - Handling Filtered Trademarks
     func getFilteredByServiceTypeTradeMarks(index : IndexPath) {
         self.filteredByServiceType = []
         let trades = Categories[index.row].trademarks!
@@ -346,11 +345,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     } // Get filtered by service type trademarks function
     
     
-    
-////    func getSortedTra
-//    func getSortedCategories(index: IndexPath){
-//    }
-    
+
 }
 
 

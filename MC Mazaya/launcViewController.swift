@@ -200,102 +200,97 @@ class launchViewController: UIViewController {
 } // End of the class
 
 
-
+//MARK: - Class Extension
 extension launchViewController {
-        //MARK: - User interface Setup
-        func setupUI() {
-            view.addSubview(logoImage)
-            view.addSubview(titleImage)
-            NSLayoutConstraint.activate([
-                titleImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                titleImage.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
-                titleImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
-                titleImage.heightAnchor.constraint(equalTo: titleImage.widthAnchor, multiplier: 0.7),
-                logoImage.bottomAnchor.constraint(equalTo: titleImage.topAnchor, constant: -10),
-                logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                logoImage.heightAnchor.constraint(equalToConstant: 250),
-                logoImage.widthAnchor.constraint(equalTo: logoImage.heightAnchor)
-            ])
-        }
-
-       
-        // MARK: - Get Categories & store trademarks info 
-        func getCategories(){
-            self.Categories = []
-            self.key1 = [Any]()
-            self.tradeInfo = [:]
-            self.key2 = [:]
-            self.trades = [:]
-            self.trades2 = []
-
-            let catRef = Database.database().reference()
-            catRef.child("Categories").observeSingleEvent(of: .value, with: { (snap) in
-                if let dict = snap.value as? [String : AnyObject] {
-                    self.cat = dict as NSDictionary
-                    
-                    for item in dict {
-                        self.key1.append(item.key)
-                    }
-                    
-                    for c in self.key1 {
-                        self.trades = [:]
-                        self.trades2 = []
-                        self.key2 = self.cat[c] as! NSDictionary
-                        self.catID.append(c)
-                        self.trades = self.key2["TradeMarks"] as? [String: AnyObject]
-                        if self.trades != nil {
-                            self.converTrades()
-                        }
-                        
-                        self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades2)
-                        self.Categories.append(self.category)
-                        self.categoriesCopy.append(self.category)
-                    }
-                }
-                
-                self.deleagte?.reloadTable()
-                self.deleagte?.retrievedCategories(myData: self.Categories)
-                self.deleagte?.retrievedcopyCategories(myData: self.categoriesCopy)
-                self.moveToTheTabBarViewController()
-            })
-        }
-        
-        func convertOffers(tradeInfo: NSDictionary){
-            self.arrayOffers = []
-            self.offersDict = [:]
-            self.offers = []
-            self.arrayOffers = tradeInfo["Offers"] as? NSArray
-            if arrayOffers != nil {
-                for i in arrayOffers {
-                    offersDict = i as! [String : Any]
-                    self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["NumberOfCoupons"] as? String, numberOfPoints: self.offersDict["NumberOfPoints"] as? String, offerType: self.offersDict["OfferType"] as? String, offerDiscription: self.offersDict["OffersDescription"] as? String, offersDetails: self.offersDict["OffersDetails"] as? String, offerTitle: self.offersDict["OffersTitle"] as? String, serviceType: self.offersDict["ServiceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String)
-                    self.offers.append(self.offer)
-                }
-            }
-        }
-
-        func convertBranches(tradeInfo: NSDictionary){
-            self.arrayBranches = []
-            self.branchDict = [:]
-            self.branches = []
-            self.arrayBranches = tradeInfo["Branches"] as? NSArray
-            if arrayBranches != nil {
-                for i in arrayBranches {
-                    branchDict = i as! [String : Any]
-                    self.branch = Branch(BranchLink: self.branchDict["BranchLink"] as? String, BrancheName: self.branchDict["BrancheName"] as? String, DescriptionBranch: self.branchDict["DescriptionBranch"] as? String)
-                    self.branches.append(self.branch)
-                }
-            }
-        }
-        
-        func converTrades(){
-            for i in self.trades.values {
-                self.tradeInfo = i as? NSDictionary
-                convertBranches(tradeInfo: self.tradeInfo)
-                convertOffers(tradeInfo: self.tradeInfo)
-                self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: tradeInfo?["Views"] as? Int)
-                self.trades2.append(self.trade)
-            }
-        }
+    // User interface Setup
+    func setupUI() {
+        view.addSubview(logoImage)
+        view.addSubview(titleImage)
+        NSLayoutConstraint.activate([
+            titleImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleImage.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+            titleImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
+            titleImage.heightAnchor.constraint(equalTo: titleImage.widthAnchor, multiplier: 0.7),
+            logoImage.bottomAnchor.constraint(equalTo: titleImage.topAnchor, constant: -10),
+            logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImage.heightAnchor.constraint(equalToConstant: 250),
+            logoImage.widthAnchor.constraint(equalTo: logoImage.heightAnchor)
+        ])
     }
+       
+    //Get Categories & store trademarks info
+    func getCategories(){
+        self.Categories = []
+        self.key1 = [Any]()
+        self.tradeInfo = [:]
+        self.key2 = [:]
+        self.trades = [:]
+        self.trades2 = []
+        let catRef = Database.database().reference()
+        catRef.child("Categories").observeSingleEvent(of: .value, with: { (snap) in
+            if let dict = snap.value as? [String : AnyObject] {
+                self.cat = dict as NSDictionary
+                for item in dict {
+                    self.key1.append(item.key)
+                }
+                for c in self.key1 {
+                    self.trades = [:]
+                    self.trades2 = []
+                    self.key2 = self.cat[c] as! NSDictionary
+                    self.catID.append(c)
+                    self.trades = self.key2["TradeMarks"] as? [String: AnyObject]
+                    if self.trades != nil {
+                        self.converTrades()
+                    }
+                self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades2)
+                self.Categories.append(self.category)
+                self.categoriesCopy.append(self.category)
+                }
+            }
+            self.deleagte?.reloadTable()
+            self.deleagte?.retrievedCategories(myData: self.Categories)
+            self.deleagte?.retrievedcopyCategories(myData: self.categoriesCopy)
+            self.moveToTheTabBarViewController()
+        })
+    } // End of get Categories
+        
+    func convertOffers(tradeInfo: NSDictionary){
+        self.arrayOffers = []
+        self.offersDict = [:]
+        self.offers = []
+        self.arrayOffers = tradeInfo["Offers"] as? NSArray
+        if arrayOffers != nil {
+            for i in arrayOffers {
+                offersDict = i as! [String : Any]
+                self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["NumberOfCoupons"] as? String, numberOfPoints: self.offersDict["NumberOfPoints"] as? String, offerType: self.offersDict["OfferType"] as? String, offerDiscription: self.offersDict["OffersDescription"] as? String, offersDetails: self.offersDict["OffersDetails"] as? String, offerTitle: self.offersDict["OffersTitle"] as? String, serviceType: self.offersDict["ServiceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String)
+                    self.offers.append(self.offer)
+            }
+        }
+    } // End of add Offers
+
+    func convertBranches(tradeInfo: NSDictionary){
+        self.arrayBranches = []
+        self.branchDict = [:]
+        self.branches = []
+        self.arrayBranches = tradeInfo["Branches"] as? NSArray
+        if arrayBranches != nil {
+            for i in arrayBranches {
+                branchDict = i as! [String : Any]
+                self.branch = Branch(BranchLink: self.branchDict["BranchLink"] as? String, BrancheName: self.branchDict["BrancheName"] as? String, DescriptionBranch: self.branchDict["DescriptionBranch"] as? String)
+                    self.branches.append(self.branch)
+            }
+        }
+    } // End of Add Branches
+        
+    func converTrades(){
+        for i in self.trades.values {
+            self.tradeInfo = i as? NSDictionary
+            convertBranches(tradeInfo: self.tradeInfo)
+            convertOffers(tradeInfo: self.tradeInfo)
+            self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: tradeInfo?["Views"] as? Int)
+                self.trades2.append(self.trade)
+        }
+    } // End of Add Trademarks
+
+} // End of class
 
