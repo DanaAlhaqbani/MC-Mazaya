@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navigationBarAppearace.titleTextAttributes = textAttributes
         navigationBarAppearace.tintColor = green
+        
         return true
     }
 

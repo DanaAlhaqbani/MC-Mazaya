@@ -31,11 +31,11 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         self.PointsLabel.text = userData.points
         
         if ( self.GenderLabel.text == "أنثى"){
-            UserIcon.image = #imageLiteral(resourceName: "femalee")
+            UserIcon.image = #imageLiteral(resourceName: "femaleicon")
             GenderIcon.image = #imageLiteral(resourceName: "femaleGender")
             
         }else{
-            UserIcon.image = #imageLiteral(resourceName: "male")
+            UserIcon.image = #imageLiteral(resourceName: "maleicon")
             GenderIcon.image = #imageLiteral(resourceName: "genderMale")
         }
         
@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         
         super.viewDidLoad()
         
-       view.generalGradiantView()
+        view.backgroundColor = .white
         setUpUI()
         
     }
@@ -65,7 +65,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleToFill
         $0.clipsToBounds = true
-      //  $0.image = #imageLiteral(resourceName: "profileWB")
+       // $0.image = #imageLiteral(resourceName: "Rectangle")
         return $0
     }(UIImageView())
     
@@ -83,7 +83,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
         $0.font = UIFont(name: "stc", size: 40)
-        $0.textColor = .darkGray
+        $0.textColor = .black
         
         return $0
     }(UILabel())
@@ -94,7 +94,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
         $0.font = UIFont(name: "stc", size: 20)
-        $0.textColor = .darkGray
+        $0.textColor = .black
         return $0
     }(UILabel())
     let PointsLabel : UILabel = {
@@ -103,7 +103,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
         $0.font = UIFont(name: "stc", size: 20)
-        $0.textColor = .darkGray
+        $0.textColor = .black
         return $0
     }(UILabel())
     let PointsWord : UILabel = {
@@ -112,7 +112,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
          $0.textAlignment = .right
          $0.font = .boldSystemFont(ofSize: 20)
          $0.font = UIFont(name: "stc", size: 20)
-         $0.textColor = .darkGray
+         $0.textColor = .black
          return $0
      }(UILabel())
     let GenderIcon : UIImageView = {
@@ -157,7 +157,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
         $0.font = UIFont(name: "stc", size: 30)
-        $0.textColor = .darkGray
+        $0.textColor = .black
         
         return $0
     }(UILabel())
@@ -168,7 +168,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 30)
         $0.font = UIFont(name: "stc", size: 30)
-        $0.textColor = .darkGray
+        $0.textColor = .black
         return $0
     }(UILabel())
     
@@ -178,11 +178,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         //EditProfileViewController.img = UserIcon
         self.performSegue(withIdentifier: "goToEdit", sender: self)
     }
-    
 
-    
-    
-    
     
     func setUpUI()  {
         

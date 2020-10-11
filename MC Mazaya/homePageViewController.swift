@@ -53,6 +53,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         filterVC.delegate = self
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
+         
     }
 
     //MARK: - "Side Menue" Constants and Variables
@@ -60,7 +61,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.translatesAutoresizingMaskIntoConstraints = false
         //$0.backgroundColor = .init(white: 0.95, alpha: 1)
         $0.layer.zPosition = 100
-        $0.isUserInteractionEnabled = true
+       // $0.isUserInteractionEnabled = true
         $0.isHidden = true
         return $0
     }(UIView())
@@ -82,11 +83,19 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     let sideMenuStackView : UIStackView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
-        $0.distribution = .fillEqually
+        //$0.distribution = .fillEqually
         $0.spacing = 10
+        $0.backgroundColor = .blue
         return $0
     }(UIStackView())
-           
+    
+           let MazayaLogoView : UIImageView = {
+               $0.translatesAutoresizingMaskIntoConstraints = false
+               $0.contentMode = .scaleAspectFit
+               $0.clipsToBounds = true
+               $0.image = #imageLiteral(resourceName: "whiteMazaya")
+               return $0
+           }(UIImageView())
     lazy var openRegionVC : UIButton = {
         $0.setTitle("المنطقة", for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.6274509804, blue: 0.537254902, alpha: 1)
@@ -323,9 +332,10 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             dis.Categories = self.Categories
         } // Show new offers Segue
         if segue.identifier == "toVouchers" {
-            let dis = segue.destination as! VouchersViewController
-            dis.Categories = self.Categories
-        } // Show new offers Segue
+                let dis = segue.destination as! VouchersViewController
+                  dis.Categories = self.Categories
+                  dis.Trades = self.Trades
+             } // Show new offers Segue
     }// Prepare Function
 
     //MARK: - Handling Filtered Trademarks
@@ -366,6 +376,7 @@ extension homePageViewController {
         view.addSubview(sideMenu)
         sideMenu.addSubview(separatorView)
         sideMenu.addSubview(sideMenuStackView)
+        sideMenuStackView.addArrangedSubview(MazayaLogoView)
         sideMenuStackView.addArrangedSubview(openRegionVC)
         sideMenuStackView.addArrangedSubview(openFamilyVC)
         sideMenuStackView.addArrangedSubview(openFavVC)
@@ -381,6 +392,7 @@ extension homePageViewController {
         navigationItem.rightBarButtonItem = rightBarButtonItem
         navigationItem.leftBarButtonItem = leftBarButtonItem
         NSLayoutConstraint.activate([
+            
             mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             mainView.heightAnchor.constraint(equalTo: view.heightAnchor),
             mainView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -392,10 +404,12 @@ extension homePageViewController {
             separatorView.widthAnchor.constraint(equalToConstant: 3),
             separatorView.leftAnchor.constraint(equalTo: sideMenu.leftAnchor),
             separatorView.centerYAnchor.constraint(equalTo: sideMenu.centerYAnchor),
-            sideMenuStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            sideMenuStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
             sideMenuStackView.leftAnchor.constraint(equalTo: separatorView.rightAnchor),
             sideMenuStackView.widthAnchor.constraint(equalToConstant: sideMenuWidth),
-            openRegionVC.heightAnchor.constraint(equalToConstant: 50),
+            openRegionVC.heightAnchor.constraint(equalToConstant: 40),
+            MazayaLogoView.heightAnchor.constraint(equalToConstant: 110),
+
         ])
         mainViewXConstraint = mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         mainViewXConstraint.isActive = true
@@ -540,22 +554,25 @@ extension homePageViewController {
         usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
         self.view.layoutIfNeeded()
         }, completion: nil)
+        tbleList.isUserInteractionEnabled = true
+
     }
            
     @objc func menuTapped() {
         if isMenuShow {
-            
             mainViewXConstraint.constant = 0
             rightBarButtonItem.tintColor = green
+        tbleList.isUserInteractionEnabled = true
+        
         } else {
-            
             mainViewXConstraint.constant = -sideMenuWidth
-            rightBarButtonItem.tintColor = green
+            rightBarButtonItem.tintColor = .white
+            tbleList.isUserInteractionEnabled = false
         }
         UIView.animate(withDuration: 0.5, delay: 0.0,
                        usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
                        options: .curveEaseInOut, animations: {
-                        self.view.layoutIfNeeded()
+            self.view.layoutIfNeeded()
                         }, completion: nil)
                
         isMenuShow.toggle()
