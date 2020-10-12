@@ -28,7 +28,7 @@ class ChangePassViewController: UIViewController , ChangePassDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.generalGradiantView()
+        view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
         setUpUI()
         

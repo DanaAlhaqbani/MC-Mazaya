@@ -13,6 +13,12 @@ class OfferView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
    
 
     @IBOutlet weak var tableview: UITableView!
+    
+    
+    @IBOutlet var UseAnoffer : UIButton!
+    
+    
+    
     var Categories = [Category]()
     var Trades = [Trademark]()
     var offers = [Offer]()
@@ -39,19 +45,80 @@ class OfferView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+
         let cell = tableview.dequeueReusableCell(withIdentifier: "trademarkCell") as! CustomTableViewCell
         cell.nameLabel.text = offers[indexPath.row].offerTitle
+        cell.addressLabel.text = offers[indexPath.row].offersDetails
+        cell.servicetype.text = ("نوع الخدمة:" + (offers[indexPath.row].serviceType!))
+          
+        
+        
+        //action for selectedOffer
+     //  cell.selectedOFfer.addTarget(self, action: #selector(OfferView.onClickedButton(_:)), for: .touchUpInside)
+        
+        cell.selectionStyle = .none
+        
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
            return 105
        }
-       override func viewDidAppear(_ animated: Bool) {
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(self.offers[indexPath.row])
+        //tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell
+        
+        for _ in 1...10{
+            
+            cell.selectedrow!.image = UIImage.init(named: "selected")
+       
+        
+        }
+//        if indexPath.row == 0{
+//                   cell.selectedrow!.image = UIImage.init(named: "selected")
+//               }
+        
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+
+         let cell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell
+
+for _ in 1...10{
+               cell.selectedrow!.image = UIImage.init(named: "unselected")
+               }
+        
+//    if indexPath.row == 0{
+//    cell.selectedrow!.image = UIImage.init(named: "unselected")
+}
+    
+    override func viewDidAppear(_ animated: Bool) {
         
            tableview.reloadData()
            
        }
+    
+    
+    
+    @IBAction func UseAnOffer(_ sender: Any) {
+            print("Tapped")
+        
+    }
+    
+    
+    @objc func onClickedButton(_ sender:Any?) {
 
+      //  selectesButton.selectedOFfer.setImage(UIImage(named:"selected"), for:.normal)
+
+       print("HI AJwan")
+    }
+    
+    func AlertBox (){
+        
+    }
 
 }

@@ -130,7 +130,7 @@ class EditProfileViewController: UIViewController , EditProfileDelegate {
         
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        view.generalGradiantView()
+        view.backgroundColor = .white
         setUpUI()
         
         
@@ -149,10 +149,10 @@ class EditProfileViewController: UIViewController , EditProfileDelegate {
         $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
         if ( userData.gender == "أنثى"){
-        $0.image = #imageLiteral(resourceName: "femalee")
+        $0.image = #imageLiteral(resourceName: "femaleicon")
         }
         else {
-        $0.image = #imageLiteral(resourceName: "male")
+        $0.image = #imageLiteral(resourceName: "maleicon")
 
         }
         return $0

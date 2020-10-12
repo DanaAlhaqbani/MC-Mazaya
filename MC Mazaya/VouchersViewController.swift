@@ -24,6 +24,7 @@ class VouchersViewController: UIViewController {
      var MyVouchersTitle = ["قسيمة بقيمة ٢٠٠ ", "قسيمة بقيمة ١٥٠"]
      var MyVouchersNames = ["حلويات سعد الدين", "باتشي"]
     var MyVouchersImages = ["patchi" , "images" ]
+    var isMyVoucher = false
 
 
     // master array
@@ -59,10 +60,12 @@ class VouchersViewController: UIViewController {
             namesToDisplay = AvaVouchersNames
             titlesToDisplay = AvaVouchersTitles
             imagesToDisplay = AvaVouchersImage
+            isMyVoucher = false
         case 0:
             namesToDisplay = MyVouchersNames
             titlesToDisplay = MyVouchersTitle
             imagesToDisplay = MyVouchersImages
+            isMyVoucher = true
            
         default:
             break
@@ -121,8 +124,11 @@ extension VouchersViewController: UITableViewDataSource, UITableViewDelegate {
         return titlesToDisplay.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let trade = vouchersTrade[indexPath.row]
-        performSegue(withIdentifier: "toVoucherDetails", sender: trade)
+        if isMyVoucher == true {
+        self.showCustomAlertWith(message: "مبروك! حصلت قسيمة شرائية نرجوا إبراز هذة الصورة عند المحل للحصول عليها", descMsg: "للحصول على هذة القسيمة إذهب الى المحل وقم بإبراز هذة الصورة", itemimage: nil, actions: nil)
+        }
+        //let trade = vouchersTrade[indexPath.row]
+        //performSegue(withIdentifier: "toVoucherDetails", sender: trade)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
