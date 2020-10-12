@@ -21,6 +21,8 @@
 		A92802EF2524946B00C67FB3 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92802EE2524946B00C67FB3 /* UISegmentedControl.swift */; };
 		A93540F7252DBDF200E8E375 /* OfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93540F6252DBDF200E8E375 /* OfferView.swift */; };
 		A93540F9252DC11A00E8E375 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93540F8252DC11900E8E375 /* CustomTableViewCell.swift */; };
+		A9413E62253333EC00A5BC4C /* WhoWeAreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9413E61253333EC00A5BC4C /* WhoWeAreView.swift */; };
+		A94A1DEA253317730086605F /* BranchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94A1DE9253317730086605F /* BranchView.swift */; };
 		A99D996624FF8AB60035D2FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99D996524FF8AB50035D2FF /* GoogleService-Info.plist */; };
 		A99D996824FF93910035D2FF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996724FF93900035D2FF /* Utilities.swift */; };
 		A99D996C24FF93B20035D2FF /* AddTrademark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996924FF93B20035D2FF /* AddTrademark.swift */; };
@@ -116,6 +118,8 @@
 		A92802EE2524946B00C67FB3 /* UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		A93540F6252DBDF200E8E375 /* OfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferView.swift; sourceTree = "<group>"; };
 		A93540F8252DC11900E8E375 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		A9413E61253333EC00A5BC4C /* WhoWeAreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WhoWeAreView.swift; path = ../../WhoWeAreView.swift; sourceTree = "<group>"; };
+		A94A1DE9253317730086605F /* BranchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchView.swift; sourceTree = "<group>"; };
 		A99D996524FF8AB50035D2FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A99D996724FF93900035D2FF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A99D996924FF93B20035D2FF /* AddTrademark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrademark.swift; sourceTree = "<group>"; };
@@ -249,7 +253,9 @@
 		A93540F5252DBC6300E8E375 /* DescriptionView */ = {
 			isa = PBXGroup;
 			children = (
+				A9413E61253333EC00A5BC4C /* WhoWeAreView.swift */,
 				A93540F6252DBDF200E8E375 /* OfferView.swift */,
+				A94A1DE9253317730086605F /* BranchView.swift */,
 				A93540F8252DC11900E8E375 /* CustomTableViewCell.swift */,
 			);
 			path = DescriptionView;
@@ -588,6 +594,7 @@
 				D6521A4B24F5215D00382FFD /* AdminTrademarksViewController.swift in Sources */,
 				D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */,
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
+				A94A1DEA253317730086605F /* BranchView.swift in Sources */,
 				E7ABDCFD2517710B00B6C4B9 /* Offer.swift in Sources */,
 				3B97E2CB24A346DC00D0D965 /* DownloaderX.swift in Sources */,
 				D65880C42508B29A00BE29F9 /* TrademarkTableVC.swift in Sources */,
@@ -612,6 +619,7 @@
 				D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */,
 				D6A8F38E24F3C07E007DDBDB /* employeesViewController.swift in Sources */,
 				3B97E2C724A346D200D0D965 /* BaseCell.swift in Sources */,
+				A9413E62253333EC00A5BC4C /* WhoWeAreView.swift in Sources */,
 				D6979632250E4320006439BD /* BigOffersViewController.swift in Sources */,
 				D6521A4924F4F62A00382FFD /* Trademark.swift in Sources */,
 				D6381EAB24AC89F7004569D6 /* EditProfilePresenter.swift in Sources */,

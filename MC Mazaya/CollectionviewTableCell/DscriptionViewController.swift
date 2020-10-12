@@ -13,6 +13,9 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
 
 
     var offerVC : OfferView?
+    var BranchVC : BranchView?
+    var WWAVVC : WhoWeAreView?
+    
     var tradeInfo : Trademark!
     private var currentView : UIView?
     @IBOutlet weak var BrandName: UILabel!
@@ -115,7 +118,15 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
             vc.Trade = self.tradeInfo
             self.offerVC = vc
         }
+        if let vc = segue.destination as? BranchView, segue.identifier == "info" {
+                     vc.Trade = self.tradeInfo
+                     self.BranchVC = vc
+                 }
+        if let vc = segue.destination as? WhoWeAreView, segue.identifier == "info" {
+                            vc.Trade = self.tradeInfo
+                            self.WWAVVC = vc
+                        }
     }
-            
-
+         
+   
 }
