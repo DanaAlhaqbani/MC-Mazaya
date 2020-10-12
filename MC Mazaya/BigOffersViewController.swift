@@ -61,18 +61,13 @@ class BigOffersViewController: UIViewController, handleRetrievedData{
             let name = trad.BrandName ?? ""
                 let image = trad.brandImage ?? ""
             let tradOffers = trad.offers ?? []
-            
              for offer in tradOffers {
-                
                 if offer.offerType == "صفقة" {
                     let offerTilte = offer.offerTitle ?? ""
                     BigOffersNames.append(name)
                     BigOffersImage.append(image)
                     BigOffersTitles.append(offerTilte)
-                    
-               
                 }
-                
             }
             }
         }
@@ -102,7 +97,6 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
         //let trademarkImage = trademarksImages[indexPath.row]
          cell.trademarkName.text = trademarkName
          cell.Des.text = offerTitle
-        
          cell.trademarkImage.sd_setImage(with: URL(string: offerImage ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
         //cell.trademarkImage.image = UIImage(named: trademarkImage)
         //make the cell looks good

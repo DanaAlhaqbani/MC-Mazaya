@@ -7,11 +7,11 @@
 //
 
 import UIKit
-
+import Firebase
 
 class DscriptionViewController : UIViewController , UITextViewDelegate {
 
-
+    let user = Auth.auth().currentUser?.uid
     var offerVC : OfferView?
     var tradeInfo : Trademark!
     private var currentView : UIView?
@@ -26,7 +26,11 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
     @IBOutlet weak var star: UIButton!
     @IBOutlet weak var upperline: UIView!
     var checked = false
-        
+    var ref = Database.database().reference()
+    var favTradesKeys = [String]()
+    var favTradeKey = String()
+    var favTradeValues = [String]()
+    var favDictionary : NSDictionary = [:]
     override func viewDidLoad() {
         super.viewDidLoad()
         BrandName.text = tradeInfo.BrandName
@@ -43,16 +47,17 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
         let screenSize: CGRect = UIScreen.main.bounds
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
-        }
+        setupFavouriteButton()
+//        star.setImage(UIImage(named: "Unchecked"), for: .normal)
+//        star.setImage(UIImage(named: "Checked"), for: .selected)
+//        print()
+    }
 
     private func setInitialView(){
         //  setChildView(subview: firstView)
     }
         
-        
-        
-        
-        @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl){
+    @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl){
             
           //  guard let segmentcontrol = sender as? UISegmentedControl else {return }
         
@@ -95,27 +100,40 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
         }
         
         
-        @IBAction func IsFavorite(_ sender: UIButton) {
-            
-            if checked {
-                UIImage(named:"Unchecked") != nil
-                sender.setImage(UIImage(named:"Checked"), for: .normal)
-                    self.checked = true
+    @IBAction func IsFavorite(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        let isChecked = sender.isSelected
+        if !isChecked {
+            for i in favDictionary {
+                if i.value as? String == self.tradeInfo.BrandName {
+                    self.ref.child("Users/\(user!)/FavoriteTradeMarks/\(i.key)").removeValue()
+                } // Remove trademark if it's already favourite trade
+            } // Iterate over Favourite trademarks dictionray
+        } else {
+            if favDictionary.contains(where: {$0.value as! String == tradeInfo.BrandName! }) {
                 
+            } else {
+                self.ref.child("Users/\(user!)/FavoriteTradeMarks").childByAutoId().setValue(self.tradeInfo.BrandName)
             }
-            else{
-            UIImage(named:"Checked") != nil
-                sender.setImage( UIImage(named:"Unchecked"), for:.normal)
-                 checked = true
-                
-                }
-            }
+        } // Add Trademark to Favourite Trademarks Dictionary
+    } // End of handling star pressing
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? OfferView, segue.identifier == "info" {
             vc.Trade = self.tradeInfo
             self.offerVC = vc
         }
     }
-            
-
+    
+    
+    func setupFavouriteButton(){
+        if favDictionary.contains(where: {$0.value as! String == tradeInfo.BrandName! }) {
+            self.star.isSelected = true
+        } else {
+            self.star.isSelected = false
+        }
+        star.setImage(UIImage(named: "Checked"), for: .selected)
+        star.setImage(UIImage(named: "Unchecked"), for: .normal)
+    }
 }

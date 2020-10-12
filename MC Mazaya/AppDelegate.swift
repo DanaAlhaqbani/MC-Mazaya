@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarAppearace = UINavigationBar.appearance()
         let green = UIColor(rgb: 0x38a089)
         let textAttributes = [NSAttributedString.Key.foregroundColor:green, NSAttributedString.Key.font: UIFont(name: "STC", size: 20)!]
-        
+        navigationBarAppearace.semanticContentAttribute = .forceRightToLeft
         navigationBarAppearace.titleTextAttributes = textAttributes
         navigationBarAppearace.tintColor = green
         

@@ -76,7 +76,6 @@
 		D6E8F25124BDAA1300A4AA9D /* MakeDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25024BDAA1300A4AA9D /* MakeDropDown.swift */; };
 		D6E8F25824BDB2AB00A4AA9D /* FamilyMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25724BDB2AB00A4AA9D /* FamilyMember.swift */; };
 		D6E8F25A24BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25924BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift */; };
-		D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F89BBD24A204CC000357BF /* homeViewController.swift */; };
 		D6FF724024A49C4400EFA660 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */; };
 		D6FF724224A4A09000EFA660 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */; };
 		D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */; };
@@ -177,7 +176,6 @@
 		D6E8F25024BDAA1300A4AA9D /* MakeDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeDropDown.swift; sourceTree = "<group>"; };
 		D6E8F25724BDB2AB00A4AA9D /* FamilyMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMember.swift; sourceTree = "<group>"; };
 		D6E8F25924BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFamilyMemberViewController.swift; sourceTree = "<group>"; };
-		D6F89BBD24A204CC000357BF /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
 		D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 				D6E1285D24A07F6400977D26 /* LoginViewController.swift */,
 				D6E1286824A0A55600977D26 /* SignUpViewController.swift */,
 				D6E1286A24A0B1FE00977D26 /* ResetPassViewController.swift */,
-				D6F89BBD24A204CC000357BF /* homeViewController.swift */,
 				D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */,
 				D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */,
 				D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */,
@@ -607,7 +604,6 @@
 				D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */,
 				3BD3530A24FD26260053BC66 /* CustomSegmentedControl.swift in Sources */,
 				E7ABDCFF251771F500B6C4B9 /* Branch.swift in Sources */,
-				D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */,
 				E703C8AB252079C300C5F110 /* searchResult.swift in Sources */,
 				E73A421A25120A3F00F45CC5 /* CollectionviewTableCell.swift in Sources */,
 				D6A8F38A24F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift in Sources */,

@@ -825,6 +825,7 @@
                     <navigationItem key="navigationItem" title="العروض الكبرى" id="jFA-Wh-qLS"/>
                     <connections>
                         <outlet property="trademarksTableView" destination="d1l-pp-PQU" id="iON-Uq-iO2"/>
+                        <segue destination="CqL-Ch-sJW" kind="show" identifier="toDes" id="xE1-HW-dwe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wmf-hp-XFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -972,19 +973,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ترتيب بحسب" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkD-4K-ebF">
-                                                <rect key="frame" x="290.5" y="30" width="88.5" height="23.5"/>
+                                                <rect key="frame" x="280" y="30" width="99" height="33.5"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="20"/>
                                                 <color key="textColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GcK-6o-WOW">
-                                                <rect key="frame" x="41" y="68.5" width="332" height="50"/>
+                                                <rect key="frame" x="41" y="78.5" width="332" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3Bi-Qs-L6H"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBv-h6-I8i">
-                                                <rect key="frame" x="17" y="20" width="65" height="32"/>
+                                                <rect key="frame" x="17" y="20" width="80" height="41"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                 <state key="normal" title="تعطيل الكل">
                                                     <color key="titleColor" red="0.66666666669999997" green="0.14901960780000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1008,13 +1009,13 @@
                                         <rect key="frame" x="0.0" y="142" width="414" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نوع المتجر" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQx-Y2-jZP">
-                                                <rect key="frame" x="309.5" y="15" width="69.5" height="23.5"/>
+                                                <rect key="frame" x="301" y="15" width="78" height="33.5"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="20"/>
                                                 <color key="textColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gKg-Cc-iWd">
-                                                <rect key="frame" x="41" y="53.5" width="332" height="50"/>
+                                                <rect key="frame" x="41" y="63.5" width="332" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="13E-xV-qwM"/>
                                                 </constraints>
@@ -1034,7 +1035,7 @@
                                         <rect key="frame" x="0.0" y="274" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="التصنيف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-Zi-t6W">
-                                                <rect key="frame" x="316.5" y="15" width="62.5" height="23.5"/>
+                                                <rect key="frame" x="316" y="15" width="63" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="20"/>
                                                 <color key="textColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1145,7 +1146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVn-BZ-Wd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7066.666666666667" y="-2280.1339285714284"/>
+            <point key="canvasLocation" x="7029" y="-2352"/>
         </scene>
         <!--عائلتي-->
         <scene sceneID="GHl-zh-hnA">
@@ -1300,7 +1301,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trademarkCell" rowHeight="100" id="Lg0-Ft-krq" customClass="TrademarkCell" customModule="MC_Mazaya" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trademarkCell" rowHeight="100" id="Lg0-Ft-krq" customClass="TrademarkCell" customModule="MC_Mazaya" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lg0-Ft-krq" id="yBx-US-u4W">
@@ -1337,7 +1338,7 @@
                                                             </constraints>
                                                             <state key="normal" title="Button" image="Checked"/>
                                                             <connections>
-                                                                <action selector="pressedStar:" destination="O7T-t6-j2B" eventType="touchUpInside" id="Ven-67-kDR"/>
+                                                                <action selector="starPressed:" destination="Lg0-Ft-krq" eventType="touchUpInside" id="3sk-Uo-AIN"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -1371,6 +1372,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="Des" destination="l2h-lU-bJE" id="r6s-1F-C3I"/>
+                                            <outlet property="starButton" destination="W7K-sn-zWD" id="CXL-Ob-Pnl"/>
                                             <outlet property="trademarkImage" destination="nR9-vw-WOS" id="5XP-uH-JM1"/>
                                             <outlet property="trademarkName" destination="Rfe-Uk-gOe" id="cQI-3j-ubp"/>
                                             <outlet property="trademarkView" destination="rAl-Uo-Chy" id="Qwc-Yj-SsE"/>
@@ -1391,6 +1393,7 @@
                     <navigationItem key="navigationItem" title="مفضلتي" id="sGN-mR-BCh"/>
                     <connections>
                         <outlet property="trademarksTableView" destination="Caa-YP-Qp7" id="Yyi-E9-NU4"/>
+                        <segue destination="CqL-Ch-sJW" kind="show" identifier="toTrademark" id="ab3-YB-PmG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ep-LG-5dh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3145,7 +3148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hy-iJ-Gv4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7754" y="-919"/>
+            <point key="canvasLocation" x="7901" y="-788"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yg5-cp-iy4">
@@ -3621,7 +3624,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qJI-eT-M2v"/>
+        <segue reference="xE1-HW-dwe"/>
         <segue reference="fOe-W2-3bJ"/>
         <segue reference="ifa-DG-xPE"/>
     </inferredMetricsTieBreakers>

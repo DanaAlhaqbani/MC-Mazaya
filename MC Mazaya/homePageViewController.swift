@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import SideMenu
 
+
 class homePageViewController: UIViewController , UITableViewDataSource, UITableViewDelegate  {
     
     //MARK: - Constants
@@ -39,6 +40,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var sortByString : String?
     var serviceTypeString : String?
     var filteredByServiceType = [Trademark]()
+    var favDictionary : NSDictionary = [:]
     
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
@@ -50,10 +52,14 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         handleDelegates()
         dataUser()
         setUpUI()
+        getFav()
         filterVC.delegate = self
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
-         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getFav()
     }
 
     //MARK: - "Side Menue" Constants and Variables
@@ -89,13 +95,14 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         return $0
     }(UIStackView())
     
-           let MazayaLogoView : UIImageView = {
-               $0.translatesAutoresizingMaskIntoConstraints = false
-               $0.contentMode = .scaleAspectFit
-               $0.clipsToBounds = true
-               $0.image = #imageLiteral(resourceName: "whiteMazaya")
-               return $0
-           }(UIImageView())
+    let MazayaLogoView : UIImageView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.contentMode = .scaleAspectFit
+        $0.clipsToBounds = true
+        $0.image = #imageLiteral(resourceName: "whiteMazaya")
+        return $0
+    }(UIImageView())
+    
     lazy var openRegionVC : UIButton = {
         $0.setTitle("المنطقة", for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.6274509804, blue: 0.537254902, alpha: 1)
@@ -295,7 +302,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tradeInfo" {
             let dis = segue.destination as! DscriptionViewController
+            getFav()
             dis.tradeInfo = sender as? Trademark
+            dis.favDictionary = self.favDictionary
         } // Show Description Segue
         if segue.identifier == "trademarks" {
                 let dis = segue.destination as! TrademarkTableVC
@@ -330,6 +339,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
          if segue.identifier == "toFav" {
             let dis = segue.destination as! FavoriteViewController
             dis.Categories = self.Categories
+            dis.favDict = self.favDictionary
         } // Show new offers Segue
         if segue.identifier == "toVouchers" {
                 let dis = segue.destination as! VouchersViewController
@@ -389,8 +399,8 @@ extension homePageViewController {
         rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: #selector(menuTapped))
         rightBarButtonItem.tintColor = green
         leftBarButtonItem.tintColor = green
-        navigationItem.rightBarButtonItem = rightBarButtonItem
-        navigationItem.leftBarButtonItem = leftBarButtonItem
+        navigationItem.rightBarButtonItem = leftBarButtonItem
+        navigationItem.leftBarButtonItem = rightBarButtonItem
         NSLayoutConstraint.activate([
             
             mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -549,7 +559,7 @@ extension homePageViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         isMenuShow = false
         mainViewXConstraint.constant = 0
-        rightBarButtonItem.tintColor = green
+        leftBarButtonItem.tintColor = green
         UIView.animate(withDuration: 0.5, delay: 0.0,
         usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
         self.view.layoutIfNeeded()
@@ -561,12 +571,12 @@ extension homePageViewController {
     @objc func menuTapped() {
         if isMenuShow {
             mainViewXConstraint.constant = 0
-            rightBarButtonItem.tintColor = green
-        tbleList.isUserInteractionEnabled = true
+            leftBarButtonItem.tintColor = green
+            tbleList.isUserInteractionEnabled = true
         
         } else {
             mainViewXConstraint.constant = -sideMenuWidth
-            rightBarButtonItem.tintColor = .white
+            leftBarButtonItem.tintColor = .white
             tbleList.isUserInteractionEnabled = false
         }
         UIView.animate(withDuration: 0.5, delay: 0.0,
@@ -620,7 +630,23 @@ extension homePageViewController {
             self.view.layoutIfNeeded()
             }, completion: nil)
         isMenuShow = false
-        rightBarButtonItem.tintColor = green
+        leftBarButtonItem.tintColor = green
         }
 
+}
+
+extension homePageViewController {
+
+    func getFav(){
+        
+        let uid = user?.uid
+        self.ref = Database.database().reference().child("Users/\(uid!)/FavoriteTradeMarks")
+        self.ref?.observeSingleEvent(of: .value, with: {(snap) in
+        if let trades = snap.value as? NSDictionary{
+            self.favDictionary = trades
+            } // Ensure that favourite is exesting
+        }) // Observing favourite trademarks
+    }
+    
+    
 }
