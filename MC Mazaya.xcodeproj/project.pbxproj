@@ -55,6 +55,7 @@
 		D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65DA8C324C4366300092918 /* CustomCells.xib */; };
 		D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */; };
 		D6979632250E4320006439BD /* BigOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6979631250E4320006439BD /* BigOffersViewController.swift */; };
+		D6997B142529E37B00072AE7 /* VoucherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6997B132529E37A00072AE7 /* VoucherDetailsVC.swift */; };
 		D6A8F37F24F3B537007DDBDB /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F37E24F3B537007DDBDB /* RegionViewController.swift */; };
 		D6A8F38A24F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38924F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift */; };
 		D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38B24F3C029007DDBDB /* AdminRegionsViewController.swift */; };
@@ -66,6 +67,10 @@
 		D6D150E624BC6D9C00547B97 /* textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D150E524BC6D9C00547B97 /* textField.swift */; };
 		D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CCD24A8773E00FAAFAF /* XUI.swift */; };
 		D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */; };
+		D6D8270325331CE800B376E9 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D826FF25331CE800B376E9 /* ExtensionUIViewController.swift */; };
+		D6D8270425331CE800B376E9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D8270025331CE800B376E9 /* UIViewExtension.swift */; };
+		D6D8270525331CE800B376E9 /* CommonAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D8270125331CE800B376E9 /* CommonAlertVC.swift */; };
+		D6D8270625331CE800B376E9 /* CommonAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D8270225331CE800B376E9 /* CommonAlertVC.xib */; };
 		D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA493424C05A6F0020DB22 /* CustomCells.swift */; };
 		D6DC5C0024B5BC320063CF8D /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC5BFF24B5BC320063CF8D /* FAQViewController.swift */; };
 		D6E1285E24A07F6400977D26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E1285D24A07F6400977D26 /* LoginViewController.swift */; };
@@ -157,6 +162,7 @@
 		D65DA8C324C4366300092918 /* CustomCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCells.xib; sourceTree = "<group>"; };
 		D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6979631250E4320006439BD /* BigOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigOffersViewController.swift; sourceTree = "<group>"; };
+		D6997B132529E37A00072AE7 /* VoucherDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherDetailsVC.swift; sourceTree = "<group>"; };
 		D6A8F37E24F3B537007DDBDB /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
 		D6A8F38924F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSuggestionsViewController.swift; sourceTree = "<group>"; };
 		D6A8F38B24F3C029007DDBDB /* AdminRegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminRegionsViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +174,10 @@
 		D6D150E524BC6D9C00547B97 /* textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textField.swift; sourceTree = "<group>"; };
 		D6D44CCD24A8773E00FAAFAF /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
 		D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassPresenter.swift; sourceTree = "<group>"; };
+		D6D826FF25331CE800B376E9 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
+		D6D8270025331CE800B376E9 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		D6D8270125331CE800B376E9 /* CommonAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonAlertVC.swift; sourceTree = "<group>"; };
+		D6D8270225331CE800B376E9 /* CommonAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonAlertVC.xib; sourceTree = "<group>"; };
 		D6DA493424C05A6F0020DB22 /* CustomCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
 		D6DC5BFF24B5BC320063CF8D /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		D6E1285D24A07F6400977D26 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +300,7 @@
 		D641E9A9249F3031001851A9 /* MC Mazaya */ = {
 			isa = PBXGroup;
 			children = (
+				D6D826FE25331CB000B376E9 /* CustomAlert */,
 				A93540F5252DBC6300E8E375 /* DescriptionView */,
 				E73A420E25120A2400F45CC5 /* CollectionviewTableCell */,
 				D6A8F38624F3BE3B007DDBDB /* Admin VC */,
@@ -344,6 +355,7 @@
 				D65880C12508B22D00BE29F9 /* TrademarkCell.swift */,
 				D65880C32508B29A00BE29F9 /* TrademarkTableVC.swift */,
 				D6979631250E4320006439BD /* BigOffersViewController.swift */,
+				D6997B132529E37A00072AE7 /* VoucherDetailsVC.swift */,
 			);
 			path = "MC Mazaya";
 			sourceTree = "<group>";
@@ -369,6 +381,17 @@
 				3BD352F424FD1D560053BC66 /* stc_font_light.otf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		D6D826FE25331CB000B376E9 /* CustomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				D6D8270125331CE800B376E9 /* CommonAlertVC.swift */,
+				D6D8270225331CE800B376E9 /* CommonAlertVC.xib */,
+				D6D826FF25331CE800B376E9 /* ExtensionUIViewController.swift */,
+				D6D8270025331CE800B376E9 /* UIViewExtension.swift */,
+			);
+			path = CustomAlert;
 			sourceTree = "<group>";
 		};
 		D6E1285F24A0803B00977D26 /* Extensions */ = {
@@ -497,6 +520,7 @@
 			files = (
 				E78DAF87251A355B000FC30E /* searchResultsCell.xib in Resources */,
 				E703C8AF2521C02700C5F110 /* trademarkCell.xib in Resources */,
+				D6D8270625331CE800B376E9 /* CommonAlertVC.xib in Resources */,
 				E7784CCD251A0A570020BDB0 /* singleTrademarkResult.xib in Resources */,
 				3BD352F624FD1D570053BC66 /* stc_font_light.otf in Resources */,
 				D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */,
@@ -614,6 +638,7 @@
 				D6F89BBE24A204CC000357BF /* homeViewController.swift in Sources */,
 				E703C8AB252079C300C5F110 /* searchResult.swift in Sources */,
 				E73A421A25120A3F00F45CC5 /* CollectionviewTableCell.swift in Sources */,
+				D6D8270325331CE800B376E9 /* ExtensionUIViewController.swift in Sources */,
 				D6A8F38A24F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift in Sources */,
 				D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */,
 				D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */,
@@ -632,6 +657,7 @@
 				D6381EB524ADD461004569D6 /* FavoriteViewController.swift in Sources */,
 				D6E1286B24A0B1FE00977D26 /* ResetPassViewController.swift in Sources */,
 				D6E1286324A08E4B00977D26 /* XUB.swift in Sources */,
+				D6997B142529E37B00072AE7 /* VoucherDetailsVC.swift in Sources */,
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
 				D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */,
 				E703C8AD2520AA5D00C5F110 /* trademarkCell.swift in Sources */,
@@ -646,12 +672,14 @@
 				3BD3530F24FDACA40053BC66 /* homePageViewController.swift in Sources */,
 				D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */,
 				E73A421925120A3F00F45CC5 /* GalleryCollectionViewCell.swift in Sources */,
+				D6D8270425331CE800B376E9 /* UIViewExtension.swift in Sources */,
 				D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */,
 				A99D996E24FF93B20035D2FF /* BranchesViewController.swift in Sources */,
 				D620C51D24B1C35E0085B937 /* MapViewController.swift in Sources */,
 				D6381EBB24ADD4A5004569D6 /* SuggestOfferViewController.swift in Sources */,
 				D6E1286124A0805900977D26 /* XTF.swift in Sources */,
 				A93540F7252DBDF200E8E375 /* OfferView.swift in Sources */,
+				D6D8270525331CE800B376E9 /* CommonAlertVC.swift in Sources */,
 				3B97E2CF24A346E400D0D965 /* HeaderCell.swift in Sources */,
 				3B97E2CD24A346E000D0D965 /* ExpertTabBarController.swift in Sources */,
 				D60B6BDD24FFA40E006552AC /* Category.swift in Sources */,
