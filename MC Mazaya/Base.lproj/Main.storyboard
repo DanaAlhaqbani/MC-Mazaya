@@ -1300,7 +1300,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trademarkCell" rowHeight="100" id="Lg0-Ft-krq" customClass="TrademarkCell" customModule="MC_Mazaya" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trademarkCell" rowHeight="100" id="Lg0-Ft-krq" customClass="TrademarkCell" customModule="MC_Mazaya" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lg0-Ft-krq" id="yBx-US-u4W">
@@ -1337,7 +1337,7 @@
                                                             </constraints>
                                                             <state key="normal" title="Button" image="Checked"/>
                                                             <connections>
-                                                                <action selector="pressedStar:" destination="O7T-t6-j2B" eventType="touchUpInside" id="Ven-67-kDR"/>
+                                                                <action selector="starPressed:" destination="Lg0-Ft-krq" eventType="touchUpInside" id="OX1-hY-U9a"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -1371,6 +1371,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="Des" destination="l2h-lU-bJE" id="r6s-1F-C3I"/>
+                                            <outlet property="starButton" destination="W7K-sn-zWD" id="QS2-vU-3gB"/>
                                             <outlet property="trademarkImage" destination="nR9-vw-WOS" id="5XP-uH-JM1"/>
                                             <outlet property="trademarkName" destination="Rfe-Uk-gOe" id="cQI-3j-ubp"/>
                                             <outlet property="trademarkView" destination="rAl-Uo-Chy" id="Qwc-Yj-SsE"/>
@@ -1391,6 +1392,7 @@
                     <navigationItem key="navigationItem" title="مفضلتي" id="sGN-mR-BCh"/>
                     <connections>
                         <outlet property="trademarksTableView" destination="Caa-YP-Qp7" id="Yyi-E9-NU4"/>
+                        <segue destination="CqL-Ch-sJW" kind="show" identifier="toTrademark" id="ZMF-8j-Pqu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ep-LG-5dh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3747,7 +3749,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qJI-eT-M2v"/>
+        <segue reference="ZMF-8j-Pqu"/>
         <segue reference="fOe-W2-3bJ"/>
         <segue reference="ifa-DG-xPE"/>
     </inferredMetricsTieBreakers>

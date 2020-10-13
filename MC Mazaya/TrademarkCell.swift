@@ -11,7 +11,6 @@ import Firebase
 
 protocol MyCellDelegate: AnyObject {
     func btnTapped(cell: TrademarkCell)
-    func reloadTable()
 }
 
 class TrademarkCell: UITableViewCell {
@@ -32,21 +31,36 @@ class TrademarkCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-//        print(nam)
 
-        // Configure the view for the selected state
     }
 
     @IBAction func starPressed(_ sender: Any) {
-        for i in favDict {
-            if i.value as? String == self.trademarkName.text {
-                self.ref.child("Users/\(uid!)/FavoriteTradeMarks/\(i.key)").removeValue()
-                if let delegate = delegate {
-                    delegate.btnTapped(cell: self)
-//                    delegate.reloadTable()
+        self.ref.child("Users/\(uid!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: { (snap) in
+            if let dict = snap.value as? [String : Any] {
+                for i in dict {
+                    let key = i.key
+                    self.ref.child("Users/\(self.uid!)/FavoriteTradeMarks/\(key)").removeValue()
                 }
             }
+        })
+        if let delegate = self.delegate {
+            delegate.btnTapped(cell: self)
         }
+//        for trade in favDict {
+//            print(trademarkName.text!)
+//            print(trade.value)
+//            if trade.value as? String == self.trademarkName.text {
+//                self.ref.child("Users/\(uid!)/FavoriteTradeMarks/\(trade.key)").removeValue()
+//                self.ref.child("Users/\(uid!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: {(snap) in
+//                    if let dict = snap.value as? NSDictionary {
+//                        self.favDict = dict
+//                    }
+//                })
+//                if let delegate = self.delegate {
+//                    delegate.btnTapped(cell: self)
+//                }
+//            }
+//        }
     }
 
 }

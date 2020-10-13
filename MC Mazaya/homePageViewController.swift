@@ -20,9 +20,10 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     let firstInitailizer = launchViewController()
     var searchBar : UISearchController!
     var categoriesCopy = [Category]()
-    
+    var isFavourite = false
     //MARK: - Vars
     var ref: DatabaseReference?
+    var favRef = Database.database().reference()
     var handle: DatabaseHandle?
     var SideMenu: SideMenuNavigationController?
     var rightBarButtonItem = UIBarButtonItem()
@@ -41,7 +42,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var serviceTypeString : String?
     var filteredByServiceType = [Trademark]()
     var favDictionary : NSDictionary = [:]
-    
+    var favouriteTrades = [Trademark]()
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
@@ -52,8 +53,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         handleDelegates()
         dataUser()
         setUpUI()
-        getFav()
+//        getFav()
         filterVC.delegate = self
+        navigationController?.delegate = self
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
     }
@@ -65,9 +67,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     //MARK: - "Side Menue" Constants and Variables
     let mainView : UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        //$0.backgroundColor = .init(white: 0.95, alpha: 1)
         $0.layer.zPosition = 100
-       // $0.isUserInteractionEnabled = true
         $0.isHidden = true
         return $0
     }(UIView())
@@ -302,9 +302,13 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tradeInfo" {
             let dis = segue.destination as! DscriptionViewController
-            getFav()
             dis.tradeInfo = sender as? Trademark
-            dis.favDictionary = self.favDictionary
+            if self.favouriteTrades.contains(where: {$0.BrandName == dis.tradeInfo.BrandName}){
+                dis.tradeInfo.isFav = true
+            } else {
+                dis.tradeInfo.isFav = false
+            }
+            print(favDictionary)
         } // Show Description Segue
         if segue.identifier == "trademarks" {
                 let dis = segue.destination as! TrademarkTableVC
@@ -338,8 +342,10 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         } // Show new offers Segue
          if segue.identifier == "toFav" {
             let dis = segue.destination as! FavoriteViewController
-            dis.Categories = self.Categories
-            dis.favDict = self.favDictionary
+//            getFav()
+//            dis.Categories = self.Categories
+            dis.favTrademarks = self.favouriteTrades
+//            dis.favDict = sender as! NSDictionary
         } // Show new offers Segue
         if segue.identifier == "toVouchers" {
                 let dis = segue.destination as! VouchersViewController
@@ -356,10 +362,10 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             let offers = trade.offers!
             for offer in offers {
                 if offer.serviceType == self.serviceTypeString {
-                        if !self.filteredByServiceType.contains(where: {$0.BrandName == trade.BrandName}) {
-                            self.filteredByServiceType.append(trade)
-                        } // Ensure not duplicate trademarks
-                    } // Add offer if it's selected
+                    if !self.filteredByServiceType.contains(where: {$0.BrandName == trade.BrandName}) {
+                        self.filteredByServiceType.append(trade)
+                    } // Ensure not duplicate trademarks
+                } // Add offer if it's selected
             } // Iterate over offers
         } // iterate over trademarks
     } // Get filtered by service type trademarks function
@@ -402,7 +408,6 @@ extension homePageViewController {
         navigationItem.rightBarButtonItem = leftBarButtonItem
         navigationItem.leftBarButtonItem = rightBarButtonItem
         NSLayoutConstraint.activate([
-            
             mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             mainView.heightAnchor.constraint(equalTo: view.heightAnchor),
             mainView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -419,7 +424,6 @@ extension homePageViewController {
             sideMenuStackView.widthAnchor.constraint(equalToConstant: sideMenuWidth),
             openRegionVC.heightAnchor.constraint(equalToConstant: 40),
             MazayaLogoView.heightAnchor.constraint(equalToConstant: 110),
-
         ])
         mainViewXConstraint = mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         mainViewXConstraint.isActive = true
@@ -455,7 +459,7 @@ extension homePageViewController {
 
 //MARK: - Extension "Protocols' functions"
 
-extension homePageViewController : CollectionCellDelegator, handleRetrievedData, reloadResultsCollection, ResultCollectionCellDelegator, sendBackSelectedOptions {
+extension homePageViewController : CollectionCellDelegator, handleRetrievedData, reloadResultsCollection, ResultCollectionCellDelegator, sendBackSelectedOptions, UINavigationControllerDelegate {
     
     func retrievedcopyCategories(myData dataObject: [Category]) {
         self.categoriesCopy = dataObject
@@ -495,6 +499,18 @@ extension homePageViewController : CollectionCellDelegator, handleRetrievedData,
         firstInitailizer.deleagte = self
         tbleList.dataSource = self
         tbleList.delegate = self
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        getFav()
+        let des = viewController as? DscriptionViewController
+        if favouriteTrades.contains(where: {$0.BrandName == des?.tradeInfo.BrandName }) {
+            des?.tradeInfo.isFav = true
+            
+        } else {
+            des?.tradeInfo.isFav = false
+        }
+//        (viewController as? DscriptionViewController)?.isFavourite = isFavourite // Here you pass the to your original view controller
     }
     
 }
@@ -584,7 +600,7 @@ extension homePageViewController {
                        options: .curveEaseInOut, animations: {
             self.view.layoutIfNeeded()
                         }, completion: nil)
-               
+                
         isMenuShow.toggle()
     }
     
@@ -601,7 +617,7 @@ extension homePageViewController {
             //navigationController?.pushViewController(FamilyViewController(), animated: true)
         }
         else if sender.tag == 12 {
-            performSegue(withIdentifier: "toFav", sender: self)
+            performSegue(withIdentifier: "toFav", sender: self.favDictionary)
             // navigationController?.pushViewController(FavoriteViewController(), animated: true)
         }
         else if sender.tag == 13 {
@@ -625,28 +641,41 @@ extension homePageViewController {
         }
         mainViewXConstraint.constant = 0
         UIView.animate(withDuration: 0.5, delay: 0.0,
-            usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
+        usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
             options: .curveEaseInOut, animations: {
-            self.view.layoutIfNeeded()
-            }, completion: nil)
+                self.view.layoutIfNeeded()
+        }, completion: nil)
         isMenuShow = false
         leftBarButtonItem.tintColor = green
         }
-
 }
 
 extension homePageViewController {
-
-    func getFav(){
         
-        let uid = user?.uid
-        self.ref = Database.database().reference().child("Users/\(uid!)/FavoriteTradeMarks")
-        self.ref?.observeSingleEvent(of: .value, with: {(snap) in
-        if let trades = snap.value as? NSDictionary{
-            self.favDictionary = trades
-            } // Ensure that favourite is exesting
-        }) // Observing favourite trademarks
+    func getAllTrades(){
+        self.favouriteTrades = []
+        for category in Categories {
+            let trades = category.trademarks!
+            for trade in trades {
+                for i in favDictionary {
+                    if trade.BrandName == i.value as? String {
+                        var t = trade
+                        t.isFav = true
+                        self.favouriteTrades.append(t)
+                    }
+                }
+            }
+        }
     }
     
-    
+    func getFav(){
+        self.favouriteTrades = []
+        let uid = user?.uid
+        self.favRef.child("Users/\(uid!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: {(snap) in
+        if let trades = snap.value as? NSDictionary{
+            self.favDictionary = trades
+            self.getAllTrades()
+            } // Ensure that favourite is existing
+        })  // Observing favourite trademarks
+    } // Retrieve favourite trademarks
 }

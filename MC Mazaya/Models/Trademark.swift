@@ -21,11 +21,12 @@ struct Trademark {
     var brandImage : String?
     var offers : [Offer]?
     var views : Int?
+    var isFav : Bool?
     init() {
         
     }
     
-    public init(BrandName: String?, num: String?, desc: String?, email: String?, fb: String?, insta: String?, twit: String?, web: String?, image : String?, branches: [Branch]?, offers : [Offer]?, views: Int?) {
+    public init(BrandName: String?, num: String?, desc: String?, email: String?, fb: String?, insta: String?, twit: String?, web: String?, image : String?, branches: [Branch]?, offers : [Offer]?, views: Int?, isFav : Bool?) {
         self.BrandName = BrandName
         self.branches = branches
         self.contactNum = num
@@ -38,6 +39,7 @@ struct Trademark {
         self.brandImage = image
         self.offers = offers
         self.views = views
+        self.isFav = isFav
     }
     
 }

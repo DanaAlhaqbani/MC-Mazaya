@@ -11,18 +11,12 @@ import Firebase
 
 
 class FavoriteViewController: UIViewController, MyCellDelegate {
-    func reloadTable() {
-        self.trademarksTableView.reloadData()
-    }
-    
     
     func btnTapped(cell: TrademarkCell) {
         let indexPath = self.trademarksTableView.indexPath(for: cell)
         self.favTrademarks.remove(at: indexPath!.row)
         self.trademarksTableView.reloadData()
     }
-    
-
     
     @IBOutlet weak var trademarksTableView: UITableView!
     var Categories = [Category]()
@@ -34,7 +28,10 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
     var tradeName = String()
     @IBOutlet weak var starButton: UIButton!
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+//        self.trademarksTableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,36 +39,24 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
         trademarksTableView.delegate = self
         trademarksTableView.dataSource = self
         trademarksTableView.separatorStyle = .none
-//        trademarksTableView.
+        
     }
     
     func getFavourite(){
         for category in Categories {
+            print("Hello in Categories ----------------------------------------")
             let trades = category.trademarks!
             for trade in trades {
-                self.Trademarks.append(trade)
-            } // Iterate over all Trades
-        } // Iterate over each category
-        for trade in Trademarks {
-            let tradeName = trade.BrandName!
-            for value in favDict.allValues {
-                if value as? String == tradeName {
+                print("Hello in Trademarks ----------------------------------------")
+                if trade.isFav == true {
+                    print("Hello in Favourite Trademarks ----------------------------------------")
                     self.favTrademarks.append(trade)
                     self.trademarksTableView.reloadData()
-                } // Add Trademark if its name exist in Favourite Dictionary
-            } // Iterate over Favourite Dictionary values
-        } // Iterate over each Trademark
-    } // End of get favourite trademarks function
-    
-    @objc func starPressed(_ sender: Int){
-        for i in favDict {
-            if i.value as? String == self.tradeName {
-                self.ref.child("Users/\(uid!)/FavoriteTradeMarks/\(i.key)").removeValue()
-               self.favTrademarks.remove(at: sender)
-                self.trademarksTableView.reloadData()
+                }
             }
         }
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DscriptionViewController, segue.identifier == "toTrademark" {
@@ -111,5 +96,6 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "toTrademark", sender: favTrademarks[indexPath.row])
     }
- 
+
+    
 }

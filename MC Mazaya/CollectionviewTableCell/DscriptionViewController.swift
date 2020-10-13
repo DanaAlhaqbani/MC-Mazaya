@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class DscriptionViewController : UIViewController , UITextViewDelegate {
 
     let user = Auth.auth().currentUser?.uid
@@ -34,6 +35,12 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
     var favTradeKey = String()
     var favTradeValues = [String]()
     var favDictionary : NSDictionary = [:]
+//    var isFavourite = false
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        setupFavouriteButton()
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         BrandName.text = tradeInfo.BrandName
@@ -46,14 +53,7 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
         addTopAndBottomBorders()
         upperline.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
         line.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
-        // Get main screen bounds
-        let screenSize: CGRect = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
         setupFavouriteButton()
-//        star.setImage(UIImage(named: "Unchecked"), for: .normal)
-//        star.setImage(UIImage(named: "Checked"), for: .selected)
-//        print()
     }
 
     private func setInitialView(){
@@ -61,33 +61,24 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
     }
         
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl){
-            
-          //  guard let segmentcontrol = sender as? UISegmentedControl else {return }
-        
-            segmentedControl.changeUnderlinePosition()
-            
-            print(segmentedControl.selectedSegmentIndex)
-            
-          
-            
-            if sender.selectedSegmentIndex == 0 {
-                       WhoAreWeView.alpha = 1
-                       BranchView.alpha = 0
-                       OffersView.alpha = 0
-                   }
-                if sender.selectedSegmentIndex == 1 {
-                    WhoAreWeView.alpha = 0
-                    BranchView.alpha = 1
-                    OffersView.alpha = 0
-                }
-                    
+        //  guard let segmentcontrol = sender as? UISegmentedControl else {return }
+        segmentedControl.changeUnderlinePosition()
+        print(segmentedControl.selectedSegmentIndex)
+        if sender.selectedSegmentIndex == 0 {
+            WhoAreWeView.alpha = 1
+            BranchView.alpha = 0
+            OffersView.alpha = 0
+        }
+        if sender.selectedSegmentIndex == 1 {
+            WhoAreWeView.alpha = 0
+            BranchView.alpha = 1
+            OffersView.alpha = 0
+        }
        if sender.selectedSegmentIndex == 2 {
-                       WhoAreWeView.alpha = 0
-                       BranchView.alpha = 0
-                       OffersView.alpha = 1
-                   }
-            
-            
+            WhoAreWeView.alpha = 0
+            BranchView.alpha = 0
+            OffersView.alpha = 1
+            }
         }
 
         func addTopAndBottomBorders() {
@@ -104,21 +95,42 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
         
         
     @IBAction func IsFavorite(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        let isChecked = sender.isSelected
-        if !isChecked {
-            for i in favDictionary {
-                if i.value as? String == self.tradeInfo.BrandName {
-                    self.ref.child("Users/\(user!)/FavoriteTradeMarks/\(i.key)").removeValue()
-                } // Remove trademark if it's already favourite trade
-            } // Iterate over Favourite trademarks dictionray
+        if !tradeInfo.isFav! {
+            self.ref.child("Users/\(user!)/FavoriteTradeMarks").childByAutoId().setValue(self.tradeInfo.BrandName)
+            self.star.isSelected = true
+            self.tradeInfo.isFav = true
         } else {
-            if favDictionary.contains(where: {$0.value as! String == tradeInfo.BrandName! }) {
-                
-            } else {
-                self.ref.child("Users/\(user!)/FavoriteTradeMarks").childByAutoId().setValue(self.tradeInfo.BrandName)
-            }
-        } // Add Trademark to Favourite Trademarks Dictionary
+            self.ref.child("Users/\(user!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: { (snap) in
+                if let dict = snap.value as? [String: Any] {
+                    for i in dict {
+                        if i.value as? String == self.tradeInfo.BrandName {
+                            self.ref.child("Users/\(self.user!)/FavoriteTradeMarks/\(i.key)").removeValue()
+                        }
+                    }
+                }
+            })
+            self.star.isSelected = false
+            self.tradeInfo.isFav = false
+        }
+        
+//        sender.isSelected = !sender.isSelected
+//        let isChecked = sender.isSelected
+//        if !isChecked {
+//            for i in favDictionary {
+//                if i.value as? String == self.tradeInfo.BrandName {
+//                    self.ref.child("Users/\(user!)/FavoriteTradeMarks/\(i.key)").removeValue()
+//                    self.ref.child("Users/\(user!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: {(snap) in
+//                        if let dict = snap.value as? NSDictionary {
+//                            self.favDictionary = dict
+//                        }
+//                    })
+//                } // Remove trademark if it's already favourite trade
+//            } // Iterate over Favourite trademarks dictionray
+//            print(favDictionary)
+//        } else {
+//            self.ref.child("Users/\(user!)/FavoriteTradeMarks").childByAutoId().setValue(self.tradeInfo.BrandName)
+//        } // Add Trademark to Favourite Trademarks Dictionary
+        
     } // End of handling star pressing
     
     
@@ -128,23 +140,24 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
             self.offerVC = vc
         }
         if let vc = segue.destination as? BranchView, segue.identifier == "info" {
-                     vc.Trade = self.tradeInfo
-                     self.BranchVC = vc
-                 }
+            vc.Trade = self.tradeInfo
+            self.BranchVC = vc
+        }
         if let vc = segue.destination as? WhoWeAreView, segue.identifier == "info" {
-                            vc.Trade = self.tradeInfo
-                            self.WWAVVC = vc
-                        }
+            vc.Trade = self.tradeInfo
+            self.WWAVVC = vc
+        }
     }
     
     
     func setupFavouriteButton(){
-        if favDictionary.contains(where: {$0.value as! String == tradeInfo.BrandName! }) {
-            self.star.isSelected = true
-        } else {
+        if !tradeInfo.isFav! {
             self.star.isSelected = false
+        } else {
+            self.star.isSelected = true
         }
         star.setImage(UIImage(named: "Checked"), for: .selected)
         star.setImage(UIImage(named: "Unchecked"), for: .normal)
     }
+    
 }
