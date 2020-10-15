@@ -320,4 +320,102 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
+    static func from(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img!
+    }
+}
+
+extension UINavigationController {
+    func configureNavigationBar(largeTitleColor: UIColor, backgoundColor: UIColor, tintColor: UIColor, title: String, preferredLargeTitle: Bool) {
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: largeTitleColor]
+            navBarAppearance.titleTextAttributes = [.foregroundColor: largeTitleColor]
+            navBarAppearance.backgroundColor = backgoundColor
+
+            navigationController?.navigationBar.standardAppearance = navBarAppearance
+            navigationController?.navigationBar.compactAppearance = navBarAppearance
+            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+
+            navigationController?.navigationBar.prefersLargeTitles = preferredLargeTitle
+            navigationController?.navigationBar.isTranslucent = false
+            navigationController?.navigationBar.tintColor = tintColor
+            navigationItem.title = title
+
+        } else {
+            // Fallback on earlier versions
+            navigationController?.navigationBar.barTintColor = backgoundColor
+            navigationController?.navigationBar.tintColor = tintColor
+            navigationController?.navigationBar.isTranslucent = false
+            navigationItem.title = title
+        }
+    }
+}
+
+
+
+extension UISearchBar {
+
+    // Due to searchTextField property who available iOS 13 only, extend this property for iOS 13 previous version compatibility
+    var compatibleSearchTextField: UITextField {
+        guard #available(iOS 13.0, *) else { return legacySearchField }
+        return self.searchTextField
+    }
+
+    private var legacySearchField: UITextField {
+        if let textField = self.subviews.first?.subviews.last as? UITextField {
+            // Xcode 11 previous environment
+            return textField
+        } else if let textField = self.value(forKey: "searchField") as? UITextField {
+            // Xcode 11 run in iOS 13 previous devices
+            return textField
+        } else {
+            // exception condition or error handler in here
+            return UITextField()
+        }
+    }
+}
+
+
+class SearchBarContainerView: UIView {
+  let searchBar: UISearchBar
+  init(customSearchBar: UISearchBar) {
+    searchBar = customSearchBar
+    super.init(frame: CGRect.zero)
+
+    addSubview(searchBar)
+  }
+
+  override convenience init(frame: CGRect) {
+    self.init(customSearchBar: UISearchBar())
+    self.frame = frame
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    searchBar.frame = bounds
+  }
+}
+
+extension UISearchBar
+{
+    func setPlaceholderTextColorTo(color: UIColor)
+    {
+        let textFieldInsideSearchBar = self.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = color
+        let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.value(forKey: "placeholderLabel") as? UILabel
+        textFieldInsideSearchBarLabel?.textColor = color
+    }
 }

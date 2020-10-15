@@ -16,7 +16,6 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
     var offerVC : OfferView?
     var BranchVC : BranchView?
     var WWAVVC : WhoWeAreView?
-    
     var tradeInfo : Trademark!
     private var currentView : UIView?
     @IBOutlet weak var BrandName: UILabel!
@@ -51,6 +50,7 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
         OffersView.alpha = 1
         segmentedControl.addUnderlineForSelectedSegment()
         addTopAndBottomBorders()
+        
         upperline.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
         line.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
         setupFavouriteButton()

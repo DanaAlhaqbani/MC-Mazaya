@@ -178,6 +178,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.10980392156862745" green="0.60392156862745094" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -222,12 +223,11 @@
         <scene sceneID="72b-o1-BYl">
             <objects>
                 <tabBarController storyboardIdentifier="VCTabBar" id="W8g-27-b9G" customClass="TabBarController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="abd-vF-Iua">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="abd-vF-Iua" customClass="HomeTabController" customModule="MC_Mazaya" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="0.21960784310000001" green="0.62745098040000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="0.21960784310000001" green="0.62745098040000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.35294117650000001" green="0.63921568630000003" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="0nS-X1-O4G" kind="relationship" relationship="viewControllers" id="cuW-Id-8Nk"/>
@@ -241,14 +241,20 @@
             </objects>
             <point key="canvasLocation" x="1781" y="-3224"/>
         </scene>
-        <!--استخدام العرض-->
+        <!--Navigation Controller-->
         <scene sceneID="PmZ-Vi-DhV">
             <objects>
                 <navigationController id="mqK-el-wWc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="استخدام العرض" image="useOffer" id="NWs-bH-PyP"/>
+                    <tabBarItem key="tabBarItem" title="" id="NWs-bH-PyP">
+                        <inset key="imageInsets" minX="0.0" minY="-40" maxX="0.0" maxY="0.0"/>
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EGG-QQ-4z3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.60392156860000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.10980392156862745" green="0.60392156862745094" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="v2n-sJ-vLP" kind="relationship" relationship="rootViewController" id="QvI-da-pDL"/>
@@ -262,10 +268,14 @@
         <scene sceneID="VBH-cg-W2t">
             <objects>
                 <navigationController id="0nS-X1-O4G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="حسابي" image="myAccount" id="y7v-rU-asO"/>
+                    <tabBarItem key="tabBarItem" title="حسابي" image="myAccount" id="y7v-rU-asO">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nek-23-MrM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.60392156860000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.10980392160000001" green="0.60392156860000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="IKd-vI-ewN" kind="relationship" relationship="rootViewController" id="xp2-J2-KA0"/>
@@ -729,7 +739,7 @@
         <!--العروض الكبرى-->
         <scene sceneID="WRN-Fs-8Dh">
             <objects>
-                <viewController id="bfF-Aq-pJh" customClass="BigOffersViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BigOffersViewController" id="bfF-Aq-pJh" customClass="BigOffersViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yXO-Bf-F6r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -878,10 +888,14 @@
         <scene sceneID="US5-Vb-Bx0">
             <objects>
                 <navigationController id="GUc-wA-l5S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="الخريطة" image="map" id="4Nc-Ek-VLw"/>
+                    <tabBarItem key="tabBarItem" title="الخريطة" image="maap" id="4Nc-Ek-VLw">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XyS-Z8-Kh7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.60392156860000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.10980392156862745" green="0.60392156862745094" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="fih-re-FvZ" kind="relationship" relationship="rootViewController" id="od4-PR-sCw"/>
@@ -916,10 +930,16 @@
         <scene sceneID="eJd-BK-UJh">
             <objects>
                 <navigationController storyboardIdentifier="tabNav" id="wih-vH-Dal" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="الرئيسية" image="homePage" id="xkv-Oo-dM2"/>
+                    <tabBarItem key="tabBarItem" title="الرئيسية" image="hp" id="xkv-Oo-dM2">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                        <color key="badgeColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sxO-DS-Nhy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.20997306700000001" green="0.65695589779999997" blue="0.60097587109999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.97647058819999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.10980392156862745" green="0.60392156862745094" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="n6k-Gw-S4l" kind="relationship" relationship="rootViewController" id="TpT-cx-S1i"/>
@@ -1275,10 +1295,14 @@
         <scene sceneID="UHi-lU-bTp">
             <objects>
                 <navigationController id="aMD-fu-dka" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="العروض الكبرى" image="bigOffers" id="ZIA-R1-BxX"/>
+                    <tabBarItem key="tabBarItem" title="العروض الكبرى" image="bo" id="ZIA-R1-BxX">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7UV-gH-CiX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.60392156860000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.10980392156862745" green="0.60392156862745094" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="bfF-Aq-pJh" kind="relationship" relationship="rootViewController" id="0Dh-qJ-nUO"/>
@@ -1308,64 +1332,59 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAl-Uo-Chy">
-                                                    <rect key="frame" x="20" y="11" width="374" height="78"/>
+                                                    <rect key="frame" x="20" y="15" width="374" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfe-Uk-gOe">
-                                                            <rect key="frame" x="89" y="8" width="197" height="25"/>
+                                                            <rect key="frame" x="89" y="5" width="197" height="28.5"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خصم ٥٠٪ على كافة المنتجات" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2h-lU-bJE">
-                                                            <rect key="frame" x="45" y="34" width="241" height="29"/>
-                                                            <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
-                                                            <nil key="textColor"/>
-                                                            <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nR9-vw-WOS">
-                                                            <rect key="frame" x="294" y="0.0" width="80" height="78"/>
+                                                            <rect key="frame" x="294" y="-5" width="80" height="80"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="P1p-aV-MVh"/>
                                                                 <constraint firstAttribute="height" constant="80" id="QFv-yB-6xt"/>
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7K-sn-zWD">
-                                                            <rect key="frame" x="8" y="22" width="34" height="34"/>
+                                                            <rect key="frame" x="8" y="20" width="30" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="34" id="Qfm-4o-bnx"/>
-                                                                <constraint firstAttribute="width" constant="34" id="Tsj-Ck-T0F"/>
+                                                                <constraint firstAttribute="height" constant="30" id="Qfm-4o-bnx"/>
+                                                                <constraint firstAttribute="width" constant="30" id="Tsj-Ck-T0F"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="Checked"/>
                                                             <connections>
                                                                 <action selector="starPressed:" destination="Lg0-Ft-krq" eventType="touchUpInside" id="OX1-hY-U9a"/>
                                                             </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خصم ٥٠٪ على كافة المنتجات" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2h-lU-bJE">
+                                                            <rect key="frame" x="45" y="40" width="241" height="25"/>
+                                                            <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="W7K-sn-zWD" firstAttribute="leading" secondItem="rAl-Uo-Chy" secondAttribute="leading" constant="8" id="54L-fS-sWu"/>
                                                         <constraint firstItem="l2h-lU-bJE" firstAttribute="leading" secondItem="rAl-Uo-Chy" secondAttribute="leading" constant="45" id="D6X-aR-rMr"/>
-                                                        <constraint firstItem="l2h-lU-bJE" firstAttribute="top" secondItem="Rfe-Uk-gOe" secondAttribute="bottom" constant="1" id="D8Z-br-uO9"/>
                                                         <constraint firstItem="nR9-vw-WOS" firstAttribute="leading" secondItem="Rfe-Uk-gOe" secondAttribute="trailing" constant="8" id="FaA-rX-GRu"/>
                                                         <constraint firstItem="nR9-vw-WOS" firstAttribute="leading" secondItem="l2h-lU-bJE" secondAttribute="trailing" constant="8" id="Riu-fW-Jbu"/>
-                                                        <constraint firstItem="l2h-lU-bJE" firstAttribute="top" secondItem="Rfe-Uk-gOe" secondAttribute="bottom" constant="1" id="XOI-3w-dyC"/>
-                                                        <constraint firstItem="Rfe-Uk-gOe" firstAttribute="top" secondItem="rAl-Uo-Chy" secondAttribute="top" constant="8" id="bzR-AL-qcm"/>
-                                                        <constraint firstAttribute="bottom" secondItem="l2h-lU-bJE" secondAttribute="bottom" constant="15" id="iJP-Vf-Dvn"/>
+                                                        <constraint firstItem="Rfe-Uk-gOe" firstAttribute="top" secondItem="rAl-Uo-Chy" secondAttribute="top" constant="5" id="bzR-AL-qcm"/>
+                                                        <constraint firstAttribute="height" constant="70" id="eAH-Jj-mNX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="l2h-lU-bJE" secondAttribute="bottom" constant="5" id="iJP-Vf-Dvn"/>
                                                         <constraint firstItem="W7K-sn-zWD" firstAttribute="centerY" secondItem="rAl-Uo-Chy" secondAttribute="centerY" id="kCl-T6-iDV"/>
-                                                        <constraint firstAttribute="bottom" secondItem="nR9-vw-WOS" secondAttribute="bottom" id="l0w-hS-nAG"/>
-                                                        <constraint firstItem="l2h-lU-bJE" firstAttribute="top" secondItem="Rfe-Uk-gOe" secondAttribute="bottom" constant="1" id="mEx-nM-zTh"/>
+                                                        <constraint firstItem="nR9-vw-WOS" firstAttribute="centerY" secondItem="rAl-Uo-Chy" secondAttribute="centerY" id="khz-pL-Ins"/>
                                                         <constraint firstItem="Rfe-Uk-gOe" firstAttribute="leading" secondItem="rAl-Uo-Chy" secondAttribute="leading" constant="89" id="ujh-TP-Sfe"/>
                                                         <constraint firstAttribute="trailing" secondItem="nR9-vw-WOS" secondAttribute="trailing" id="wOI-kV-UEQ"/>
-                                                        <constraint firstItem="nR9-vw-WOS" firstAttribute="top" secondItem="rAl-Uo-Chy" secondAttribute="top" id="xt1-W1-3TY"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Rfe-Uk-gOe" secondAttribute="bottom" constant="45" id="z3X-Ld-RBI"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="rAl-Uo-Chy" firstAttribute="leading" secondItem="yBx-US-u4W" secondAttribute="leadingMargin" id="3oI-f9-rO1"/>
-                                                <constraint firstItem="rAl-Uo-Chy" firstAttribute="top" secondItem="yBx-US-u4W" secondAttribute="topMargin" id="4yS-j0-auB"/>
-                                                <constraint firstItem="rAl-Uo-Chy" firstAttribute="bottom" secondItem="yBx-US-u4W" secondAttribute="bottomMargin" id="Ffz-ub-9z8"/>
+                                                <constraint firstItem="rAl-Uo-Chy" firstAttribute="centerY" secondItem="yBx-US-u4W" secondAttribute="centerY" id="CwC-1h-C7B"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="rAl-Uo-Chy" secondAttribute="trailing" id="L0J-84-KMf"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2168,7 +2187,7 @@
         <!--الرئيسية-->
         <scene sceneID="vGb-bT-xgS">
             <objects>
-                <viewController id="n6k-Gw-S4l" customClass="homePageViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homePageViewController" id="n6k-Gw-S4l" customClass="homePageViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fo3-zr-qg2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3251,7 +3270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhJ-Fb-Wpc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6135" y="-142"/>
+            <point key="canvasLocation" x="6410" y="327"/>
         </scene>
         <!--Dscription View Controller-->
         <scene sceneID="oPk-JE-McL">
@@ -3759,7 +3778,7 @@
         <image name="Pass" width="86" height="114"/>
         <image name="addingButton" width="89" height="89"/>
         <image name="background" width="376" height="200"/>
-        <image name="bigOffers" width="64" height="64"/>
+        <image name="bo" width="30" height="30"/>
         <image name="cancelingButton" width="58" height="58"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="editingButton" width="58" height="58"/>
@@ -3767,10 +3786,10 @@
         <image name="facebook" width="512" height="512"/>
         <image name="familyM" width="50" height="50"/>
         <image name="gift-card-2" width="128" height="128"/>
-        <image name="homePage" width="26" height="26"/>
-        <image name="instagram" width="64" height="64"/>
+        <image name="hp" width="30" height="30"/>
+        <image name="instagram" width="512" height="512"/>
         <image name="location" width="32" height="32"/>
-        <image name="map" width="64" height="64"/>
+        <image name="maap" width="30" height="30"/>
         <image name="myAccount" width="50" height="50"/>
         <image name="new" width="128" height="128"/>
         <image name="phoneIcon" width="110" height="100"/>
@@ -3781,6 +3800,5 @@
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="twitter" width="64" height="64"/>
         <image name="unselected" width="32" height="32"/>
-        <image name="useOffer" width="50" height="50"/>
     </resources>
 </document>

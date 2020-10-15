@@ -19,6 +19,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     let green = UIColor(rgb: 0x38a089)
     let firstInitailizer = launchViewController()
     var searchBar : UISearchController!
+    var searchbar = UISearchBar()
     var categoriesCopy = [Category]()
     var isFavourite = false
     //MARK: - Vars
@@ -28,6 +29,8 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var SideMenu: SideMenuNavigationController?
     var rightBarButtonItem = UIBarButtonItem()
     var leftBarButtonItem = UIBarButtonItem()
+    var leftBtn = UIButton()
+    var rightBtn = UIButton()
     var mainViewXConstraint : NSLayoutConstraint!
     var sideMenuWidth = CGFloat()
     var isMenuShow = false
@@ -53,17 +56,36 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         handleDelegates()
         dataUser()
         setUpUI()
-//        getFav()
+        let searchBarContainer = SearchBarContainerView(customSearchBar: searchbar)
+        searchBarContainer.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
+        navigationItem.titleView = searchBarContainer
+        searchbar.searchTextField.backgroundColor = UIColor(rgb: 0x218785)
+        searchbar.searchTextField.textColor = .white
+        searchbar.tintColor = .white
+        searchbar.searchTextField.tintColor = .white
+//        navigationItem.titleView = searchbar
+//        setupNavView()
+//        navigationItem.titleView = searchView
         filterVC.delegate = self
+        navigationController?.navigationBar.tintColor = UIColor(rgb: 0x1C9A8A)
         navigationController?.delegate = self
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
+//        navigationController?.configureNavigationBar(largeTitleColor: UIColor.white, backgoundColor: UIColor(rgb: 0x1C9A8A), tintColor: .white, title: "الرئيسية", preferredLargeTitle: false)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         getFav()
+//        setupSearchTextField()
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupSearchBar(searchBar: searchbar)
     }
 
+    func setupSearchBar(searchBar : UISearchBar) {
+        searchbar.setPlaceholderTextColorTo(color: UIColor.white)
+    }
     //MARK: - "Side Menue" Constants and Variables
     let mainView : UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -269,7 +291,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 210.0
+        return 200
     }
     
     func dataUser () {
@@ -370,288 +392,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         } // iterate over trademarks
     } // Get filtered by service type trademarks function
     
-    
-
-}
-
-
-
-    
-
-
-
-//MARK: - Extension "setup userinterface and search bar"
-
-extension homePageViewController {
-    //MARK:  Setup User interface
-    func setUpUI(){
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationController?.navigationBar.barTintColor = .white
-        sideMenuWidth = view.frame.width / 2
-        view.addSubview(mainView)
-        view.addSubview(sideMenu)
-        sideMenu.addSubview(separatorView)
-        sideMenu.addSubview(sideMenuStackView)
-        sideMenuStackView.addArrangedSubview(MazayaLogoView)
-        sideMenuStackView.addArrangedSubview(openRegionVC)
-        sideMenuStackView.addArrangedSubview(openFamilyVC)
-        sideMenuStackView.addArrangedSubview(openFavVC)
-        sideMenuStackView.addArrangedSubview(openNewOffersVC)
-        sideMenuStackView.addArrangedSubview(openSuggestVC)
-        sideMenuStackView.addArrangedSubview(openVouchersVC)
-        sideMenuStackView.addArrangedSubview(openHelpVC)
-        sideMenuStackView.addArrangedSubview(logoutVS)
-        leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterTapped))
-        rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: #selector(menuTapped))
-        rightBarButtonItem.tintColor = green
-        leftBarButtonItem.tintColor = green
-        navigationItem.rightBarButtonItem = leftBarButtonItem
-        navigationItem.leftBarButtonItem = rightBarButtonItem
-        NSLayoutConstraint.activate([
-            mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            mainView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            mainView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            sideMenu.heightAnchor.constraint(equalTo: mainView.heightAnchor),
-            sideMenu.widthAnchor.constraint(equalTo: view.widthAnchor),
-            sideMenu.leftAnchor.constraint(equalTo: mainView.rightAnchor),
-            sideMenu.centerYAnchor.constraint(equalTo: mainView.centerYAnchor),
-            separatorView.heightAnchor.constraint(equalTo: sideMenu.heightAnchor),
-            separatorView.widthAnchor.constraint(equalToConstant: 3),
-            separatorView.leftAnchor.constraint(equalTo: sideMenu.leftAnchor),
-            separatorView.centerYAnchor.constraint(equalTo: sideMenu.centerYAnchor),
-            sideMenuStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
-            sideMenuStackView.leftAnchor.constraint(equalTo: separatorView.rightAnchor),
-            sideMenuStackView.widthAnchor.constraint(equalToConstant: sideMenuWidth),
-            openRegionVC.heightAnchor.constraint(equalToConstant: 40),
-            MazayaLogoView.heightAnchor.constraint(equalToConstant: 110),
-        ])
-        mainViewXConstraint = mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        mainViewXConstraint.isActive = true
-    } // end of setupUI
-    
-    //MARK: set up Searchbar
-    func setupSearchBar(){
-        resultCollectionViewController = storyboard!.instantiateViewController(withIdentifier: "searchResults") as? searchResult
-        searchBar = UISearchController(searchResultsController: resultCollectionViewController)
-        searchBar.searchBar.delegate = self
-        searchBar.obscuresBackgroundDuringPresentation = false
-        searchBar.searchBar.showsSearchResultsButton = true
-//        searchBar.searchBar.showsBookmarkButton = true
-//        searchBar.searchBar.setImage(UIImage(named: "filter"), for: .bookmark, state: .normal)
-        navigationItem.searchController = self.searchBar
-        searchBar.searchBar.searchBarStyle = .default
-        searchBar.searchBar.placeholder = "ما الذي تبحث عنه ؟"
-        searchBar.searchBar.semanticContentAttribute = .forceRightToLeft
-        searchBar.automaticallyShowsScopeBar = false
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "إلغاء"
-        searchBar.searchBar.tintColor = UIColor(rgb: 0x38a089)
-        searchBar.searchBar.searchTextField.semanticContentAttribute = .forceRightToLeft
-        searchBar.definesPresentationContext = true
-        searchBar.searchResultsUpdater = self
-        searchBar.searchBar.sizeToFit()
-    } // end of setup search bae
-            
-}
-
-
-
-
-
-//MARK: - Extension "Protocols' functions"
-
-extension homePageViewController : CollectionCellDelegator, handleRetrievedData, reloadResultsCollection, ResultCollectionCellDelegator, sendBackSelectedOptions, UINavigationControllerDelegate {
-    
-    func retrievedcopyCategories(myData dataObject: [Category]) {
-        self.categoriesCopy = dataObject
-    }
-    
-    func sendCategories(categories dataobject: [String]) {
-        self.filteredCategoriesName = dataobject
-        self.tbleList.reloadData()
-    }
-    
-    func callSegueFromCell(myData dataobject: Trademark) {
-        self.performSegue(withIdentifier: "tradeInfo", sender:dataobject )
-    } // end of 1 protocol function
-    func reloadCollection() {
-        resultCollectionViewController.collectionView.reloadData()
-        resultCollectionViewController.offers = []
-    } // end of 2 protocol function
-    func retrievedCategories(myData dataObject: [Category]) {
-        self.Categories = dataObject
-    } // end of 3 protocol function
-    func callSegueFromTradeCell(myData dataobject: Trademark) {
-        self.performSegue(withIdentifier: "tradeInfo", sender: dataobject)
-    } // end of 4 protocol function
-    func reloadTable() {
-        self.removeSpinner()
-        self.tbleList.reloadData()
-    } // end of 5 protocol function
-    func selectedCategory(myData dataobject: [Trademark]) {
-        self.performSegue(withIdentifier: "trademarks", sender: dataobject)
-    } // end of 6 protocol function
-    
-    func handleDelegates(){
-        resultCollectionViewController.delegate = self
-        resultCollectionViewController.tradeDelegate = self
-//        filterVC.delegate = self
-//        filterVC.tableDelegate = self
-        firstInitailizer.deleagte = self
-        tbleList.dataSource = self
-        tbleList.delegate = self
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        getFav()
-        let des = viewController as? DscriptionViewController
-        if favouriteTrades.contains(where: {$0.BrandName == des?.tradeInfo.BrandName }) {
-            des?.tradeInfo.isFav = true
-            
-        } else {
-            des?.tradeInfo.isFav = false
-        }
-//        (viewController as? DscriptionViewController)?.isFavourite = isFavourite // Here you pass the to your original view controller
-    }
-    
-}
-
-
-//MARK: - Searchbar handling
-extension homePageViewController: UISearchResultsUpdating, UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            reload(searchText)
-    } // end of delegate function
-
-        
-    func reload(_ searchText: String?){
-        guard searchBar.isActive else { return }
-        guard let searchText = searchText else {
-            resultCollectionViewController.trademarks = nil
-            return }
-        filteredData = []
-        filteredTradeMarks = []
-        var name = [String]()
-        for i in Categories {
-            let trades = i.trademarks ?? []
-            for t in trades {
-                name.append(t.BrandName ?? "")
-            }
-            filteredData = name.filter({$0.contains(searchText)})
-            for i in filteredData {
-                for t in trades {
-                    if t.BrandName == i {
-                        self.filteredTradeMarks.append(t)
-                    } // Add filtered trademark to the array
-                } // Iterate in filtered trades
-            } // Iterate in filtered data
-            resultCollectionViewController.trademarks = filteredTradeMarks
-            resultCollectionViewController.delegate = self
-        } // Iterate in each category
-        
-    } // end of filtering trademarks function
-        
-    func updateSearchResults(for searchController: UISearchController) {
-        if searchBar.searchBar.searchTextField.isFirstResponder {
-        searchBar.showsSearchResultsController = true
-        } else {
-        searchBar.searchBar.searchTextField.backgroundColor = nil
-        }
-    } // End of update results function
-        
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        resultCollectionViewController.trademarks = nil
-        self.searchBar.searchBar.searchTextField.backgroundColor = nil
-    } // end of handling cancel button function
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    } // end of search button function
-        
-
-}
-
-//MARK: - Extension "Side menu setup"
-extension homePageViewController {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isMenuShow = false
-        mainViewXConstraint.constant = 0
-        leftBarButtonItem.tintColor = green
-        UIView.animate(withDuration: 0.5, delay: 0.0,
-        usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
-        self.view.layoutIfNeeded()
-        }, completion: nil)
-        tbleList.isUserInteractionEnabled = true
-
-    }
-           
-    @objc func menuTapped() {
-        if isMenuShow {
-            mainViewXConstraint.constant = 0
-            leftBarButtonItem.tintColor = green
-            tbleList.isUserInteractionEnabled = true
-        
-        } else {
-            mainViewXConstraint.constant = -sideMenuWidth
-            leftBarButtonItem.tintColor = .white
-            tbleList.isUserInteractionEnabled = false
-        }
-        UIView.animate(withDuration: 0.5, delay: 0.0,
-                       usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
-                       options: .curveEaseInOut, animations: {
-            self.view.layoutIfNeeded()
-                        }, completion: nil)
-                
-        isMenuShow.toggle()
-    }
-    
-    @objc func filterTapped() {
-        self.performSegue(withIdentifier: "filter", sender: self)
-    }
-    
-    @objc func menuButtonsActions(_ sender : UIButton) {
-        if sender.tag == 10 {
-            navigationController?.pushViewController(RegionViewController(), animated: true)
-        }
-        else if sender.tag == 11 {
-            performSegue(withIdentifier: "toFamily", sender: self)
-            //navigationController?.pushViewController(FamilyViewController(), animated: true)
-        }
-        else if sender.tag == 12 {
-            performSegue(withIdentifier: "toFav", sender: self.favDictionary)
-            // navigationController?.pushViewController(FavoriteViewController(), animated: true)
-        }
-        else if sender.tag == 13 {
-            performSegue(withIdentifier: "toNewOffers", sender: self)
-            //navigationController?.pushViewController(NewOffersViewController(), animated: true)
-        }
-        else if sender.tag == 14 {
-            performSegue(withIdentifier: "toSuggest", sender: self)
-            //navigationController?.pushViewController(SuggestOfferViewController(), animated: true)
-        }
-        else if sender.tag == 15 {
-            performSegue(withIdentifier: "toVouchers", sender: self)
-            //navigationController?.pushViewController(VouchersViewController(), animated: true)
-        }
-        else if sender.tag == 16 {
-            performSegue(withIdentifier: "toCom", sender: self)
-            //navigationController?.pushViewController(CommunicateUsViewController(), animated: true)
-        }
-        else if  sender.tag == 17 {
-            logout()
-        }
-        mainViewXConstraint.constant = 0
-        UIView.animate(withDuration: 0.5, delay: 0.0,
-        usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
-            options: .curveEaseInOut, animations: {
-                self.view.layoutIfNeeded()
-        }, completion: nil)
-        isMenuShow = false
-        leftBarButtonItem.tintColor = green
-        }
-}
-
-extension homePageViewController {
-        
+    //MARK: -Handle Favourite Trademarks
     func getAllTrades(){
         self.favouriteTrades = []
         for category in Categories {
@@ -679,3 +420,6 @@ extension homePageViewController {
         })  // Observing favourite trademarks
     } // Retrieve favourite trademarks
 }
+
+
+

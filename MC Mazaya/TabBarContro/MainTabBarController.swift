@@ -1,184 +1,86 @@
-////
-////  MainTabBarController.swift
-////  Musaned
-////
-////  Copyright © 2020 ALHANOUF . All rights reserved.
-////
 //
-//import UIKit
-//import Firebase
-//class MainTabBarController: UITabBarController {
+//  MainTabBarController.swift
+//  MC Mazaya
 //
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        let id = UserDefaults.standard.string(forKey: "id")
-//        print("UserDeful STATUS:\(String(describing: id))")
+//  Created by Alhnuof khalid on 27/02/1442 AH.
+//  Copyright © 1442 MC. All rights reserved.
 //
-//
-//        if Auth.auth().currentUser == nil {
-//            //show if not logged in
-//            DispatchQueue.main.async {
-//
-//                let loginController = FirstPageController()
-//                               let navController = UINavigationController(rootViewController: loginController)
-//                               self.present(navController, animated: true, completion: nil)
-//
-////                let firstPageController = FirstPageController()
-//                UIApplication.shared.windows.first?.rootViewController = firstPageController
-////                UIApplication.shared.windows.first?.makeKeyAndVisible()
-//            }
-//
-//            return
-//
-//
-//        } else if Auth.auth().currentUser?.uid == "Rrq7OgG4j2QiBg1GYHXehSFPtHg2" {
-//            print("entering as Admin")
-//            self.adminSetupViews()
-//            return
-//        } else {
-//            switch UserDefaults.standard.string(forKey: "id") {
-//             case Experts.exId:
-//                 print("entering as Expert")
-//                 self.setupExpertViewControllers()
-//             case "owner":
-//                 print("entering as Owner")
-//                 self.setupOwnerViewControllers()
-//             case "admin":
-//                 print("entering as Admin")
-//                 self.adminSetupViews()
-//                 case "unapproved":
-//                 print("exsting as upapproved")
-//                let expertSingupLoginPresneter = ExpertSingupLoginPresneter()
-//                 UIApplication.shared.windows.first?.rootViewController = expertSingupLoginPresneter
-//                 UIApplication.shared.windows.first?.makeKeyAndVisible()
-//
-//                 case "user":
-//                 self.setupViewControllers()
-//             default:
-//                 let firstPageController = FirstPageController()
-//                 UIApplication.shared.windows.first?.rootViewController = firstPageController
-//                 UIApplication.shared.windows.first?.makeKeyAndVisible()
-//             }
-//
-//        }
-//
-//
-////        switch UserDefaults.standard.string(forKey: "id") {
-////        case Experts.exId:
-////            print("entering as Expert")
-////            self.setupExpertViewControllers()
-////        case "owner":
-////            print("entering as Owner")
-////            self.setupOwnerViewControllers()
-////        case "admin":
-////            print("entering as Admin")
-////            self.adminSetupViews()
-////            case "unapproved":
-////            print("exsting as upapproved")
-////           let expertSingupLoginPresneter = ExpertSingupLoginPresneter()
-////            UIApplication.shared.windows.first?.rootViewController = expertSingupLoginPresneter
-////            UIApplication.shared.windows.first?.makeKeyAndVisible()
-////
-////            case "user":
-////            self.setupViewControllers()
-////        default:
-////            let firstPageController = FirstPageController()
-////            UIApplication.shared.windows.first?.rootViewController = firstPageController
-////            UIApplication.shared.windows.first?.makeKeyAndVisible()
-////        }
-////
-//
-//    }
-//
-//
-//    func checkStatus() {
-//        switch UserDefaults.standard.string(forKey: "id") {
-//         case Experts.exId:
-//             print("entering as Expert")
-//             self.setupExpertViewControllers()
-//         case "owner":
-//             print("entering as Owner")
-//             self.setupOwnerViewControllers()
-//         case "admin":
-//             print("entering as Admin")
-//             self.adminSetupViews()
-//             case "unapproved":
-//             print("exsting as upapproved")
-//            let expertSingupLoginPresneter = ExpertSingupLoginPresneter()
-//             UIApplication.shared.windows.first?.rootViewController = expertSingupLoginPresneter
-//             UIApplication.shared.windows.first?.makeKeyAndVisible()
-//
-//             case "user":
-//             self.setupViewControllers()
-//         default:
-//             let firstPageController = FirstPageController()
-//             UIApplication.shared.windows.first?.rootViewController = firstPageController
-//             UIApplication.shared.windows.first?.makeKeyAndVisible()
-//         }
-//
-//    }
-//
-//
-//    func setupOwnerViewControllers() {
-//
-//        let accountVC = OwnerProfileController()
-//        let itemVC = DonationListController()
-//        let itemCVC = AddItemCVController()
-//
-//
-//
-//        viewControllers = [
-//            createNavController(viewController: CategoryViewController(), title: "الريسية", imageName: "icons8-home-48"), createNavController(viewController: itemCVC, title: "اضف منتجات", imageName: "icons8-electric-wheelchair-60"),createNavController(viewController: itemVC, title: "التبرعات", imageName: "basket"), createNavController(viewController: accountVC, title: "حسابي", imageName: "profile")]
-//    }
-//
-//    func setupExpertViewControllers() {
-//
-//        let expertProfile = ExpertProfileController()
-//        let messageVC = ExpertMessageTableController()
-//
-//        viewControllers = [
-//            createNavController(viewController: messageVC, title: "الاستفسارات", imageName: "icons8-inquiry-48"),createNavController(viewController: expertProfile, title: "حسابي", imageName: "profile")]
-//    }
-//
-//    func setupViewControllers() {
-//        let itemVC = DonationListController()
-//        let profileVC = UserProfileViewController()
-//        let messageVC = MessagesTableView()
-//        //        let SearchController = SearchItemsController()
-//        let donationStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let donationVc = donationStoryboard.instantiateViewController(identifier: "donationId")
-//        donationVc.navigationItem.title = "صفحة التبرع"
-//
-//
-//        viewControllers = [
-//            createNavController(viewController: CategoryViewController(), title: "الريسية", imageName: "icons8-home-48"),createNavController(viewController: profileVC, title: "حسابي", imageName: "profile"),createNavController(viewController: itemVC, title: "التبرعات", imageName: "basket"),createNavController(viewController: messageVC, title: "الاستفسارات", imageName: "icons8-inquiry-48")]
-//    }
-//
-//
-//    func adminSetupViews() {
-//
-//        let itemVC = DonationListController()
-//        let profileVC = UserProfileViewController()
-//        let adminPage = AcceptExpertViewController()
-//        let donationStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let donationVc = donationStoryboard.instantiateViewController(identifier: "donationId")
-//        donationVc.navigationItem.title = "صفحة التبرع"
-//
-//
-//
-//        viewControllers = [
-//            createNavController(viewController: CategoryViewController(), title: "الريسية", imageName: "icons8-home-48"),createNavController(viewController: profileVC, title: "حسابي", imageName: "profile"),createNavController(viewController: itemVC, title: "التبرعات", imageName: "basket"), createNavController(viewController: adminPage, title: "قبول", imageName: "icons8-inquiry-48")]
-//    }
-//
-//
-//
-//
-//    fileprivate func createNavController(viewController: UIViewController, title: String, imageName: String) -> UIViewController {
-//        let navController = UINavigationController(rootViewController: viewController)
-//        navController.tabBarItem.title = title
-//        navController.tabBarItem.image = UIImage(named: imageName)
-//        return navController
-//
-//    }
-//}
-//
+import UIKit
+
+class MainTabBarController: UITabBarController{
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        view.backgroundColor = .white
+//        tabBar.backgroundColor = .clear
+//        tabBar.backgroundImage = UIImage.from(color: .clear)
+//        tabBar.shadowImage = UIImage()
+//        let tabbarBackgroundView = RoundShadowView(frame: tabBar.frame)
+//        tabbarBackgroundView.layer.cornerRadius = 20
+//        tabbarBackgroundView.backgroundColor = .white
+//        tabbarBackgroundView.frame.size.height = tabBar.frame.size.height
+//        tabbarBackgroundView.frame.size.width = tabBar.frame.size.width
+//        view.addSubview(tabbarBackgroundView)
+//        let fillerView = UIView()
+//        fillerView.frame = tabBar.frame
+//        fillerView.layer.masksToBounds = true
+//        fillerView.roundCorners([.topLeft, .topRight], radius: 25)
+//        fillerView.backgroundColor = .white
+//        view.addSubview(fillerView)
+//        view.bringSubviewToFront(tabBar)
+        self.tabBar.layer.cornerRadius = 25
+        self.tabBar.layer.masksToBounds = true
+        self.tabBar.isTranslucent = true
+        self.tabBar.backgroundColor = .clear
+        tabBar.layer.shadowColor = UIColor.systemGray5.cgColor
+        tabBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        tabBar.layer.shadowRadius = 15
+        tabBar.layer.shadowOpacity = 1
+//        self.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 10)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 10)!], for: .selected)
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.selectedIndex = 4  //enter your tabbar no.
+        self.navigationController?.navigationBar.setGradientBackground(colorOne: .white, colorTwo: .green)
+
+    }
+}
+
+
+class RoundShadowView: UIView {
+
+    let containerView = UIView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layoutView()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func layoutView() {
+
+        // set the shadow of the view's layer
+        layer.backgroundColor = UIColor.clear.cgColor
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: -8)
+        layer.shadowOpacity = 0.12
+        layer.shadowRadius = 10.0
+        containerView.layer.cornerRadius = 20
+        containerView.layer.masksToBounds = true
+        addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+        // pin the containerView to the edges to the view
+//        containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+//        containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+////        containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+//        containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    }
+}
+
+

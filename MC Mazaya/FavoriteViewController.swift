@@ -82,12 +82,18 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         cell.favDict = self.favDict
         cell.trademarkName.text = favTrademarks[indexPath.row].BrandName
         cell.trademarkImage.sd_setImage(with: URL(string: imageURL))
-        cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 2
+        cell.trademarkView.layer.cornerRadius = cell.trademarkImage.frame.height / 2
         cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-        cell.trademarkView.layer.borderWidth = 1.5
-        cell.trademarkImage.layer.borderWidth = 1.5
-        cell.trademarkView.layer.borderColor = UIColor.gray.cgColor
-        cell.trademarkImage.layer.borderColor = UIColor.gray.cgColor
+//        cell.trademarkView.layer.borderWidth = 1.5
+        cell.trademarkImage.layer.borderWidth = 0.8
+//        cell.trademarkView.layer.borderColor = UIColor.gray.cgColor
+        cell.trademarkImage.layer.borderColor = UIColor.systemGray3.cgColor
+        cell.trademarkView.backgroundColor = UIColor(rgb: 0xF4F4F4)
+        cell.trademarkView.layer.shadowColor = UIColor.systemGray5.cgColor
+        cell.trademarkView.layer.shadowRadius = 2
+        cell.trademarkView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        cell.trademarkView.layer.shadowOpacity = 0.5
+        cell.trademarkView.clipsToBounds = false
         cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
         cell.delegate = self
         return cell

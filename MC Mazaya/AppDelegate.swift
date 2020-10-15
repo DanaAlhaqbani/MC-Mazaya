@@ -22,11 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         let navigationBarAppearace = UINavigationBar.appearance()
-        let green = UIColor(rgb: 0x38a089)
-        let textAttributes = [NSAttributedString.Key.foregroundColor:green, NSAttributedString.Key.font: UIFont(name: "STC", size: 20)!]
+//        let green = UIColor(rgb: 0x38a089)
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font: UIFont(name: "STC", size: 20)!]
         navigationBarAppearace.semanticContentAttribute = .forceRightToLeft
         navigationBarAppearace.titleTextAttributes = textAttributes
-        navigationBarAppearace.tintColor = green
+        navigationBarAppearace.barTintColor = UIColor(rgb: 0x1C9A8A)
+        navigationBarAppearace.tintColor = .white
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
+        UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
+        UIButton.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).tintColor = .white
         
         return true
     }
