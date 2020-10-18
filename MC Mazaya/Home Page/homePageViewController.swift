@@ -46,6 +46,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var filteredByServiceType = [Trademark]()
     var favDictionary : NSDictionary = [:]
     var favouriteTrades = [Trademark]()
+    var categoriesCollection : categoriesCollectionView?
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
@@ -291,7 +292,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 170
     }
     
     func dataUser () {
@@ -374,6 +375,10 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                   dis.Categories = self.Categories
                   dis.Trades = self.Trades
              } // Show new offers Segue
+        if let des = segue.destination as? categoriesCollectionView, segue.identifier == "categoriesCollection" {
+            des.categories = self.categoriesCopy
+            self.categoriesCollection = des
+        }
     }// Prepare Function
 
     //MARK: - Handling Filtered Trademarks

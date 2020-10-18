@@ -22,11 +22,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الفئة " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZR-y7-bVI">
-                        <rect key="frame" x="65" y="10" width="156" height="25"/>
+                        <rect key="frame" x="105" y="10" width="116" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="e4a-ng-RDz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="25"/>
+                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -40,17 +40,16 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owo-B0-I86">
-                        <rect key="frame" x="20" y="30" width="40" height="25"/>
-                        <color key="backgroundColor" red="0.35376685860000001" green="0.77426546809999997" blue="0.74316579100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owo-B0-I86">
+                        <rect key="frame" x="10" y="10" width="90" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="RbA-dl-NPK"/>
+                            <constraint firstAttribute="width" constant="90" id="RbA-dl-NPK"/>
                             <constraint firstAttribute="height" constant="25" id="p3l-To-uZn"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
                         <color key="tintColor" red="0.97647058819999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <state key="normal" title="الكل">
-                            <color key="titleColor" red="0.97647058819999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="مشاهدة الكل">
+                            <color key="titleColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="titleShadowColor" red="0.97647058819999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
@@ -60,14 +59,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="wYO-Ff-786" secondAttribute="bottom" constant="11" id="36a-zX-hg0"/>
-                    <constraint firstItem="owo-B0-I86" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="6bY-lS-o8u"/>
                     <constraint firstAttribute="trailing" secondItem="KZR-y7-bVI" secondAttribute="trailing" constant="10" id="8Q0-gn-E4y"/>
                     <constraint firstItem="wYO-Ff-786" firstAttribute="top" secondItem="KZR-y7-bVI" secondAttribute="bottom" constant="10" id="DtT-2f-JJs"/>
-                    <constraint firstItem="owo-B0-I86" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Mh0-pn-Izd"/>
+                    <constraint firstItem="owo-B0-I86" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Mh0-pn-Izd"/>
                     <constraint firstItem="wYO-Ff-786" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="f4V-kg-9bV"/>
                     <constraint firstItem="KZR-y7-bVI" firstAttribute="leading" secondItem="owo-B0-I86" secondAttribute="trailing" constant="5" id="fgV-0i-5O1"/>
                     <constraint firstAttribute="trailing" secondItem="wYO-Ff-786" secondAttribute="trailing" constant="8" id="kvn-yS-oRE"/>
                     <constraint firstItem="KZR-y7-bVI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qco-cw-8JK"/>
+                    <constraint firstItem="owo-B0-I86" firstAttribute="centerY" secondItem="KZR-y7-bVI" secondAttribute="centerY" id="wKE-G9-nx0"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

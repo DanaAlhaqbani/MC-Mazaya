@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.tintColor = .white
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
         UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
+//        UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self])
         UIButton.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).tintColor = .white
         
         return true

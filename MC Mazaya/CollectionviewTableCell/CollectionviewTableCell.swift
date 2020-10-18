@@ -62,7 +62,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         galleryCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 98, height: 127)
+        flowLayout.itemSize = CGSize(width: 98, height: 98)
         flowLayout.minimumInteritemSpacing = 1.0
         galleryCollectionView.collectionViewLayout = flowLayout
         galleryCollectionView.delegate = self
@@ -126,12 +126,12 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
 //            cell.imgvAvatar.layer.borderColor = UIColor.systemGray3.cgColor
 //            cell.imgvAvatar.layer.borderWidth = 0.3
             cell.imgvAvatar.layer.cornerRadius =  20
-            cell.offerTitle.text = self.Trades[indexPath.row].BrandName
-            cell.offerDetails.text = ""
+//            cell.offerTitle.text = self.Trades[indexPath.row].BrandName
+//            cell.offerDetails.text = ""
             if let o = self.Trades[indexPath.row].offers {
                 self.Offers = o
                 if self.Offers.count != 0 {
-                    cell.offerDetails.text = self.Offers[0].offerTitle
+//                    cell.offerDetails.text = self.Offers[0].offerTitle
                 }
             }
         }

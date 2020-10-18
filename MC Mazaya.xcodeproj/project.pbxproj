@@ -90,6 +90,10 @@
 		E73A421A25120A3F00F45CC5 /* CollectionviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A421325120A3F00F45CC5 /* CollectionviewTableCell.swift */; };
 		E73A421B25120A3F00F45CC5 /* DscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A421425120A3F00F45CC5 /* DscriptionViewController.swift */; };
 		E73A421C25120A3F00F45CC5 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73A421525120A3F00F45CC5 /* GalleryCollectionViewCell.xib */; };
+		E742826F25385D6C0050E18A /* bannerContaoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742826E25385D6C0050E18A /* bannerContaoner.swift */; };
+		E742827125387DB60050E18A /* categoriesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742827025387DB60050E18A /* categoriesCollectionView.swift */; };
+		E742827425387E5A0050E18A /* categoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742827225387E5A0050E18A /* categoryCollectionViewCell.swift */; };
+		E742827525387E5A0050E18A /* categoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E742827325387E5A0050E18A /* categoryCollectionViewCell.xib */; };
 		E7784CBD2518FDC50020BDB0 /* launcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CBC2518FDC50020BDB0 /* launcViewController.swift */; };
 		E7784CC12518FFB60020BDB0 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CC02518FFB60020BDB0 /* userData.swift */; };
 		E7784CCC251A0A570020BDB0 /* singleTrademarkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CCA251A0A570020BDB0 /* singleTrademarkResult.swift */; };
@@ -196,6 +200,10 @@
 		E73A421325120A3F00F45CC5 /* CollectionviewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionviewTableCell.swift; sourceTree = "<group>"; };
 		E73A421425120A3F00F45CC5 /* DscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DscriptionViewController.swift; sourceTree = "<group>"; };
 		E73A421525120A3F00F45CC5 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		E742826E25385D6C0050E18A /* bannerContaoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bannerContaoner.swift; sourceTree = "<group>"; };
+		E742827025387DB60050E18A /* categoriesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoriesCollectionView.swift; sourceTree = "<group>"; };
+		E742827225387E5A0050E18A /* categoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		E742827325387E5A0050E18A /* categoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = categoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		E7784CBC2518FDC50020BDB0 /* launcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launcViewController.swift; sourceTree = "<group>"; };
 		E7784CC02518FFB60020BDB0 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		E7784CCA251A0A570020BDB0 /* singleTrademarkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleTrademarkResult.swift; sourceTree = "<group>"; };
@@ -458,6 +466,10 @@
 				E78E48C7253739B80035DE60 /* SearchBarExtension.swift */,
 				E78E48C925373A1A0035DE60 /* SideMenuExtension.swift */,
 				E78E48CB25373A510035DE60 /* UISetupExtension.swift */,
+				E742826E25385D6C0050E18A /* bannerContaoner.swift */,
+				E742827025387DB60050E18A /* categoriesCollectionView.swift */,
+				E742827225387E5A0050E18A /* categoryCollectionViewCell.swift */,
+				E742827325387E5A0050E18A /* categoryCollectionViewCell.xib */,
 			);
 			path = "Home Page";
 			sourceTree = "<group>";
@@ -531,6 +543,7 @@
 				D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */,
 				E73A421825120A3F00F45CC5 /* DscriptionViewController.xib in Resources */,
 				E73A421C25120A3F00F45CC5 /* GalleryCollectionViewCell.xib in Resources */,
+				E742827525387E5A0050E18A /* categoryCollectionViewCell.xib in Resources */,
 				D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */,
 				E73A421725120A3F00F45CC5 /* CollectionviewTableCell.xib in Resources */,
 				D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */,
@@ -628,6 +641,7 @@
 				A94A1DEA253317730086605F /* BranchView.swift in Sources */,
 				E7ABDCFD2517710B00B6C4B9 /* Offer.swift in Sources */,
 				D65880C42508B29A00BE29F9 /* TrademarkTableVC.swift in Sources */,
+				E742827425387E5A0050E18A /* categoryCollectionViewCell.swift in Sources */,
 				D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */,
 				E73789D92523017500DF6FC1 /* filterViewController.swift in Sources */,
 				A99D996C24FF93B20035D2FF /* AddTrademark.swift in Sources */,
@@ -664,6 +678,7 @@
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
 				D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */,
 				E703C8AD2520AA5D00C5F110 /* trademarkCell.swift in Sources */,
+				E742827125387DB60050E18A /* categoriesCollectionView.swift in Sources */,
 				D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */,
 				A99D996824FF93910035D2FF /* Utilities.swift in Sources */,
 				A99D996D24FF93B20035D2FF /* AddOffersViewController.swift in Sources */,
@@ -677,6 +692,7 @@
 				E73A421925120A3F00F45CC5 /* GalleryCollectionViewCell.swift in Sources */,
 				D6D8270425331CE800B376E9 /* UIViewExtension.swift in Sources */,
 				D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */,
+				E742826F25385D6C0050E18A /* bannerContaoner.swift in Sources */,
 				A99D996E24FF93B20035D2FF /* BranchesViewController.swift in Sources */,
 				D620C51D24B1C35E0085B937 /* MapViewController.swift in Sources */,
 				D6381EBB24ADD4A5004569D6 /* SuggestOfferViewController.swift in Sources */,

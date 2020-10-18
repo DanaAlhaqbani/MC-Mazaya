@@ -28,7 +28,7 @@ class TabBarController: UITabBarController {
     }
     
     func setupMiddleButton() {
-        let scanButton = UIButton(frame: CGRect(x: 0, y: 0, width: 68, height: 68))
+        let scanButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         var scanButtonFrame = scanButton.frame
         scanButtonFrame.origin.y = view.bounds.height - scanButtonFrame.height - 40
         scanButtonFrame.origin.x = view.bounds.width/2 - scanButtonFrame.size.width/2
@@ -42,12 +42,13 @@ class TabBarController: UITabBarController {
         useTitle.numberOfLines = 2
         useTitle.textColor = .white
         useTitle.font = UIFont(name: "STC", size: 10)
-        scanButton.addSubview(useTitle)
+//        scanButton.addSubview(useTitle)
         scanButton.addSubview(QRimage)
-        useTitle.anchor(bottom: scanButton.bottomAnchor, paddingBottom: 13)
-        useTitle.centerXAnchor.constraint(equalTo: scanButton.centerXAnchor).isActive = true
+//        useTitle.anchor(bottom: scanButton.bottomAnchor, paddingBottom: 13)
+//        useTitle.centerXAnchor.constraint(equalTo: scanButton.centerXAnchor).isActive = true
         QRimage.centerXAnchor.constraint(equalTo: scanButton.centerXAnchor).isActive = true
-        QRimage.anchor(top: scanButton.topAnchor, paddingTop: 10, width: 25, height: 25)
+        QRimage.centerYAnchor.constraint(equalTo: scanButton.centerYAnchor).isActive = true
+        QRimage.anchor(width: 25, height: 25)
 //        let title = NSAttributedString(string: "استخدم العرض", attributes: [NSAttributedString.Key.font: UIFont(name: "STC", size: 10)!, NSAttributedString.Key.foregroundColor: UIColor.white])
 //        scanButton.setAttributedTitle(title, for: .normal)
         scanButton.titleLabel?.numberOfLines = 2
