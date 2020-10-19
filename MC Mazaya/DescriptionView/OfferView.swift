@@ -36,6 +36,8 @@ class OfferView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         tableview.delegate = self
         tableview.dataSource = self
         tableview.heightAnchor.constraint(equalToConstant: tableview.contentSize.height).isActive = true
+        UseAnoffer.setButton()
+        UseAnoffer.titleLabel?.font =  UIFont(name: "stc_font_regular", size: 17.0)
     }
     
     
@@ -114,11 +116,33 @@ for _ in 1...10{
 
       //  selectesButton.selectedOFfer.setImage(UIImage(named:"selected"), for:.normal)
 
-       print("HI AJwan")
+      
     }
     
     func AlertBox (){
         
     }
+    @IBAction func alertButtonAction(_ sender: Any) {
+           let btn = sender as! UIButton
+           
+          
+               let actionYes : [String: () -> Void] = [ "" : { (
+                   
+                       print("tapped YES")
+               ) }]
+               let actionNo : [String: () -> Void] = [ "" : { (
+                   print("tapped NO")
+               ) }]
+               let arrayActions = [actionYes, actionNo]
+               
+               
+               self.showCustomAlertWithScaner(
+                   message: "",
+                   descMsg: "" ,
+                   itemimage: #imageLiteral(resourceName: "qr-code"),
+                   actions: arrayActions)
+          
+           }
+           
+       }
 
-}

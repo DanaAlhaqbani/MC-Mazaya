@@ -9,11 +9,14 @@
 import UIKit
 
 class WhoWeAreView: UIViewController {
-
+    
     @IBOutlet weak var Traddes: UILabel!
     @IBOutlet weak var Tradenum: UILabel!
     @IBOutlet weak var Trademail: UILabel!
     @IBOutlet weak var TraddesURl: UILabel!
+    @IBOutlet weak var instagram: UIButton!
+    @IBOutlet weak var Twitter: UIButton!
+    @IBOutlet weak var facebook: UIButton!
     
     var Trade : Trademark!
     
@@ -23,11 +26,44 @@ class WhoWeAreView: UIViewController {
         Tradenum.text = Trade.contactNum
         Trademail.text = Trade.email
         TraddesURl.text = Trade.webUrl
+        TraddesURl.isUserInteractionEnabled = true
+        let guestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(labelClicked(_:)))
+        TraddesURl.addGestureRecognizer(guestureRecognizer)
         
-        
-            }
+    }
     
-
-   
-
+    @objc func labelClicked(_ sender: Any) {
+        
+        UIApplication.shared.open(URL(string: Trade.webUrl ?? "")! as URL ,options: [:],completionHandler: nil)
+        
+    }
+    @IBAction func instagram(_ sender: Any) {
+        
+        if Trade.instagram != ""{
+            let insta = Trade.instagram
+            
+            UIApplication.shared.open(URL(string: "https://www.instagram.com/\(Trade.instagram ?? "https://www.instagram.com")/")! as URL ,options: [:],completionHandler: nil)
+        }}
+    
+    @IBAction func Twitter(_ sender: Any) {
+        
+        if Trade.twitter != ""{
+            let insta = Trade.twitter
+            
+            UIApplication.shared.open(URL(string: "https://twitter.com/\(Trade.twitter ?? "https://twitter.com")/")! as URL ,options: [:],completionHandler: nil)
+        }}
+    
+    
+    @IBAction func FaceBook(_ sender: Any) {
+        if Trade.facebook != ""{
+            let insta = Trade.twitter
+            
+            UIApplication.shared.open(URL(string: "https://ar-ar.facebook.com/\(Trade.facebook ?? "https://ar-ar.facebook.com/")/")! as URL ,options: [:],completionHandler: nil)
+        }
+        
+    }
+    
+    
+    
+    
 }

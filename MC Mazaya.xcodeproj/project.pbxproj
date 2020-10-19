@@ -22,6 +22,8 @@
 		A99D996C24FF93B20035D2FF /* AddTrademark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996924FF93B20035D2FF /* AddTrademark.swift */; };
 		A99D996D24FF93B20035D2FF /* AddOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996A24FF93B20035D2FF /* AddOffersViewController.swift */; };
 		A99D996E24FF93B20035D2FF /* BranchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D996B24FF93B20035D2FF /* BranchesViewController.swift */; };
+		A9EEA957253C533E0013275D /* OffersAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9EEA955253C533E0013275D /* OffersAlertVC.xib */; };
+		A9EEA958253C533E0013275D /* OffersAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EEA956253C533E0013275D /* OffersAlertVC.swift */; };
 		D60B6BDD24FFA40E006552AC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B6BDC24FFA40E006552AC /* Category.swift */; };
 		D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619D71124F16C570037150E /* MyFamilyViewController.swift */; };
 		D619D71424F171EB0037150E /* familyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619D71324F171EB0037150E /* familyCell.swift */; };
@@ -127,6 +129,8 @@
 		A99D996924FF93B20035D2FF /* AddTrademark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrademark.swift; sourceTree = "<group>"; };
 		A99D996A24FF93B20035D2FF /* AddOffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOffersViewController.swift; sourceTree = "<group>"; };
 		A99D996B24FF93B20035D2FF /* BranchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchesViewController.swift; sourceTree = "<group>"; };
+		A9EEA955253C533E0013275D /* OffersAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OffersAlertVC.xib; sourceTree = "<group>"; };
+		A9EEA956253C533E0013275D /* OffersAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersAlertVC.swift; sourceTree = "<group>"; };
 		AA67390707D5EA351875ADF8 /* Pods_MC_Mazaya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC_Mazaya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637480B2916BA532CF0622D /* Pods-MC Mazaya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.debug.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.debug.xcconfig"; sourceTree = "<group>"; };
 		D60B6BDC24FFA40E006552AC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 			isa = PBXGroup;
 			children = (
 				D6D8270125331CE800B376E9 /* CommonAlertVC.swift */,
+				A9EEA956253C533E0013275D /* OffersAlertVC.swift */,
+				A9EEA955253C533E0013275D /* OffersAlertVC.xib */,
 				D6D8270225331CE800B376E9 /* CommonAlertVC.xib */,
 				D6D826FF25331CE800B376E9 /* ExtensionUIViewController.swift */,
 				D6D8270025331CE800B376E9 /* UIViewExtension.swift */,
@@ -543,6 +549,7 @@
 				D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */,
 				E73A421825120A3F00F45CC5 /* DscriptionViewController.xib in Resources */,
 				E73A421C25120A3F00F45CC5 /* GalleryCollectionViewCell.xib in Resources */,
+				A9EEA957253C533E0013275D /* OffersAlertVC.xib in Resources */,
 				E742827525387E5A0050E18A /* categoryCollectionViewCell.xib in Resources */,
 				D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */,
 				E73A421725120A3F00F45CC5 /* CollectionviewTableCell.xib in Resources */,
@@ -630,6 +637,7 @@
 				D6D150E424BB38CE00547B97 /* ScannerViewController.swift in Sources */,
 				E78E48C8253739B80035DE60 /* SearchBarExtension.swift in Sources */,
 				D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */,
+				A9EEA958253C533E0013275D /* OffersAlertVC.swift in Sources */,
 				D6A8F37F24F3B537007DDBDB /* RegionViewController.swift in Sources */,
 				D6381EBD24ADD4C5004569D6 /* VouchersViewController.swift in Sources */,
 				E7784CC12518FFB60020BDB0 /* userData.swift in Sources */,

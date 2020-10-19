@@ -22,4 +22,16 @@ extension UIViewController {
         alertVC.modalPresentationStyle = .overCurrentContext
         self.present(alertVC, animated: true, completion: nil)
     }
+    func showCustomAlertWithScaner(okButtonAction: (() ->())? = {}, message: String, descMsg: String, itemimage: UIImage?, actions: [[String: () -> Void]]?) {
+        let alertVC = OffersAlertVC.init(nibName: "OffersAlertVC", bundle: nil)
+        alertVC.message = message
+        alertVC.arrayAction = actions
+        alertVC.descriptionMessage = descMsg
+        alertVC.imageItem = itemimage
+        alertVC.okButtonAct = okButtonAction
+        //Present
+        alertVC.modalTransitionStyle = .crossDissolve
+        alertVC.modalPresentationStyle = .overCurrentContext
+        self.present(alertVC, animated: true, completion: nil)
+    }
 }

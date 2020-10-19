@@ -50,7 +50,9 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
         OffersView.alpha = 1
         segmentedControl.addUnderlineForSelectedSegment()
         addTopAndBottomBorders()
-        
+        BrandLogo.layer.cornerRadius = BrandLogo.frame.height / 2
+        BrandLogo.layer.borderWidth = 1.5
+        BrandLogo.layer.borderColor = UIColor.white.cgColor
         upperline.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
         line.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
         setupFavouriteButton()
@@ -85,11 +87,11 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
            let thickness: CGFloat = 1.0
            let topBorder = CALayer()
            let bottomBorder = CALayer()
-           topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.BackgroundView.frame.size.width, height: thickness)
-            topBorder.backgroundColor = UIColor.white.cgColor
+//           topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.BackgroundView.frame.size.width, height: thickness)
+//            topBorder.backgroundColor = UIColor.white.cgColor
            bottomBorder.frame = CGRect(x:0, y: self.BackgroundView.frame.size.height - thickness, width: self.BackgroundView.frame.size.width, height:thickness)
            bottomBorder.backgroundColor = UIColor.gray.cgColor
-           BackgroundView.layer.addSublayer(topBorder)
+          // BackgroundView.layer.addSublayer(topBorder)
            BackgroundView.layer.addSublayer(bottomBorder)
         }
         
