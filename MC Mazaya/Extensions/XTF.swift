@@ -64,11 +64,12 @@ extension UITextField {
         
         let border1 = CALayer()
         let width1 = CGFloat(2.0)
-        border1.borderColor = UIColor.lightGray.cgColor
-        border1.frame = CGRect(x: 5, y: self.frame.size.height+8, width: self.frame.size.width+10, height: 1)
+        border1.borderColor = UIColor.systemGray5.cgColor
+        border1.frame = CGRect(x: 5, y: self.frame.size.height+15, width: self.frame.size.width+10, height: 1)
         border1.borderWidth = width1
         white.addSublayer(border1)
-        white.setShadow()
+//        white.setShadow()
+    
         //test
         
         

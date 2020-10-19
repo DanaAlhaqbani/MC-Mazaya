@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseCore
-
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,15 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarAppearace = UINavigationBar.appearance()
 //        let green = UIColor(rgb: 0x38a089)
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font: UIFont(name: "STC", size: 20)!]
+        let labelAppearance = UILabel.appearance()
         navigationBarAppearace.semanticContentAttribute = .forceRightToLeft
         navigationBarAppearace.titleTextAttributes = textAttributes
         navigationBarAppearace.barTintColor = UIColor(rgb: 0x1C9A8A)
         navigationBarAppearace.tintColor = .white
+        labelAppearance.substituteFontName = "STC"
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
         UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
-//        UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+        UILabel.appearance(whenContainedInInstancesOf: [UIButton.self]).font = UIFont(name: "STC", size: 25)
+        UIButton.appearance().layer.cornerRadius = 20
         UIButton.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).tintColor = .white
-        
+        UIButton.appearance(whenContainedInInstancesOf: [UIButton.self]).tintColor = .white
+        UIButton.appearance().tintColor = .white
+        IQKeyboardManager.shared.enable = true
+    
         return true
     }
 

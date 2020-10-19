@@ -64,20 +64,21 @@ class launchViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.generalGradiantView()
+//        view.generalGradiantView()
+
+        setupUI()
+        logoImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
+        titleImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
+        UIView.animate(withDuration: 1.5, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.4, options: .curveEaseIn, animations: {
+            self.logoImage.transform = .identity
+            self.titleImage.transform = .identity
+        }) { (true) in
+            self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.nothing), userInfo: nil, repeats: false)
+            }
         DispatchQueue.main.async {
             self.showApp()
             self.tabBarController?.tabBar.isUserInteractionEnabled = true
         }
-        setupUI()
-        logoImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
-        titleImage.transform = CGAffineTransform(scaleX: 0.0000001, y: 0.0000001)
-        UIView.animate(withDuration: 1.5, delay: 2, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.4, options: .curveEaseInOut, animations: {
-            self.logoImage.transform = .identity
-            self.titleImage.transform = .identity
-        }) { (true) in
-        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.nothing), userInfo: nil, repeats: false)
-            }
         }
     
     //MARK: - Loading Launch screen & luanch the app
@@ -127,10 +128,10 @@ class launchViewController: UIViewController {
     }
        
     
-    //MARK: - UI Lets
+    //MARK: - UI Constants
     let logoImage : UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.image = #imageLiteral(resourceName: "LogoMaz")
+        $0.image = #imageLiteral(resourceName: "whiteMazaya")
         $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFit
         return $0
@@ -145,20 +146,29 @@ class launchViewController: UIViewController {
         return $0
     }(UIImageView())
     
+    let bgImage : UIImageView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.image = UIImage(named: "bg")
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
+        return $0
+    }(UIImageView())
     
     //MARK: -Direct user based on type
     func authenticateUserAndConfigureView(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
         if Auth.auth().currentUser?.email == "mazaya@mc.gov.sa" {
             // User logged as Admin
-            moveToAdminViewController()
+            self.moveToAdminViewController()
         }
         else if Auth.auth().currentUser?.uid != nil {
             // User logged as employee or family member
-            getCategories()
+            self.getCategories()
         } else {
         //user is not logged in
-            moveToLoginViewController()
+            self.moveToLoginViewController()
         }
+        })
     }
     
     func moveToAdminViewController () {
@@ -190,10 +200,12 @@ class launchViewController: UIViewController {
     
     func moveToLoginViewController () {
         if let storyboard = self.storyboard{
-            let newViewController = storyboard.instantiateViewController(withIdentifier: "loginNV") as! UINavigationController
-            newViewController.modalPresentationStyle = .fullScreen
-            self.present(newViewController, animated: true, completion: nil)
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! LoginViewController
+            loginVC.modalPresentationStyle = .fullScreen
+            self.present(loginVC, animated: true, completion: nil)
         }
+        
+
     }
     
 
@@ -204,18 +216,18 @@ class launchViewController: UIViewController {
 extension launchViewController {
     // User interface Setup
     func setupUI() {
+        view.addSubview(bgImage)
         view.addSubview(logoImage)
         view.addSubview(titleImage)
         NSLayoutConstraint.activate([
+            bgImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bgImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             titleImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleImage.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
-            titleImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
-            titleImage.heightAnchor.constraint(equalTo: titleImage.widthAnchor, multiplier: 0.7),
-            logoImage.bottomAnchor.constraint(equalTo: titleImage.topAnchor, constant: -10),
-            logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImage.heightAnchor.constraint(equalToConstant: 250),
-            logoImage.widthAnchor.constraint(equalTo: logoImage.heightAnchor)
+            logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        logoImage.anchor(top: view.topAnchor, paddingTop: 250,width: 150, height: 150)
+        titleImage.anchor(top: logoImage.bottomAnchor, paddingTop: 20, width: 100, height: 100)
+        bgImage.anchor(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     }
        
     //Get Categories & store trademarks info

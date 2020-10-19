@@ -16,7 +16,11 @@ class ResetPassViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.backgroundUnderlined()
-        resetBtn.setButton()
+//        resetBtn.setButton()
+        resetBtn.layer.cornerRadius = 20
+        resetBtn.layer.masksToBounds = true
+//        resetBtn.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
+        resetBtn.backgroundColor = UIColor(rgb: 0x26998a)
     }
     
 

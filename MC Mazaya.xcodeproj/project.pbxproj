@@ -109,6 +109,8 @@
 		E7ABDCFB25173DF900B6C4B9 /* stc_font_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7ABDCFA25173DF900B6C4B9 /* stc_font_regular.ttf */; };
 		E7ABDCFD2517710B00B6C4B9 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ABDCFC2517710B00B6C4B9 /* Offer.swift */; };
 		E7ABDCFF251771F500B6C4B9 /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ABDCFE251771F500B6C4B9 /* Branch.swift */; };
+		E7AEF977253C511C00E83730 /* RegionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEF976253C511C00E83730 /* RegionVC.swift */; };
+		E7AEF979253C547300E83730 /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEF978253C547300E83730 /* RegionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -219,6 +221,8 @@
 		E7ABDCFA25173DF900B6C4B9 /* stc_font_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stc_font_regular.ttf; sourceTree = "<group>"; };
 		E7ABDCFC2517710B00B6C4B9 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		E7ABDCFE251771F500B6C4B9 /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
+		E7AEF976253C511C00E83730 /* RegionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionVC.swift; sourceTree = "<group>"; };
+		E7AEF978253C547300E83730 /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,6 +474,8 @@
 				E742827025387DB60050E18A /* categoriesCollectionView.swift */,
 				E742827225387E5A0050E18A /* categoryCollectionViewCell.swift */,
 				E742827325387E5A0050E18A /* categoryCollectionViewCell.xib */,
+				E7AEF976253C511C00E83730 /* RegionVC.swift */,
+				E7AEF978253C547300E83730 /* RegionTableViewCell.swift */,
 			);
 			path = "Home Page";
 			sourceTree = "<group>";
@@ -660,7 +666,9 @@
 				D6D8270325331CE800B376E9 /* ExtensionUIViewController.swift in Sources */,
 				D6A8F38A24F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift in Sources */,
 				D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */,
+				E7AEF977253C511C00E83730 /* RegionVC.swift in Sources */,
 				D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */,
+				E7AEF979253C547300E83730 /* RegionTableViewCell.swift in Sources */,
 				D6A8F38E24F3C07E007DDBDB /* employeesViewController.swift in Sources */,
 				D6979632250E4320006439BD /* BigOffersViewController.swift in Sources */,
 				D6521A4924F4F62A00382FFD /* Trademark.swift in Sources */,

@@ -58,18 +58,18 @@ extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
         //cell.trademarkImage.image = UIImage(named: trademarkImage ?? "")
         let imageURL = trades[indexPath.row].brandImage
         cell.trademarkImage.sd_setImage(with: URL(string: imageURL ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
-             cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 2
+         cell.trademarkView.layer.cornerRadius = cell.trademarkImage.frame.height / 2
              cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-//             cell.trademarkView.layer.borderWidth = 1.5
-//             cell.trademarkImage.layer.borderWidth = 1.5
-        cell.trademarkView.backgroundColor = UIColor.systemGray6
-//             cell.trademarkView.layer.borderColor = UIColor.gray.cgColor
-//             cell.trademarkImage.layer.borderColor = UIColor.gray.cgColor
+             cell.trademarkImage.layer.borderWidth = 0.8
+             cell.trademarkImage.layer.borderColor = UIColor.systemGray3.cgColor
+             cell.trademarkView.backgroundColor = UIColor(rgb: 0xF4F4F4)
+             cell.trademarkView.layer.shadowColor = UIColor.systemGray5.cgColor
+             cell.trademarkView.layer.shadowRadius = 2
+             cell.trademarkView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+             cell.trademarkView.layer.shadowOpacity = 0.5
+             cell.trademarkView.clipsToBounds = false
              cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
-       // cell.trademarkView.backgroundColor = .lightGray
-       // cell.trademarkImage.bringSubviewToFront(cell.trademarkView.tr)
-
-        cell.trademarkImage.bringSubviewToFront(cell)
+//        cell.trademarkImage.bringSubviewToFront(cell)
 
         return cell
     }

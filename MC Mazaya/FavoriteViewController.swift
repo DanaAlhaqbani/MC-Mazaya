@@ -84,9 +84,7 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         cell.trademarkImage.sd_setImage(with: URL(string: imageURL))
         cell.trademarkView.layer.cornerRadius = cell.trademarkImage.frame.height / 2
         cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-//        cell.trademarkView.layer.borderWidth = 1.5
         cell.trademarkImage.layer.borderWidth = 0.8
-//        cell.trademarkView.layer.borderColor = UIColor.gray.cgColor
         cell.trademarkImage.layer.borderColor = UIColor.systemGray3.cgColor
         cell.trademarkView.backgroundColor = UIColor(rgb: 0xF4F4F4)
         cell.trademarkView.layer.shadowColor = UIColor.systemGray5.cgColor

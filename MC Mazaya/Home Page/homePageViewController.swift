@@ -215,6 +215,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
             self.present(vc, animated: true, completion: nil)
         }
+        
     }
 
     //MARK:- Table View delegate and datasource
@@ -378,6 +379,10 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         if let des = segue.destination as? categoriesCollectionView, segue.identifier == "categoriesCollection" {
             des.categories = self.categoriesCopy
             self.categoriesCollection = des
+        }
+        if segue.identifier == "toRegion" {
+            let des = segue.destination as! RegionVC
+            
         }
     }// Prepare Function
 

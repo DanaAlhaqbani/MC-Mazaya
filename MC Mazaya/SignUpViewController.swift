@@ -47,14 +47,15 @@ class SignUpViewController: UIViewController {
         nameTextField.backgroundUnderlined()
         phoneTextField.backgroundUnderlined()
         nameTextField.backgroundUnderlined()
-
         emailTextField.backgroundUnderlined()
         passwordTextField.backgroundUnderlined()
         passwordConfirmationTextField.backgroundUnderlined()
-        signUpButton.setButton()
-        
+        signUpButton.layer.cornerRadius = 20
+        signUpButton.layer.masksToBounds = true
+//        signUpButton.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
+        signUpButton.backgroundColor = UIColor(rgb: 0x26998a)
+        //        signUpButton.setButton()
         femaleRadioButton.isSelected = true
-        
         gender = "أنثى"
         self.tabBarController?.tabBar.isHidden = true
         print("hj")
@@ -301,10 +302,12 @@ class SignUpViewController: UIViewController {
       func alertContent(title: String, message: String)-> UIAlertController{
           
           let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-          alertVC.addAction(UIAlertAction(title: NSLocalizedString("حسنًا", comment: "Default action"), style: .default, handler: { _ in
+          alertVC.addAction(UIAlertAction(title: NSLocalizedString("حسناً", comment: "Default action"), style: .default, handler: { _ in
               NSLog("The \"OK\" alert occured.")
+            self.dismiss(animated: true)
           }))
-          return alertVC
+        
+        return alertVC
       }
     func handleError(error: Error) {
         
@@ -346,6 +349,7 @@ class SignUpViewController: UIViewController {
           container.addSubview(loadingView)
           uiView.addSubview(container)
           activityIndicator.startAnimating()
+        signUpButton.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
       }
      
      func hideActivityIndicator(uiView: UIView) {
