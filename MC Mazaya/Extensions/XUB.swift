@@ -290,10 +290,9 @@ class categoryButton: UIButton {
         self.addSubview(Label)
         self.addSubview(image)
         image.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        image.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         Label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        image.anchor(width: 25, height: 25)
-        Label.anchor(top: image.bottomAnchor, paddingTop: 5)
+        image.anchor(top: self.topAnchor, paddingTop: 15, width: 30, height: 30)
+        Label.anchor(top: image.bottomAnchor, paddingTop: 5, paddingBottom: 25)
     }
     
     let Label : UILabel = {

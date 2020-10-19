@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var containerView: UIView!
     
 
     
@@ -25,15 +27,23 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var showSignUp: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        ///self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         emailTextField.backgroundUnderlined()
                passwordTextField.backgroundUnderlined()
                loginBtn.setButton()
         emailTextField.addDoneButtonOnKeyboard()
         passwordTextField.addDoneButtonOnKeyboard()
-            
-        //view.generalGradiantView()
+        view.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
+//        loginBtn.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
+        loginBtn.backgroundColor = UIColor(rgb: 0x26998a)
+        loginBtn.layer.cornerRadius = 20
+        loginBtn.layer.masksToBounds = true
+        topView.backgroundColor = .clear
+        containerView.backgroundColor = .white
+        containerView.layer.cornerRadius = 20
+        containerView.layer.masksToBounds = true
         
+//        topView.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
 
     }
     

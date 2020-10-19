@@ -48,7 +48,8 @@ extension homePageViewController {
     
     @objc func menuButtonsActions(_ sender : UIButton) {
         if sender.tag == 10 {
-            navigationController?.pushViewController(RegionViewController(), animated: true)
+            performSegue(withIdentifier: "toRegion", sender: self)
+//            navigationController?.pushViewController(RegionViewController(), animated: true)
         }
         else if sender.tag == 11 {
             performSegue(withIdentifier: "toFamily", sender: self)
