@@ -279,7 +279,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PmZ-Vi-DhV">
             <objects>
-                <navigationController id="mqK-el-wWc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="nextView" id="mqK-el-wWc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="NWs-bH-PyP">
                         <inset key="imageInsets" minX="0.0" minY="-40" maxX="0.0" maxY="0.0"/>
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -869,6 +869,7 @@
                     <navigationItem key="navigationItem" title="العروض الكبرى" id="jFA-Wh-qLS"/>
                     <connections>
                         <outlet property="trademarksTableView" destination="d1l-pp-PQU" id="iON-Uq-iO2"/>
+                        <segue destination="CqL-Ch-sJW" kind="presentation" identifier="toDes" id="iN5-US-X6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wmf-hp-XFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -935,7 +936,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6RO-Jl-o81" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2090" y="-1598"/>
+            <point key="canvasLocation" x="2090" y="-1581"/>
         </scene>
         <!--الخريطة-->
         <scene sceneID="3QU-sb-zoO">
@@ -1369,6 +1370,7 @@
                     <navigationItem key="navigationItem" title="جديد العروض" id="4I7-IV-LC4"/>
                     <connections>
                         <outlet property="trademarksTableView" destination="AlN-dT-OwS" id="4au-zo-epE"/>
+                        <segue destination="CqL-Ch-sJW" kind="presentation" id="gyn-1H-5F4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkG-hx-UUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1495,7 +1497,7 @@
                     <navigationItem key="navigationItem" title="مفضلتي" id="sGN-mR-BCh"/>
                     <connections>
                         <outlet property="trademarksTableView" destination="Caa-YP-Qp7" id="Yyi-E9-NU4"/>
-                        <segue destination="CqL-Ch-sJW" kind="show" identifier="toTrademark" id="ZMF-8j-Pqu"/>
+                        <segue destination="CqL-Ch-sJW" kind="presentation" identifier="toTrademark" id="ZMF-8j-Pqu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ep-LG-5dh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2481,7 +2483,7 @@
                     <navigationItem key="navigationItem" title="العلامات التجارية" id="nkC-hU-m0u"/>
                     <connections>
                         <outlet property="trademarksTableView" destination="GJT-CJ-hge" id="QWP-3g-OGp"/>
-                        <segue destination="CqL-Ch-sJW" kind="show" identifier="toDetails" id="qJI-eT-M2v"/>
+                        <segue destination="CqL-Ch-sJW" kind="presentation" identifier="toDetails" id="qJI-eT-M2v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdw-2T-qdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3655,92 +3657,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="380" height="476"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QrV-5J-P5E">
-                                <rect key="frame" x="70" y="20" width="294" height="320.66666666666669"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="szk-mv-Afw">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="320.66666666666669"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cnF-1o-d8L">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="76.666666666666671"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="وصف" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1a-ke-j9u">
-                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
-                                                        <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCN-Ad-vRB">
-                                                        <rect key="frame" x="0.0" y="43.333333333333329" width="294" height="33.333333333333329"/>
-                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lbg-wu-FW6">
-                                                <rect key="frame" x="0.0" y="84.666666666666657" width="294" height="66.666666666666657"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="رقم التواصل" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSS-ga-Od9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="28.333333333333332"/>
-                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
-                                                        <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDN-jJ-Wa4">
-                                                        <rect key="frame" x="0.0" y="38.333333333333336" width="294" height="28.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mok-ex-J88">
-                                                <rect key="frame" x="0.0" y="159.33333333333331" width="294" height="76.666666666666686"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="البريد الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwi-tc-oHD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="28.333333333333332"/>
-                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
-                                                        <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJE-qb-yRF">
-                                                        <rect key="frame" x="0.0" y="48.333333333333329" width="294" height="28.333333333333329"/>
-                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEl-eI-X6z">
-                                                <rect key="frame" x="0.0" y="243.99999999999997" width="294" height="76.666666666666657"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VHL-Xw-WNa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="76.666666666666671"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="الموقع الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cig-cI-xpF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="294" height="28.333333333333332"/>
-                                                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
-                                                                <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRH-LC-lqs">
-                                                                <rect key="frame" x="0.0" y="48.333333333333343" width="294" height="28.333333333333329"/>
-                                                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="lbg-wu-FW6" firstAttribute="top" secondItem="szk-mv-Afw" secondAttribute="top" constant="84.5" id="JUB-dp-J2l"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEH-Bg-HGA">
                                 <rect key="frame" x="48" y="372" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3760,17 +3676,103 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yK8-t0-QZO">
                                 <rect key="frame" x="283" y="372" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="facebook"/>
+                                <state key="normal" title="Button" image="snapchat"/>
                                 <connections>
                                     <action selector="FaceBook:" destination="Ogm-fp-sPX" eventType="touchUpInside" id="CLJ-js-oER"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QrV-5J-P5E">
+                                <rect key="frame" x="70" y="13" width="294" height="320.33333333333331"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="szk-mv-Afw">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="320.33333333333331"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cnF-1o-d8L">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="76.333333333333329"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="وصف" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1a-ke-j9u">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="33"/>
+                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                                        <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCN-Ad-vRB">
+                                                        <rect key="frame" x="0.0" y="43" width="294" height="33.333333333333343"/>
+                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lbg-wu-FW6">
+                                                <rect key="frame" x="0.0" y="84.333333333333314" width="294" height="66.666666666666686"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="رقم التواصل" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSS-ga-Od9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="28.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                                        <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDN-jJ-Wa4">
+                                                        <rect key="frame" x="0.0" y="38.333333333333329" width="294" height="28.333333333333329"/>
+                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mok-ex-J88">
+                                                <rect key="frame" x="0.0" y="159" width="294" height="76.666666666666686"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="البريد الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwi-tc-oHD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="28.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                                        <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJE-qb-yRF">
+                                                        <rect key="frame" x="0.0" y="48.333333333333343" width="294" height="28.333333333333329"/>
+                                                        <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEl-eI-X6z">
+                                                <rect key="frame" x="0.0" y="243.66666666666666" width="294" height="76.666666666666657"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VHL-Xw-WNa">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="76.666666666666671"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="الموقع الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cig-cI-xpF">
+                                                                <rect key="frame" x="0.0" y="0.0" width="294" height="28.333333333333332"/>
+                                                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                                                <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRH-LC-lqs">
+                                                                <rect key="frame" x="0.0" y="48.333333333333314" width="294" height="28.333333333333329"/>
+                                                                <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
+                                                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="lbg-wu-FW6" firstAttribute="top" secondItem="szk-mv-Afw" secondAttribute="top" constant="84.5" id="JUB-dp-J2l"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="QrV-5J-P5E" firstAttribute="leading" secondItem="XVX-zB-rta" secondAttribute="leading" constant="70" id="7ff-9T-MQj"/>
                             <constraint firstItem="XVX-zB-rta" firstAttribute="trailing" secondItem="QrV-5J-P5E" secondAttribute="trailing" constant="16" id="f14-Dc-BpJ"/>
-                            <constraint firstItem="XVX-zB-rta" firstAttribute="bottom" secondItem="QrV-5J-P5E" secondAttribute="bottom" constant="191.5" id="zS1-JD-WUK"/>
+                            <constraint firstItem="XVX-zB-rta" firstAttribute="bottom" secondItem="QrV-5J-P5E" secondAttribute="bottom" constant="108.66666666666674" id="zS1-JD-WUK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XVX-zB-rta"/>
                     </view>
@@ -3942,6 +3944,7 @@
                                             </state>
                                             <connections>
                                                 <action selector="UseAnOffer:" destination="Ecl-Hp-UgN" eventType="touchUpInside" id="RUk-CO-x8H"/>
+                                                <action selector="alertButtonAction:" destination="Ecl-Hp-UgN" eventType="touchUpInside" id="9XR-nc-xgj"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -4040,7 +4043,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wXZ-C5-5WG"/>
+        <segue reference="iN5-US-X6g"/>
         <segue reference="fOe-W2-3bJ"/>
         <segue reference="ifa-DG-xPE"/>
     </inferredMetricsTieBreakers>
@@ -4057,7 +4060,6 @@
         <image name="cancelingButton" width="58" height="58"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="editingButton" width="58" height="58"/>
-        <image name="facebook" width="512" height="512"/>
         <image name="familyM" width="33.333332061767578" height="33.333332061767578"/>
         <image name="gift-card-2" width="128" height="128"/>
         <image name="hp" width="30" height="30"/>
@@ -4070,6 +4072,7 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="price-tag" width="512" height="512"/>
         <image name="resetPass_icon" width="446" height="436"/>
+        <image name="snapchat" width="64" height="64"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="twitter" width="64" height="64"/>
         <image name="unselected" width="32" height="32"/>

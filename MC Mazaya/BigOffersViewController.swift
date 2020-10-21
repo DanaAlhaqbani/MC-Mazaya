@@ -53,7 +53,7 @@ class BigOffersViewController: UIViewController, handleRetrievedData{
 
     }
 
-           
+   var offers = [String]()
     func getBigOffers(){
         for cat in Categories {
             let trades = cat.trademarks ?? []
@@ -67,6 +67,8 @@ class BigOffersViewController: UIViewController, handleRetrievedData{
                     BigOffersNames.append(name)
                     BigOffersImage.append(image)
                     BigOffersTitles.append(offerTilte)
+                
+                    
                 }
             }
             }
@@ -88,12 +90,12 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toDes", sender: self)
+        performSegue(withIdentifier: "toDes", sender: BigOffersNames[indexPath.row])
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? DscriptionViewController, segue.identifier == "toDes" {
-            vc.tradeInfo = sender as? Trademark
-        }
+    if let vc = segue.destination as? DscriptionViewController, segue.identifier == "toDes" {
+         vc.tradeInfo = sender as? Trademark
+      }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

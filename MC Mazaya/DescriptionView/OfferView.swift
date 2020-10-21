@@ -26,13 +26,13 @@ class OfferView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     var OffersNames = [String]()
     var ref: DatabaseReference?
     var Trade : Trademark!
-    
+
 
      
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.offers = Trade.offers ?? []
+      self.offers = Trade.offers ?? []
         tableview.delegate = self
         tableview.dataSource = self
         tableview.heightAnchor.constraint(equalToConstant: tableview.contentSize.height).isActive = true
@@ -123,13 +123,14 @@ for _ in 1...10{
         
     }
     @IBAction func alertButtonAction(_ sender: Any) {
-           let btn = sender as! UIButton
+          // let btn = sender as! UIButton
            
           
                let actionYes : [String: () -> Void] = [ "" : { (
-                   
+                
+                self.MoveTOScaner(),
                        print("tapped YES")
-               ) }]
+                )}]
                let actionNo : [String: () -> Void] = [ "" : { (
                    print("tapped NO")
                ) }]
@@ -143,6 +144,12 @@ for _ in 1...10{
                    actions: arrayActions)
           
            }
-           
+    func MoveTOScaner(){
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! UINavigationController
+        self.present(nextViewController, animated:true, completion:nil)
+        nextViewController.modalPresentationStyle = .popover
+    }
        }
 

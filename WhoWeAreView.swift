@@ -58,7 +58,7 @@ class WhoWeAreView: UIViewController {
         if Trade.facebook != ""{
             let insta = Trade.twitter
             
-            UIApplication.shared.open(URL(string: "https://ar-ar.facebook.com/\(Trade.facebook ?? "https://ar-ar.facebook.com/")/")! as URL ,options: [:],completionHandler: nil)
+            UIApplication.shared.open(URL(string: "https://www.snapchat.com/add/\(Trade.facebook ?? "https://www.snapchat.com/add/")/")! as URL ,options: [:],completionHandler: nil)
         }
         
     }
