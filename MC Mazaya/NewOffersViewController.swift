@@ -42,7 +42,7 @@ class NewOffersViewController: UIViewController, handleRetrievedData {
         cell.trademarkImage.sendSubviewToBack(cell.trademarkView)
 
     }
-    
+   
     func getNewOffers(){
         for cat in Categories {
             let trades = cat.trademarks ?? []
@@ -59,7 +59,9 @@ class NewOffersViewController: UIViewController, handleRetrievedData {
                     newOffersNames.append(name)
                     newOffersImages.append(image)
                     newOffersTitles.append(offerTilte)
-                  
+                    
+                   
+                    
                
                 }
                 
@@ -132,5 +134,8 @@ extension NewOffersViewController: UITableViewDataSource, UITableViewDelegate {
         //cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
         return cell
     }
+    
+        
+    
     
 }

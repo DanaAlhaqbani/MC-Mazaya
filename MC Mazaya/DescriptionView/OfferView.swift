@@ -26,16 +26,18 @@ class OfferView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     var OffersNames = [String]()
     var ref: DatabaseReference?
     var Trade : Trademark!
-    
+
 
      
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.offers = Trade.offers ?? []
+      self.offers = Trade.offers ?? []
         tableview.delegate = self
         tableview.dataSource = self
         tableview.heightAnchor.constraint(equalToConstant: tableview.contentSize.height).isActive = true
+        UseAnoffer.setButton()
+        UseAnoffer.titleLabel?.font =  UIFont(name: "stc_font_regular", size: 17.0)
     }
     
     
@@ -114,11 +116,40 @@ for _ in 1...10{
 
       //  selectesButton.selectedOFfer.setImage(UIImage(named:"selected"), for:.normal)
 
-       print("HI AJwan")
+      
     }
     
     func AlertBox (){
         
     }
+    @IBAction func alertButtonAction(_ sender: Any) {
+          // let btn = sender as! UIButton
+           
+          
+               let actionYes : [String: () -> Void] = [ "" : { (
+                
+                self.MoveTOScaner(),
+                       print("tapped YES")
+                )}]
+               let actionNo : [String: () -> Void] = [ "" : { (
+                   print("tapped NO")
+               ) }]
+               let arrayActions = [actionYes, actionNo]
+               
+               
+               self.showCustomAlertWithScaner(
+                   message: "",
+                   descMsg: "" ,
+                   itemimage: #imageLiteral(resourceName: "qr-code"),
+                   actions: arrayActions)
+          
+           }
+    func MoveTOScaner(){
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! UINavigationController
+        self.present(nextViewController, animated:true, completion:nil)
+        nextViewController.modalPresentationStyle = .popover
+    }
+       }
 
-}
