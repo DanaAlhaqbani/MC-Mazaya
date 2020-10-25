@@ -442,3 +442,43 @@ extension UILabel {
         }
     }
 }
+
+extension UINavigationItem {
+
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UINavigationItem.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.titleView?.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        self.titleView?.endEditing(true)
+        
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+open class SelfSizedTableView: UITableView {
+  override open var contentSize: CGSize {
+      didSet { // basically the contentSize gets changed each time a cell is added
+          // --> the intrinsicContentSize gets also changed leading to smooth size update
+          if oldValue != contentSize {
+              invalidateIntrinsicContentSize()
+          }
+      }
+  }
+  
+  override open var intrinsicContentSize: CGSize {
+      return CGSize(width: contentSize.width, height: contentSize.height)
+  }
+}

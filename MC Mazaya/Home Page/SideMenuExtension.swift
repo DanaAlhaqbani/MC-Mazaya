@@ -19,9 +19,12 @@ extension homePageViewController {
         usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
         self.view.layoutIfNeeded()
         }, completion: nil)
+        navigationItem.titleView?.endEditing(true)
         tbleList.isUserInteractionEnabled = true
+        navigationController?.view.endEditing(true)
+        print("Hellllo")
     }
-           
+               
     @objc func menuTapped() {
         if isMenuShow {
             mainViewXConstraint.constant = 0
@@ -48,11 +51,31 @@ extension homePageViewController {
     
     @objc func menuButtonsActions(_ sender : UIButton) {
         if sender.tag == 10 {
-            performSegue(withIdentifier: "toRegion", sender: self)
-//            navigationController?.pushViewController(RegionViewController(), animated: true)
+//            performSegue(withIdentifier: "toRegion", sender: self)
+            // get a reference to the view controller for the popover
+            let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regionPopover") as! RegionVC
+            // set the presentation style
+            popController.modalPresentationStyle = UIModalPresentationStyle.popover
+            // set up the popover presentation controller
+            popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+            popController.popoverPresentationController?.delegate = self
+            popController.popoverPresentationController?.sourceView = sender // button
+            popController.popoverPresentationController?.sourceRect = sender.bounds
+            // present the popover
+            self.present(popController, animated: true, completion: {
+                popController.categories = self.categoriesCopy
+                popController.dismissHandler = {
+                    self.selectedRegion = popController.selectedRegion
+                    print(self.selectedRegion!)
+                    self.tbleList.reloadData()
+                }
+//                self.tbleList.reloadData()
+            })
+//            self.tbleList.reloadData()
         }
         else if sender.tag == 11 {
             performSegue(withIdentifier: "toFamily", sender: self)
+            
             //navigationController?.pushViewController(FamilyViewController(), animated: true)
         }
         else if sender.tag == 12 {

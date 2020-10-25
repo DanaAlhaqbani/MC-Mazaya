@@ -83,6 +83,8 @@
 		E703C8AB252079C300C5F110 /* searchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E703C8AA252079C300C5F110 /* searchResult.swift */; };
 		E703C8AD2520AA5D00C5F110 /* trademarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E703C8AC2520AA5D00C5F110 /* trademarkCell.swift */; };
 		E703C8AF2521C02700C5F110 /* trademarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E703C8AE2521C02700C5F110 /* trademarkCell.xib */; };
+		E7353BA12540301F0019A6AA /* searchResultTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7353BA02540301F0019A6AA /* searchResultTable.swift */; };
+		E7353BA3254030600019A6AA /* singleResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7353BA2254030600019A6AA /* singleResultCell.swift */; };
 		E73789D92523017500DF6FC1 /* filterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73789D82523017500DF6FC1 /* filterViewController.swift */; };
 		E73A421725120A3F00F45CC5 /* CollectionviewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73A421025120A3E00F45CC5 /* CollectionviewTableCell.xib */; };
 		E73A421825120A3F00F45CC5 /* DscriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73A421125120A3E00F45CC5 /* DscriptionViewController.xib */; };
@@ -94,6 +96,7 @@
 		E742827125387DB60050E18A /* categoriesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742827025387DB60050E18A /* categoriesCollectionView.swift */; };
 		E742827425387E5A0050E18A /* categoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742827225387E5A0050E18A /* categoryCollectionViewCell.swift */; };
 		E742827525387E5A0050E18A /* categoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E742827325387E5A0050E18A /* categoryCollectionViewCell.xib */; };
+		E777397C254446BC007C6616 /* featuredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777397B254446BC007C6616 /* featuredViewController.swift */; };
 		E7784CBD2518FDC50020BDB0 /* launcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CBC2518FDC50020BDB0 /* launcViewController.swift */; };
 		E7784CC12518FFB60020BDB0 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CC02518FFB60020BDB0 /* userData.swift */; };
 		E7784CCC251A0A570020BDB0 /* singleTrademarkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CCA251A0A570020BDB0 /* singleTrademarkResult.swift */; };
@@ -195,6 +198,8 @@
 		E703C8AA252079C300C5F110 /* searchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchResult.swift; sourceTree = "<group>"; };
 		E703C8AC2520AA5D00C5F110 /* trademarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trademarkCell.swift; sourceTree = "<group>"; };
 		E703C8AE2521C02700C5F110 /* trademarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = trademarkCell.xib; path = "MC Mazaya/CollectionviewTableCell/trademarkCell.xib"; sourceTree = SOURCE_ROOT; };
+		E7353BA02540301F0019A6AA /* searchResultTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchResultTable.swift; sourceTree = "<group>"; };
+		E7353BA2254030600019A6AA /* singleResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleResultCell.swift; sourceTree = "<group>"; };
 		E73789D82523017500DF6FC1 /* filterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterViewController.swift; sourceTree = "<group>"; };
 		E73A421025120A3E00F45CC5 /* CollectionviewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionviewTableCell.xib; sourceTree = "<group>"; };
 		E73A421125120A3E00F45CC5 /* DscriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DscriptionViewController.xib; sourceTree = "<group>"; };
@@ -206,6 +211,7 @@
 		E742827025387DB60050E18A /* categoriesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoriesCollectionView.swift; sourceTree = "<group>"; };
 		E742827225387E5A0050E18A /* categoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E742827325387E5A0050E18A /* categoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = categoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		E777397B254446BC007C6616 /* featuredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = featuredViewController.swift; sourceTree = "<group>"; };
 		E7784CBC2518FDC50020BDB0 /* launcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launcViewController.swift; sourceTree = "<group>"; };
 		E7784CC02518FFB60020BDB0 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		E7784CCA251A0A570020BDB0 /* singleTrademarkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleTrademarkResult.swift; sourceTree = "<group>"; };
@@ -431,8 +437,10 @@
 			isa = PBXGroup;
 			children = (
 				E703C8AA252079C300C5F110 /* searchResult.swift */,
+				E7353BA2254030600019A6AA /* singleResultCell.swift */,
 				E703C8AE2521C02700C5F110 /* trademarkCell.xib */,
 				E703C8AC2520AA5D00C5F110 /* trademarkCell.swift */,
+				E7353BA02540301F0019A6AA /* searchResultTable.swift */,
 			);
 			path = searchResults;
 			sourceTree = "<group>";
@@ -476,6 +484,7 @@
 				E742827325387E5A0050E18A /* categoryCollectionViewCell.xib */,
 				E7AEF976253C511C00E83730 /* RegionVC.swift */,
 				E7AEF978253C547300E83730 /* RegionTableViewCell.swift */,
+				E777397B254446BC007C6616 /* featuredViewController.swift */,
 			);
 			path = "Home Page";
 			sourceTree = "<group>";
@@ -627,6 +636,7 @@
 			files = (
 				E79A9DA72536EBDA00D65C76 /* HomeTabController.swift in Sources */,
 				D6E8F25124BDAA1300A4AA9D /* MakeDropDown.swift in Sources */,
+				E7353BA3254030600019A6AA /* singleResultCell.swift in Sources */,
 				D6E1285E24A07F6400977D26 /* LoginViewController.swift in Sources */,
 				A9413E642534408800A5BC4C /* WhoWeAreView.swift in Sources */,
 				D6A8F39024F3C099007DDBDB /* EndOffersViewController.swift in Sources */,
@@ -645,6 +655,7 @@
 				D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */,
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
 				A94A1DEA253317730086605F /* BranchView.swift in Sources */,
+				E7353BA12540301F0019A6AA /* searchResultTable.swift in Sources */,
 				E7ABDCFD2517710B00B6C4B9 /* Offer.swift in Sources */,
 				D65880C42508B29A00BE29F9 /* TrademarkTableVC.swift in Sources */,
 				E742827425387E5A0050E18A /* categoryCollectionViewCell.swift in Sources */,
@@ -709,6 +720,7 @@
 				D6D8270525331CE800B376E9 /* CommonAlertVC.swift in Sources */,
 				E79A9DA32536C8F500D65C76 /* MainTabBarController.swift in Sources */,
 				D60B6BDD24FFA40E006552AC /* Category.swift in Sources */,
+				E777397C254446BC007C6616 /* featuredViewController.swift in Sources */,
 				E78E48C6253739AB0035DE60 /* ProtocolsExtension.swift in Sources */,
 				E78E48CC25373A510035DE60 /* UISetupExtension.swift in Sources */,
 				A92802EF2524946B00C67FB3 /* UISegmentedControl.swift in Sources */,

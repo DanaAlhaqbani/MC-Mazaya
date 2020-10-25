@@ -12,14 +12,14 @@ import UIKit
 //MARK: - Searchbar handling
 extension homePageViewController: UISearchResultsUpdating, UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//            reload(searchText)
+        reload(searchText)
     } // end of delegate function
 
         
     func reload(_ searchText: String?){
         guard searchBar.isActive else { return }
         guard let searchText = searchText else {
-            resultCollectionViewController.trademarks = nil
+            resultTableViewController.trademarks = nil
             return }
         filteredData = []
         filteredTradeMarks = []
@@ -37,28 +37,48 @@ extension homePageViewController: UISearchResultsUpdating, UISearchBarDelegate{
                     } // Add filtered trademark to the array
                 } // Iterate in filtered trades
             } // Iterate in filtered data
-            resultCollectionViewController.trademarks = filteredTradeMarks
-            resultCollectionViewController.delegate = self
+            resultTableViewController.trademarks = []
+            resultTableViewController.areThereResults = false
+            if filteredTradeMarks.count != 0 {
+                resultTableViewController.trademarks = filteredTradeMarks
+                resultTableViewController.areThereResults = true
+            }
+            resultTableViewController.delegate = self
         } // Iterate in each category
-        
+
     } // end of filtering trademarks function
+    
         
     func updateSearchResults(for searchController: UISearchController) {
-        if searchBar.searchBar.searchTextField.isFirstResponder {
+        if searchBar.searchBar.searchTextField.isFirstResponder && searchBar.searchBar.searchTextField.text != "" {
         searchBar.showsSearchResultsController = true
         } else {
-        searchBar.searchBar.searchTextField.backgroundColor = nil
+        searchBar.showsSearchResultsController = false
         }
     } // End of update results function
         
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        resultCollectionViewController.trademarks = nil
-        self.searchBar.searchBar.searchTextField.backgroundColor = nil
+//        resultCollectionViewController.trademarks = nil
+        searchBar.resignFirstResponder()
     } // end of handling cancel button function
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     } // end of search button function
         
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.tbleList.isUserInteractionEnabled = false
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.tbleList.isUserInteractionEnabled = true
+        self.searchBar.dismissKeyboard()
+    }
+//    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+//        navigationItem.titleView?.endEditing(true)
+//        navigationItem.titleView?.resignFirstResponder()
+//    }
+    
+
 
 }
+

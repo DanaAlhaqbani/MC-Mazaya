@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIButton.appearance(whenContainedInInstancesOf: [UIButton.self]).tintColor = .white
         UIButton.appearance().tintColor = .white
         IQKeyboardManager.shared.enable = true
-    
+        UIApplication.shared.keyWindow?.endEditing(true)
         return true
     }
 

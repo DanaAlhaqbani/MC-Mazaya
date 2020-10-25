@@ -38,7 +38,8 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var Trades = [Trademark]()
     var filteredData = [String]()
     var filteredTradeMarks = [Trademark]()
-    var resultCollectionViewController : searchResult!
+//    var resultCollectionViewController : searchResult!
+    var resultTableViewController : searchResultTable!
     var filteredCategoriesName = [String]()
     var filterVC = filterViewController()
     var sortByString : String?
@@ -47,32 +48,28 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var favDictionary : NSDictionary = [:]
     var favouriteTrades = [Trademark]()
     var categoriesCollection : categoriesCollectionView?
+    var regionFilrered : RegionVC?
+    var selectedRegion : String?
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         setupSearchBar()
         handleDelegates()
         dataUser()
         setUpUI()
-        let searchBarContainer = SearchBarContainerView(customSearchBar: searchbar)
-        searchBarContainer.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
-        navigationItem.titleView = searchBarContainer
-        searchbar.searchTextField.backgroundColor = UIColor(rgb: 0x218785)
-        searchbar.searchTextField.textColor = .white
-        searchbar.tintColor = .white
-        searchbar.searchTextField.tintColor = .white
-//        navigationItem.titleView = searchbar
-//        setupNavView()
-//        navigationItem.titleView = searchView
+        self.navigationItem.titleView = searchBar.searchBar
         filterVC.delegate = self
         navigationController?.navigationBar.tintColor = UIColor(rgb: 0x1C9A8A)
         navigationController?.delegate = self
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
 //        navigationController?.configureNavigationBar(largeTitleColor: UIColor.white, backgoundColor: UIColor(rgb: 0x1C9A8A), tintColor: .white, title: "الرئيسية", preferredLargeTitle: false)
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -81,12 +78,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupSearchBar(searchBar: searchbar)
+//        setupSearchBar()
     }
 
-    func setupSearchBar(searchBar : UISearchBar) {
-        searchbar.setPlaceholderTextColorTo(color: UIColor.white)
-    }
     //MARK: - "Side Menue" Constants and Variables
     let mainView : UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -225,6 +219,21 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell") as! CollectionviewTableCell
+        if selectedRegion != nil {
+            if selectedRegion == "الكل" {
+                self.Categories = self.categoriesCopy
+                cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+                print()
+                print("Hello")
+            } else {
+                getTrademarksOfSelectedRegion(index: indexPath)
+                print("""
+                -------------------
+                """)
+//                print(selectedRegion as Any)
+            }
+            print("\(cell.Trades)")
+        }
         self.Categories = self.Categories.sorted {
             guard let first = $0.Name else {
                 return false
@@ -234,6 +243,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             }
             return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
         } // End of sorting result
+
         if sortByString != nil && serviceTypeString != nil {
             if sortByString == "الأكثر مشاهدة" {
                 getFilteredByServiceTypeTradeMarks(index: indexPath)
@@ -382,7 +392,14 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         }
         if segue.identifier == "toRegion" {
             let des = segue.destination as! RegionVC
-            
+            des.selectedRegion = nil
+            des.categories = self.categoriesCopy
+            des.dismissHandler = {
+                self.selectedRegion = des.selectedRegion
+                print(self.selectedRegion!)
+                self.tbleList.reloadData()
+            }
+//            self.regionFilrered = des
         }
     }// Prepare Function
 
@@ -429,6 +446,23 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             } // Ensure that favourite is existing
         })  // Observing favourite trademarks
     } // Retrieve favourite trademarks
+    
+    
+    //MARK: - Handle filtered Region
+    func getTrademarksOfSelectedRegion(index: IndexPath){
+        var filteredTrades = [Trademark]()
+        for category in Categories {
+            let trades = category.trademarks!
+            for trade in trades {
+                let region = trade.regions ?? []
+                if region.contains(self.selectedRegion!)  {
+                    filteredTrades.append(trade)
+                }
+            }
+        }
+        Categories[index.row].trademarks = filteredTrades
+    }
+    
 }
 
 

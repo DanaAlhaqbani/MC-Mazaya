@@ -33,6 +33,7 @@ class searchResult: UICollectionViewController, UICollectionViewDelegateFlowLayo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController.con
         collectionView.semanticContentAttribute = .forceRightToLeft
         collectionView.register(UINib(nibName: "trademarkCell", bundle: nil), forCellWithReuseIdentifier: "trademarkCell")
     }
@@ -45,6 +46,7 @@ class searchResult: UICollectionViewController, UICollectionViewDelegateFlowLayo
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trademarkCell", for: indexPath) as! trademarkCell
+//        print()
         let imgURL = trademarks?[indexPath.row].brandImage ?? ""
         cell.brandLogo.sd_setImage(with: URL(string: imgURL))
         cell.brandLogo.clipsToBounds = true

@@ -33,8 +33,6 @@ extension homePageViewController {
         rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: #selector(menuTapped))
         rightBarButtonItem.tintColor = .white
         leftBarButtonItem.tintColor = .white
-        rightBarButtonItem.width = 35
-        leftBarButtonItem.width = 35
         navigationItem.rightBarButtonItem = leftBarButtonItem
         navigationItem.leftBarButtonItem = rightBarButtonItem
         NSLayoutConstraint.activate([
@@ -60,51 +58,48 @@ extension homePageViewController {
     } // end of setupUI
     
     //MARK: set up Searchbar
-    func setupSearchBar(){
-//        resultCollectionViewController = storyboard!.instantiateViewController(withIdentifier: "searchResults") as? searchResult
-//        searchBar = UISearchController(searchResultsController: resultCollectionViewController)
-        
-        searchbar.delegate = self
-        navigationItem.searchController = self.searchBar
-        searchbar.searchBarStyle = .default
-        searchbar.placeholder = "ما الذي تبحث عنه ؟"
-        searchbar.semanticContentAttribute = .forceRightToLeft
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "إلغاء"
-        searchbar.searchTextField.semanticContentAttribute = .forceRightToLeft
-//        searchBar.definesPresentationContext = true
-//        searchBar.searchResultsUpdater = self
-//        searchBar.searchBar.searchTextField.tintColor = .white
-//        searchBar.searchBar.searchTextField.textColor = .white
-
-
-    } // end of setup search bae
+//    func setupSearchBar(){
+//        
+//        searchbar.delegate = self
+////        navigationItem.searchController = self.searchBar
+////        searchbar.searchBarStyle = .default
+//        searchbar.placeholder = "ما الذي تبحث عنه ؟"
+//        searchbar.semanticContentAttribute = .forceRightToLeft
+//        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "إلغاء"
+//        searchbar.searchTextField.semanticContentAttribute = .forceRightToLeft
+//        searchbar.frame.size.height = 30
+//        searchbar.searchTextField.addDoneButtonOnKeyboard()
+//        searchbar.searchBarStyle = .minimal
+//        searchbar.searchTextField.backgroundColor = UIColor(rgb: 0x218785)
+//        searchbar.searchTextField.textColor = .white
+//        searchbar.tintColor = .white
+//        searchbar.searchTextField.tintColor = .white
+//    } // end of setup search bae
     
 //
-//        func setupSearchBar(){
-//            resultCollectionViewController = storyboard!.instantiateViewController(withIdentifier: "searchResults") as? searchResult
-//            searchBar = UISearchController(searchResultsController: resultCollectionViewController)
-//
-//            searchBar.searchBar.delegate = self
-//            searchBar.obscuresBackgroundDuringPresentation = false
-//    //        searchBar.searchBar.showsSearchResultsButton = true
-//    //        searchBar.searchBar.showsBookmarkButton = true
-//    //        searchBar.searchBar.setImage(UIImage(named: "filter"), for: .bookmark, state: .normal)
-//            navigationItem.searchController = self.searchBar
-//    //        searchBar.searchBar.searchBarStyle = .minimal
-//            searchBar.searchBar.frame.size.width = 50
-//    //        searchBar.searchBar.but
-//    //        searchBar.searchBar.searchBarStyle = .default
-//            searchBar.searchBar.placeholder = "ما الذي تبحث عنه ؟"
-//            searchBar.searchBar.semanticContentAttribute = .forceRightToLeft
-//    //        searchBar.automaticallyShowsScopeBar = false
-//            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "إلغاء"
-//            searchBar.searchBar.tintColor = UIColor.white
-//            searchBar.searchBar.searchTextField.semanticContentAttribute = .forceRightToLeft
-//            searchBar.definesPresentationContext = true
-//            searchBar.searchResultsUpdater = self
-//    //        searchBar.searchBar.searchTextField.tintColor = .white
-//    //        searchBar.searchBar.searchTextField.textColor = .white
-//
-//
-//        } // end of setup search bae
+        //MARK: set up Searchbar
+        func setupSearchBar(){
+            resultTableViewController = storyboard!.instantiateViewController(withIdentifier: "searchResults") as? searchResultTable
+            searchBar = UISearchController(searchResultsController: resultTableViewController)
+            searchBar.searchBar.delegate = self
+            searchBar.obscuresBackgroundDuringPresentation = false
+            searchBar.hideKeyboardWhenTappedAround()
+            searchBar.hidesNavigationBarDuringPresentation = false
+            searchBar.searchBar.frame.size.width = 50
+            searchBar.searchBar.setImage(UIImage(named: "filter"), for: .bookmark, state: .normal)
+            searchBar.searchBar.searchBarStyle = .default
+            searchBar.searchBar.placeholder = "ما الذي تبحث عنه ؟"
+            searchBar.searchBar.semanticContentAttribute = .forceRightToLeft
+            searchBar.automaticallyShowsScopeBar = true
+            searchBar.searchBar.tintColor = UIColor(rgb: 0x38a089)
+            searchBar.automaticallyShowsCancelButton = false
+            searchBar.searchBar.searchTextField.semanticContentAttribute = .forceRightToLeft
+            searchBar.definesPresentationContext = true
+            searchBar.searchResultsUpdater = self
+            searchBar.searchBar.searchTextField.semanticContentAttribute = .forceRightToLeft
+            searchBar.searchBar.searchTextField.backgroundColor = UIColor(rgb: 0x228986)
+            searchBar.searchBar.setPlaceholder(textColor: .white)
+           } // end of setup search bae
+
+    
 }

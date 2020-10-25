@@ -49,8 +49,9 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
         BranchView.alpha = 0
         OffersView.alpha = 1
         segmentedControl.addUnderlineForSelectedSegment()
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 17)], for: .normal)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 17)], for: .selected)
         addTopAndBottomBorders()
-        
         upperline.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
         line.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
         setupFavouriteButton()

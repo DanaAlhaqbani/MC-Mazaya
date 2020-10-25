@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 
 //MARK: - Extension "Protocols' functions"
-extension homePageViewController : CollectionCellDelegator, handleRetrievedData, reloadResultsCollection, ResultCollectionCellDelegator, sendBackSelectedOptions, UINavigationControllerDelegate {
+extension homePageViewController : CollectionCellDelegator, handleRetrievedData, sendBackSelectedOptions, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, ResultCellDelegator, reloadResultsTable, sendSelectedRegionDelegate {
+    func selectedRegion(myData dataObject: String) {
+        self.selectedRegion = dataObject
+    }
+    
     
     func retrievedcopyCategories(myData dataObject: [Category]) {
         self.categoriesCopy = dataObject
@@ -24,9 +28,9 @@ extension homePageViewController : CollectionCellDelegator, handleRetrievedData,
     func callSegueFromCell(myData dataobject: Trademark) {
         self.performSegue(withIdentifier: "tradeInfo", sender:dataobject )
     } // end of 1 protocol function
-    func reloadCollection() {
-        resultCollectionViewController.collectionView.reloadData()
-        resultCollectionViewController.offers = []
+    func reloadResultTable() {
+        resultTableViewController.tableView.reloadData()
+        resultTableViewController.offers = []
     } // end of 2 protocol function
     func retrievedCategories(myData dataObject: [Category]) {
         self.Categories = dataObject
@@ -62,6 +66,11 @@ extension homePageViewController : CollectionCellDelegator, handleRetrievedData,
             des?.tradeInfo.isFav = false
         }
 //        (viewController as? DscriptionViewController)?.isFavourite = isFavourite // Here you pass the to your original view controller
+    }
+    // UIPopoverPresentationControllerDelegate method
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Force popover style
+        return UIModalPresentationStyle.currentContext
     }
     
 }
