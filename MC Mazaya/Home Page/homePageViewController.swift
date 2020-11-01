@@ -50,6 +50,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var categoriesCollection : categoriesCollectionView?
     var regionFilrered : RegionVC?
     var selectedRegion : String?
+    var featuredTradeMarks = [Trademark]()
+    var banners = [Banner]()
+    var bannerView : bannerContainer?
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
@@ -61,8 +64,11 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         handleDelegates()
         dataUser()
         setUpUI()
+        getFeaturedTrademarks()
         self.navigationItem.titleView = searchBar.searchBar
         filterVC.delegate = self
+//        print("Banners number = \(banners.count)")
+
         navigationController?.navigationBar.tintColor = UIColor(rgb: 0x1C9A8A)
         navigationController?.delegate = self
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
@@ -214,22 +220,26 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
 
     //MARK:- Table View delegate and datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Categories.count
+        return Categories.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell") as! CollectionviewTableCell
+        if indexPath.row == 0 {
+            cell.nameLabel.text = "مميز"
+            let featured = self.featuredTradeMarks
+            cell.Trades = featured
+            cell.delegate = self
+            cell.setUpDataSource()
+        } else {
         if selectedRegion != nil {
             if selectedRegion == "الكل" {
                 self.Categories = self.categoriesCopy
-                cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+                cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
                 print()
                 print("Hello")
             } else {
                 getTrademarksOfSelectedRegion(index: indexPath)
-                print("""
-                -------------------
-                """)
 //                print(selectedRegion as Any)
             }
             print("\(cell.Trades)")
@@ -268,17 +278,17 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             }
         } else if sortByString != nil && serviceTypeString == nil {
             if sortByString == "الأكثر مشاهدة" {
-                cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+                cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
                 cell.sortedBy = self.sortByString!
                 cell.setUpDataSource()
                 cell.delegate = self
             } else if sortByString == "مميز" {
-                cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+                cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
                 cell.sortedBy = self.sortByString!
                 cell.setUpDataSource()
                 cell.delegate = self
             } else if sortByString == "قريب مني" {
-                cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+                cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
                 cell.sortedBy = self.sortByString!
                 cell.setUpDataSource()
                 cell.delegate = self
@@ -290,15 +300,18 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             cell.setUpDataSource()
             cell.delegate = self
         } else if serviceTypeString == nil && sortByString == nil {
-            cell.Trades = self.Categories[indexPath.row].trademarks ?? []
+            cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
             cell.sortedBy = nil
             cell.setUpDataSource()
             cell.delegate = self
         }
-        cell.nameLabel.text = self.Categories[indexPath.row].Name
-        cell.catId = self.Categories[indexPath.row].key!
+            
+//        cell.ima
+        cell.nameLabel.text = self.Categories[indexPath.row - 1].Name
+        cell.catId = self.Categories[indexPath.row - 1].key!
         cell.delegate = self
         cell.setUpDataSource()
+        }
         return cell
     }
     
@@ -401,12 +414,24 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             }
 //            self.regionFilrered = des
         }
+        if segue.identifier == "toCategory" {
+            let des = segue.destination as! TrademarkTableVC
+            let sender = sender as! Category
+            des.trades = sender.trademarks ?? []
+        //
+        }
+        if let des = segue.destination as? bannerContainer , segue.identifier == "bannerContainer" {
+//            retrieveBanners()
+            bannerView?.data = self.banners
+            bannerView = des 
+        }
+
     }// Prepare Function
 
     //MARK: - Handling Filtered Trademarks
     func getFilteredByServiceTypeTradeMarks(index : IndexPath) {
         self.filteredByServiceType = []
-        let trades = Categories[index.row].trademarks!
+        let trades = Categories[index.row - 1].trademarks!
         for trade in trades {
             let offers = trade.offers!
             for offer in offers {
@@ -460,7 +485,33 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 }
             }
         }
-        Categories[index.row].trademarks = filteredTrades
+        Categories[index.row - 1].trademarks = filteredTrades
+    }
+    
+    func getFeaturedTrademarks(){
+        self.featuredTradeMarks = []
+        for category in Categories {
+            let trades = category.trademarks!
+            for trade in trades {
+                if trade.isFeatured == true {
+                    self.featuredTradeMarks.append(trade)
+                    print("featuredTradeMarks count = \n \(featuredTradeMarks.count)")
+                }
+            }
+        }
+    }
+    
+    func retrieveBanners(completion: (Bool) -> Void){
+        self.banners = []
+        let bannerRef = Database.database().reference()
+//        bannerRef.child("Banners").observeSingleEvent(of: .value, with: { (snapshot) in
+//            if let dict = snapshot.value as? [String : Any] {
+//                for bannerKey in dict.keys {
+//                    let bannerDict = dict[bannerKey] as! NSDictionary
+//                    self.banners.append(Banner(title: bannerDict["Title"] as! String, imageURL: bannerDict["imageURL"] as! String, type: bannerDict["Type"] as! String))
+//                }
+//            }
+//        })
     }
     
 }

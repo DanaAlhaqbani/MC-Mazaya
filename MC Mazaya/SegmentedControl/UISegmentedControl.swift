@@ -30,13 +30,12 @@ extension UISegmentedControl{
         let underlineWidth: CGFloat = self.bounds.size.width / CGFloat(self.numberOfSegments)
         let underlineHeight: CGFloat = 2.0
         let underlineXPosition = CGFloat(selectedSegmentIndex * Int(underlineWidth))
-        let underLineYPosition = self.bounds.size.height - 1.0
+        let underLineYPosition = self.bounds.size.height - 2
         let underlineFrame = CGRect(x: underlineXPosition, y: underLineYPosition, width: underlineWidth, height: underlineHeight)
         let underline = UIView(frame: underlineFrame)
         
 //        underline.backgroundColor = UIColor(red: 67/255, green: 129/255, blue: 244/255, alpha: 1.0)
         underline.backgroundColor = UIColor(hexString: "#38a089")
-        
         underline.tag = 1
         self.addSubview(underline)
     }

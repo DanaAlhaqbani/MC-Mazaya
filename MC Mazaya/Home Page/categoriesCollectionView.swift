@@ -49,7 +49,7 @@ class categoriesCollectionView: UIViewController, UICollectionViewDelegate, UICo
             cell.icon.image = cell.icon.image?.imageWithColor(color: UIColor(rgb: 0x38A089))
         }
         if cell.name.text == "التسوق" {
-            cell.icon.image = UIImage(named: "Restaurants")
+            cell.icon.image = UIImage(named: "Clothes")
             cell.icon.image = cell.icon.image?.imageWithColor(color: UIColor(rgb: 0x38A089))
         }
         if cell.name.text == "المدارس" {
@@ -58,13 +58,17 @@ class categoriesCollectionView: UIViewController, UICollectionViewDelegate, UICo
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.parent?.performSegue(withIdentifier: "toCategory", sender: categories[indexPath.row])
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "categoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "categoryCollectionViewCell")
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 80, height: 70)
+        flowLayout.itemSize = CGSize(width: 60, height: 60)
         flowLayout.minimumInteritemSpacing = 1.0
         collectionView.collectionViewLayout = flowLayout
         collectionView.delegate = self
@@ -72,5 +76,14 @@ class categoriesCollectionView: UIViewController, UICollectionViewDelegate, UICo
         print("-----------------------------")
         print(categories.count)
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toCategory" {
+//            let des = segue.destination as! TrademarkTableVC
+//            let sender = sender as! Category
+//            des.trades = sender.trademarks ?? []
+////
+//        }
+//    }
 
 }

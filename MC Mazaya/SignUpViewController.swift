@@ -342,7 +342,7 @@ class SignUpViewController: UIViewController {
           loadingView.layer.cornerRadius = 10
       
           activityIndicator.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 40, height: 40))
-          activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
+        activityIndicator.style = .large
           activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2);
 
           loadingView.addSubview(activityIndicator)

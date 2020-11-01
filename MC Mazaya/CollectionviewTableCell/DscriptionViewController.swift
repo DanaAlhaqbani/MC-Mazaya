@@ -51,12 +51,20 @@ class DscriptionViewController : UIViewController , UITextViewDelegate {
         segmentedControl.addUnderlineForSelectedSegment()
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 17)], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 17)], for: .selected)
-        addTopAndBottomBorders()
+//        BrandLogo.layer.shadowColor = UIColor.systemGray6.cgColor
+        BrandLogo.layer.borderColor = UIColor.systemGray6.cgColor
+        BrandLogo.layer.borderWidth = 0.8
+        BrandLogo.layer.shadowPath = UIBezierPath(rect: BrandLogo.bounds).cgPath
+        BrandLogo.layer.shadowRadius = 5
+        BrandLogo.layer.shadowOffset = .zero
+        BrandLogo.layer.shadowOpacity = 1
+//        BrandLogo.layer.shadowColor = UIColor.gray.cgColor
+//        addTopAndBottomBorders()
         BrandLogo.layer.cornerRadius = BrandLogo.frame.height / 2
-        BrandLogo.layer.borderWidth = 1.5
-        BrandLogo.layer.borderColor = UIColor.white.cgColor
-        upperline.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
-        line.addBorder(toSide: .bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
+//        BrandLogo.layer.borderWidth = 1.5
+//        BrandLogo.layer.borderColor = UIColor.white.cgColor
+        upperline.addBorder(toSide: .bottom, withColor: UIColor.systemGray5.cgColor, andThickness: 1.0)
+        line.addBorder(toSide: .bottom, withColor: UIColor.systemGray5.cgColor, andThickness: 1.0)
         setupFavouriteButton()
     }
 

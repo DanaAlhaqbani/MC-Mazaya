@@ -10,6 +10,10 @@ import UIKit
 
 
 class NewOffersViewController: UIViewController, handleRetrievedData {
+    func retrievedBanners(myData dataObject: [Banner]) {
+        
+    }
+    
     func reloadTable() {
         trademarksTableView.reloadData()
     }
@@ -118,7 +122,7 @@ extension NewOffersViewController: UITableViewDataSource, UITableViewDelegate {
         let trademarkImage = newOffersImages[indexPath.row]
         cell.trademarkName.text = trademarkName
         cell.Des.text = offerTitle
-        cell.trademarkImage.sd_setImage(with: URL(string: trademarkImage ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
+        cell.trademarkImage.sd_setImage(with: URL(string: trademarkImage ))
         //make the cell looks good
         cell.trademarkView.layer.cornerRadius = cell.trademarkImage.frame.height / 2
         cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2

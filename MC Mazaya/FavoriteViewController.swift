@@ -35,27 +35,27 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFavourite()
+//        getFavourizte()
         trademarksTableView.delegate = self
         trademarksTableView.dataSource = self
         trademarksTableView.separatorStyle = .none
         
     }
     
-    func getFavourite(){
-        for category in Categories {
-            print("Hello in Categories ----------------------------------------")
-            let trades = category.trademarks!
-            for trade in trades {
-                print("Hello in Trademarks ----------------------------------------")
-                if trade.isFav == true {
-                    print("Hello in Favourite Trademarks ----------------------------------------")
-                    self.favTrademarks.append(trade)
-                    self.trademarksTableView.reloadData()
-                }
-            }
-        }
-    }
+//    func getFavourite(){
+//        for category in Categories {
+//            print("Hello in Categories ----------------------------------------")
+//            let trades = category.trademarks!
+//            for trade in trades {
+//                print("Hello in Trademarks ----------------------------------------")
+//                if trade.isFav == true {
+//                    print("Hello in Favourite Trademarks ----------------------------------------")
+//                    self.favTrademarks.append(trade)
+//                    self.trademarksTableView.reloadData()
+//                }
+//            }
+//        }
+//    }
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

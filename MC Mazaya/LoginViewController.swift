@@ -205,7 +205,7 @@ class LoginViewController: UIViewController {
              loadingView.layer.cornerRadius = 10
          
              activityIndicator.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 40, height: 40))
-             activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
+        activityIndicator.style = .large
              activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2);
 
              loadingView.addSubview(activityIndicator)
@@ -323,7 +323,7 @@ class LoginViewController: UIViewController {
             self.tradeInfo = i as? NSDictionary
             convertBranches(tradeInfo: self.tradeInfo)
             convertOffers(tradeInfo: self.tradeInfo)
-            self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: self.tradeInfo?["Views"] as? Int, isFav: false, regions: tradeInfo?["Regions"] as? [String])
+            self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: self.tradeInfo?["Views"] as? Int, isFav: false, regions: tradeInfo?["Regions"] as? [String], isFeatured: tradeInfo?["isFeatured"] as? Bool ?? false)
             self.trades2.append(self.trade)
         }
     }

@@ -39,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIButton.appearance().tintColor = .white
         IQKeyboardManager.shared.enable = true
         UIApplication.shared.keyWindow?.endEditing(true)
+        UIScrollView.appearance(whenContainedInInstancesOf: [UICollectionView.self]).semanticContentAttribute = .forceRightToLeft
+//        UIScrollView.appearance().semanticContentAttribute = .forceRightToLeft
         return true
     }
 

@@ -10,14 +10,13 @@ target 'MC Mazaya' do
 pod 'Firebase/Analytics'
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
-
+pod 'Firebase/Crashlytics'
 pod 'IQKeyboardManagerSwift'
 pod 'Firebase/Database'
 pod 'Firebase/Core'
 pod 'FirebaseUI/Auth'
 pod 'Firebase/Storage'
 pod 'DropDown'
-pod 'RealmSwift'
 pod 'FirebaseUI/Google'
 pod 'FLAnimatedImage'
 pod 'SideMenu'

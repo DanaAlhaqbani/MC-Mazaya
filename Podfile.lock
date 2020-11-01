@@ -15,6 +15,9 @@ PODS:
     - FirebaseAnalytics (= 6.9.0)
   - Firebase/CoreOnly (6.34.0):
     - FirebaseCore (= 6.10.4)
+  - Firebase/Crashlytics (6.34.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 4.6.2)
   - Firebase/Database (6.34.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.6.0)
@@ -44,6 +47,12 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
     - nanopb (~> 1.30906.0)
+  - FirebaseCrashlytics (4.6.2):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.6)
+    - GoogleDataTransport (~> 7.2)
+    - nanopb (~> 1.30906.0)
+    - PromisesObjC (~> 1.2)
   - FirebaseDatabase (6.6.0):
     - FirebaseCore (~> 6.10)
     - leveldb-library (~> 1.22)
@@ -109,11 +118,6 @@ PODS:
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.11)
-  - Realm (10.0.0):
-    - Realm/Headers (= 10.0.0)
-  - Realm/Headers (10.0.0)
-  - RealmSwift (10.0.0):
-    - Realm (= 10.0.0)
   - SDWebImage (5.9.3):
     - SDWebImage/Core (= 5.9.3)
   - SDWebImage/Core (5.9.3)
@@ -123,13 +127,13 @@ DEPENDENCIES:
   - DropDown
   - Firebase/Analytics
   - Firebase/Core
+  - Firebase/Crashlytics
   - Firebase/Database
   - Firebase/Storage
   - FirebaseUI/Auth
   - FirebaseUI/Google
   - FLAnimatedImage
   - IQKeyboardManagerSwift
-  - RealmSwift
   - SDWebImage
   - SideMenu
 
@@ -142,6 +146,7 @@ SPEC REPOS:
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
     - FirebaseDatabase
     - FirebaseInstallations
     - FirebaseStorage
@@ -157,8 +162,6 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
-    - Realm
-    - RealmSwift
     - SDWebImage
     - SideMenu
 
@@ -170,6 +173,7 @@ SPEC CHECKSUMS:
   FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
+  FirebaseCrashlytics: 1a747c9cc084a24dc6d9511c991db1cd078154eb
   FirebaseDatabase: 13a865a4b85897462b930eb683bda8f52583713f
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
   FirebaseStorage: 15e0f15ef3c7fec3d1899d68623e47d4447066b4
@@ -185,11 +189,9 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
-  Realm: 5654b8e5e45034d07b219e089034be2ef7d1e7bf
-  RealmSwift: 5b4c8c85be4c14ff52054a4d80a8d338167dd79c
   SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: a4b9201e96684a75b395e4bea81e5e8ad8d129eb
+PODFILE CHECKSUM: 9635614831aabea5246e8b55b73c22e47db27608
 
 COCOAPODS: 1.9.3

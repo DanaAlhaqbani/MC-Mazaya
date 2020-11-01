@@ -15,6 +15,8 @@ protocol handleRetrievedData {
     func reloadTable()
     func retrievedCategories(myData dataObject: [Category])
     func retrievedcopyCategories(myData dataObject: [Category])
+//    func retrievedBanners(myData dataObject: [Banner])
+
 }
 
 
@@ -30,7 +32,7 @@ class launchViewController: UIViewController {
     var Categories = [Category]()
     var categoriesCopy = [Category]()
     var category : Category!
-    
+    var banners = [Banner]()
     //MARK: - Variables for trademarks fetching
     var trade : Trademark!
     var trades : [String: Any]!
@@ -163,6 +165,7 @@ class launchViewController: UIViewController {
         }
         else if Auth.auth().currentUser?.uid != nil {
             // User logged as employee or family member
+//            self.retrieveBanners()
             self.getCategories()
         } else {
         //user is not logged in
@@ -190,10 +193,12 @@ class launchViewController: UIViewController {
         let lastView = userNavViewController?.viewControllers[0]  as! homePageViewController
         let userNavViewController2 = homeViewController?.viewControllers![3] as? UINavigationController
         let bigOffers = userNavViewController2?.viewControllers[0] as! BigOffersViewController
+//        getFeaturedTrademarks()
         bigOffers.Categories = self.Categories
         lastView.Categories = self.Categories
         lastView.categoriesCopy = self.categoriesCopy
         lastView.Trades = self.trades2
+//        lastView.banners = self.banners
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
     }
@@ -275,7 +280,7 @@ extension launchViewController {
             for i in arrayOffers {
                 offersDict = i as! [String : Any]
                 self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["NumberOfCoupons"] as? String, numberOfPoints: self.offersDict["NumberOfPoints"] as? String, offerType: self.offersDict["OfferType"] as? String, offerDiscription: self.offersDict["OffersDescription"] as? String, offersDetails: self.offersDict["OffersDetails"] as? String, offerTitle: self.offersDict["OffersTitle"] as? String, serviceType: self.offersDict["ServiceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String)
-                    self.offers.append(self.offer)
+                self.offers.append(self.offer)
             }
         }
     } // End of add Offers
@@ -299,10 +304,25 @@ extension launchViewController {
             self.tradeInfo = i as? NSDictionary
             convertBranches(tradeInfo: self.tradeInfo)
             convertOffers(tradeInfo: self.tradeInfo)
-            self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: tradeInfo?["Views"] as? Int, isFav: false, regions: tradeInfo?["Regions"] as? [String])
+            self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: tradeInfo?["Views"] as? Int, isFav: false, regions: tradeInfo?["Regions"] as? [String], isFeatured : tradeInfo?["isFeatured"] as? Bool ?? false)
                 self.trades2.append(self.trade)
         }
     } // End of Add Trademarks
 
+//    func retrieveBanners(){
+//        self.banners = []
+//        let bannerRef = Database.database().reference()
+//        bannerRef.child("Banners").observeSingleEvent(of: .value, with: { (snapshot) in
+//            if let dict = snapshot.value as? [String : Any] {
+//                for bannerKey in dict.keys {
+//                    let bannerDict = dict[bannerKey] as! NSDictionary
+//                    self.banners.append(Banner(title: bannerDict["Title"] as! String, imageURL: bannerDict["imageURL"] as! String, type: bannerDict["Type"] as! String))
+//                }
+//            }
+//            self.deleagte?.retrievedBanners(myData: self.banners)
+//         })
+//
+//    }
+    
 } // End of class
 

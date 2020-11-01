@@ -10,33 +10,46 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GalleryCollectionViewCell" customModule="MC_Mazaya" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+            <rect key="frame" x="0.0" y="0.0" width="93" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                <rect key="frame" x="0.0" y="0.0" width="93" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Featured" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-aV-Ebr">
+                        <rect key="frame" x="4" y="7.5" width="85" height="85"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="XdR-th-cOC"/>
+                            <constraint firstAttribute="height" constant="85" id="trF-Uv-v9f"/>
+                        </constraints>
+                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dQQ-zA-OAE">
-                        <rect key="frame" x="11.5" y="11.5" width="75" height="75"/>
+                        <rect key="frame" x="11.5" y="15" width="70" height="70"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="75" id="OcY-W0-4Pl"/>
-                            <constraint firstAttribute="height" constant="75" id="cOE-5Y-yBw"/>
+                            <constraint firstAttribute="width" constant="70" id="OcY-W0-4Pl"/>
+                            <constraint firstAttribute="height" constant="70" id="cOE-5Y-yBw"/>
                         </constraints>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="dQQ-zA-OAE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="WGp-f7-2nO"/>
+                <constraint firstItem="Nrw-aV-Ebr" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="gEt-az-F0N"/>
                 <constraint firstItem="dQQ-zA-OAE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="oWD-Yi-bA0"/>
+                <constraint firstItem="Nrw-aV-Ebr" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="z34-lq-LFA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="131" height="107"/>
+            <size key="customSize" width="127" height="106"/>
             <connections>
+                <outlet property="featured" destination="Nrw-aV-Ebr" id="1dE-IW-Fo7"/>
                 <outlet property="imgvAvatar" destination="dQQ-zA-OAE" id="XZe-M8-UT7"/>
             </connections>
-            <point key="canvasLocation" x="227.536231884058" y="121.875"/>
+            <point key="canvasLocation" x="248.55072463768118" y="121.20535714285714"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Featured" width="662" height="636"/>
+    </resources>
 </document>

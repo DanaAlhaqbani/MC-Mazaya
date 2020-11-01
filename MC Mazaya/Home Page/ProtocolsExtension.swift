@@ -11,6 +11,10 @@ import UIKit
 
 //MARK: - Extension "Protocols' functions"
 extension homePageViewController : CollectionCellDelegator, handleRetrievedData, sendBackSelectedOptions, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, ResultCellDelegator, reloadResultsTable, sendSelectedRegionDelegate {
+//    func retrievedBanners(myData dataObject: [Banner]) {
+//        self.banners = dataObject
+//    }
+    
     func selectedRegion(myData dataObject: String) {
         self.selectedRegion = dataObject
     }
