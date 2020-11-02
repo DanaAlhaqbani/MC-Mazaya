@@ -422,7 +422,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         }
         if let des = segue.destination as? bannerContainer , segue.identifier == "bannerContainer" {
 //            retrieveBanners()
-            bannerView?.data = self.banners
+//            bannerView?.data = self.banners
             bannerView = des 
         }
 
@@ -501,18 +501,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         }
     }
     
-    func retrieveBanners(completion: (Bool) -> Void){
-        self.banners = []
-        let bannerRef = Database.database().reference()
-//        bannerRef.child("Banners").observeSingleEvent(of: .value, with: { (snapshot) in
-//            if let dict = snapshot.value as? [String : Any] {
-//                for bannerKey in dict.keys {
-//                    let bannerDict = dict[bannerKey] as! NSDictionary
-//                    self.banners.append(Banner(title: bannerDict["Title"] as! String, imageURL: bannerDict["imageURL"] as! String, type: bannerDict["Type"] as! String))
-//                }
-//            }
-//        })
-    }
+
     
 }
 
