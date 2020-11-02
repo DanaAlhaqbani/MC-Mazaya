@@ -25,6 +25,7 @@ class VouchersViewController: UIViewController {
      var MyVouchersNames = ["حلويات سعد الدين", "باتشي"]
     var MyVouchersImages = ["patchi" , "images" ]
     var isMyVoucher = false
+    var vouchersList = [Offer]()
 
 
     // master array
@@ -88,6 +89,7 @@ class VouchersViewController: UIViewController {
                      AvaVouchersImage.append(image)
                      AvaVouchersTitles.append(offerTilte)
                     vouchersTrade.append(trad)
+                    vouchersList.append(offer)
                  }
                  
              }
@@ -110,9 +112,9 @@ class VouchersViewController: UIViewController {
     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "toVoucherDetails" {
-               let dis = segue.destination as! VoucherDetailsVC
+               let dis = segue.destination as! VoucherDetails
                dis.tradeInfo = sender as? Trademark
-               dis.Categories = self.Categories
+            dis.tradOffers = self.vouchersList
            } // Show Description Segue
     }
 }
@@ -127,8 +129,10 @@ extension VouchersViewController: UITableViewDataSource, UITableViewDelegate {
         if isMyVoucher == true {
         self.showCustomAlertWith(message: "مبروك! حصلت قسيمة شرائية نرجوا إبراز هذة الصورة عند المحل للحصول عليها", descMsg: "للحصول على هذة القسيمة إذهب الى المحل وقم بإبراز هذة الصورة", itemimage: nil, actions: nil)
         }
-        //let trade = vouchersTrade[indexPath.row]
-        //performSegue(withIdentifier: "toVoucherDetails", sender: trade)
+        else {
+        let trade = vouchersTrade[indexPath.row]
+        performSegue(withIdentifier: "toVoucherDetails", sender: trade)
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
