@@ -3265,7 +3265,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لا يوجد نتائج" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi1-aR-Md4">
-                                        <rect key="frame" x="110.66666666666666" y="310.66666666666669" width="121.66666666666666" height="41.666666666666686"/>
+                                        <rect key="frame" x="116.33333333333334" y="310.66666666666669" width="110.66666666666666" height="29.333333333333314"/>
                                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3292,13 +3292,13 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rb-mh-TeV">
-                                                                    <rect key="frame" x="80" y="30" width="149" height="25"/>
+                                                                    <rect key="frame" x="80" y="37.333333333333329" width="149" height="17.666666666666671"/>
                                                                     <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ce-eG-AgJ">
-                                                                    <rect key="frame" x="80" y="7.9999999999999982" width="149" height="28.333333333333329"/>
+                                                                    <rect key="frame" x="80" y="7.9999999999999964" width="149" height="20"/>
                                                                     <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
