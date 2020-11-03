@@ -115,7 +115,7 @@ class bannerContainer: UIViewController, UIScrollViewDelegate, UIGestureRecogniz
                 for snap in snaps {
                     self.loadBanner(snap, { enabled in
 //                        self.setValues(index: self.currentIndex)
-                        self.scrollView.delegate = self
+//                        self.scrollView.delegate = self
                         })
 
                 }
@@ -197,7 +197,8 @@ class bannerContainer: UIViewController, UIScrollViewDelegate, UIGestureRecogniz
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
 //        if scrollView.
-        pagination.currentPage = Int(pageNumber)
+//        pagination.currentPage = Int(pageNumber)
+//        setValues(index: pageNumber)
         
     }
     
