@@ -35,7 +35,6 @@
 		D6381EB724ADD479004569D6 /* NewOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB624ADD479004569D6 /* NewOffersViewController.swift */; };
 		D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EB824ADD48E004569D6 /* UsedOffersViewController.swift */; };
 		D6381EBB24ADD4A5004569D6 /* SuggestOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EBA24ADD4A5004569D6 /* SuggestOfferViewController.swift */; };
-		D6381EBD24ADD4C5004569D6 /* VouchersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EBC24ADD4C5004569D6 /* VouchersViewController.swift */; };
 		D6381EBF24ADD4DA004569D6 /* CommunicateUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6381EBE24ADD4DA004569D6 /* CommunicateUsViewController.swift */; };
 		D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641E9AA249F3031001851A9 /* AppDelegate.swift */; };
 		D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641E9AC249F3031001851A9 /* SceneDelegate.swift */; };
@@ -49,8 +48,14 @@
 		D65880C42508B29A00BE29F9 /* TrademarkTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65880C32508B29A00BE29F9 /* TrademarkTableVC.swift */; };
 		D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65DA8C324C4366300092918 /* CustomCells.xib */; };
 		D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */; };
+		D68B0E0A255011750033BEB5 /* VoucherViews in Resources */ = {isa = PBXBuildFile; fileRef = D68B0E09255011750033BEB5 /* VoucherViews */; };
+		D68B0E2D255015760033BEB5 /* VoucherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E27255015750033BEB5 /* VoucherView.swift */; };
+		D68B0E2E255015760033BEB5 /* VouchersBranches.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E28255015750033BEB5 /* VouchersBranches.swift */; };
+		D68B0E2F255015760033BEB5 /* VoucherDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E29255015750033BEB5 /* VoucherDetails.swift */; };
+		D68B0E30255015760033BEB5 /* VoucherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E2A255015760033BEB5 /* VoucherInfo.swift */; };
+		D68B0E31255015760033BEB5 /* VouchersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E2B255015760033BEB5 /* VouchersViewController.swift */; };
+		D68B0E32255015760033BEB5 /* VoucherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E2C255015760033BEB5 /* VoucherDetailsVC.swift */; };
 		D6979632250E4320006439BD /* BigOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6979631250E4320006439BD /* BigOffersViewController.swift */; };
-		D6997B142529E37B00072AE7 /* VoucherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6997B132529E37A00072AE7 /* VoucherDetailsVC.swift */; };
 		D6A8F37F24F3B537007DDBDB /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F37E24F3B537007DDBDB /* RegionViewController.swift */; };
 		D6A8F38A24F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38924F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift */; };
 		D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38B24F3C029007DDBDB /* AdminRegionsViewController.swift */; };
@@ -151,7 +156,6 @@
 		D6381EB624ADD479004569D6 /* NewOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOffersViewController.swift; sourceTree = "<group>"; };
 		D6381EB824ADD48E004569D6 /* UsedOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedOffersViewController.swift; sourceTree = "<group>"; };
 		D6381EBA24ADD4A5004569D6 /* SuggestOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestOfferViewController.swift; sourceTree = "<group>"; };
-		D6381EBC24ADD4C5004569D6 /* VouchersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchersViewController.swift; sourceTree = "<group>"; };
 		D6381EBE24ADD4DA004569D6 /* CommunicateUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicateUsViewController.swift; sourceTree = "<group>"; };
 		D63C3F652511F996004A4CF5 /* CollectionviewTableCell */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CollectionviewTableCell; path = ../../../../Users/danaalhaqbani/Downloads/CollectionviewTableCell; sourceTree = "<group>"; };
 		D641E9A7249F3031001851A9 /* MC Mazaya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Mazaya.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,8 +172,14 @@
 		D65880C32508B29A00BE29F9 /* TrademarkTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrademarkTableVC.swift; sourceTree = "<group>"; };
 		D65DA8C324C4366300092918 /* CustomCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCells.xib; sourceTree = "<group>"; };
 		D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCollectionViewCell.swift; sourceTree = "<group>"; };
+		D68B0E09255011750033BEB5 /* VoucherViews */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VoucherViews; path = "MC Mazaya/VoucherViews"; sourceTree = SOURCE_ROOT; };
+		D68B0E27255015750033BEB5 /* VoucherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherView.swift; sourceTree = "<group>"; };
+		D68B0E28255015750033BEB5 /* VouchersBranches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VouchersBranches.swift; sourceTree = "<group>"; };
+		D68B0E29255015750033BEB5 /* VoucherDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherDetails.swift; sourceTree = "<group>"; };
+		D68B0E2A255015760033BEB5 /* VoucherInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherInfo.swift; sourceTree = "<group>"; };
+		D68B0E2B255015760033BEB5 /* VouchersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VouchersViewController.swift; sourceTree = "<group>"; };
+		D68B0E2C255015760033BEB5 /* VoucherDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherDetailsVC.swift; sourceTree = "<group>"; };
 		D6979631250E4320006439BD /* BigOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigOffersViewController.swift; sourceTree = "<group>"; };
-		D6997B132529E37A00072AE7 /* VoucherDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherDetailsVC.swift; sourceTree = "<group>"; };
 		D6A8F37E24F3B537007DDBDB /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
 		D6A8F38924F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSuggestionsViewController.swift; sourceTree = "<group>"; };
 		D6A8F38B24F3C029007DDBDB /* AdminRegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminRegionsViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +323,7 @@
 		D641E9A9249F3031001851A9 /* MC Mazaya */ = {
 			isa = PBXGroup;
 			children = (
+				D68B0E26255015580033BEB5 /* VoucherViews */,
 				D6D826FE25331CB000B376E9 /* CustomAlert */,
 				A93540F5252DBC6300E8E375 /* DescriptionView */,
 				E73A420E25120A2400F45CC5 /* CollectionviewTableCell */,
@@ -353,7 +364,6 @@
 				D6381EB624ADD479004569D6 /* NewOffersViewController.swift */,
 				D6381EB824ADD48E004569D6 /* UsedOffersViewController.swift */,
 				D6381EBA24ADD4A5004569D6 /* SuggestOfferViewController.swift */,
-				D6381EBC24ADD4C5004569D6 /* VouchersViewController.swift */,
 				D6381EBE24ADD4DA004569D6 /* CommunicateUsViewController.swift */,
 				D620C51C24B1C35E0085B937 /* MapViewController.swift */,
 				D6DC5BFF24B5BC320063CF8D /* FAQViewController.swift */,
@@ -368,9 +378,21 @@
 				D65880C12508B22D00BE29F9 /* TrademarkCell.swift */,
 				D65880C32508B29A00BE29F9 /* TrademarkTableVC.swift */,
 				D6979631250E4320006439BD /* BigOffersViewController.swift */,
-				D6997B132529E37A00072AE7 /* VoucherDetailsVC.swift */,
 			);
 			path = "MC Mazaya";
+			sourceTree = "<group>";
+		};
+		D68B0E26255015580033BEB5 /* VoucherViews */ = {
+			isa = PBXGroup;
+			children = (
+				D68B0E29255015750033BEB5 /* VoucherDetails.swift */,
+				D68B0E2C255015760033BEB5 /* VoucherDetailsVC.swift */,
+				D68B0E2A255015760033BEB5 /* VoucherInfo.swift */,
+				D68B0E28255015750033BEB5 /* VouchersBranches.swift */,
+				D68B0E2B255015760033BEB5 /* VouchersViewController.swift */,
+				D68B0E27255015750033BEB5 /* VoucherView.swift */,
+			);
+			path = VoucherViews;
 			sourceTree = "<group>";
 		};
 		D6A8F38624F3BE3B007DDBDB /* Admin VC */ = {
@@ -478,6 +500,7 @@
 		E78E48C4253739880035DE60 /* Home Page */ = {
 			isa = PBXGroup;
 			children = (
+				D68B0E09255011750033BEB5 /* VoucherViews */,
 				3BD3530E24FDACA40053BC66 /* homePageViewController.swift */,
 				E78E48C5253739AB0035DE60 /* ProtocolsExtension.swift */,
 				E78E48C7253739B80035DE60 /* SearchBarExtension.swift */,
@@ -569,6 +592,7 @@
 				3BD352F624FD1D570053BC66 /* stc_font_light.otf in Resources */,
 				D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */,
 				E73A421825120A3F00F45CC5 /* DscriptionViewController.xib in Resources */,
+				D68B0E0A255011750033BEB5 /* VoucherViews in Resources */,
 				E73A421C25120A3F00F45CC5 /* GalleryCollectionViewCell.xib in Resources */,
 				A9EEA957253C533E0013275D /* OffersAlertVC.xib in Resources */,
 				E742827525387E5A0050E18A /* categoryCollectionViewCell.xib in Resources */,
@@ -661,7 +685,6 @@
 				D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */,
 				A9EEA958253C533E0013275D /* OffersAlertVC.swift in Sources */,
 				D6A8F37F24F3B537007DDBDB /* RegionViewController.swift in Sources */,
-				D6381EBD24ADD4C5004569D6 /* VouchersViewController.swift in Sources */,
 				E7784CC12518FFB60020BDB0 /* userData.swift in Sources */,
 				A93540F9252DC11A00E8E375 /* CustomTableViewCell.swift in Sources */,
 				D6381EBF24ADD4DA004569D6 /* CommunicateUsViewController.swift in Sources */,
@@ -693,10 +716,12 @@
 				D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */,
 				E7AEF977253C511C00E83730 /* RegionVC.swift in Sources */,
 				D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */,
+				D68B0E31255015760033BEB5 /* VouchersViewController.swift in Sources */,
 				E7AEF979253C547300E83730 /* RegionTableViewCell.swift in Sources */,
 				D6A8F38E24F3C07E007DDBDB /* employeesViewController.swift in Sources */,
 				D6979632250E4320006439BD /* BigOffersViewController.swift in Sources */,
 				D6521A4924F4F62A00382FFD /* Trademark.swift in Sources */,
+				D68B0E2F255015760033BEB5 /* VoucherDetails.swift in Sources */,
 				D6381EAB24AC89F7004569D6 /* EditProfilePresenter.swift in Sources */,
 				D65880C22508B22D00BE29F9 /* TrademarkCell.swift in Sources */,
 				D6FF724024A49C4400EFA660 /* ProfileViewController.swift in Sources */,
@@ -707,14 +732,16 @@
 				E71B49DF2546D46300B05F1F /* seasonalOfferTableViewCell.swift in Sources */,
 				D6381EB524ADD461004569D6 /* FavoriteViewController.swift in Sources */,
 				E71B49DD2546D31D00B05F1F /* seasonalOffers.swift in Sources */,
+				D68B0E2D255015760033BEB5 /* VoucherView.swift in Sources */,
 				D6E1286B24A0B1FE00977D26 /* ResetPassViewController.swift in Sources */,
+				D68B0E32255015760033BEB5 /* VoucherDetailsVC.swift in Sources */,
 				D6E1286324A08E4B00977D26 /* XUB.swift in Sources */,
-				D6997B142529E37B00072AE7 /* VoucherDetailsVC.swift in Sources */,
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
 				D6381EB924ADD48E004569D6 /* UsedOffersViewController.swift in Sources */,
 				E703C8AD2520AA5D00C5F110 /* trademarkCell.swift in Sources */,
 				E742827125387DB60050E18A /* categoriesCollectionView.swift in Sources */,
 				D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */,
+				D68B0E2E255015760033BEB5 /* VouchersBranches.swift in Sources */,
 				A99D996824FF93910035D2FF /* Utilities.swift in Sources */,
 				A99D996D24FF93B20035D2FF /* AddOffersViewController.swift in Sources */,
 				D6D150E624BC6D9C00547B97 /* textField.swift in Sources */,
@@ -735,6 +762,7 @@
 				A93540F7252DBDF200E8E375 /* OfferView.swift in Sources */,
 				D6D8270525331CE800B376E9 /* CommonAlertVC.swift in Sources */,
 				E79A9DA32536C8F500D65C76 /* MainTabBarController.swift in Sources */,
+				D68B0E30255015760033BEB5 /* VoucherInfo.swift in Sources */,
 				D60B6BDD24FFA40E006552AC /* Category.swift in Sources */,
 				E78E48C6253739AB0035DE60 /* ProtocolsExtension.swift in Sources */,
 				E78E48CC25373A510035DE60 /* UISetupExtension.swift in Sources */,
