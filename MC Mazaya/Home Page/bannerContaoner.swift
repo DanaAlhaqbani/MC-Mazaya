@@ -10,7 +10,7 @@ import UIKit
  import Firebase
 import FirebaseCrashlytics
 
-class bannerContainer: UIViewController { // Id: 'PageViewController'
+class bannerContainer: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate { // Id: 'PageViewController'
     // MARK: @IBOutlet
     lazy var database = Database.database()
     lazy var ref = self.database.reference()
@@ -18,8 +18,11 @@ class bannerContainer: UIViewController { // Id: 'PageViewController'
     var observers = [DatabaseQuery]()
     var query: DatabaseReference!
     var bannerSnapshots = [DataSnapshot]()
+    var frame = CGRect.zero
+    typealias ResultBlock = (Bool) -> Void?
 //    var banner
     /// Menu button item.
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var backgroundView: UIView!
 //    @IBOutlet weak var offers: UIImageView!
@@ -51,9 +54,10 @@ class bannerContainer: UIViewController { // Id: 'PageViewController'
         backgroundView.layer.shadowPath = UIBezierPath(rect: backgroundView.bounds).cgPath
         backgroundView.layer.cornerRadius = 10
         backgroundView.layer.shouldRasterize = false
-
+        scrollView.delegate = self
 //        img.layer.masksToBounds = false
         backgroundView.clipsToBounds = false
+
         // Setup slide handler
         let leftSwipe = UISwipeGestureRecognizer(target: self,
                                                  action: #selector(handleSwipes(_:)))
@@ -62,8 +66,8 @@ class bannerContainer: UIViewController { // Id: 'PageViewController'
         leftSwipe.direction = .left
         rightSwipe.direction = .right
         
-        self.backgroundView.addGestureRecognizer(leftSwipe)
-        self.backgroundView.addGestureRecognizer(rightSwipe)
+        self.scrollView.addGestureRecognizer(leftSwipe)
+        self.scrollView.addGestureRecognizer(rightSwipe)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +89,8 @@ class bannerContainer: UIViewController { // Id: 'PageViewController'
 
 
     private func setValues(index: Int) {
+        frame.origin.x = scrollView.frame.size.width * CGFloat(index)
+        frame.size = scrollView.frame.size
         self.pagination.currentPage = currentIndex
         self.title = banners[index].title
         let imageURL = banners[index].imageURL
@@ -93,6 +99,12 @@ class bannerContainer: UIViewController { // Id: 'PageViewController'
         //Comment next lines after adding the banner from admin
         self.img.image = UIImage(named: "\(banners[index].imageURL)")
         self.img.contentMode = .scaleAspectFit
+        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(banners.count)), height: scrollView.frame.size.height)
+        scrollView.addSubview(img)
+        print(imageURL)
+//        scrollView.delegate = self
+
+//        scrollView.panGestureRecognizer.require(toFail: rightSwipe)
     }
     
 
@@ -101,7 +113,11 @@ class bannerContainer: UIViewController { // Id: 'PageViewController'
         query.observeSingleEvent(of: .value, with: { snapshot in
             if let snaps = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snaps {
-                    self.loadBanner(snap)
+                    self.loadBanner(snap, { enabled in
+//                        self.setValues(index: self.currentIndex)
+                        self.scrollView.delegate = self
+                        })
+
                 }
             }
         })
@@ -113,6 +129,7 @@ class bannerContainer: UIViewController { // Id: 'PageViewController'
         let currentPosition = self.pagination.currentPage
         if sender.direction == .left && currentPosition < size-1 {
             nextPage()
+            
         } else if sender.direction == .right && currentPosition > 0 {
             previousPage()
             
@@ -124,6 +141,7 @@ class bannerContainer: UIViewController { // Id: 'PageViewController'
         currentIndex = abs((currentIndex + 1) % banners.count)
         print("next Index", banners[currentIndex])
         setValues(index: currentIndex)
+
     }
 
     // Button or see UIPageControl @IBOutlet
@@ -134,14 +152,54 @@ class bannerContainer: UIViewController { // Id: 'PageViewController'
     }
     
     
-    func loadBanner(_ snapshot: DataSnapshot){
+    func loadBanner(_ snapshot: DataSnapshot, _ resultBlock: ResultBlock?){
         let bennarId = snapshot.key
+        var result = false
         bannersRef.child(bennarId).observeSingleEvent(of: .value, with: { bannerSnapshot in
             let banner = Banner(snapshot: snapshot)
             self.banners.append(banner)
             self.pagination.numberOfPages = self.banners.count
-            self.setValues(index: self.currentIndex)
-
+            result = true
+            resultBlock?(result)
         })
+        
+        
     }
+    
+    
+//    func setupScreens() {
+//        for index in 0..<banners.count {
+//            // 1.
+//            frame.origin.x = scrollView.frame.size.width * CGFloat(index)
+//            frame.size = scrollView.frame.size
+//
+//            // 2.
+//            let imgView = UIImageView(frame: frame)
+//            imgView.image = UIImage(named: movies[index])
+//
+//            self.scrollView.addSubview(imgView)
+//        }
+//
+//        // 3.
+//        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(movies.count)), height: scrollView.frame.size.height)
+//        scrollView.delegate = self
+//    }
+    
+    func changePage(sender: AnyObject) -> () {
+        let x = CGFloat(pagination.currentPage) * scrollView.frame.size.width
+        scrollView.setContentOffset(CGPoint(x: x,y :0), animated: true)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+//        if scrollView.
+        pagination.currentPage = Int(pageNumber)
+        
+    }
+    
+    
 }

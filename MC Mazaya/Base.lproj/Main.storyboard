@@ -2452,21 +2452,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lj-UR-2b1">
-                                <rect key="frame" x="25" y="12" width="325" height="145"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwS-1s-cVy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lj-UR-2b1">
+                                        <rect key="frame" x="25" y="12" width="325" height="145"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="325" id="Qeb-Et-8K7"/>
+                                            <constraint firstAttribute="height" constant="145" id="UQ6-zy-47U"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="24A-AQ-ztu">
+                                        <rect key="frame" x="25" y="12" width="325" height="145"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="325" id="1Bn-Ru-LpS"/>
+                                            <constraint firstAttribute="height" constant="145" id="xBQ-sv-Ncu"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="325" id="Qeb-Et-8K7"/>
-                                    <constraint firstAttribute="height" constant="145" id="UQ6-zy-47U"/>
+                                    <constraint firstItem="8Lj-UR-2b1" firstAttribute="centerX" secondItem="UwS-1s-cVy" secondAttribute="centerX" id="EXd-zc-XMv"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Lj-UR-2b1" secondAttribute="trailing" constant="25" id="Ilw-Q0-lzq"/>
+                                    <constraint firstItem="24A-AQ-ztu" firstAttribute="centerX" secondItem="UwS-1s-cVy" secondAttribute="centerX" id="JhZ-DJ-SBt"/>
+                                    <constraint firstItem="8Lj-UR-2b1" firstAttribute="centerY" secondItem="UwS-1s-cVy" secondAttribute="centerY" id="gaw-HM-c3L"/>
+                                    <constraint firstItem="24A-AQ-ztu" firstAttribute="centerY" secondItem="UwS-1s-cVy" secondAttribute="centerY" id="jaa-gc-4Ce"/>
+                                    <constraint firstItem="24A-AQ-ztu" firstAttribute="leading" secondItem="UwS-1s-cVy" secondAttribute="leading" constant="25" id="vNY-zV-8lf"/>
+                                    <constraint firstAttribute="bottom" secondItem="24A-AQ-ztu" secondAttribute="bottom" constant="12" id="zqA-dR-1tB"/>
                                 </constraints>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="24A-AQ-ztu">
-                                <rect key="frame" x="25" y="12" width="325" height="145"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="325" id="1Bn-Ru-LpS"/>
-                                    <constraint firstAttribute="height" constant="145" id="xBQ-sv-Ncu"/>
-                                </constraints>
-                            </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1mL-Ae-LRe">
+                                <viewLayoutGuide key="contentLayoutGuide" id="pwB-Ks-VI0"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="gcd-YN-0of"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" defersCurrentPageDisplay="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1mL-Ae-LRe">
                                 <rect key="frame" x="299" y="121" width="53" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.48627450979999998" green="0.76470588240000004" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.12941176469999999" green="0.52941176469999995" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2475,12 +2491,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="mTO-j9-14k" firstAttribute="trailing" secondItem="1mL-Ae-LRe" secondAttribute="trailing" constant="23" id="4lP-Iv-8jM"/>
-                            <constraint firstItem="8Lj-UR-2b1" firstAttribute="centerX" secondItem="aax-88-rFv" secondAttribute="centerX" id="Cbw-1P-xoY"/>
-                            <constraint firstItem="24A-AQ-ztu" firstAttribute="centerX" secondItem="aax-88-rFv" secondAttribute="centerX" id="JCZ-US-OGg"/>
+                            <constraint firstItem="UwS-1s-cVy" firstAttribute="bottom" secondItem="mTO-j9-14k" secondAttribute="bottom" id="HmI-RM-ffA"/>
                             <constraint firstItem="1mL-Ae-LRe" firstAttribute="leading" secondItem="mTO-j9-14k" secondAttribute="leading" constant="299" id="TZP-dR-cSn"/>
-                            <constraint firstItem="8Lj-UR-2b1" firstAttribute="centerY" secondItem="aax-88-rFv" secondAttribute="centerY" id="YBw-Rj-S1c"/>
-                            <constraint firstItem="24A-AQ-ztu" firstAttribute="centerY" secondItem="aax-88-rFv" secondAttribute="centerY" id="doj-Wc-oVJ"/>
+                            <constraint firstItem="UwS-1s-cVy" firstAttribute="centerY" secondItem="aax-88-rFv" secondAttribute="centerY" id="Z8q-bJ-rZX"/>
                             <constraint firstItem="mTO-j9-14k" firstAttribute="bottom" secondItem="1mL-Ae-LRe" secondAttribute="bottom" constant="11" id="pua-0F-cIk"/>
+                            <constraint firstItem="UwS-1s-cVy" firstAttribute="leading" secondItem="mTO-j9-14k" secondAttribute="leading" id="x75-QL-eIL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mTO-j9-14k"/>
                     </view>
@@ -2489,6 +2504,7 @@
                         <outlet property="backgroundView" destination="8Lj-UR-2b1" id="Chn-o4-GSi"/>
                         <outlet property="img" destination="24A-AQ-ztu" id="sUV-aa-qWY"/>
                         <outlet property="pagination" destination="1mL-Ae-LRe" id="1FR-j5-C61"/>
+                        <outlet property="scrollView" destination="UwS-1s-cVy" id="T0C-xI-CNx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3q-yo-XlF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

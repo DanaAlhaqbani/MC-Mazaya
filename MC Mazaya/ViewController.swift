@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         print("تكفي ")
         print("يرحم أمك و أبوك")
         print("Teeeest 2 Nov :)")
+        print("tesst")
+        print("-------")
         
     }
 
