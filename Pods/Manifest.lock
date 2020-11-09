@@ -4,6 +4,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
+  - CHIPageControl/Chimayo (0.2)
   - DropDown (2.3.13)
   - Firebase/Analytics (7.0.0):
     - Firebase/Core
@@ -124,6 +125,7 @@ PODS:
   - SideMenu (6.5.0)
 
 DEPENDENCIES:
+  - CHIPageControl/Chimayo
   - DropDown
   - Firebase/Analytics
   - Firebase/Core
@@ -140,6 +142,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AppAuth
+    - CHIPageControl
     - DropDown
     - Firebase
     - FirebaseAnalytics
@@ -167,6 +170,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Firebase: 50be68416f50eb4eb2ecb0e78acab9a051ef95df
   FirebaseAnalytics: c1166b7990bae464c6436132510bb718c6680f80
@@ -192,6 +196,6 @@ SPEC CHECKSUMS:
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 9635614831aabea5246e8b55b73c22e47db27608
+PODFILE CHECKSUM: c3455967574f2502d36c360fa7bbb8fd7679bbdb
 
 COCOAPODS: 1.9.3

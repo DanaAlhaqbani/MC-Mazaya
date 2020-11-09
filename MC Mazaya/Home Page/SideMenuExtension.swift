@@ -21,8 +21,7 @@ extension homePageViewController {
         }, completion: nil)
         navigationItem.titleView?.endEditing(true)
         tbleList.isUserInteractionEnabled = true
-        navigationController?.view.endEditing(true)
-        print("Hellllo")
+//        navigationController?.view.endEditing(true)
     }
                
     @objc func menuTapped() {

@@ -220,7 +220,11 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
 
     //MARK:- Table View delegate and datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Categories.count + 1
+        if self.Categories.count > 0 {
+            return Categories.count + 1
+        } else {
+            return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -316,7 +320,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 170
+        return 160
     }
     
     func dataUser () {
@@ -424,6 +428,11 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
 //            retrieveBanners()
 //            bannerView?.data = self.banners
             bannerView = des 
+        }
+        if segue.identifier == "toSeasonalOffers" {
+            let des = segue.destination as! seasonalOffers
+            let sender = sender as! String
+            des.seasonTitle = sender
         }
 
     }// Prepare Function

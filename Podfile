@@ -21,4 +21,6 @@ pod 'FirebaseUI/Google'
 pod 'FLAnimatedImage'
 pod 'SideMenu'
 pod 'SDWebImage'
+pod 'CHIPageControl/Chimayo'
 end
+

@@ -9,198 +9,138 @@
 import UIKit
  import Firebase
 import FirebaseCrashlytics
+import CHIPageControl
 
-class bannerContainer: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate { // Id: 'PageViewController'
+class bannerContainer: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+
+    // Id: 'PageViewController'
     // MARK: @IBOutlet
     lazy var database = Database.database()
-    lazy var ref = self.database.reference()
     lazy var bannersRef = self.database.reference(withPath: "Banners")
-    var observers = [DatabaseQuery]()
     var query: DatabaseReference!
-    var bannerSnapshots = [DataSnapshot]()
-    var frame = CGRect.zero
-    typealias ResultBlock = (Bool) -> Void?
-//    var banner
-    /// Menu button item.
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControl: CHIPageControlChimayo!
     @IBOutlet weak var backgroundView: UIView!
-//    @IBOutlet weak var offers: UIImageView!
-    var showFeed = false
-    var loadingBannerCount = 0
-//    @IBOutlet weak var scrollView: UIScrollView!
-    /// Pagination controller.
-    @IBOutlet weak var pagination: UIPageControl!
-    var currentIndex = 0
-//    var data: [Banner] = []
-    var pages = [UIImageView]()
+    
     var banners = [Banner]()
     var bannerRef : DatabaseReference! = nil
-    var nextEntry : String?
-    var bannerIds: [String: Any]?
-//    var loadingBannerCount = 0
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         bannerRef = Database.database().reference()
-//        retrieveBanners()
-//        setValues(currentIndex)
-        img.layer.cornerRadius = 15
-        img.clipsToBounds = true
-        pagination.numberOfPages = 0
-        backgroundView.layer.shadowColor = UIColor.systemGray4.cgColor
-        backgroundView.layer.shadowRadius = 5
-        backgroundView.layer.shadowOpacity = 0.5
-        backgroundView.layer.shadowOffset = .zero
-        backgroundView.layer.shadowPath = UIBezierPath(rect: backgroundView.bounds).cgPath
-        backgroundView.layer.cornerRadius = 10
-        backgroundView.layer.shouldRasterize = false
-        scrollView.delegate = self
-//        img.layer.masksToBounds = false
-        backgroundView.clipsToBounds = false
-
-        // Setup slide handler
-        let leftSwipe = UISwipeGestureRecognizer(target: self,
-                                                 action: #selector(handleSwipes(_:)))
-        let rightSwipe = UISwipeGestureRecognizer(target: self,
-                                                  action: #selector(handleSwipes(_:)))
-        leftSwipe.direction = .left
-        rightSwipe.direction = .right
-        
-        self.scrollView.addGestureRecognizer(leftSwipe)
-        self.scrollView.addGestureRecognizer(rightSwipe)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        pageControl.semanticContentAttribute = .forceRightToLeft
+        flowLayout.itemSize = CGSize(width: 325 , height: 145)
+        collectionView.collectionViewLayout = flowLayout
         loadData()
     }
-   
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        bannersRef.removeAllObservers()
-        query.removeAllObservers()
-        banners = []
-    }
-
-
-    private func setValues(index: Int) {
-        frame.origin.x = scrollView.frame.size.width * CGFloat(index)
-        frame.size = scrollView.frame.size
-        self.pagination.currentPage = currentIndex
-        self.title = banners[index].title
-        let imageURL = banners[index].imageURL
-        //Uncomment next line After adding the banner from admin
-//        self.img.sd_setImage(with: URL(string: imageURL))
-        //Comment next lines after adding the banner from admin
-        self.img.image = UIImage(named: "\(banners[index].imageURL)")
-        self.img.contentMode = .scaleAspectFit
-        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(banners.count)), height: scrollView.frame.size.height)
-        scrollView.addSubview(img)
-        print(imageURL)
-//        scrollView.delegate = self
-
-//        scrollView.panGestureRecognizer.require(toFail: rightSwipe)
-    }
     
+
+
 
     func loadData(){
        query = bannersRef
         query.observeSingleEvent(of: .value, with: { snapshot in
             if let snaps = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snaps {
-                    self.loadBanner(snap, { enabled in
-//                        self.setValues(index: self.currentIndex)
-//                        self.scrollView.delegate = self
-                        })
-
+                    self.loadBanner(snap)
                 }
             }
         })
-
     }
-    
-    @objc func handleSwipes(_ sender: UISwipeGestureRecognizer) {
-        let size = self.banners.count
-        let currentPosition = self.pagination.currentPage
-        if sender.direction == .left && currentPosition < size-1 {
-            nextPage()
-            
-        } else if sender.direction == .right && currentPosition > 0 {
-            previousPage()
-            
-        }
-    }
-    
-    // Button or see UIPageControl @IBOutlet
-    private func nextPage() {
-        currentIndex = abs((currentIndex + 1) % banners.count)
-        print("next Index", banners[currentIndex])
-        setValues(index: currentIndex)
-
-    }
-
-    // Button or see UIPageControl @IBOutlet
-    private func previousPage() {
-        currentIndex = abs((currentIndex - 1) % banners.count)
-        print("next Index", banners[currentIndex])
-        setValues(index: currentIndex)
-    }
-    
-    
-    func loadBanner(_ snapshot: DataSnapshot, _ resultBlock: ResultBlock?){
+ 
+    func loadBanner(_ snapshot: DataSnapshot){
+        self.banners = []
         let bennarId = snapshot.key
-        var result = false
         bannersRef.child(bennarId).observeSingleEvent(of: .value, with: { bannerSnapshot in
             let banner = Banner(snapshot: snapshot)
             self.banners.append(banner)
-            self.pagination.numberOfPages = self.banners.count
-            result = true
-            resultBlock?(result)
+            self.pageControl.numberOfPages = self.banners.count
+//            self.setValues(index: self.currentIndex)
+            self.backgroundView.layer.shadowColor = UIColor.systemGray4.cgColor
+            self.backgroundView.layer.shadowRadius = 5
+            self.backgroundView.layer.shadowOpacity = 0.5
+            self.backgroundView.layer.shadowOffset = .zero
+            self.backgroundView.layer.shadowPath = UIBezierPath(rect: self.backgroundView.bounds).cgPath
+            self.backgroundView.layer.cornerRadius = 10
+            self.backgroundView.layer.shouldRasterize = false
+            self.backgroundView.clipsToBounds = false
+            print(self.banners.count)
+            self.collectionView.reloadData()
         })
-        
-        
     }
     
+    //MARK: - Collectionview delegate and datasource
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return self.banners.count
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
     
-//    func setupScreens() {
-//        for index in 0..<banners.count {
-//            // 1.
-//            frame.origin.x = scrollView.frame.size.width * CGFloat(index)
-//            frame.size = scrollView.frame.size
-//
-//            // 2.
-//            let imgView = UIImageView(frame: frame)
-//            imgView.image = UIImage(named: movies[index])
-//
-//            self.scrollView.addSubview(imgView)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bannerCell", for: indexPath) as! BannerCollectionViewCell
+        cell.imgView.image = UIImage(named: "\(banners[indexPath.section].imageURL)")
+        cell.imgView.layer.cornerRadius = 15
+        cell.imgView.clipsToBounds = true
+//        cell.Title = self.banners[indexPath.section].imageURL
+
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.pageControl.set(progress: indexPath.section, animated: true)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        thisWidth = CGFloat(self.frame.width)
+        return CGSize(width: self.view.frame.width, height: self.view.frame.height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.parent?.performSegue(withIdentifier: "toSeasonalOffers", sender: self.banners[indexPath.section].title)
+    }
+    
+    //MARK: - First Implementation
+    
+//    @objc func handleSwipes(_ sender: UISwipeGestureRecognizer) {
+//        let size = self.banners.count
+//        let currentPosition = self.pageControl.currentPage
+//        if sender.direction == .left && currentPosition < size-1 {
+//            nextPage()
+//            UIView.transition(with: self.backgroundView,
+//                              duration: 0.5,
+//            options: .transitionCrossDissolve,
+//            animations: { self.backgroundView },
+//            completion: nil)
+//        } else if sender.direction == .right && currentPosition > 0 {
+//            previousPage()
+//            UIView.transition(with: self.backgroundView,
+//                              duration: 0.5,
+//            options: .transitionCrossDissolve,
+//            animations: { self.backgroundView },
+//            completion: nil)
 //        }
-//
-//        // 3.
-//        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(movies.count)), height: scrollView.frame.size.height)
-//        scrollView.delegate = self
 //    }
     
-    func changePage(sender: AnyObject) -> () {
-        let x = CGFloat(pagination.currentPage) * scrollView.frame.size.width
-        scrollView.setContentOffset(CGPoint(x: x,y :0), animated: true)
-    }
+    // Button or see UIPageControl @IBOutlet
+//    private func nextPage() {
+//        currentIndex = abs((currentIndex + 1) % banners.count)
+//        print("next Index", banners[currentIndex])
+//        setValues(index: currentIndex)
+//    }
+
+    // Button or see UIPageControl @IBOutlet
+//    private func previousPage() {
+//        currentIndex = abs((currentIndex - 1) % banners.count)
+//        print("next Index", banners[currentIndex])
+//        setValues(index: currentIndex)
+//    }
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
-//        if scrollView.
-//        pagination.currentPage = Int(pageNumber)
-//        setValues(index: pageNumber)
-        
-    }
-    
+ 
+
     
 }

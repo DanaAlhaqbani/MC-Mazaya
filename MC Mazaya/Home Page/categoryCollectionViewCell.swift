@@ -14,7 +14,7 @@ class categoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        name.textColor = UIColor(rgb: 0x38A089)
+        name.textColor = UIColor(rgb: 0x00524D)
         icon.image = icon.image?.withTintColor(UIColor(rgb: 0x5AC5BE))
     }
 

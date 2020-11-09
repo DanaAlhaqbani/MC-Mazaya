@@ -62,8 +62,8 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         galleryCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 93, height: 98)
-        flowLayout.minimumInteritemSpacing = 0.4
+        flowLayout.itemSize = CGSize(width: 65 , height: 65)
+//        flowLayout.minimumInteritemSpacing = 0.4
         galleryCollectionView.collectionViewLayout = flowLayout
         galleryCollectionView.delegate = self
         galleryCollectionView.dataSource = self
@@ -94,7 +94,11 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     
     //MARK:- UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Trades.count
+        if Trades.count > 0 {
+            return Trades.count
+        } else {
+            return 0
+        }
     }
     
     
@@ -120,32 +124,20 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
             } else if self.sortedBy == "قريب مني" {
                 
             }
-
         }
+        cell.featured.alpha = 0
+        cell.imgvAvatar.layer.cornerRadius =  cell.imgvAvatar.frame.size.height / 2
+        cell.imgvAvatar.clipsToBounds = true
         DispatchQueue.main.async {
-            let imageURL = self.Trades[indexPath.row].brandImage
-            cell.imgvAvatar.sd_setImage(with: URL(string: imageURL ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
-            cell.featured.alpha = 0
-            cell.imgvAvatar.clipsToBounds = true
-//            cell.imgvAvatar.layer.borderColor = UIColor.systemGray3.cgColor
-//            cell.imgvAvatar.layer.borderWidth = 0.3
-            cell.imgvAvatar.layer.cornerRadius =  cell.imgvAvatar.frame.size.height / 2
-//            cell.offerTitle.text = self.Trades[indexPath.row].BrandName
-//            cell.offerDetails.text = ""
-            if self.Trades[indexPath.row].isFeatured == true {
-                cell.featured.alpha = 0.8
-                cell.featured.rotate()
-                }
-            if let o = self.Trades[indexPath.row].offers {
-                self.Offers = o
-                if self.Offers.count != 0 {
-//                    cell.offerDetails.text = self.Offers[0].offerTitle
+            if self.Trades.count != 0 {
+                let imageURL = self.Trades[indexPath.row].brandImage ?? "https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"
+                cell.imgvAvatar.sd_setImage(with: URL(string: imageURL))
+                if self.Trades[indexPath.row].isFeatured == true {
+                    cell.featured.alpha = 0.8
+                    cell.featured.rotate()
                 }
             }
-
         }
-
-
         return cell
     }
     
@@ -174,7 +166,6 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
                 }
             })
             self.delegate.callSegueFromCell(myData: Trades[indexPath.row])
-            
         }
     }
 
