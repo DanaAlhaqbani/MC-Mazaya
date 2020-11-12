@@ -24,11 +24,13 @@ struct Trademark {
     var isFav : Bool?
     var regions : [String]?
     var isFeatured : Bool?
+    var catID : String?
+    var tradID : String?
     init() {
         
     }
     
-    public init(BrandName: String?, num: String?, desc: String?, email: String?, fb: String?, insta: String?, twit: String?, web: String?, image : String?, branches: [Branch]?, offers : [Offer]?, views: Int?, isFav : Bool?, regions: [String]?, isFeatured: Bool?) {
+    public init(BrandName: String?, num: String?, desc: String?, email: String?, fb: String?, insta: String?, twit: String?, web: String?, image : String?, branches: [Branch]?, offers : [Offer]?, views: Int?, isFav : Bool?, regions: [String]?, isFeatured: Bool?, catID : String?, tradID : String?) {
         self.BrandName = BrandName
         self.branches = branches
         self.contactNum = num
@@ -44,6 +46,8 @@ struct Trademark {
         self.isFav = isFav
         self.regions = regions
         self.isFeatured = isFeatured
+        self.catID = catID
+        self.tradID = tradID
     }
     
 }

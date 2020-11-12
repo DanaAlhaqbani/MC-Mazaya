@@ -65,8 +65,8 @@ class ChangePassViewController: UIViewController , ChangePassDelegate{
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "كلمة المرور الحالية"
         $0.textAlignment = .right
-        $0.font = .boldSystemFont(ofSize: 30)
-        $0.font = UIFont(name: "stc", size: 30)
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = UIFont(name: "stc", size: 20)
         $0.textColor = .darkGray
         return $0
     }(UILabel())
@@ -75,8 +75,8 @@ class ChangePassViewController: UIViewController , ChangePassDelegate{
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "كلمة المرور الجديدة"
         $0.textAlignment = .right
-        $0.font = .boldSystemFont(ofSize: 30)
-        $0.font = UIFont(name: "stc", size: 30)
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = UIFont(name: "stc", size: 20)
         $0.textColor = .darkGray
         return $0
     }(UILabel())
@@ -85,8 +85,8 @@ class ChangePassViewController: UIViewController , ChangePassDelegate{
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "تأكيد كلمة المرور الجديدة"
         $0.textAlignment = .right
-        $0.font = .boldSystemFont(ofSize: 30)
-        $0.font = UIFont(name: "stc", size: 30)
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = UIFont(name: "stc", size: 20)
         $0.textColor = .darkGray
         return $0
     }(UILabel())
@@ -130,7 +130,7 @@ class ChangePassViewController: UIViewController , ChangePassDelegate{
            $0.translatesAutoresizingMaskIntoConstraints = false
            $0.contentMode = .scaleAspectFit
            $0.clipsToBounds = true
-           $0.image = #imageLiteral(resourceName: "profileLock")
+           $0.image = #imageLiteral(resourceName: "resetPass_icon")
            return $0
        }(UIImageView())
     let passPageLabel : UILabel = {
@@ -138,8 +138,9 @@ class ChangePassViewController: UIViewController , ChangePassDelegate{
         $0.text = "تغيير كلمة المرور"
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
-        $0.font = UIFont(name: "stc", size: 35)
-        $0.textColor = .darkGray
+        $0.font = UIFont(name: "stc", size: 20)
+        let green = UIColor(rgb: 0x38a089)
+        $0.textColor = green
         
         return $0
     }(UILabel())

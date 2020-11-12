@@ -149,10 +149,10 @@ class EditProfileViewController: UIViewController , EditProfileDelegate {
         $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
         if ( userData.gender == "أنثى"){
-        $0.image = #imageLiteral(resourceName: "femaleicon")
+        $0.image = #imageLiteral(resourceName: "femailEdit")
         }
         else {
-        $0.image = #imageLiteral(resourceName: "maleicon")
+        $0.image = #imageLiteral(resourceName: "maleEdit")
 
         }
         return $0
@@ -163,8 +163,9 @@ class EditProfileViewController: UIViewController , EditProfileDelegate {
         $0.text = "تعديل البيانات"
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
-        $0.font = UIFont(name: "stc", size: 35)
-        $0.textColor = .darkGray
+        $0.font = UIFont(name: "stc", size: 20)
+        let green = UIColor(rgb: 0x38a089)
+        $0.textColor = green
         
         return $0
     }(UILabel())
@@ -175,8 +176,9 @@ class EditProfileViewController: UIViewController , EditProfileDelegate {
         $0.text = "الاسم"
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
-        $0.font = UIFont (name: "stc", size: 30)
-        $0.textColor = .darkGray
+        $0.font = UIFont (name: "stc", size: 20)
+        let green = UIColor(rgb: 0x38a089)
+        $0.textColor = green
         
         return $0
     }(UILabel())
@@ -185,9 +187,10 @@ class EditProfileViewController: UIViewController , EditProfileDelegate {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "كلمة المرور"
         $0.textAlignment = .right
-        $0.font = .boldSystemFont(ofSize: 30)
-        $0.font = UIFont(name: "stc", size: 30)
-        $0.textColor = .darkGray
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = UIFont(name: "stc", size: 20)
+        let green = UIColor(rgb: 0x38a089)
+        $0.textColor = green
         return $0
     }(UILabel())
     
@@ -196,9 +199,9 @@ class EditProfileViewController: UIViewController , EditProfileDelegate {
         $0.text = "رقم الهاتف"
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
-        $0.font = UIFont(name: "stc", size: 30)
-        $0.textColor = .darkGray
-        
+        $0.font = UIFont(name: "stc", size: 20)
+        let green = UIColor(rgb: 0x38a089)
+        $0.textColor = green
         return $0
     }(UILabel())
     
@@ -206,9 +209,10 @@ class EditProfileViewController: UIViewController , EditProfileDelegate {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "الايميل"
         $0.textAlignment = .right
-        $0.font = .boldSystemFont(ofSize: 30)
-        $0.font = UIFont(name: "stc", size: 30)
-        $0.textColor = .darkGray
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = UIFont(name: "stc", size: 20)
+        let green = UIColor(rgb: 0x38a089)
+        $0.textColor = green
         return $0
     }(UILabel())
     

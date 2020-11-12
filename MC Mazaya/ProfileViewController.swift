@@ -28,15 +28,15 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         self.EmailLabel.text = userData.email
         self.GenderLabel.text = userData.gender
         self.PhoneLabel.text = userData.phone
-        self.PointsLabel.text = userData.points
+        self.PointsLabel.text = "\(userData.points) نقاط"
         
         if ( self.GenderLabel.text == "أنثى"){
-            UserIcon.image = #imageLiteral(resourceName: "femaleicon")
-            GenderIcon.image = #imageLiteral(resourceName: "femaleGender")
+            UserIcon.image = #imageLiteral(resourceName: "women")
+            GenderIcon.image = #imageLiteral(resourceName: "woman-2")
             
         }else{
-            UserIcon.image = #imageLiteral(resourceName: "maleicon")
-            GenderIcon.image = #imageLiteral(resourceName: "genderMale")
+            UserIcon.image = #imageLiteral(resourceName: "man")
+            GenderIcon.image = #imageLiteral(resourceName: "male-gender")
         }
         
     }
@@ -65,7 +65,8 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleToFill
         $0.clipsToBounds = true
-       // $0.image = #imageLiteral(resourceName: "Rectangle")
+        $0.image = #imageLiteral(resourceName: "profile card")
+      
         return $0
     }(UIImageView())
     
@@ -73,7 +74,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
-        $0.image = #imageLiteral(resourceName: "femalee")
+        $0.image = #imageLiteral(resourceName: "man")
         return $0
     }(UIImageView())
     
@@ -81,9 +82,9 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "دانة"
         $0.textAlignment = .right
-        $0.font = .boldSystemFont(ofSize: 20)
-        $0.font = UIFont(name: "stc", size: 40)
-        $0.textColor = .black
+        $0.font = .boldSystemFont(ofSize: 25)
+        $0.font = UIFont(name: "stc", size: 25)
+        $0.textColor = .white
         
         return $0
     }(UILabel())
@@ -94,7 +95,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
         $0.font = UIFont(name: "stc", size: 20)
-        $0.textColor = .black
+        $0.textColor = .white
         return $0
     }(UILabel())
     let PointsLabel : UILabel = {
@@ -103,7 +104,9 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
         $0.font = UIFont(name: "stc", size: 20)
-        $0.textColor = .black
+        //$0.backgroundColor = .white
+        $0.layer.cornerRadius = 10
+        $0.textColor = .white
         return $0
     }(UILabel())
     let PointsWord : UILabel = {
@@ -119,7 +122,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
-        $0.image = #imageLiteral(resourceName: "femaleGender")
+        $0.image = #imageLiteral(resourceName: "Password")
         return $0
     }(UIImageView())
     let pointsIcon : UIImageView = {
@@ -133,7 +136,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
-        $0.image = #imageLiteral(resourceName: "profile_phone")
+        $0.image = #imageLiteral(resourceName: "phone-call-2")
         return $0
     }(UIImageView())
     
@@ -156,7 +159,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.text = "أنثى"
         $0.textAlignment = .right
         $0.font = .boldSystemFont(ofSize: 20)
-        $0.font = UIFont(name: "stc", size: 30)
+        $0.font = UIFont(name: "stc", size: 20)
         $0.textColor = .black
         
         return $0
@@ -166,8 +169,8 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "********"
         $0.textAlignment = .right
-        $0.font = .boldSystemFont(ofSize: 30)
-        $0.font = UIFont(name: "stc", size: 30)
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = UIFont(name: "stc", size: 20)
         $0.textColor = .black
         return $0
     }(UILabel())
@@ -195,7 +198,7 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
         view.addSubview(EditButton)
         view.addSubview(GenderLabel)
         view.addSubview(PhoneLabel)
-        view.addSubview(PointsWord)
+        //view.addSubview(PointsWord)
 
         
         NSLayoutConstraint.activate([
@@ -214,14 +217,14 @@ class ProfileViewController: UIViewController, ProfileDelegate, EditProfilePassD
             NameLabel.rightAnchor.constraint(equalTo: UserIcon.leftAnchor , constant: -8),
             NameLabel.topAnchor.constraint(equalTo: profileImageUpper.centerYAnchor, constant: -30),
             EmailLabel.rightAnchor.constraint(equalTo: UserIcon.leftAnchor , constant: -8),
-            EmailLabel.topAnchor.constraint(equalTo: profileImageUpper.centerYAnchor, constant: 17),
+            EmailLabel.topAnchor.constraint(equalTo: profileImageUpper.centerYAnchor, constant: 10),
             
             PointsLabel.rightAnchor.constraint(equalTo: UserIcon.leftAnchor , constant: -8),
-            PointsLabel.topAnchor.constraint(equalTo: profileImageUpper.centerYAnchor, constant: 48),
+            PointsLabel.topAnchor.constraint(equalTo: profileImageUpper.centerYAnchor, constant: 55),
             
-            PointsWord.rightAnchor.constraint(equalTo: UserIcon.leftAnchor , constant: -25),
+            /*PointsWord.rightAnchor.constraint(equalTo: UserIcon.leftAnchor , constant: -25),
             PointsWord.topAnchor.constraint(equalTo: profileImageUpper.centerYAnchor, constant: 48),
-                       
+                       */
             GenderIcon.topAnchor.constraint(equalTo: profileImageUpper.bottomAnchor, constant: 70),
             GenderIcon.rightAnchor.constraint(equalTo: profileImageUpper.rightAnchor , constant: -40),
             passwordIcon.topAnchor.constraint(equalTo: profileImageUpper.bottomAnchor, constant: 170),

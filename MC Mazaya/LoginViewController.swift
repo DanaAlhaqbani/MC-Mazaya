@@ -187,7 +187,7 @@ class LoginViewController: UIViewController {
 //    func showSpinner(){
 //           self.showActivityIndicator(uiView: self.view)
 //       }
-//       
+//
 //       func removeSpinner(){
 //           self.hideActivityIndicator(uiView: self.view)
 //       }
@@ -298,7 +298,7 @@ class LoginViewController: UIViewController {
         if arrayOffers != nil {
             for i in arrayOffers {
                 offersDict = i as! [String : Any]
-                self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["NumberOfCoupons"] as? String, numberOfPoints: self.offersDict["NumberOfPoints"] as? String, offerType: self.offersDict["OfferType"] as? String, offerDiscription: self.offersDict["OffersDescription"] as? String, offersDetails: self.offersDict["OffersDetails"] as? String, offerTitle: self.offersDict["OffersTitle"] as? String, serviceType: self.offersDict["ServiceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String)
+                self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["NumberOfCoupons"] as? String, numberOfPoints: self.offersDict["NumberOfPoints"] as? String, offerType: self.offersDict["OfferType"] as? String, offerDiscription: self.offersDict["OffersDescription"] as? String, offersDetails: self.offersDict["OffersDetails"] as? String, offerTitle: self.offersDict["OffersTitle"] as? String, serviceType: self.offersDict["ServiceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String, offerNum: self.offersDict["offerNum"] as? Int)
                 self.offers.append(self.offer)
             }
         }
@@ -323,7 +323,7 @@ class LoginViewController: UIViewController {
             self.tradeInfo = i as? NSDictionary
             convertBranches(tradeInfo: self.tradeInfo)
             convertOffers(tradeInfo: self.tradeInfo)
-            self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: self.tradeInfo?["Views"] as? Int, isFav: false, regions: tradeInfo?["Regions"] as? [String], isFeatured: tradeInfo?["isFeatured"] as? Bool ?? false)
+            self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: self.tradeInfo?["Views"] as? Int, isFav: false, regions: tradeInfo?["Regions"] as? [String], isFeatured: tradeInfo?["isFeatured"] as? Bool ?? false, catID: self.tradeInfo?["cateID"] as? String, tradID: self.tradeInfo?["tradeKey"] as? String)
             self.trades2.append(self.trade)
         }
     }

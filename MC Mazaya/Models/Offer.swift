@@ -19,8 +19,9 @@ struct Offer {
     var serviceType : String?
     var endDate : String?
     var startDate : String?
+    var offerNum : Int?
     
-    init(discountCode : String?, numberOfCoupons : String?, numberOfPoints : String?, offerType : String?, offerDiscription : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?) {
+    init(discountCode : String?, numberOfCoupons : String?, numberOfPoints : String?, offerType : String?, offerDiscription : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?, offerNum : Int?) {
         self.DiscountCode = discountCode
         self.numberOfCoupons = numberOfCoupons
         self.numberOfPoints = numberOfPoints
@@ -31,5 +32,6 @@ struct Offer {
         self.serviceType = serviceType
         self.endDate = endDate
         self.startDate = startDate
+        self.offerNum = offerNum
     }
 }

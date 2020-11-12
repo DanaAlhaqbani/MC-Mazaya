@@ -82,6 +82,7 @@
 		D6E8F25124BDAA1300A4AA9D /* MakeDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25024BDAA1300A4AA9D /* MakeDropDown.swift */; };
 		D6E8F25824BDB2AB00A4AA9D /* FamilyMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25724BDB2AB00A4AA9D /* FamilyMember.swift */; };
 		D6E8F25A24BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8F25924BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift */; };
+		D6F9BB6D255D0ECF00A12A88 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9BB6C255D0ECF00A12A88 /* Voucher.swift */; };
 		D6FF724024A49C4400EFA660 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */; };
 		D6FF724224A4A09000EFA660 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */; };
 		D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */; };
@@ -207,6 +208,7 @@
 		D6E8F25024BDAA1300A4AA9D /* MakeDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeDropDown.swift; sourceTree = "<group>"; };
 		D6E8F25724BDB2AB00A4AA9D /* FamilyMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMember.swift; sourceTree = "<group>"; };
 		D6E8F25924BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFamilyMemberViewController.swift; sourceTree = "<group>"; };
+		D6F9BB6C255D0ECF00A12A88 /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
 		D6FF723F24A49C4400EFA660 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				E7ABDCFE251771F500B6C4B9 /* Branch.swift */,
 				E7784CC02518FFB60020BDB0 /* userData.swift */,
 				E7FE49B9254803110023D6DE /* Banner.swift */,
+				D6F9BB6C255D0ECF00A12A88 /* Voucher.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				A93540F9252DC11A00E8E375 /* CustomTableViewCell.swift in Sources */,
 				D6381EBF24ADD4DA004569D6 /* CommunicateUsViewController.swift in Sources */,
 				D6521A4B24F5215D00382FFD /* AdminTrademarksViewController.swift in Sources */,
+				D6F9BB6D255D0ECF00A12A88 /* Voucher.swift in Sources */,
 				D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */,
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
 				A94A1DEA253317730086605F /* BranchView.swift in Sources */,
