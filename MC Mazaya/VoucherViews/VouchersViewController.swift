@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class VouchersViewController: UIViewController {
 
      @IBOutlet weak var trademarksTableView: UITableView!
@@ -21,19 +21,23 @@ class VouchersViewController: UIViewController {
      var AvaVouchersTitles = [String]()
      var AvaVouchersNames = [String]()
      var AvaVouchersImage = [String]()
-     var MyVouchersTitle = ["قسيمة بقيمة ٢٠٠ ", "قسيمة بقيمة ١٥٠"]
-     var MyVouchersNames = ["حلويات سعد الدين", "باتشي"]
-    var MyVouchersImages = ["patchi" , "images" ]
+     var MyVouchersTitle = [String]()
+     var MyVouchersNames = [String]()
+    var MyVouchersImages = [String]()
     var isMyVoucher = false
     var vouchersList = [Offer]()
-
-
+    var userVouchers = [Voucher]()
+        var userVouchersKey = [String]()
+        var voucherRef: DatabaseReference!
+        let userID = Auth.auth().currentUser?.uid
     // master array
     lazy var titlesToDisplay = AvaVouchersTitles
     lazy var namesToDisplay = AvaVouchersNames
     lazy var imagesToDisplay = AvaVouchersImage
      override func viewDidLoad() {
          super.viewDidLoad()
+        trademarksTableView.separatorStyle = .none
+
         print("============is there trades============")
         print(Trades)
         //trademarksTableView.reloadData()
@@ -52,8 +56,42 @@ class VouchersViewController: UIViewController {
          trademarksTableView.showsVerticalScrollIndicator = false
           let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
          cell.trademarkImage.sendSubviewToBack(cell.trademarkView)
-
+      getUserVoucher()
      }
+    func getUserVoucher(){
+         // Do any additional setup after loading the view.
+        voucherRef = Database.database().reference().child("Users").child(userID!).child("VoucherList");
+         voucherRef.observe(DataEventType.value, with: { (snapshot) in
+             //if the reference have some values
+             if snapshot.childrenCount > 0 {
+                 //clearing the list
+                 self.userVouchers.removeAll()
+                 
+                 //iterating through all the values
+                 for voucher in snapshot.children.allObjects as! [DataSnapshot] {
+                     //getting values
+                     let voucherObject = voucher.value as? [String: AnyObject]
+                     let brandName = voucherObject?["BrandName"] as? String
+                     let brandImage = voucherObject?["BrandImage"] as? String
+                    let voucherTitle = voucherObject?["VoucherTitle"] as? String
+                    let voucherCode = voucherObject?["VoucherCode"] as? String
+                    let voucherNum = voucherObject?["voucherNum"] as? Int
+                    let voucherDes =  voucherObject?["VoucherDes"] as? String
+                    self.MyVouchersTitle.append(voucherTitle ?? "")
+                    self.MyVouchersNames.append(brandName ?? "")
+                    self.MyVouchersImages.append(brandImage ?? "")
+                    
+                     let voucherKey = voucher.key
+                     self.userVouchersKey.append(voucherKey)
+                     
+                     //creating artist object with model and fetched values
+                    let voucher = Voucher(BrandImage: brandName, BrandName: brandImage, Vouchertitle: voucherTitle, VoucherCode: voucherCode, voucherNum: voucherNum, voucherDes: voucherDes)
+                 self.userVouchers.append(voucher)
+                 //reloading the tableview
+                 self.trademarksTableView.reloadData()
+                }}
+         })
+        }
     @objc fileprivate func handleSCChange(){
         print(VoucherSC.selectedSegmentIndex)
         switch VoucherSC.selectedSegmentIndex {
@@ -95,11 +133,8 @@ class VouchersViewController: UIViewController {
              }
              }
          }
-       
           
      }
-
-
 
     /*
     // MARK: - Navigation
@@ -115,6 +150,7 @@ class VouchersViewController: UIViewController {
                let dis = segue.destination as! VoucherDetails
                dis.tradeInfo = sender as? Trademark
             dis.tradOffers = self.vouchersList
+            dis.userVouchers = self.userVouchers
            } // Show Description Segue
     }
 }

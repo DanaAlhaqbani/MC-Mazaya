@@ -34,7 +34,7 @@ class VoucherDetails : UIViewController , UITextViewDelegate {
        var favTradeKey = String()
        var favTradeValues = [String]()
       var tradOffers = [Offer]()
-
+      var userVouchers = [Voucher]()
        var favDictionary : NSDictionary = [:]
    //    var isFavourite = false
    //    override func viewWillAppear(_ animated: Bool) {
@@ -152,6 +152,7 @@ class VoucherDetails : UIViewController , UITextViewDelegate {
            if let vc = segue.destination as? VoucherView, segue.identifier == "Vinfo" {
                vc.Trade = self.tradeInfo
                vc.vouchers = self.tradOffers
+               vc.UserVoucher = self.userVouchers
                self.offerVC = vc
            }
            if let vc = segue.destination as? VouchersBranches, segue.identifier == "Vinfo" {
@@ -176,3 +177,4 @@ class VoucherDetails : UIViewController , UITextViewDelegate {
        }
        
    }
+  
