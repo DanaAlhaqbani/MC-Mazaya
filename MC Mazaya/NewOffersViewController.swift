@@ -57,16 +57,10 @@ class NewOffersViewController: UIViewController, handleRetrievedData {
                 for offer in tradOffers {
                  let offerDate = offer.startDate ?? ""
                 let offerTilte = offer.offerTitle ?? ""
-                
                  if self.isNewOffer(offerDate: offerDate){
-                    
                     newOffersNames.append(name)
                     newOffersImages.append(image)
                     newOffersTitles.append(offerTilte)
-                    
-                   
-                    
-               
                 }
                 
             }
@@ -74,6 +68,8 @@ class NewOffersViewController: UIViewController, handleRetrievedData {
         }
          
     }
+    
+    
     func isNewOffer(offerDate: String) -> Bool{
         let now = Date.getCurrentDate()
         let dateFormatter = DateFormatter()

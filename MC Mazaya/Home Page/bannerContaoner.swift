@@ -21,7 +21,6 @@ class bannerContainer: UIViewController, UIGestureRecognizerDelegate, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: CHIPageControlChimayo!
     @IBOutlet weak var backgroundView: UIView!
-    
     var banners = [Banner]()
     var bannerRef : DatabaseReference! = nil
 
@@ -38,8 +37,6 @@ class bannerContainer: UIViewController, UIGestureRecognizerDelegate, UICollecti
         loadData()
     }
     
-
-
 
     func loadData(){
        query = bannersRef
@@ -95,52 +92,13 @@ class bannerContainer: UIViewController, UIGestureRecognizerDelegate, UICollecti
         self.pageControl.set(progress: indexPath.section, animated: true)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        thisWidth = CGFloat(self.frame.width)
-        return CGSize(width: self.view.frame.width, height: self.view.frame.height)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: self.view.frame.width, height: self.view.frame.height)
+//    }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.parent?.performSegue(withIdentifier: "toSeasonalOffers", sender: self.banners[indexPath.section].title)
     }
-    
-    //MARK: - First Implementation
-    
-//    @objc func handleSwipes(_ sender: UISwipeGestureRecognizer) {
-//        let size = self.banners.count
-//        let currentPosition = self.pageControl.currentPage
-//        if sender.direction == .left && currentPosition < size-1 {
-//            nextPage()
-//            UIView.transition(with: self.backgroundView,
-//                              duration: 0.5,
-//            options: .transitionCrossDissolve,
-//            animations: { self.backgroundView },
-//            completion: nil)
-//        } else if sender.direction == .right && currentPosition > 0 {
-//            previousPage()
-//            UIView.transition(with: self.backgroundView,
-//                              duration: 0.5,
-//            options: .transitionCrossDissolve,
-//            animations: { self.backgroundView },
-//            completion: nil)
-//        }
-//    }
-    
-    // Button or see UIPageControl @IBOutlet
-//    private func nextPage() {
-//        currentIndex = abs((currentIndex + 1) % banners.count)
-//        print("next Index", banners[currentIndex])
-//        setValues(index: currentIndex)
-//    }
-
-    // Button or see UIPageControl @IBOutlet
-//    private func previousPage() {
-//        currentIndex = abs((currentIndex - 1) % banners.count)
-//        print("next Index", banners[currentIndex])
-//        setValues(index: currentIndex)
-//    }
-    
- 
 
     
 }

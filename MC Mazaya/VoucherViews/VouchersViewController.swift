@@ -127,13 +127,19 @@ extension VouchersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isMyVoucher == true {
-        self.showCustomAlertWith(message: "مبروك! حصلت قسيمة شرائية نرجوا إبراز هذة الصورة عند المحل للحصول عليها", descMsg: "للحصول على هذة القسيمة إذهب الى المحل وقم بإبراز هذة الصورة", itemimage: nil, actions: nil)
+//        self.showCustomAlertWith(message: "مبروك! حصلت قسيمة شرائية نرجوا إبراز هذة الصورة عند المحل للحصول عليها", descMsg: "للحصول على هذة القسيمة إذهب الى المحل وقم بإبراز هذة الصورة", itemimage: nil, actions: nil)
+//            self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "voucherAlert") as! singleVoucher
+            self.present(nextViewController, animated:true, completion:nil)
+            nextViewController.modalPresentationStyle = .popover
         }
         else {
         let trade = vouchersTrade[indexPath.row]
         performSegue(withIdentifier: "toVoucherDetails", sender: trade)
         }
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
         let trademarkName = namesToDisplay[indexPath.row]

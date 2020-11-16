@@ -109,6 +109,7 @@
 		E7784CC12518FFB60020BDB0 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CC02518FFB60020BDB0 /* userData.swift */; };
 		E7784CCC251A0A570020BDB0 /* singleTrademarkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CCA251A0A570020BDB0 /* singleTrademarkResult.swift */; };
 		E7784CCD251A0A570020BDB0 /* singleTrademarkResult.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7784CCB251A0A570020BDB0 /* singleTrademarkResult.xib */; };
+		E7877584255BC5E50048616D /* singleVoucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7877583255BC5E50048616D /* singleVoucher.swift */; };
 		E78DAF86251A355B000FC30E /* searchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78DAF84251A355B000FC30E /* searchResultsCell.swift */; };
 		E78DAF87251A355B000FC30E /* searchResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E78DAF85251A355B000FC30E /* searchResultsCell.xib */; };
 		E78E48C6253739AB0035DE60 /* ProtocolsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78E48C5253739AB0035DE60 /* ProtocolsExtension.swift */; };
@@ -233,6 +234,7 @@
 		E7784CC02518FFB60020BDB0 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		E7784CCA251A0A570020BDB0 /* singleTrademarkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleTrademarkResult.swift; sourceTree = "<group>"; };
 		E7784CCB251A0A570020BDB0 /* singleTrademarkResult.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = singleTrademarkResult.xib; sourceTree = "<group>"; };
+		E7877583255BC5E50048616D /* singleVoucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleVoucher.swift; sourceTree = "<group>"; };
 		E78DAF84251A355B000FC30E /* searchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchResultsCell.swift; sourceTree = "<group>"; };
 		E78DAF85251A355B000FC30E /* searchResultsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = searchResultsCell.xib; sourceTree = "<group>"; };
 		E78E48C5253739AB0035DE60 /* ProtocolsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolsExtension.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				E71B49DE2546D46300B05F1F /* seasonalOfferTableViewCell.swift */,
 				A99D996524FF8AB50035D2FF /* GoogleService-Info.plist */,
 				D641E9B3249F3037001851A9 /* Assets.xcassets */,
+				E7877583255BC5E50048616D /* singleVoucher.swift */,
 				D641E9B5249F3037001851A9 /* LaunchScreen.storyboard */,
 				D641E9B8249F3037001851A9 /* Info.plist */,
 				D6E1285D24A07F6400977D26 /* LoginViewController.swift */,
@@ -694,6 +697,7 @@
 				D6521A4B24F5215D00382FFD /* AdminTrademarksViewController.swift in Sources */,
 				D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */,
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
+				E7877584255BC5E50048616D /* singleVoucher.swift in Sources */,
 				A94A1DEA253317730086605F /* BranchView.swift in Sources */,
 				E7353BA12540301F0019A6AA /* searchResultTable.swift in Sources */,
 				E7ABDCFD2517710B00B6C4B9 /* Offer.swift in Sources */,

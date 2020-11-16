@@ -18,7 +18,7 @@ extension UIView {
         view.addSubview(shinyView)
         // Add Gradient Layer to Shiny View
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemGray6.cgColor, UIColor.clear.cgColor]
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor(rgb: 0xF3F3F3), UIColor.clear.cgColor]
         gradientLayer.locations = [0,0.5,1]
         gradientLayer.frame = shinyView.frame
         let angle = 45 * CGFloat.pi / 180

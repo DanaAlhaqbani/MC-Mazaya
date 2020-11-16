@@ -19,6 +19,7 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
     }
     
     @IBOutlet weak var trademarksTableView: UITableView!
+    @IBOutlet weak var starButton: UIButton!
     var Categories = [Category]()
     var favDict : NSDictionary = [:]
     var Trademarks = [Trademark]()
@@ -26,8 +27,18 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
     var ref = Database.database().reference()
     var uid = Auth.auth().currentUser?.uid
     var tradeName = String()
-    @IBOutlet weak var starButton: UIButton!
-
+    var emptyView = UIView()
+    let labelTitle : UILabel = {
+        $0.text = "المفضلة فارغة"
+        $0.font = UIFont(name: "STC", size: 20)
+        $0.textColor = UIColor(rgb: 0x5AC5BE)
+        return $0
+    }(UILabel())
+    let emptyImg : UIImageView = {
+        $0.image = UIImage(named: "emptyFav")
+        return $0
+    }(UIImageView())
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 //        self.trademarksTableView.reloadData()
@@ -39,24 +50,25 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
         trademarksTableView.delegate = self
         trademarksTableView.dataSource = self
         trademarksTableView.separatorStyle = .none
-        
+        setupEmptyView()
+//        getFavourites()
+        if favTrademarks.count == 0 {
+            self.view.addSubview(self.emptyView)
+        }
     }
     
-//    func getFavourite(){
-//        for category in Categories {
-//            print("Hello in Categories ----------------------------------------")
-//            let trades = category.trademarks!
-//            for trade in trades {
-//                print("Hello in Trademarks ----------------------------------------")
-//                if trade.isFav == true {
-//                    print("Hello in Favourite Trademarks ----------------------------------------")
-//                    self.favTrademarks.append(trade)
-//                    self.trademarksTableView.reloadData()
-//                }
-//            }
-//        }
-//    }
 
+
+    func setupEmptyView(){
+        emptyView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        emptyView.addSubview(labelTitle)
+        emptyView.addSubview(emptyImg)
+        emptyImg.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+        emptyImg.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
+        labelTitle.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+        emptyImg.anchor(width: 150, height: 150)
+        labelTitle.anchor(top: emptyImg.bottomAnchor, paddingTop: 20)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DscriptionViewController, segue.identifier == "toTrademark" {
@@ -99,6 +111,18 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "toTrademark", sender: favTrademarks[indexPath.row])
+    }
+
+    func getFavourites(){
+//        self.favTrademarks = []
+        ref.child("Users/\(uid!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: { snapshot in
+            let dictionary = snapshot.value as! NSDictionary
+            var keys =  [String: Any]()
+            for i in dictionary {
+                keys["Name"] = i.value as! String
+//                self.favTrademarks = Trademarks
+            }
+        })
     }
 
     
