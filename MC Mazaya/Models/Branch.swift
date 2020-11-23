@@ -10,14 +10,18 @@ import Foundation
 
 
 struct Branch {
-    var BranchLink : String?
-    var BrancheName : String?
-    var DescriptionBranch : String?
+    var branchName: String?
+    var description: String?
+    var latitude : String?
+    var longitude : String?
+    var region: String?
     
-    init(BranchLink : String? , BrancheName : String?, DescriptionBranch : String? ) {
-        self.BranchLink = BranchLink
-        self.BrancheName = BrancheName
-        self.DescriptionBranch = DescriptionBranch
+    init(branchName : String? , description : String?, latitude : String?, longitude: String?, region: String?) {
+        self.branchName = branchName
+        self.description = description
+        self.latitude = latitude
+        self.longitude = longitude
+        self.region = region
     }
     
 }

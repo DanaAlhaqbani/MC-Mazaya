@@ -16,4 +16,6 @@ struct userData {
     static var phone = ""
     static var points = ""
     static var family = [String]()
+    static var region = "الكل"
+    static var userType = ""
 }

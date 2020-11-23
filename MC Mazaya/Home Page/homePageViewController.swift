@@ -17,14 +17,12 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     //MARK: - Constants
     let user = Auth.auth().currentUser
     let green = UIColor(rgb: 0x38a089)
-    let firstInitailizer = launchViewController()
+//    let firstInitailizer = launchViewController()
     var searchBar : UISearchController!
     var searchbar = UISearchBar()
-    var categoriesCopy = [Category]()
     var isFavourite = false
     //MARK: - Vars
     var ref: DatabaseReference?
-    var favRef = Database.database().reference()
     var handle: DatabaseHandle?
     var SideMenu: SideMenuNavigationController?
     var rightBarButtonItem = UIBarButtonItem()
@@ -43,8 +41,6 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var filteredCategoriesName = [String]()
     var filterVC = filterViewController()
     var sortByString : String?
-    var serviceTypeString : String?
-    var filteredByServiceType = [Trademark]()
     var favDictionary : NSDictionary = [:]
     var favouriteTrades = [Trademark]()
     var categoriesCollection : categoriesCollectionView?
@@ -53,6 +49,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var featuredTradeMarks = [Trademark]()
     var banners = [Banner]()
     var bannerView : bannerContainer?
+    var trademarksIDs = [String]()
+    var filteredTrademarks = [Trademark]()
+
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
@@ -64,22 +63,17 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         handleDelegates()
         dataUser()
         setUpUI()
-        getFeaturedTrademarks()
+        getCategories()
         self.navigationItem.titleView = searchBar.searchBar
         filterVC.delegate = self
-//        print("Banners number = \(banners.count)")
-
         navigationController?.navigationBar.tintColor = UIColor(rgb: 0x1C9A8A)
         navigationController?.delegate = self
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
-//        navigationController?.configureNavigationBar(largeTitleColor: UIColor.white, backgoundColor: UIColor(rgb: 0x1C9A8A), tintColor: .white, title: "الرئيسية", preferredLargeTitle: false)
-        
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        getFav()
 //        setupSearchTextField()
     }
     override func viewDidLayoutSubviews() {
@@ -113,8 +107,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
         //$0.distribution = .fillEqually
+        let green = UIColor(rgb: 0x38a089)
         $0.spacing = 10
-        $0.backgroundColor = .blue
+        $0.backgroundColor = green
         return $0
     }(UIStackView())
     
@@ -215,7 +210,6 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
             self.present(vc, animated: true, completion: nil)
         }
-        
     }
 
     //MARK:- Table View delegate and datasource
@@ -223,31 +217,21 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         if self.Categories.count > 0 {
             return Categories.count + 1
         } else {
-            return 2
+            return 3
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell") as! CollectionviewTableCell
+        if Categories.count != 0 {
         if indexPath.row == 0 {
+            filterFeaturedTrademarks()
             cell.nameLabel.text = "مميز"
             let featured = self.featuredTradeMarks
             cell.Trades = featured
             cell.delegate = self
             cell.setUpDataSource()
         } else {
-        if selectedRegion != nil {
-            if selectedRegion == "الكل" {
-                self.Categories = self.categoriesCopy
-                cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
-                print()
-                print("Hello")
-            } else {
-                getTrademarksOfSelectedRegion(index: indexPath)
-//                print(selectedRegion as Any)
-            }
-            print("\(cell.Trades)")
-        }
         self.Categories = self.Categories.sorted {
             guard let first = $0.Name else {
                 return false
@@ -257,64 +241,14 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             }
             return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
         } // End of sorting result
-
-        if sortByString != nil && serviceTypeString != nil {
-            if sortByString == "الأكثر مشاهدة" {
-                getFilteredByServiceTypeTradeMarks(index: indexPath)
-                cell.sortedBy = self.sortByString!
-                cell.Trades = filteredByServiceType
-                cell.setUpDataSource()
-                cell.delegate = self
-            } else if sortByString == "مميز" {
-                getFilteredByServiceTypeTradeMarks(index: indexPath)
-                cell.Trades = filteredByServiceType
-                cell.sortedBy = self.sortByString!
-                cell.Trades = filteredByServiceType
-                cell.setUpDataSource()
-                cell.delegate = self
-            } else if sortByString == "قريب مني" {
-                getFilteredByServiceTypeTradeMarks(index: indexPath)
-                cell.Trades = filteredByServiceType
-                cell.sortedBy = self.sortByString!
-                cell.Trades = filteredByServiceType
-                cell.setUpDataSource()
-                cell.delegate = self
-            }
-        } else if sortByString != nil && serviceTypeString == nil {
-            if sortByString == "الأكثر مشاهدة" {
-                cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
-                cell.sortedBy = self.sortByString!
-                cell.setUpDataSource()
-                cell.delegate = self
-            } else if sortByString == "مميز" {
-                cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
-                cell.sortedBy = self.sortByString!
-                cell.setUpDataSource()
-                cell.delegate = self
-            } else if sortByString == "قريب مني" {
-                cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
-                cell.sortedBy = self.sortByString!
-                cell.setUpDataSource()
-                cell.delegate = self
-            }
-            
-        } else if serviceTypeString != nil && sortByString == nil {
-            getFilteredByServiceTypeTradeMarks(index: indexPath)
-            cell.Trades = filteredByServiceType
-            cell.setUpDataSource()
+            filterTrademarks(indexPath)
+            cell.nameLabel.text = self.Categories[indexPath.row - 1].Name
+            cell.catId = self.Categories[indexPath.row - 1].Name!
+            cell.category = self.Categories[indexPath.row - 1]
+            cell.Trades = filteredTrademarks
             cell.delegate = self
-        } else if serviceTypeString == nil && sortByString == nil {
-            cell.Trades = self.Categories[indexPath.row - 1].trademarks ?? []
-            cell.sortedBy = nil
             cell.setUpDataSource()
-            cell.delegate = self
-        }
-            
-//        cell.ima
-        cell.nameLabel.text = self.Categories[indexPath.row - 1].Name
-        cell.catId = self.Categories[indexPath.row - 1].key!
-        cell.delegate = self
-        cell.setUpDataSource()
+            }
         }
         return cell
     }
@@ -325,25 +259,33 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     
     func dataUser () {
         ref = Database.database().reference()
-        handle = ref?.child("Users").child((user?.uid)!).child("Name").observe(.value, with: { (snapshot) in
+        handle = ref?.child("Users").child((user?.uid)!).child("name").observe(.value, with: { (snapshot) in
             let currentName = snapshot.value as? String
             userData.name = currentName!
         })
-        handle = ref?.child("Users").child((user?.uid)!).child("Email").observe(.value, with: { (snapshot) in
+        handle = ref?.child("Users").child((user?.uid)!).child("email").observe(.value, with: { (snapshot) in
             let currentEmail = snapshot.value as? String
             userData.email  = currentEmail!
         })
-        handle = ref?.child("Users").child((user?.uid)!).child("Gender").observe(.value, with: { (snapshot) in
+        handle = ref?.child("Users").child((user?.uid)!).child("gender").observe(.value, with: { (snapshot) in
             let currentGender = snapshot.value as? String
             userData.gender  = currentGender!
         })
-        handle = ref?.child("Users").child((user?.uid)!).child("Phone").observe(.value, with: { (snapshot) in
+        handle = ref?.child("Users").child((user?.uid)!).child("phone").observe(.value, with: { (snapshot) in
             let currentPhone = snapshot.value as? String
             userData.phone = currentPhone!
         })
-        handle = ref?.child("Users").child((user?.uid)!).child("Points").observe(.value, with: { (snapshot) in
+        handle = ref?.child("Users").child((user?.uid)!).child("points").observe(.value, with: { (snapshot) in
             let currentPoints = snapshot.value as? String
              userData.points = currentPoints!
+        })
+        handle = ref?.child("Users").child((user?.uid)!).child("region").observe(.value, with: { (snapshot) in
+            let currentRegion = snapshot.value as? String
+             userData.region = currentRegion!
+        })
+        handle = ref?.child("Users").child((user?.uid)!).child("userType").observe(.value, with: { (snapshot) in
+            let currentuserType = snapshot.value as? String
+             userData.userType = currentuserType!
         })
     }
     
@@ -352,36 +294,37 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     //MARK: - Segue preparation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tradeInfo" {
-            let dis = segue.destination as! DscriptionViewController
+            let dis = segue.destination as! detailsViewController
             dis.tradeInfo = sender as? Trademark
-            if self.favouriteTrades.contains(where: {$0.BrandName == dis.tradeInfo.BrandName}){
-                dis.tradeInfo.isFav = true
-            } else {
-                dis.tradeInfo.isFav = false
-            }
+//            if self.favouriteTrades.contains(where: {$0.BrandName == dis.tradeInfo.BrandName}){
+//                dis.tradeInfo.isFav = true
+//            } else {
+////                dis.tradeInfo.isFav = false
+//            }
             print(favDictionary)
         } // Show Description Segue
         if segue.identifier == "trademarks" {
                 let dis = segue.destination as! TrademarkTableVC
                 dis.trades = sender as? [Trademark] ?? []
+                
         } // Show Trademarks Segue
         if segue.identifier == "filter" {
             let dis = segue.destination as! UINavigationController
             let filterVC = dis.viewControllers[0] as! filterViewController
-            filterVC.Categories = self.categoriesCopy
+//            filterVC.Categories = self.categoriesCopy
             filterVC.selectedSortByString = nil
             filterVC.selectedServiceString = nil
             filterVC.dismissHandler = {
                 if filterVC.selectedChecker == false {
-                    self.Categories = self.categoriesCopy
+//                    self.Categories = self.categoriesCopy
                     self.Categories = filterVC.passedCategories
                     self.sortByString = filterVC.selectedSortByString
-                    self.serviceTypeString = filterVC.selectedServiceString
+//                    self.serviceTypeString = filterVC.selectedServiceString
                     self.tbleList.reloadData()
                 } else {
-                    self.Categories = self.categoriesCopy
+//                    self.Categories = self.categoriesCopy
                     self.sortByString = nil
-                    self.serviceTypeString = nil
+//                    self.serviceTypeString = nil
                     self.tbleList.reloadData()
                 }
                 self.tbleList.reloadData()
@@ -404,13 +347,15 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                   dis.Trades = self.Trades
              } // Show new offers Segue
         if let des = segue.destination as? categoriesCollectionView, segue.identifier == "categoriesCollection" {
-            des.categories = self.categoriesCopy
-            self.categoriesCollection = des
+//            des.categories = self.Categories
+//            des.trademarks = Trades
+//            des.cate
+            
+//            self.categoriesCollection = des
         }
         if segue.identifier == "toRegion" {
             let des = segue.destination as! RegionVC
             des.selectedRegion = nil
-            des.categories = self.categoriesCopy
             des.dismissHandler = {
                 self.selectedRegion = des.selectedRegion
                 print(self.selectedRegion!)
@@ -421,7 +366,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         if segue.identifier == "toCategory" {
             let des = segue.destination as! TrademarkTableVC
             let sender = sender as! Category
-            des.trades = sender.trademarks ?? []
+            des.category = sender
         //
         }
         if let des = segue.destination as? bannerContainer , segue.identifier == "bannerContainer" {
@@ -436,81 +381,6 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         }
 
     }// Prepare Function
-
-    //MARK: - Handling Filtered Trademarks
-    func getFilteredByServiceTypeTradeMarks(index : IndexPath) {
-        self.filteredByServiceType = []
-        let trades = Categories[index.row - 1].trademarks!
-        for trade in trades {
-            let offers = trade.offers!
-            for offer in offers {
-                if offer.serviceType == self.serviceTypeString {
-                    if !self.filteredByServiceType.contains(where: {$0.BrandName == trade.BrandName}) {
-                        self.filteredByServiceType.append(trade)
-                    } // Ensure not duplicate trademarks
-                } // Add offer if it's selected
-            } // Iterate over offers
-        } // iterate over trademarks
-    } // Get filtered by service type trademarks function
-    
-    //MARK: -Handle Favourite Trademarks
-    func getAllTrades(){
-        self.favouriteTrades = []
-        for category in Categories {
-            let trades = category.trademarks!
-            for trade in trades {
-                for i in favDictionary {
-                    if trade.BrandName == i.value as? String {
-                        var t = trade
-                        t.isFav = true
-                        self.favouriteTrades.append(t)
-                    }
-                }
-            }
-        }
-    }
-    
-    func getFav(){
-        self.favouriteTrades = []
-        let uid = user?.uid
-        self.favRef.child("Users/\(uid!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: {(snap) in
-        if let trades = snap.value as? NSDictionary{
-            self.favDictionary = trades
-            self.getAllTrades()
-            } // Ensure that favourite is existing
-        })  // Observing favourite trademarks
-    } // Retrieve favourite trademarks
-    
-    
-    //MARK: - Handle filtered Region
-    func getTrademarksOfSelectedRegion(index: IndexPath){
-        var filteredTrades = [Trademark]()
-        for category in Categories {
-            let trades = category.trademarks!
-            for trade in trades {
-                let region = trade.regions ?? []
-                if region.contains(self.selectedRegion!)  {
-                    filteredTrades.append(trade)
-                }
-            }
-        }
-        Categories[index.row - 1].trademarks = filteredTrades
-    }
-    
-    func getFeaturedTrademarks(){
-        self.featuredTradeMarks = []
-        for category in Categories {
-            let trades = category.trademarks!
-            for trade in trades {
-                if trade.isFeatured == true {
-                    self.featuredTradeMarks.append(trade)
-                    print("featuredTradeMarks count = \n \(featuredTradeMarks.count)")
-                }
-            }
-        }
-    }
-    
-
     
 }
 

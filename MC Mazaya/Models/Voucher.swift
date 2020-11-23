@@ -7,21 +7,31 @@
 //
 
 import Foundation
+
 struct Voucher {
-    var BrandImage : String?
-    var BrandName : String?
-    var Vouchertitle : String?
-    var VoucherCode : String?
-    var voucherNum : Int?
-    var voucherDes : String?
-    
-    init(BrandImage : String? , BrandName : String?, Vouchertitle : String?, VoucherCode : String? , voucherNum : Int?, voucherDes : String?) {
-        self.BrandImage = BrandImage
-        self.BrandName = BrandName
-        self.Vouchertitle = Vouchertitle
-        self.VoucherCode = VoucherCode
-        self.voucherNum = voucherNum
-        self.voucherDes = voucherDes
+    var offerTitle: String?
+    var offerDetails: String?
+    var voucherCode: String?
+    var numberOfCoupons: String?
+    var numberOfPoints: String?
+    var serviceType: String?
+    var startDate: String?
+    var endDate: String?
+    var trademarkID: String?
+    var branches: [String]?
+
+    init(offerTitle: String?, offerDetails: String?, voucherCode: String?, numberOfCoupons: String?, numberOfPoints: String?, serviceType: String?, startDate: String?, endDate: String?, trademarkID: String?, branches: [String]?) {
+        self.offerTitle = offerTitle
+        self.offerDetails = offerDetails
+        self.voucherCode = voucherCode
+        self.numberOfCoupons = numberOfCoupons
+        self.numberOfPoints = numberOfPoints
+        self.serviceType = serviceType
+        self.startDate = startDate
+        self.endDate = endDate
+        self.trademarkID = trademarkID
+        self.branches = branches
+
     }
     
 }

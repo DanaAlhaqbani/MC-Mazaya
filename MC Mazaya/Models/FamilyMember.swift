@@ -9,35 +9,21 @@
 import Foundation
 
 class FamilyMemebr{
-
-    var Phone : String?
-    var Status : String?
-    var key: String?
-
+    
+    var employeeID : String?
+    var phone : String?
+    var name: String?
+    var status: String?
+    var userID: String?
   
-    init(Phone: String?, Status: String?, key: String?){
-        self.Phone = Phone
-        self.Status = Status
-        self.key = key
-        
+    init(employeeID: String?, phone: String?, name: String?, status: String?, userID: String?){
+        self.employeeID = employeeID
+        self.phone = phone
+        self.name = name
+        self.status = status
+        self.userID = userID
     }
 }
 
-/*
- import Foundation
- class fMember {
-  
-  var number: String?
-  var status: String?
- var id: String?
-  
-  init(number: String?, status: String?, id: String?){
-      self.number = number
-      self.status = status
-      self.id = id
-      
-  }
- }
 
- */
  

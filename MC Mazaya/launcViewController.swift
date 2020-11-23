@@ -74,7 +74,8 @@ class launchViewController: UIViewController {
         UIView.animate(withDuration: 1.5, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.4, options: .curveEaseIn, animations: {
             self.logoImage.transform = .identity
             self.titleImage.transform = .identity
-        }) { (true) in
+        })
+        { (true) in
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.nothing), userInfo: nil, repeats: false)
             }
         DispatchQueue.main.async {
@@ -85,47 +86,49 @@ class launchViewController: UIViewController {
     
     //MARK: - Loading Launch screen & luanch the app
     @objc func nothing() {
-        aView = UIView(frame: self.view.bounds)
-        aView?.backgroundColor = .white
-        ai.center = aView!.center
-        ai.color = .black
-        ai.startAnimating()
-        aView?.addSubview(ai)
-        self.view.addSubview(aView!)
-        self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.showReloadButton), userInfo: nil, repeats: false)
+//        aView = UIView(frame: self.view.bounds)
+//        aView?.backgroundColor = .white
+//        ai.center = aView!.center
+//        ai.color = .black
+//        ai.startAnimating()
+//        aView?.addSubview(ai)
+//        self.view.addSubview(aView!)
+//        self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.showReloadButton), userInfo: nil, repeats: false)
         }
     
-    @objc func showReloadButton(){
-        bView = UIView(frame: self.view.bounds)
-        bView.backgroundColor = .white
-        reloadButton.setImage(UIImage(named: "reload"), for: .normal)
-        reloadButton.setImage(UIImage(named: "pressedReload"), for: .highlighted)
-        reloadLabel.text = "تحقق من اتصالك بالإنترنت"
-        reloadLabel.textColor = UIColor(rgb: 0x38a089)
-        reloadLabel.font = UIFont(name: "stc", size: 20.0)
-        reloadButton.frame.size.width = 30
-        reloadButton.frame.size.height = 30
-        reloadButton.center = self.bView.center
-        reloadLabel.center.y = self.bView.center.y - 40
-        reloadLabel.sizeToFit()
-        reloadLabel.center.x = UIScreen.main.bounds.size.width * 0.5
-        reloadLabel.numberOfLines = 0
-        bView.addSubview(reloadLabel)
-        bView.addSubview(reloadButton)
-        reloadButton.addTarget(self, action: #selector(self.reloadCategories), for: .touchUpInside)
-        getCategories()
-        self.view.addSubview(bView)
-    }
+//    @objc func showReloadButton(){
+//        bView = UIView(frame: self.view.bounds)
+//        bView.backgroundColor = .white
+//        reloadButton.setImage(UIImage(named: "reload"), for: .normal)
+//        reloadButton.setImage(UIImage(named: "pressedReload"), for: .highlighted)
+//        reloadLabel.text = "تحقق من اتصالك بالإنترنت"
+//        reloadLabel.textColor = UIColor(rgb: 0x38a089)
+//        reloadLabel.font = UIFont(name: "stc", size: 20.0)
+//        reloadButton.frame.size.width = 30
+//        reloadButton.frame.size.height = 30
+//        reloadButton.center = self.bView.center
+//        reloadLabel.center.y = self.bView.center.y - 40
+//        reloadLabel.sizeToFit()
+//        reloadLabel.center.x = UIScreen.main.bounds.size.width * 0.5
+//        reloadLabel.numberOfLines = 0
+////        bView.addSubview(reloadLabel)
+////        bView.addSubview(reloadButton)
+////        reloadButton.addTarget(self, action: #selector(self.reloadCategories), for: .touchUpInside)
+////        getCategories()
+////        self.view.addSubview(bView)
+//    }
     
-    @objc func reloadCategories(){
-        bView.addSubview(ai)
-        reloadButton.setImage(UIImage(named: "whiteBG"), for: .normal)
-        reloadLabel.text = " "
-        showApp()
-        self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(showReloadButton), userInfo: nil, repeats: false)
-    }
+//    @objc func reloadCategories(){
+//        bView.addSubview(ai)
+//        reloadButton.setImage(UIImage(named: "whiteBG"), for: .normal)
+//        reloadLabel.text = " "
+//        showApp()
+//        self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(showReloadButton), userInfo: nil, repeats: false)
+//    }
        
     @objc func showApp() {
+//        self.moveToLoginViewController()
+
         self.authenticateUserAndConfigureView()
     }
        
@@ -158,32 +161,32 @@ class launchViewController: UIViewController {
     
     //MARK: -Direct user based on type
     func authenticateUserAndConfigureView(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-        if Auth.auth().currentUser?.email == "mazaya@mc.gov.sa" {
-            // User logged as Admin
-            self.moveToAdminViewController()
-        }
-        else if Auth.auth().currentUser?.uid != nil {
-            // User logged as employee or family member
-//            self.retrieveBanners()
-            self.getCategories()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+//        if Auth.auth().currentUser?.email == "mazaya@mc.gov.sa" {
+//            // User logged as Admin
+//            self.moveToAdminViewController()
+//        }
+        if Auth.auth().currentUser?.uid != nil {
+            self.moveToTheTabBarViewController ()
+
         } else {
         //user is not logged in
             self.moveToLoginViewController()
         }
-        })
+//    })
     }
+
     
-    func moveToAdminViewController () {
-        if let storyboard = self.storyboard{
-            let AdminHomeVC = storyboard.instantiateViewController(withIdentifier: "adminHome")
-            // home page
-            //let userNavViewController = AdminHomeViewController?.viewControllers![1] as? UINavigationController
-            // let userHomeViewController = userNavViewController?.viewControllers[0] as? homeViewController
-            self.view.window?.rootViewController = AdminHomeVC
-            self.view.window?.makeKeyAndVisible()
-        }
-    }
+//    func moveToAdminViewController () {
+//        if let storyboard = self.storyboard{
+//            let AdminHomeVC = storyboard.instantiateViewController(withIdentifier: "adminHome")
+//            // home page
+//            //let userNavViewController = AdminHomeViewController?.viewControllers![1] as? UINavigationController
+//            // let userHomeViewController = userNavViewController?.viewControllers[0] as? homeViewController
+//            self.view.window?.rootViewController = AdminHomeVC
+//            self.view.window?.makeKeyAndVisible()
+//        }
+//    }
     
     
     func moveToTheTabBarViewController () {
@@ -196,7 +199,7 @@ class launchViewController: UIViewController {
 //        getFeaturedTrademarks()
         bigOffers.Categories = self.Categories
         lastView.Categories = self.Categories
-        lastView.categoriesCopy = self.categoriesCopy
+//        lastView.categoriesCopy = self.categoriesCopy
         lastView.Trades = self.trades2
 //        lastView.banners = self.banners
         self.view.window?.rootViewController = homeViewController
@@ -236,78 +239,78 @@ extension launchViewController {
     }
        
     //Get Categories & store trademarks info
-    func getCategories(){
-        self.Categories = []
-        self.key1 = [Any]()
-        self.tradeInfo = [:]
-        self.key2 = [:]
-        self.trades = [:]
-        self.trades2 = []
-        let catRef = Database.database().reference()
-        catRef.child("Categories").observeSingleEvent(of: .value, with: { (snap) in
-            if let dict = snap.value as? [String : AnyObject] {
-                self.cat = dict as NSDictionary
-                for item in dict {
-                    self.key1.append(item.key)
-                }
-                for c in self.key1 {
-                    self.trades = [:]
-                    self.trades2 = []
-                    self.key2 = self.cat[c] as! NSDictionary
-                    self.catID.append(c)
-                    self.trades = self.key2["TradeMarks"] as? [String: AnyObject]
-                    if self.trades != nil {
-                        self.converTrades()
-                    }
-                self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades2)
-                self.Categories.append(self.category)
-                self.categoriesCopy.append(self.category)
-                }
-            }
-            self.deleagte?.reloadTable()
-            self.deleagte?.retrievedCategories(myData: self.Categories)
-            self.deleagte?.retrievedcopyCategories(myData: self.categoriesCopy)
-            self.moveToTheTabBarViewController()
-        })
-    } // End of get Categories
-        
-    func convertOffers(tradeInfo: NSDictionary){
-        self.arrayOffers = []
-        self.offersDict = [:]
-        self.offers = []
-        self.arrayOffers = tradeInfo["Offers"] as? NSArray
-        if arrayOffers != nil {
-            for i in arrayOffers {
-                offersDict = i as! [String : Any]
-                self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["NumberOfCoupons"] as? String, numberOfPoints: self.offersDict["NumberOfPoints"] as? String, offerType: self.offersDict["OfferType"] as? String, offerDiscription: self.offersDict["OffersDescription"] as? String, offersDetails: self.offersDict["OffersDetails"] as? String, offerTitle: self.offersDict["OffersTitle"] as? String, serviceType: self.offersDict["ServiceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String, offerNum: self.offersDict["offerNum"] as? Int)
-                self.offers.append(self.offer)
-            }
-        }
-    } // End of add Offers
+//    func getCategories(){
+//        self.Categories = []
+//        self.key1 = [Any]()
+//        self.tradeInfo = [:]
+//        self.key2 = [:]
+//        self.trades = [:]
+//        self.trades2 = []
+//        let catRef = Database.database().reference()
+//        catRef.child("Categories").observeSingleEvent(of: .value, with: { (snap) in
+//            if let dict = snap.value as? [String : AnyObject] {
+//                self.cat = dict as NSDictionary
+//                for item in dict {
+//                    self.key1.append(item.key)
+//                }
+//                for c in self.key1 {
+//                    self.trades = [:]
+//                    self.trades2 = []
+//                    self.key2 = self.cat[c] as! NSDictionary
+//                    self.catID.append(c)
+//                    self.trades = self.key2["TradeMarks"] as? [String: AnyObject]
+//                    if self.trades != nil {
+//                        self.converTrades()
+//                    }
+//                self.category = Category(Name: self.key2["Name"] as? String, key: c as? String, trademarks: self.trades2)
+//                self.Categories.append(self.category)
+//                self.categoriesCopy.append(self.category)
+//                }
+//            }
+//            self.deleagte?.reloadTable()
+//            self.deleagte?.retrievedCategories(myData: self.Categories)
+//            self.deleagte?.retrievedcopyCategories(myData: self.categoriesCopy)
+////            self.moveToTheTabBarViewController()
+//        })
+//    } // End of get Categories
 
-    func convertBranches(tradeInfo: NSDictionary){
-        self.arrayBranches = []
-        self.branchDict = [:]
-        self.branches = []
-        self.arrayBranches = tradeInfo["Branches"] as? NSArray
-        if arrayBranches != nil {
-            for i in arrayBranches {
-                branchDict = i as! [String : Any]
-                self.branch = Branch(BranchLink: self.branchDict["BranchLink"] as? String, BrancheName: self.branchDict["BrancheName"] as? String, DescriptionBranch: self.branchDict["DescriptionBranch"] as? String)
-                    self.branches.append(self.branch)
-            }
-        }
-    } // End of Add Branches
+//    func convertOffers(tradeInfo: NSDictionary){
+//        self.arrayOffers = []
+//        self.offersDict = [:]
+//        self.offers = []
+//        self.arrayOffers = tradeInfo["Offers"] as? NSArray
+//        if arrayOffers != nil {
+//            for i in arrayOffers {
+//                offersDict = i as! [String : Any]
+//                self.offer = Offer(discountCode: self.offersDict["DiscountCode"] as? String, numberOfCoupons: self.offersDict["NumberOfCoupons"] as? String, numberOfPoints: self.offersDict["NumberOfPoints"] as? String, offerType: self.offersDict["OfferType"] as? String, offerDiscription: self.offersDict["OffersDescription"] as? String, offersDetails: self.offersDict["OffersDetails"] as? String, offerTitle: self.offersDict["OffersTitle"] as? String, serviceType: self.offersDict["ServiceType"] as? String, endDate: self.offersDict["endDate"] as? String, startDate: self.offersDict["startDate"] as? String, offerNum: self.offersDict["offerNum"] as? Int)
+//                self.offers.append(self.offer)
+//            }
+//        }
+//    } // End of add Offers
+
+//    func convertBranches(tradeInfo: NSDictionary){
+//        self.arrayBranches = []
+//        self.branchDict = [:]
+//        self.branches = []
+//        self.arrayBranches = tradeInfo["Branches"] as? NSArray
+//        if arrayBranches != nil {
+//            for i in arrayBranches {
+//                branchDict = i as! [String : Any]
+//                self.branch = Branch(BranchLink: self.branchDict["BranchLink"] as? String, BrancheName: self.branchDict["BrancheName"] as? String, DescriptionBranch: self.branchDict["DescriptionBranch"] as? String)
+//                    self.branches.append(self.branch)
+//            }
+//        }
+//    } // End of Add Branches
         
-    func converTrades(){
-        for i in self.trades.values {
-            self.tradeInfo = i as? NSDictionary
-            convertBranches(tradeInfo: self.tradeInfo)
-            convertOffers(tradeInfo: self.tradeInfo)
-       self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: self.tradeInfo?["Views"] as? Int, isFav: false, regions: tradeInfo?["Regions"] as? [String], isFeatured: tradeInfo?["isFeatured"] as? Bool ?? false, catID: self.tradeInfo?["cateID"] as? String, tradID: self.tradeInfo?["tradeKey"] as? String)
-                self.trades2.append(self.trade)
-        }
-    } // End of Add Trademarks
+//    func converTrades(){
+//        for i in self.trades.values {
+//            self.tradeInfo = i as? NSDictionary
+//            convertBranches(tradeInfo: self.tradeInfo)
+//            convertOffers(tradeInfo: self.tradeInfo)
+//       self.trade = Trademark(BrandName: self.tradeInfo?["BrandName"] as? String, num: self.tradeInfo?["Contact Number"] as? String, desc: self.tradeInfo?["Description"] as? String, email: self.tradeInfo?["Email"] as? String, fb: self.tradeInfo?["Facebook"] as? String, insta: self.tradeInfo["Instagram"] as? String, twit: self.tradeInfo?["Twitter"] as? String, web: self.tradeInfo?["WebURl"] as? String, image: self.tradeInfo?["BrandImage"] as? String, branches: self.branches, offers: self.offers, views: self.tradeInfo?["Views"] as? Int, isFav: false, regions: tradeInfo?["Regions"] as? [String], isFeatured: tradeInfo?["isFeatured"] as? Bool ?? false, catID: self.tradeInfo?["cateID"] as? String, tradID: self.tradeInfo?["tradeKey"] as? String)
+//                self.trades2.append(self.trade)
+//        }
+//    } // End of Add Trademarks
 
 //    func retrieveBanners(){
 //        self.banners = []

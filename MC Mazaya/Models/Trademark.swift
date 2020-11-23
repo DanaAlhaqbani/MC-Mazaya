@@ -9,45 +9,43 @@ import Foundation
 import UIKit
 struct Trademark {
 
-    var BrandName : String?
+    var trademarkName : String?
     var branches : [Branch]?
     var contactNum : String?
     var description : String?
     var email : String?
-    var facebook : String?
+    var snapchat : String?
     var instagram : String?
     var twitter : String?
-    var webUrl : String?
-    var brandImage : String?
-    var offers : [Offer]?
+    var website : String?
+    var imgURL : String?
+    var backgroundImg : String?
+    var offers : [String]?
     var views : Int?
-    var isFav : Bool?
-    var regions : [String]?
     var isFeatured : Bool?
-    var catID : String?
-    var tradID : String?
+    var category : String?
+    var tradmarkID : String?
     init() {
         
     }
     
-    public init(BrandName: String?, num: String?, desc: String?, email: String?, fb: String?, insta: String?, twit: String?, web: String?, image : String?, branches: [Branch]?, offers : [Offer]?, views: Int?, isFav : Bool?, regions: [String]?, isFeatured: Bool?, catID : String?, tradID : String?) {
-        self.BrandName = BrandName
+    public init(BrandName: String?, num: String?, desc: String?, email: String?, snapchat: String?, insta: String?, twit: String?, web: String?, imgURL : String?, backgroundImg: String?, branches: [Branch]?, offers : [String]?, views: Int?, isFeatured: Bool?, catID : String?, tradID : String? ) {
+        self.trademarkName = BrandName
         self.branches = branches
         self.contactNum = num
         self.description = desc
         self.email = email
-        self.facebook = fb
+        self.snapchat = snapchat
         self.instagram = insta
         self.twitter = twit
-        self.webUrl = web
-        self.brandImage = image
+        self.website = web
+        self.imgURL = imgURL
+        self.backgroundImg = backgroundImg
         self.offers = offers
         self.views = views
-        self.isFav = isFav
-        self.regions = regions
         self.isFeatured = isFeatured
-        self.catID = catID
-        self.tradID = tradID
+        self.category = catID
+        self.tradmarkID = tradID
     }
     
 }

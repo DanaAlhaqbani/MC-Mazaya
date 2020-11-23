@@ -9,29 +9,27 @@
 import Foundation
 
 struct Offer {
-    var DiscountCode : String?
-    var numberOfCoupons : String?
-    var numberOfPoints : String?
-    var offerType : String?
-    var offerDiscription : String?
+    var discountCode : String?
     var offersDetails : String?
     var offerTitle : String?
     var serviceType : String?
     var endDate : String?
     var startDate : String?
-    var offerNum : Int?
-    
-    init(discountCode : String?, numberOfCoupons : String?, numberOfPoints : String?, offerType : String?, offerDiscription : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?, offerNum : Int?) {
-        self.DiscountCode = discountCode
-        self.numberOfCoupons = numberOfCoupons
-        self.numberOfPoints = numberOfPoints
-        self.offerType = offerType
-        self.offerDiscription = offerDiscription
+    var trademarkID: String?
+    var userType: String?
+    var usageType : String?
+    var branches : [String]?
+
+    init(discountCode : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?, trademarkID: String?, userType: String?, usageType: String?, branches: [String]?) {
+        self.discountCode = discountCode
         self.offersDetails = offersDetails
         self.offerTitle = offerTitle
         self.serviceType = serviceType
         self.endDate = endDate
         self.startDate = startDate
-        self.offerNum = offerNum
+        self.trademarkID = trademarkID
+        self.userType = userType
+        self.usageType = usageType
+        self.branches = branches
     }
 }

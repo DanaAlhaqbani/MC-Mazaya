@@ -13,12 +13,11 @@ struct Category {
     
     
     var Name : String?
-    var key: String?
-    var trademarks : [Trademark]?
+    var trademarks : [String]?
+    // Array of strings
     
-    public init(Name : String?, key : String?, trademarks: [Trademark]?) {
+    public init(Name : String?, trademarks: [String]?) {
         self.Name = Name
-        self.key = key
         self.trademarks = trademarks
     }
     
