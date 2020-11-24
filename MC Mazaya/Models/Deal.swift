@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Deals {
+struct Deal {
     var discountCode : String?
     var offersDetails : String?
     var offerTitle : String?

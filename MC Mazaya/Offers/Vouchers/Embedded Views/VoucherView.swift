@@ -139,10 +139,10 @@ for _ in 1...10{
                 couponsNum = couponsNum! - 1
                 let updatedNumOfCopons = String(couponsNum!)
                 print(updatedNumOfCopons)
-                let ref2 = Database.database().reference().child("Categories").child(Trade.category!).child("TradeMarks").child(Trade.tradmarkID!).child("Offers")
+                let ref2 = Database.database().reference().child("Categories").child(Trade.category!).child("TradeMarks").child(Trade.trademarkID!).child("Offers")
                 ref2.child(String(voucherNum)).updateChildValues(["NumberOfCoupons" : updatedNumOfCopons])
                 print(Trade.category!)
-                print(Trade.tradmarkID!)
+                print(Trade.trademarkID!)
                 print(voucherNS)
                 print("Descreased copouns")
                 // Decrease user points

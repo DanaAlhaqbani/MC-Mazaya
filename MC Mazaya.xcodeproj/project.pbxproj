@@ -38,24 +38,17 @@
 		D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B3249F3037001851A9 /* Assets.xcassets */; };
 		D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641E9B5249F3037001851A9 /* LaunchScreen.storyboard */; };
 		D6521A4924F4F62A00382FFD /* Trademark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6521A4824F4F62A00382FFD /* Trademark.swift */; };
-		D6521A4B24F5215D00382FFD /* AdminTrademarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6521A4A24F5215D00382FFD /* AdminTrademarksViewController.swift */; };
 		D65880C22508B22D00BE29F9 /* TrademarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65880C12508B22D00BE29F9 /* TrademarkCell.swift */; };
 		D65880C42508B29A00BE29F9 /* TrademarkTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65880C32508B29A00BE29F9 /* TrademarkTableVC.swift */; };
 		D65DA8C624C48C5F00092918 /* CustomCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65DA8C324C4366300092918 /* CustomCells.xib */; };
 		D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */; };
 		D68B0E2D255015760033BEB5 /* VoucherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E27255015750033BEB5 /* VoucherView.swift */; };
 		D68B0E2E255015760033BEB5 /* VouchersBranches.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E28255015750033BEB5 /* VouchersBranches.swift */; };
-		D68B0E2F255015760033BEB5 /* VoucherDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E29255015750033BEB5 /* VoucherDetails.swift */; };
+		D68B0E2F255015760033BEB5 /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E29255015750033BEB5 /* VoucherViewController.swift */; };
 		D68B0E30255015760033BEB5 /* VoucherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E2A255015760033BEB5 /* VoucherInfo.swift */; };
 		D68B0E31255015760033BEB5 /* VouchersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E2B255015760033BEB5 /* VouchersViewController.swift */; };
-		D68B0E32255015760033BEB5 /* VoucherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E2C255015760033BEB5 /* VoucherDetailsVC.swift */; };
+		D68B0E32255015760033BEB5 /* SingleVoucherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B0E2C255015760033BEB5 /* SingleVoucherDetailsVC.swift */; };
 		D6979632250E4320006439BD /* BigOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6979631250E4320006439BD /* BigOffersViewController.swift */; };
-		D6A8F38A24F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38924F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift */; };
-		D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38B24F3C029007DDBDB /* AdminRegionsViewController.swift */; };
-		D6A8F38E24F3C07E007DDBDB /* employeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38D24F3C07E007DDBDB /* employeesViewController.swift */; };
-		D6A8F39024F3C099007DDBDB /* EndOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F38F24F3C099007DDBDB /* EndOffersViewController.swift */; };
-		D6A8F39224F3C15D007DDBDB /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8F39124F3C15D007DDBDB /* AdminHomeViewController.swift */; };
-		D6D029FE250779EB0016F1AF /* AdminTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D029FD250779EB0016F1AF /* AdminTabBar.swift */; };
 		D6D150E624BC6D9C00547B97 /* textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D150E524BC6D9C00547B97 /* textField.swift */; };
 		D6D44CCE24A8773E00FAAFAF /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CCD24A8773E00FAAFAF /* XUI.swift */; };
 		D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */; };
@@ -101,14 +94,14 @@
 		E7784CC12518FFB60020BDB0 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CC02518FFB60020BDB0 /* userData.swift */; };
 		E7784CCC251A0A570020BDB0 /* singleTrademarkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7784CCA251A0A570020BDB0 /* singleTrademarkResult.swift */; };
 		E7784CCD251A0A570020BDB0 /* singleTrademarkResult.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7784CCB251A0A570020BDB0 /* singleTrademarkResult.xib */; };
-		E7877584255BC5E50048616D /* singleVoucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7877583255BC5E50048616D /* singleVoucher.swift */; };
+		E7877584255BC5E50048616D /* usedVoucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7877583255BC5E50048616D /* usedVoucher.swift */; };
 		E78DAF86251A355B000FC30E /* searchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78DAF84251A355B000FC30E /* searchResultsCell.swift */; };
 		E78DAF87251A355B000FC30E /* searchResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E78DAF85251A355B000FC30E /* searchResultsCell.xib */; };
 		E78E48C6253739AB0035DE60 /* ProtocolsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78E48C5253739AB0035DE60 /* ProtocolsExtension.swift */; };
 		E78E48C8253739B80035DE60 /* SearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78E48C7253739B80035DE60 /* SearchBarExtension.swift */; };
 		E78E48CA25373A1A0035DE60 /* SideMenuExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78E48C925373A1A0035DE60 /* SideMenuExtension.swift */; };
 		E78E48CC25373A510035DE60 /* UISetupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78E48CB25373A510035DE60 /* UISetupExtension.swift */; };
-		E79A9AC1256B91250062008D /* Deals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A9AC0256B91250062008D /* Deals.swift */; };
+		E79A9AC1256B91250062008D /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A9AC0256B91250062008D /* Deal.swift */; };
 		E79A9AC4256B922A0062008D /* region.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A9AC3256B922A0062008D /* region.swift */; };
 		E79A9AC8256B9A470062008D /* detailsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A9AC7256B9A470062008D /* detailsExtensions.swift */; };
 		E79A9ACD256B9B1D0062008D /* detailsRetrievingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A9ACC256B9B1D0062008D /* detailsRetrievingFunctions.swift */; };
@@ -121,6 +114,7 @@
 		E7AEF979253C547300E83730 /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEF978253C547300E83730 /* RegionTableViewCell.swift */; };
 		E7D4E7182562B623001DF4EE /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D4E7172562B623001DF4EE /* ScannerViewController.swift */; };
 		E7D6D3A52553CED000811F87 /* gradientLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D6D3A42553CED000811F87 /* gradientLoading.swift */; };
+		E7DFF6A4256CE3DD00D11BFA /* VoucherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DFF6A3256CE3DD00D11BFA /* VoucherExtensions.swift */; };
 		E7FE49BA254803110023D6DE /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE49B9254803110023D6DE /* Banner.swift */; };
 /* End PBXBuildFile section */
 
@@ -161,24 +155,17 @@
 		D641E9B6249F3037001851A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D641E9B8249F3037001851A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6521A4824F4F62A00382FFD /* Trademark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trademark.swift; sourceTree = "<group>"; };
-		D6521A4A24F5215D00382FFD /* AdminTrademarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTrademarksViewController.swift; sourceTree = "<group>"; };
 		D65880C12508B22D00BE29F9 /* TrademarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrademarkCell.swift; sourceTree = "<group>"; };
 		D65880C32508B29A00BE29F9 /* TrademarkTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrademarkTableVC.swift; sourceTree = "<group>"; };
 		D65DA8C324C4366300092918 /* CustomCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCells.xib; sourceTree = "<group>"; };
 		D65DA8C924C5BB3200092918 /* FamilyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCollectionViewCell.swift; sourceTree = "<group>"; };
 		D68B0E27255015750033BEB5 /* VoucherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherView.swift; sourceTree = "<group>"; };
 		D68B0E28255015750033BEB5 /* VouchersBranches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VouchersBranches.swift; sourceTree = "<group>"; };
-		D68B0E29255015750033BEB5 /* VoucherDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherDetails.swift; sourceTree = "<group>"; };
+		D68B0E29255015750033BEB5 /* VoucherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
 		D68B0E2A255015760033BEB5 /* VoucherInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherInfo.swift; sourceTree = "<group>"; };
 		D68B0E2B255015760033BEB5 /* VouchersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VouchersViewController.swift; sourceTree = "<group>"; };
-		D68B0E2C255015760033BEB5 /* VoucherDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherDetailsVC.swift; sourceTree = "<group>"; };
+		D68B0E2C255015760033BEB5 /* SingleVoucherDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleVoucherDetailsVC.swift; sourceTree = "<group>"; };
 		D6979631250E4320006439BD /* BigOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigOffersViewController.swift; sourceTree = "<group>"; };
-		D6A8F38924F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSuggestionsViewController.swift; sourceTree = "<group>"; };
-		D6A8F38B24F3C029007DDBDB /* AdminRegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminRegionsViewController.swift; sourceTree = "<group>"; };
-		D6A8F38D24F3C07E007DDBDB /* employeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeesViewController.swift; sourceTree = "<group>"; };
-		D6A8F38F24F3C099007DDBDB /* EndOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOffersViewController.swift; sourceTree = "<group>"; };
-		D6A8F39124F3C15D007DDBDB /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
-		D6D029FD250779EB0016F1AF /* AdminTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTabBar.swift; sourceTree = "<group>"; };
 		D6D150E524BC6D9C00547B97 /* textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textField.swift; sourceTree = "<group>"; };
 		D6D44CCD24A8773E00FAAFAF /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
 		D6D44CD324A8992700FAAFAF /* ChangePassPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassPresenter.swift; sourceTree = "<group>"; };
@@ -224,14 +211,14 @@
 		E7784CC02518FFB60020BDB0 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		E7784CCA251A0A570020BDB0 /* singleTrademarkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleTrademarkResult.swift; sourceTree = "<group>"; };
 		E7784CCB251A0A570020BDB0 /* singleTrademarkResult.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = singleTrademarkResult.xib; sourceTree = "<group>"; };
-		E7877583255BC5E50048616D /* singleVoucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleVoucher.swift; sourceTree = "<group>"; };
+		E7877583255BC5E50048616D /* usedVoucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usedVoucher.swift; sourceTree = "<group>"; };
 		E78DAF84251A355B000FC30E /* searchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchResultsCell.swift; sourceTree = "<group>"; };
 		E78DAF85251A355B000FC30E /* searchResultsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = searchResultsCell.xib; sourceTree = "<group>"; };
 		E78E48C5253739AB0035DE60 /* ProtocolsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolsExtension.swift; sourceTree = "<group>"; };
 		E78E48C7253739B80035DE60 /* SearchBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarExtension.swift; sourceTree = "<group>"; };
 		E78E48C925373A1A0035DE60 /* SideMenuExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuExtension.swift; sourceTree = "<group>"; };
 		E78E48CB25373A510035DE60 /* UISetupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISetupExtension.swift; sourceTree = "<group>"; };
-		E79A9AC0256B91250062008D /* Deals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deals.swift; sourceTree = "<group>"; };
+		E79A9AC0256B91250062008D /* Deal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
 		E79A9AC3256B922A0062008D /* region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = region.swift; sourceTree = "<group>"; };
 		E79A9AC7256B9A470062008D /* detailsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsExtensions.swift; sourceTree = "<group>"; };
 		E79A9ACC256B9B1D0062008D /* detailsRetrievingFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsRetrievingFunctions.swift; sourceTree = "<group>"; };
@@ -244,6 +231,7 @@
 		E7AEF978253C547300E83730 /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		E7D4E7172562B623001DF4EE /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		E7D6D3A42553CED000811F87 /* gradientLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradientLoading.swift; sourceTree = "<group>"; };
+		E7DFF6A3256CE3DD00D11BFA /* VoucherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherExtensions.swift; sourceTree = "<group>"; };
 		E7FE49B9254803110023D6DE /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		FC89CF29850372E162B97828 /* Pods-MC Mazaya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.debug.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,7 +308,6 @@
 				E7DBA5892562565300FBB968 /* Trademarks */,
 				E7DBA5912562586000FBB968 /* Map */,
 				E7DBA5882562562A00FBB968 /* Profile */,
-				D6A8F38624F3BE3B007DDBDB /* Admin VC */,
 				E7784CBC2518FDC50020BDB0 /* launcViewController.swift */,
 				E7D4E7172562B623001DF4EE /* ScannerViewController.swift */,
 				D641E9AA249F3031001851A9 /* AppDelegate.swift */,
@@ -344,20 +331,6 @@
 				E7DBA581256254F500FBB968 /* Vouchers */,
 			);
 			path = Offers;
-			sourceTree = "<group>";
-		};
-		D6A8F38624F3BE3B007DDBDB /* Admin VC */ = {
-			isa = PBXGroup;
-			children = (
-				D6A8F38924F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift */,
-				D6A8F38B24F3C029007DDBDB /* AdminRegionsViewController.swift */,
-				D6A8F38D24F3C07E007DDBDB /* employeesViewController.swift */,
-				D6A8F38F24F3C099007DDBDB /* EndOffersViewController.swift */,
-				D6A8F39124F3C15D007DDBDB /* AdminHomeViewController.swift */,
-				D6521A4A24F5215D00382FFD /* AdminTrademarksViewController.swift */,
-				D6D029FD250779EB0016F1AF /* AdminTabBar.swift */,
-			);
-			path = "Admin VC";
 			sourceTree = "<group>";
 		};
 		D6D44CDB24A8BC3400FAAFAF /* fonts */ = {
@@ -411,7 +384,7 @@
 				E7ABDCFE251771F500B6C4B9 /* Branch.swift */,
 				E7ABDCFC2517710B00B6C4B9 /* Offer.swift */,
 				D6F9BB6C255D0ECF00A12A88 /* Voucher.swift */,
-				E79A9AC0256B91250062008D /* Deals.swift */,
+				E79A9AC0256B91250062008D /* Deal.swift */,
 				E7FE49B9254803110023D6DE /* Banner.swift */,
 				E79A9AC3256B922A0062008D /* region.swift */,
 			);
@@ -492,13 +465,12 @@
 		E7DBA581256254F500FBB968 /* Vouchers */ = {
 			isa = PBXGroup;
 			children = (
-				D68B0E29255015750033BEB5 /* VoucherDetails.swift */,
-				D68B0E2C255015760033BEB5 /* VoucherDetailsVC.swift */,
-				D68B0E2A255015760033BEB5 /* VoucherInfo.swift */,
-				D68B0E28255015750033BEB5 /* VouchersBranches.swift */,
 				D68B0E2B255015760033BEB5 /* VouchersViewController.swift */,
-				E7877583255BC5E50048616D /* singleVoucher.swift */,
-				D68B0E27255015750033BEB5 /* VoucherView.swift */,
+				D68B0E29255015750033BEB5 /* VoucherViewController.swift */,
+				D68B0E2C255015760033BEB5 /* SingleVoucherDetailsVC.swift */,
+				E7DFF6A3256CE3DD00D11BFA /* VoucherExtensions.swift */,
+				E7DFF6AA256CE5AB00D11BFA /* Embedded Views */,
+				E7877583255BC5E50048616D /* usedVoucher.swift */,
 			);
 			path = Vouchers;
 			sourceTree = "<group>";
@@ -641,6 +613,16 @@
 				D620C51C24B1C35E0085B937 /* MapViewController.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		E7DFF6AA256CE5AB00D11BFA /* Embedded Views */ = {
+			isa = PBXGroup;
+			children = (
+				D68B0E2A255015760033BEB5 /* VoucherInfo.swift */,
+				D68B0E28255015750033BEB5 /* VouchersBranches.swift */,
+				D68B0E27255015750033BEB5 /* VoucherView.swift */,
+			);
+			path = "Embedded Views";
 			sourceTree = "<group>";
 		};
 		ED35147F19CB6666923EC18E /* Frameworks */ = {
@@ -800,10 +782,10 @@
 				D6E1285E24A07F6400977D26 /* LoginViewController.swift in Sources */,
 				E7D4E7182562B623001DF4EE /* ScannerViewController.swift in Sources */,
 				A9413E642534408800A5BC4C /* WhoWeAreView.swift in Sources */,
-				D6A8F39024F3C099007DDBDB /* EndOffersViewController.swift in Sources */,
 				E7D6D3A52553CED000811F87 /* gradientLoading.swift in Sources */,
 				D6E1286524A08EC700977D26 /* UIcolors.swift in Sources */,
 				D6E8F25A24BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift in Sources */,
+				E7DFF6A4256CE3DD00D11BFA /* VoucherExtensions.swift in Sources */,
 				D6E8F25824BDB2AB00A4AA9D /* FamilyMember.swift in Sources */,
 				E78E48C8253739B80035DE60 /* SearchBarExtension.swift in Sources */,
 				D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */,
@@ -811,11 +793,9 @@
 				E7784CC12518FFB60020BDB0 /* userData.swift in Sources */,
 				A93540F9252DC11A00E8E375 /* CustomTableViewCell.swift in Sources */,
 				D6381EBF24ADD4DA004569D6 /* CommunicateUsViewController.swift in Sources */,
-				D6521A4B24F5215D00382FFD /* AdminTrademarksViewController.swift in Sources */,
 				D6F9BB6D255D0ECF00A12A88 /* Voucher.swift in Sources */,
-				D6A8F38C24F3C029007DDBDB /* AdminRegionsViewController.swift in Sources */,
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
-				E7877584255BC5E50048616D /* singleVoucher.swift in Sources */,
+				E7877584255BC5E50048616D /* usedVoucher.swift in Sources */,
 				A94A1DEA253317730086605F /* BranchView.swift in Sources */,
 				E7353BA12540301F0019A6AA /* searchResultTable.swift in Sources */,
 				E7ABDCFD2517710B00B6C4B9 /* Offer.swift in Sources */,
@@ -827,7 +807,6 @@
 				3BD3530B24FD26260053BC66 /* CustomSegmentedControlDelegate.swift in Sources */,
 				D65DA8CA24C5BB3200092918 /* FamilyCollectionViewCell.swift in Sources */,
 				E7784CBD2518FDC50020BDB0 /* launcViewController.swift in Sources */,
-				D6D029FE250779EB0016F1AF /* AdminTabBar.swift in Sources */,
 				D6381EB124ADD3F7004569D6 /* FamilyViewController.swift in Sources */,
 				E7784CCC251A0A570020BDB0 /* singleTrademarkResult.swift in Sources */,
 				D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */,
@@ -836,18 +815,16 @@
 				E703C8AB252079C300C5F110 /* searchResult.swift in Sources */,
 				E73A421A25120A3F00F45CC5 /* CollectionviewTableCell.swift in Sources */,
 				D6D8270325331CE800B376E9 /* ExtensionUIViewController.swift in Sources */,
-				D6A8F38A24F3BFFD007DDBDB /* ReviewSuggestionsViewController.swift in Sources */,
 				D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */,
 				E7AEF977253C511C00E83730 /* RegionVC.swift in Sources */,
 				D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */,
 				D68B0E31255015760033BEB5 /* VouchersViewController.swift in Sources */,
 				E7AEF979253C547300E83730 /* RegionTableViewCell.swift in Sources */,
 				E79A9AC4256B922A0062008D /* region.swift in Sources */,
-				D6A8F38E24F3C07E007DDBDB /* employeesViewController.swift in Sources */,
 				D6979632250E4320006439BD /* BigOffersViewController.swift in Sources */,
 				E70704A0256A6AF00081698A /* retrieveFunctions.swift in Sources */,
 				D6521A4924F4F62A00382FFD /* Trademark.swift in Sources */,
-				D68B0E2F255015760033BEB5 /* VoucherDetails.swift in Sources */,
+				D68B0E2F255015760033BEB5 /* VoucherViewController.swift in Sources */,
 				D6381EAB24AC89F7004569D6 /* EditProfilePresenter.swift in Sources */,
 				D65880C22508B22D00BE29F9 /* TrademarkCell.swift in Sources */,
 				D6FF724024A49C4400EFA660 /* ProfileViewController.swift in Sources */,
@@ -857,10 +834,10 @@
 				E71B49DF2546D46300B05F1F /* seasonalOfferTableViewCell.swift in Sources */,
 				D6381EB524ADD461004569D6 /* FavoriteViewController.swift in Sources */,
 				E71B49DD2546D31D00B05F1F /* seasonalOffers.swift in Sources */,
-				E79A9AC1256B91250062008D /* Deals.swift in Sources */,
+				E79A9AC1256B91250062008D /* Deal.swift in Sources */,
 				D68B0E2D255015760033BEB5 /* VoucherView.swift in Sources */,
 				D6E1286B24A0B1FE00977D26 /* ResetPassViewController.swift in Sources */,
-				D68B0E32255015760033BEB5 /* VoucherDetailsVC.swift in Sources */,
+				D68B0E32255015760033BEB5 /* SingleVoucherDetailsVC.swift in Sources */,
 				D6E1286324A08E4B00977D26 /* XUB.swift in Sources */,
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
 				E703C8AD2520AA5D00C5F110 /* trademarkCell.swift in Sources */,
@@ -872,7 +849,6 @@
 				D6D150E624BC6D9C00547B97 /* textField.swift in Sources */,
 				D6381EB724ADD479004569D6 /* NewOffersViewController.swift in Sources */,
 				E78DAF86251A355B000FC30E /* searchResultsCell.swift in Sources */,
-				D6A8F39224F3C15D007DDBDB /* AdminHomeViewController.swift in Sources */,
 				E78E48CA25373A1A0035DE60 /* SideMenuExtension.swift in Sources */,
 				3BD3530F24FDACA40053BC66 /* homePageViewController.swift in Sources */,
 				D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */,

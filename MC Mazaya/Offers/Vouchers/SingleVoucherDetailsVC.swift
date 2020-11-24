@@ -11,7 +11,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 
-class VoucherDetailsVC : UIViewController , UITextViewDelegate {
+class SingleVoucherDetailsVC : UIViewController , UITextViewDelegate {
    
        let user = Auth.auth().currentUser?.uid
        var offerVC : VoucherView?

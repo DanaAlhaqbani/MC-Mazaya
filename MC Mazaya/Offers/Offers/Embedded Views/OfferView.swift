@@ -26,7 +26,9 @@ class OfferView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     var offers = [Offer]()
     {
         didSet {
-            self.tableview.reloadData()
+            DispatchQueue.main.async {
+                self.tableview.reloadData()
+            }
         }
     }
     var OffersTitles = [String]()

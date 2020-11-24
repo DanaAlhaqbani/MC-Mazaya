@@ -24,28 +24,30 @@ struct Trademark {
     var views : Int?
     var isFeatured : Bool?
     var category : String?
-    var tradmarkID : String?
+    var trademarkID : String?
+    var serviceType: String?
     init() {
         
     }
     
-    public init(BrandName: String?, num: String?, desc: String?, email: String?, snapchat: String?, insta: String?, twit: String?, web: String?, imgURL : String?, backgroundImg: String?, branches: [Branch]?, offers : [String]?, views: Int?, isFeatured: Bool?, catID : String?, tradID : String? ) {
-        self.trademarkName = BrandName
+    public init(trademarkName: String?, contactNum: String?, description: String?, email: String?, snapchat: String?, instagram: String?, twitter: String?, website: String?, imgURL : String?, backgroundImg: String?, branches: [Branch]?, offers : [String]?, views: Int?, isFeatured: Bool?, category : String?, trademarkID : String?, serviceType: String?) {
+        self.trademarkName = trademarkName
         self.branches = branches
-        self.contactNum = num
-        self.description = desc
+        self.contactNum = contactNum
+        self.description = description
         self.email = email
         self.snapchat = snapchat
-        self.instagram = insta
-        self.twitter = twit
-        self.website = web
+        self.instagram = instagram
+        self.twitter = twitter
+        self.website = website
         self.imgURL = imgURL
         self.backgroundImg = backgroundImg
         self.offers = offers
         self.views = views
         self.isFeatured = isFeatured
-        self.category = catID
-        self.tradmarkID = tradID
+        self.category = category
+        self.trademarkID = trademarkID
+        self.serviceType = serviceType
     }
     
 }

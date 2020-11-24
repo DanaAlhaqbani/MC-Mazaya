@@ -8,7 +8,7 @@
 
 import UIKit
 
-class singleVoucher: UIViewController {
+class usedVoucher: UIViewController {
 
     @IBOutlet weak var giftBox: UIImageView!
     @IBOutlet weak var voucherAmount: UILabel!

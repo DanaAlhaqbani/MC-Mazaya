@@ -32,5 +32,8 @@ extension detailsViewController {
         BrandLogo.layer.cornerRadius = BrandLogo.frame.height / 2
         upperline.addBorder(toSide: .bottom, withColor: UIColor.systemGray5.cgColor, andThickness: 1.0)
         line.addBorder(toSide: .bottom, withColor: UIColor.systemGray5.cgColor, andThickness: 1.0)
+        if tradeInfo.serviceType == "محلي" || tradeInfo.serviceType == "الكل" {
+            self.segmentedControl.insertSegment(withTitle: "الفروع", at: 1, animated: true)
+        }
     }
 }

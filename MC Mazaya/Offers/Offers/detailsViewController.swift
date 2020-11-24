@@ -15,6 +15,7 @@ class detailsViewController : UIViewController , UITextViewDelegate {
 
     let user = Auth.auth().currentUser?.uid
     var offers = [Offer]()
+    var filteredOffers = [Offer]()
     var branches = [Branch]()
     var offerVC : OfferView?
     var BranchVC : BranchView?
@@ -48,21 +49,35 @@ class detailsViewController : UIViewController , UITextViewDelegate {
         //  guard let segmentcontrol = sender as? UISegmentedControl else {return }
         segmentedControl.changeUnderlinePosition()
         print(segmentedControl.selectedSegmentIndex)
-        if sender.selectedSegmentIndex == 0 {
-            WhoAreWeView.alpha = 1
-            BranchView.alpha = 0
-            OffersView.alpha = 0
-        }
-        if sender.selectedSegmentIndex == 1 {
-            WhoAreWeView.alpha = 0
-            BranchView.alpha = 1
-            OffersView.alpha = 0
-        }
-       if sender.selectedSegmentIndex == 2 {
-            WhoAreWeView.alpha = 0
-            BranchView.alpha = 0
-            OffersView.alpha = 1
+        if segmentedControl.numberOfSegments == 3 {
+            if sender.selectedSegmentIndex == 0 {
+                WhoAreWeView.alpha = 1
+                BranchView.alpha = 0
+                OffersView.alpha = 0
             }
+            if sender.selectedSegmentIndex == 1 {
+                WhoAreWeView.alpha = 0
+                BranchView.alpha = 1
+                OffersView.alpha = 0
+            }
+           if sender.selectedSegmentIndex == 2 {
+                WhoAreWeView.alpha = 0
+                BranchView.alpha = 0
+                OffersView.alpha = 1
+                }
+        } else {
+            if sender.selectedSegmentIndex == 0 {
+                WhoAreWeView.alpha = 1
+                BranchView.alpha = 0
+                OffersView.alpha = 0
+            }
+            if sender.selectedSegmentIndex == 1 {
+                WhoAreWeView.alpha = 0
+                BranchView.alpha = 0
+                OffersView.alpha = 1
+            }
+        }
+
         }
 
         func addTopAndBottomBorders() {

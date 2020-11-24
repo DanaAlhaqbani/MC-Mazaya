@@ -20,7 +20,9 @@ class BranchView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     var branches = [Branch]()
     {
         didSet {
-            self.tableview.reloadData()
+            DispatchQueue.main.async {
+                self.tableview.reloadData()
+            }
         }
     }
     var Trade : Trademark!
@@ -39,7 +41,6 @@ class BranchView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         tableview.delegate = self
         tableview.dataSource = self
         tableview.heightAnchor.constraint(equalToConstant: tableview.contentSize.height).isActive = true
-        
     }
     
     

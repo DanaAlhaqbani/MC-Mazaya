@@ -161,32 +161,16 @@ class launchViewController: UIViewController {
     
     //MARK: -Direct user based on type
     func authenticateUserAndConfigureView(){
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-//        if Auth.auth().currentUser?.email == "mazaya@mc.gov.sa" {
-//            // User logged as Admin
-//            self.moveToAdminViewController()
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
         if Auth.auth().currentUser?.uid != nil {
             self.moveToTheTabBarViewController ()
-
         } else {
         //user is not logged in
             self.moveToLoginViewController()
         }
-//    })
+        })
     }
 
-    
-//    func moveToAdminViewController () {
-//        if let storyboard = self.storyboard{
-//            let AdminHomeVC = storyboard.instantiateViewController(withIdentifier: "adminHome")
-//            // home page
-//            //let userNavViewController = AdminHomeViewController?.viewControllers![1] as? UINavigationController
-//            // let userHomeViewController = userNavViewController?.viewControllers[0] as? homeViewController
-//            self.view.window?.rootViewController = AdminHomeVC
-//            self.view.window?.makeKeyAndVisible()
-//        }
-//    }
     
     
     func moveToTheTabBarViewController () {
@@ -197,7 +181,7 @@ class launchViewController: UIViewController {
         let userNavViewController2 = homeViewController?.viewControllers![3] as? UINavigationController
         let bigOffers = userNavViewController2?.viewControllers[0] as! BigOffersViewController
 //        getFeaturedTrademarks()
-        bigOffers.Categories = self.Categories
+//        bigOffers.Categories = self.Categories
         lastView.Categories = self.Categories
 //        lastView.categoriesCopy = self.categoriesCopy
         lastView.Trades = self.trades2
