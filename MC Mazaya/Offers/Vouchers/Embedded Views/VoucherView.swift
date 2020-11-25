@@ -21,7 +21,7 @@ class VoucherView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     var voucherRef: DatabaseReference!
     let userID = Auth.auth().currentUser?.uid
-    
+    var voucher : Voucher?
     var Categories = [Category]()
     var Trades = [Trademark]()
     var offers = [Offer]()
@@ -54,19 +54,16 @@ class VoucherView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vouchers.count
+        return 1
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
 
         let cell = tableview.dequeueReusableCell(withIdentifier: "trademarkCell") as! CustomTableViewCell
-        cell.nameLabel.text = vouchers[indexPath.row].offerTitle
-        cell.addressLabel.text = vouchers[indexPath.row].offersDetails
-        cell.servicetype.text = ("نوع الخدمة:" + (vouchers[indexPath.row].serviceType!))
-          
-        
-        
+        cell.nameLabel.text = voucher?.offerTitle
+        cell.addressLabel.text = voucher?.offerDetails
+        cell.servicetype.text = ("نوع الخدمة:" + ((voucher?.serviceType)!))
         //action for selectedOffer
      //  cell.selectedOFfer.addTarget(self, action: #selector(OfferView.onClickedButton(_:)), for: .touchUpInside)
         
@@ -81,7 +78,7 @@ class VoucherView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
        }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(self.vouchers[indexPath.row])
+//        print(self.vouchers[indexPath.row])
         //tableView.deselectRow(at: indexPath, animated: true)
         
         let cell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell
@@ -214,5 +211,5 @@ for _ in 1...10{
         }))
         return alertVC
     }
-       }
+}
 

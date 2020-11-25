@@ -19,7 +19,7 @@ class VouchersBranches: UIViewController ,UITableViewDelegate, UITableViewDataSo
     
     var Categories = [Category]()
     var Trades = [Trademark]()
-    var Allbranch = [Branch]()
+    var branches = [Branch]()
     var Trade : Trademark!
     //  var TradeBranch : Branch!
     
@@ -32,7 +32,7 @@ class VouchersBranches: UIViewController ,UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.Allbranch = Trade.branches ?? []
+        self.branches = Trade.branches ?? []
         tableview.delegate = self
         tableview.dataSource = self
         tableview.heightAnchor.constraint(equalToConstant: tableview.contentSize.height).isActive = true
@@ -41,7 +41,7 @@ class VouchersBranches: UIViewController ,UITableViewDelegate, UITableViewDataSo
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Allbranch.count
+        return branches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,18 +61,12 @@ class VouchersBranches: UIViewController ,UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         let cell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell
-        
         for _ in 1...10{
-            
 //            UIApplication.shared.open(URL(string: Allbranch[indexPath.row].BranchLink!)! as URL ,options: [:],completionHandler: nil)
-            
         }
-        
-        
     }
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
         //  let cell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell

@@ -16,6 +16,7 @@ class VouchersViewController: UIViewController {
     @IBOutlet weak var trademarksTableView: UITableView!
     let ref = Database.database().reference()
     var voucherTrademark = Trademark()
+    var selectedVoucher : Voucher?
     @IBOutlet weak var VoucherSC: UISegmentedControl!
     var vouchersTrade = [Trademark]()
     var vouchers = [Voucher]()
@@ -56,11 +57,12 @@ class VouchersViewController: UIViewController {
     }
     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "toVoucherDetails" {
-               let dis = segue.destination as! VoucherViewController
-               dis.tradeInfo = sender as? Trademark
-//            dis.tradOffers = self.vouchersList
-//            dis.userVouchers = self.userVouchers
-           } // Show Description Segue
+        if segue.identifier == "toVoucherDetails" {
+            let dis = segue.destination as! VoucherViewController
+            dis.tradeInfo = sender as? Trademark
+            dis.voucher = self.selectedVoucher
+//           dis.tradOffers = self.vouchersList
+//           dis.userVouchers = self.userVouchers
+        } // Show Description Segue
     }
 }

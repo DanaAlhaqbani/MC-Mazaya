@@ -22,7 +22,6 @@ extension homePageViewController : CollectionCellDelegator, handleRetrievedData,
     
     
     func retrievedcopyCategories(myData dataObject: [Category]) {
-//        self.Categories = dataObject
     }
     
     func sendCategories(categories dataobject: [String]) {
@@ -70,7 +69,7 @@ extension homePageViewController : CollectionCellDelegator, handleRetrievedData,
         } else {
 //            des?.tradeInfo.isFav = false
         }
-//        (viewController as? detailsViewController)?.isFavourite = isFavourite // Here you pass the to your original view controller
+
     }
     // UIPopoverPresentationControllerDelegate method
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {

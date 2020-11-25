@@ -19,7 +19,7 @@ extension VoucherViewController{
         BranchView.alpha = 0
         OffersView.alpha = 1
         segmentedControl.addUnderlineForSelectedSegment()
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 17)], for: .normal)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 17) as Any], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "STC", size: 17)], for: .selected)
         BrandLogo.layer.borderColor = UIColor.systemGray6.cgColor
         BrandLogo.layer.borderWidth = 0.8
@@ -30,6 +30,9 @@ extension VoucherViewController{
         BrandLogo.layer.cornerRadius = BrandLogo.frame.height / 2
         upperline.addBorder(toSide: .bottom, withColor: UIColor.systemGray5.cgColor, andThickness: 1.0)
         line.addBorder(toSide: .bottom, withColor: UIColor.systemGray5.cgColor, andThickness: 1.0)
+        if tradeInfo.serviceType == "محلي" || tradeInfo.serviceType == "الكل" {
+            self.segmentedControl.insertSegment(withTitle: "الفروع", at: 1, animated: true)
+        }
     }
     
     func addTopAndBottomBorders() {
@@ -176,8 +179,12 @@ extension VouchersViewController: UITableViewDataSource, UITableViewDelegate {
             nextViewController.modalPresentationStyle = .popover
         }
         else {
-//        let trade = vouchersTrade[indexPath.row]
-        performSegue(withIdentifier: "toVoucherDetails", sender: voucherTrademark)
+            self.selectedVoucher = self.vouchers[indexPath.row]
+            print("--------- \n \n ------------")
+            print(self.selectedVoucher)
+            print("--------- \n \n ------------")
+            performSegue(withIdentifier: "toVoucherDetails", sender: voucherTrademark)
+        
         }
     }
 

@@ -50,31 +50,29 @@ class detailsViewController : UIViewController , UITextViewDelegate {
         segmentedControl.changeUnderlinePosition()
         print(segmentedControl.selectedSegmentIndex)
         if segmentedControl.numberOfSegments == 3 {
-            if sender.selectedSegmentIndex == 0 {
-                WhoAreWeView.alpha = 1
+            if sender.selectedSegmentIndex == 2 {
+                OffersView.alpha = 1
+                WhoAreWeView.alpha = 0
                 BranchView.alpha = 0
-                OffersView.alpha = 0
             }
             if sender.selectedSegmentIndex == 1 {
-                WhoAreWeView.alpha = 0
+                OffersView.alpha = 0
                 BranchView.alpha = 1
-                OffersView.alpha = 0
-            }
-           if sender.selectedSegmentIndex == 2 {
                 WhoAreWeView.alpha = 0
-                BranchView.alpha = 0
-                OffersView.alpha = 1
-                }
-        } else {
+            }
             if sender.selectedSegmentIndex == 0 {
-                WhoAreWeView.alpha = 1
-                BranchView.alpha = 0
                 OffersView.alpha = 0
-            }
-            if sender.selectedSegmentIndex == 1 {
-                WhoAreWeView.alpha = 0
                 BranchView.alpha = 0
+                WhoAreWeView.alpha = 1
+            }
+        } else {
+            if sender.selectedSegmentIndex == 1 {
                 OffersView.alpha = 1
+                WhoAreWeView.alpha = 0
+            }
+            if sender.selectedSegmentIndex == 0 {
+                OffersView.alpha = 0
+                WhoAreWeView.alpha = 1
             }
         }
 

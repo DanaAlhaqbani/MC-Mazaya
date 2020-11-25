@@ -14,6 +14,7 @@ import FirebaseDatabase
 class VoucherViewController : UIViewController , UITextViewDelegate {
    
     let user = Auth.auth().currentUser?.uid
+    var voucher : Voucher?
     var offerVC : VoucherView?
     var BranchVC : VouchersBranches?
     var WWAVVC : VoucherInfo?
@@ -41,7 +42,6 @@ class VoucherViewController : UIViewController , UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-
     }
 
 
@@ -50,21 +50,33 @@ class VoucherViewController : UIViewController , UITextViewDelegate {
            //  guard let segmentcontrol = sender as? UISegmentedControl else {return }
         segmentedControl.changeUnderlinePosition()
         print(segmentedControl.selectedSegmentIndex)
-        if sender.selectedSegmentIndex == 0 {
-            WhoAreWeView.alpha = 1
-            BranchView.alpha = 0
-            OffersView.alpha = 0
-        }
-        if sender.selectedSegmentIndex == 1 {
-            WhoAreWeView.alpha = 0
-            BranchView.alpha = 1
-            OffersView.alpha = 0
-        }
-        if sender.selectedSegmentIndex == 2 {
-            WhoAreWeView.alpha = 0
-            BranchView.alpha = 0
-            OffersView.alpha = 1
+        if segmentedControl.numberOfSegments == 3 {
+            if sender.selectedSegmentIndex == 2 {
+                OffersView.alpha = 1
+                WhoAreWeView.alpha = 0
+                BranchView.alpha = 0
             }
+            if sender.selectedSegmentIndex == 1 {
+                OffersView.alpha = 0
+                BranchView.alpha = 1
+                WhoAreWeView.alpha = 0
+            }
+            if sender.selectedSegmentIndex == 0 {
+                OffersView.alpha = 0
+                BranchView.alpha = 0
+                WhoAreWeView.alpha = 1
+            }
+        } else {
+            if sender.selectedSegmentIndex == 1 {
+                OffersView.alpha = 1
+                WhoAreWeView.alpha = 0
+            }
+            if sender.selectedSegmentIndex == 0 {
+                OffersView.alpha = 0
+                WhoAreWeView.alpha = 1
+            }
+        }
+
         }
 
 
@@ -74,6 +86,7 @@ class VoucherViewController : UIViewController , UITextViewDelegate {
            if let vc = segue.destination as? VoucherView, segue.identifier == "Vinfo" {
                vc.Trade = self.tradeInfo
                vc.vouchers = self.tradOffers
+            vc.voucher = self.voucher
                vc.UserVoucher = self.userVouchers
                self.offerVC = vc
            }

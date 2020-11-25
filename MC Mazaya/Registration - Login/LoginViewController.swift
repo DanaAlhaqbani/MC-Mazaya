@@ -135,15 +135,15 @@ class LoginViewController: UIViewController {
     func successful(){
         //=====Transfer to home page=====
         self.removeSpinner()
-    if(emailTextField.text != "mazaya@mc.gov.sa"){
+//    if(emailTextField.text != "mazaya@mc.gov.sa"){
 //        getCategories()
-//        self.moveToTheTabBarViewController()
+        self.moveToTheTabBarViewController()
 
-        }
-    else {
-        self.moveToAdmin()
-
-        }
+//        }
+//    else {
+//        self.moveToAdmin()
+//
+//        }
     }
     func moveToAdmin() {
         /*

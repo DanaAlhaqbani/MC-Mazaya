@@ -820,7 +820,7 @@
             <objects>
                 <viewController id="hEx-gq-0er" customClass="filterViewController" customModule="MC_Mazaya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Py-0b-pPA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="PcE-qG-eC6">
@@ -830,19 +830,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ترتيب بحسب" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkD-4K-ebF">
-                                                <rect key="frame" x="280" y="25" width="99" height="33.5"/>
+                                                <rect key="frame" x="290.5" y="25" width="88.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="20"/>
                                                 <color key="textColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GcK-6o-WOW">
-                                                <rect key="frame" x="41" y="73.5" width="332" height="50"/>
+                                                <rect key="frame" x="41" y="63.5" width="332" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3Bi-Qs-L6H"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBv-h6-I8i">
-                                                <rect key="frame" x="17" y="20" width="80" height="41"/>
+                                                <rect key="frame" x="17" y="20" width="65" height="32"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                 <state key="normal" title="تعطيل الكل">
                                                     <color key="titleColor" red="0.66666666669999997" green="0.14901960780000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -866,13 +866,13 @@
                                         <rect key="frame" x="0.0" y="142" width="414" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نوع المتجر" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQx-Y2-jZP">
-                                                <rect key="frame" x="301" y="15" width="78" height="33.5"/>
+                                                <rect key="frame" x="309.5" y="15" width="69.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="20"/>
                                                 <color key="textColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gKg-Cc-iWd">
-                                                <rect key="frame" x="41" y="63.5" width="332" height="50"/>
+                                                <rect key="frame" x="41" y="53.5" width="332" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="13E-xV-qwM"/>
                                                 </constraints>
@@ -892,13 +892,13 @@
                                         <rect key="frame" x="0.0" y="274" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="التصنيف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-Zi-t6W">
-                                                <rect key="frame" x="316" y="15" width="63" height="33.5"/>
+                                                <rect key="frame" x="316.5" y="15" width="62.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="20"/>
                                                 <color key="textColor" red="0.1949118078" green="0.63002365829999996" blue="0.53669720889999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjJ-Lx-kEK">
-                                                <rect key="frame" x="50" y="60" width="314" height="270"/>
+                                                <rect key="frame" x="50" y="50" width="314" height="270"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="18i-f4-uRk">
                                                         <rect key="frame" x="0.0" y="0.0" width="314" height="270"/>
@@ -951,7 +951,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jr-Ra-BwY">
-                                                <rect key="frame" x="37.5" y="355" width="339" height="60"/>
+                                                <rect key="frame" x="37.5" y="345" width="339" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="Hez-OS-SxB"/>
                                                     <constraint firstAttribute="width" constant="339" id="wur-G0-nIf"/>
@@ -1035,7 +1035,7 @@
                                                     <rect key="frame" x="20" y="15" width="374" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAK-hM-k7g">
-                                                            <rect key="frame" x="89" y="5" width="197" height="28.5"/>
+                                                            <rect key="frame" x="89" y="5" width="197" height="20"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1048,7 +1048,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خصم ٥٠٪ على كافة المنتجات" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH2-u4-4VV">
-                                                            <rect key="frame" x="45" y="40" width="241" height="25"/>
+                                                            <rect key="frame" x="45" y="47.5" width="241" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1144,13 +1144,13 @@
                                                     <rect key="frame" x="20" y="15" width="374" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhq-Pa-MaN">
-                                                            <rect key="frame" x="89" y="0.5" width="197" height="28.5"/>
+                                                            <rect key="frame" x="89" y="16.5" width="197" height="20"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خصم ٥٠٪ على كافة المنتجات" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3s-Sx-Ti0">
-                                                            <rect key="frame" x="45" y="30" width="241" height="25"/>
+                                                            <rect key="frame" x="45" y="37.5" width="241" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1266,7 +1266,7 @@
                                                     <rect key="frame" x="20" y="15" width="374" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfe-Uk-gOe">
-                                                            <rect key="frame" x="89" y="5" width="197" height="28.5"/>
+                                                            <rect key="frame" x="89" y="5" width="197" height="20"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1290,7 +1290,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خصم ٥٠٪ على كافة المنتجات" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2h-lU-bJE">
-                                                            <rect key="frame" x="45" y="40" width="241" height="25"/>
+                                                            <rect key="frame" x="45" y="47.5" width="241" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2014,7 +2014,7 @@
                                             <constraint firstAttribute="height" constant="145" id="xBQ-sv-Ncu"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Fx-jK-vae" customClass="CHIPageControlChimayo" customModule="CHIPageControl">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fx-jK-vae" customClass="CHIPageControlChimayo" customModule="CHIPageControl">
                                         <rect key="frame" x="161" y="486.5" width="53" height="341.5"/>
                                         <color key="tintColor" red="0.48627450979999998" green="0.76470588240000004" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
@@ -2982,7 +2982,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="285" height="103"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ta2-vO-7OG">
-                                                            <rect key="frame" x="110" y="26.5" width="65.5" height="50"/>
+                                                            <rect key="frame" x="106" y="34" width="73.5" height="35"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="30"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -3052,7 +3052,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لا يوجد نتائج" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi1-aR-Md4">
-                                        <rect key="frame" x="130.5" y="310.5" width="121.5" height="41.5"/>
+                                        <rect key="frame" x="135.5" y="310.5" width="111" height="29.5"/>
                                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3079,13 +3079,13 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rb-mh-TeV">
-                                                                    <rect key="frame" x="80" y="30" width="149" height="25"/>
+                                                                    <rect key="frame" x="80" y="37.5" width="149" height="17.5"/>
                                                                     <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ce-eG-AgJ">
-                                                                    <rect key="frame" x="80" y="8" width="149" height="28.5"/>
+                                                                    <rect key="frame" x="80" y="8" width="149" height="20"/>
                                                                     <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -3416,16 +3416,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="494"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZHf-Ak-qnY">
-                                                <rect key="frame" x="0.0" y="0.0" width="340" height="57"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="وصف" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qI0-Sd-7K8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
                                                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                         <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0b-1n-Fxa">
-                                                        <rect key="frame" x="0.0" y="28.5" width="340" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="20" width="340" height="20"/>
                                                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -3433,7 +3433,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hd2-OR-rX4">
-                                                <rect key="frame" x="0.0" y="57" width="340" height="75"/>
+                                                <rect key="frame" x="0.0" y="40" width="340" height="75"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="رقم التواصل" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6n-eh-JNa">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="32.5"/>
@@ -3453,7 +3453,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8V5-4g-GAC">
-                                                <rect key="frame" x="0.0" y="132" width="340" height="80"/>
+                                                <rect key="frame" x="0.0" y="115" width="340" height="80"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="البريد الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfq-Qd-2Pr">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="30"/>
@@ -3473,19 +3473,19 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WIu-hy-VNc">
-                                                <rect key="frame" x="0.0" y="212" width="340" height="75"/>
+                                                <rect key="frame" x="0.0" y="195" width="340" height="75"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LUF-Up-LpA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="الموقع الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJo-9E-Ue0">
-                                                                <rect key="frame" x="0.0" y="0.0" width="340" height="27.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
                                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                                 <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-OM-hJZ">
-                                                                <rect key="frame" x="0.0" y="47.5" width="340" height="27.5"/>
+                                                                <rect key="frame" x="0.0" y="40" width="340" height="20"/>
                                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                                 <color key="textColor" systemColor="linkColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -3498,13 +3498,13 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p3Z-uL-k2K">
-                                                <rect key="frame" x="0.0" y="287" width="340" height="207"/>
+                                                <rect key="frame" x="0.0" y="270" width="340" height="224"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="qMI-fG-NWC">
-                                                        <rect key="frame" x="40" y="0.0" width="260" height="207"/>
+                                                        <rect key="frame" x="40" y="0.0" width="260" height="224"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7P-pA-wHh">
-                                                                <rect key="frame" x="0.0" y="73.5" width="60" height="60"/>
+                                                                <rect key="frame" x="0.0" y="82" width="60" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="60" id="Tdn-3x-qrb"/>
                                                                     <constraint firstAttribute="height" constant="60" id="ZjG-u3-ZBW"/>
@@ -3515,7 +3515,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECE-yK-FwT">
-                                                                <rect key="frame" x="100" y="73.5" width="60" height="60"/>
+                                                                <rect key="frame" x="100" y="82" width="60" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="60" id="oib-y2-AXN"/>
                                                                     <constraint firstAttribute="height" constant="60" id="pr0-HO-FQy"/>
@@ -3526,7 +3526,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23g-dG-Dfm">
-                                                                <rect key="frame" x="200" y="73.5" width="60" height="60"/>
+                                                                <rect key="frame" x="200" y="82" width="60" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="LkP-aJ-muB"/>
                                                                     <constraint firstAttribute="width" constant="60" id="oun-fm-F33"/>
@@ -3594,7 +3594,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="305" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مبروك!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RK-Xr-CyT">
-                                                        <rect key="frame" x="104.5" y="-5.5" width="96.5" height="61.5"/>
+                                                        <rect key="frame" x="111.5" y="3.5" width="82.5" height="43.5"/>
                                                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="37"/>
                                                         <color key="textColor" red="0.35294117650000001" green="0.63921568630000003" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -3617,7 +3617,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="305" height="25"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="حصلت على قسيمة شرائية بقيمة" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNG-ka-4pk">
-                                                                        <rect key="frame" x="62.5" y="0.0" width="180" height="25"/>
+                                                                        <rect key="frame" x="70" y="4" width="165.5" height="17.5"/>
                                                                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -3633,7 +3633,7 @@
                                                                 <rect key="frame" x="0.0" y="25" width="305" height="25"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-5n-43B">
-                                                                        <rect key="frame" x="134" y="-1.5" width="37.5" height="28.5"/>
+                                                                        <rect key="frame" x="131.5" y="2.5" width="42" height="20"/>
                                                                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -3671,10 +3671,10 @@
                                                 <rect key="frame" x="0.0" y="106" width="305" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DD2-UQ-guK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="305" height="80"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="305" height="47.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="للحصول عليها يرجى" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvN-aM-Bll">
-                                                                <rect key="frame" x="97.5" y="0.0" width="110" height="30"/>
+                                                                <rect key="frame" x="99.5" y="0.0" width="106" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="Q0U-Yr-8X0"/>
                                                                 </constraints>
@@ -3683,7 +3683,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ملاحظة: هذه القسيمة صالحة للاستخدام مرة واحدة فقط." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ama-st-MzT">
-                                                                <rect key="frame" x="24" y="30" width="257.5" height="50"/>
+                                                                <rect key="frame" x="7" y="30" width="291" height="17.5"/>
                                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="15"/>
                                                                 <color key="textColor" red="0.66666666669999997" green="0.14901960780000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -3709,16 +3709,16 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jRi-7Y-yeR">
-                                        <rect key="frame" x="87" y="375.5" width="131" height="72.5"/>
+                                        <rect key="frame" x="92.5" y="390" width="120" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="رمز القسيمة" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTm-tk-7an">
-                                                <rect key="frame" x="0.0" y="0.0" width="131" height="48.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="34"/>
                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="29"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLn-33-PwP">
-                                                <rect key="frame" x="0.0" y="48.5" width="131" height="24"/>
+                                                <rect key="frame" x="0.0" y="34" width="120" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3805,13 +3805,13 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6X5-QP-Qrm">
-                                                            <rect key="frame" x="10" y="5" width="322" height="28.5"/>
+                                                            <rect key="frame" x="10" y="5" width="322" height="20"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLr-5L-1ce">
-                                                            <rect key="frame" x="291.5" y="38.5" width="40.5" height="28.5"/>
+                                                            <rect key="frame" x="288.5" y="30" width="43.5" height="20"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -3930,19 +3930,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es9-yS-0Sp">
-                                                    <rect key="frame" x="8" y="0.0" width="324" height="28.5"/>
+                                                    <rect key="frame" x="8" y="0.0" width="324" height="20"/>
                                                     <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                     <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcm-1v-W7Y">
-                                                    <rect key="frame" x="8" y="67" width="324" height="28.5"/>
+                                                    <rect key="frame" x="8" y="50" width="324" height="20"/>
                                                     <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نوع الخدمة" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhP-DH-yK1">
-                                                    <rect key="frame" x="259" y="33.5" width="73" height="28.5"/>
+                                                    <rect key="frame" x="267.5" y="25" width="64.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4077,15 +4077,14 @@
                                                     <segue destination="fKG-V9-dra" kind="embed" identifier="Vinfo" id="8Uc-v3-rk1"/>
                                                 </connections>
                                             </containerView>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="H1q-p5-p7x">
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="H1q-p5-p7x">
                                                 <rect key="frame" x="24" y="229" width="360" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="sPs-ec-wR0"/>
                                                 </constraints>
                                                 <segments>
                                                     <segment title="من نحن"/>
-                                                    <segment title="الفروع"/>
-                                                    <segment title="العروض"/>
+                                                    <segment title="القسائم"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="segmentedControlDidChange:" destination="RSy-ho-9fM" eventType="valueChanged" id="X4c-au-8G0"/>
@@ -4186,16 +4185,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="494"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tdA-xD-UCF">
-                                                <rect key="frame" x="0.0" y="0.0" width="340" height="57"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="وصف" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DP-1t-Yv0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
                                                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                         <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajM-zV-5DI">
-                                                        <rect key="frame" x="0.0" y="28.5" width="340" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="20" width="340" height="20"/>
                                                         <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -4203,7 +4202,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xNf-Pg-ggl">
-                                                <rect key="frame" x="0.0" y="57" width="340" height="75"/>
+                                                <rect key="frame" x="0.0" y="40" width="340" height="75"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="رقم التواصل" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcD-wO-Wmw">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="32.5"/>
@@ -4223,7 +4222,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OxC-kM-ncs">
-                                                <rect key="frame" x="0.0" y="132" width="340" height="80"/>
+                                                <rect key="frame" x="0.0" y="115" width="340" height="80"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="البريد الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBM-QH-DV7">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="30"/>
@@ -4243,19 +4242,19 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vEL-ef-7eA">
-                                                <rect key="frame" x="0.0" y="212" width="340" height="75"/>
+                                                <rect key="frame" x="0.0" y="195" width="340" height="75"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rva-k7-DOl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="الموقع الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmG-BG-BVQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="340" height="27.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
                                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                                 <color key="textColor" red="0.36467874049999999" green="0.63627678160000001" blue="0.56275033949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iz-cg-OJE">
-                                                                <rect key="frame" x="0.0" y="47.5" width="340" height="27.5"/>
+                                                                <rect key="frame" x="0.0" y="40" width="340" height="20"/>
                                                                 <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                                 <color key="textColor" systemColor="linkColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -4268,13 +4267,13 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LlR-Bs-OJT">
-                                                <rect key="frame" x="0.0" y="287" width="340" height="207"/>
+                                                <rect key="frame" x="0.0" y="270" width="340" height="224"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="p1i-Dl-SGn">
-                                                        <rect key="frame" x="40" y="0.0" width="260" height="207"/>
+                                                        <rect key="frame" x="40" y="0.0" width="260" height="224"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1no-yC-ddH">
-                                                                <rect key="frame" x="0.0" y="73.5" width="60" height="60"/>
+                                                                <rect key="frame" x="0.0" y="82" width="60" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="2Lx-Wq-6Om"/>
                                                                     <constraint firstAttribute="width" constant="60" id="mEh-E0-5nV"/>
@@ -4285,7 +4284,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUN-Yr-9aM">
-                                                                <rect key="frame" x="100" y="73.5" width="60" height="60"/>
+                                                                <rect key="frame" x="100" y="82" width="60" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="R6T-pr-SzN"/>
                                                                     <constraint firstAttribute="width" constant="60" id="Zlh-VO-jVe"/>
@@ -4296,7 +4295,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mex-Bi-WId">
-                                                                <rect key="frame" x="200" y="73.5" width="60" height="60"/>
+                                                                <rect key="frame" x="200" y="82" width="60" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="2rz-aG-o30"/>
                                                                     <constraint firstAttribute="width" constant="60" id="RIn-bG-t7E"/>
@@ -4394,7 +4393,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugv-kh-ttt">
-                                                            <rect key="frame" x="76" y="31" width="249" height="28.5"/>
+                                                            <rect key="frame" x="76" y="31" width="249" height="20"/>
                                                             <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -4534,7 +4533,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نوع الخدمة" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-h3-zQ4">
-                                                    <rect key="frame" x="259" y="8" width="73" height="43.5"/>
+                                                    <rect key="frame" x="267.5" y="8" width="64.5" height="43.5"/>
                                                     <fontDescription key="fontDescription" name="STC-Regular" family="STC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4697,6 +4696,12 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="5Fx-jK-vae">
+            <size key="intrinsicContentSize" width="53" height="8"/>
+        </designable>
+        <designable name="fcd-wG-ohx">
+            <size key="intrinsicContentSize" width="53" height="8"/>
+        </designable>
         <designable name="mL1-dq-iaG">
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
