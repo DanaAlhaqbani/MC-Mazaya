@@ -14,6 +14,7 @@ extension homePageViewController {
     //MARK: -Retrieve Trademarks
     func getTrademarks(){
         let tradeRef = Database.database().reference()
+//        ref?.child("Regions").queryOrderedByKey().queryEqual(toValue: user.reg)
         tradeRef.child("Trademarks").observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
                 let snap = child as! DataSnapshot

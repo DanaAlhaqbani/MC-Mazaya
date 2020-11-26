@@ -46,8 +46,9 @@ extension VoucherViewController{
              // BackgroundView.layer.addSublayer(topBorder)
         BackgroundView.layer.addSublayer(bottomBorder)
     }
-           
 }
+
+
 
 extension VouchersViewController {
     func setupSegmentUI(){

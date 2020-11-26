@@ -132,10 +132,7 @@ for _ in 1...10{
     }
     @IBAction func alertButtonAction(_ sender: Any) {
           // let btn = sender as! UIButton
-           
-          
                let actionYes : [String: () -> Void] = [ "" : { (
-                
                 self.MoveTOScaner(),
                        print("tapped YES")
                 )}]
@@ -159,5 +156,5 @@ for _ in 1...10{
         self.present(nextViewController, animated:true, completion:nil)
         nextViewController.modalPresentationStyle = .popover
     }
-       }
+}
 

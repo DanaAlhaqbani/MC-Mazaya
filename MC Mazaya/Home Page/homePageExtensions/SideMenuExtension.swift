@@ -16,20 +16,20 @@ extension homePageViewController {
         mainViewXConstraint.constant = 0
         leftBarButtonItem.tintColor = green
         UIView.animate(withDuration: 0.5, delay: 0.0,
-        usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
-        self.view.layoutIfNeeded()
-        }, completion: nil)
+                       usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
+                        self.view.layoutIfNeeded()
+                       }, completion: nil)
         navigationItem.titleView?.endEditing(true)
         tbleList.isUserInteractionEnabled = true
-//        navigationController?.view.endEditing(true)
+        //        navigationController?.view.endEditing(true)
     }
-               
+    
     @objc func menuTapped() {
         if isMenuShow {
             mainViewXConstraint.constant = 0
             leftBarButtonItem.tintColor = green
             tbleList.isUserInteractionEnabled = true
-        
+            
         } else {
             mainViewXConstraint.constant = -sideMenuWidth
             leftBarButtonItem.tintColor = .white
@@ -38,9 +38,9 @@ extension homePageViewController {
         UIView.animate(withDuration: 0.5, delay: 0.0,
                        usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
                        options: .curveEaseInOut, animations: {
-            self.view.layoutIfNeeded()
-                        }, completion: nil)
-                
+                        self.view.layoutIfNeeded()
+                       }, completion: nil)
+        
         isMenuShow.toggle()
     }
     
@@ -50,7 +50,7 @@ extension homePageViewController {
     
     @objc func menuButtonsActions(_ sender : UIButton) {
         if sender.tag == 10 {
-//            performSegue(withIdentifier: "toRegion", sender: self)
+            //            performSegue(withIdentifier: "toRegion", sender: self)
             // get a reference to the view controller for the popover
             let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regionPopover") as! RegionVC
             // set the presentation style
@@ -61,20 +61,21 @@ extension homePageViewController {
             popController.popoverPresentationController?.sourceView = sender // button
             popController.popoverPresentationController?.sourceRect = sender.bounds
             // present the popover
-            self.present(popController, animated: true, completion: {
-//                popController.categories = self.categoriesCopy
-                popController.dismissHandler = {
-                    self.selectedRegion = popController.selectedRegion
-                    print(self.selectedRegion!)
-                    self.tbleList.reloadData()
-                }
-//                self.tbleList.reloadData()
-            })
-//            self.tbleList.reloadData()
+//            self.present(popController, animated: true, completion: {
+//                //                popController.categories = self.categoriesCopy
+//                popController.dismissHandler = {
+//                    self.selectedRegion = popController.selectedRegion
+//                    print(self.selectedRegion!)
+//                    self.tbleList.reloadData()
+//                }
+//                //                self.tbleList.reloadData()
+//            })
+            self.regionDropDownMenu.anchorView = sender
+            self.setupRegionsDropDownMenu()
+            self.regionDropDownMenu.show()
         }
         else if sender.tag == 11 {
             performSegue(withIdentifier: "toFamily", sender: self)
-            
             //navigationController?.pushViewController(FamilyViewController(), animated: true)
         }
         else if sender.tag == 12 {
@@ -100,14 +101,38 @@ extension homePageViewController {
         else if  sender.tag == 17 {
             logout()
         }
-        mainViewXConstraint.constant = 0
-        UIView.animate(withDuration: 0.5, delay: 0.0,
-        usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
-            options: .curveEaseInOut, animations: {
-                self.view.layoutIfNeeded()
-        }, completion: nil)
-        isMenuShow = false
-        leftBarButtonItem.tintColor = green
+        if sender.tag == 10 {
+            isMenuShow = true
+        } else {
+            mainViewXConstraint.constant = 0
+            UIView.animate(withDuration: 0.5, delay: 0.0,
+                           usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
+                           options: .curveEaseInOut, animations: {
+                            self.view.layoutIfNeeded()
+                           }, completion: nil)
+
+            isMenuShow = false
         }
+        
+        leftBarButtonItem.tintColor = green
+    }
+    
+    func setupRegionsDropDownMenu(){
+        self.regionDropDownMenu.dataSource = ["الكل", "الرياض", "مكة المكرمة", "القصيم", "منطقة الشرقية", "الحدود الشمالية", "المدينة المنورة", "نجران", "جازان", "الباحة", "عسير", "حائل",
+        "تبوك", "الجوف"]
+        regionDropDownMenu.selectionAction = { [weak self] (index: Int, item: String) in //8
+          guard let _ = self else { return }
+            self?.selectedRegion = item
+            self?.ref?.child("Users/\((self?.user?.uid)!)/Region").setValue(self?.selectedRegion)
+            self?.mainViewXConstraint.constant = 0
+            UIView.animate(withDuration: 0.5, delay: 0.0,
+                           usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
+                           options: .curveEaseInOut, animations: {
+                            self?.view.layoutIfNeeded()
+                           }, completion: nil)
+            self?.isMenuShow = false
+        }
+    }
+    
 }
 

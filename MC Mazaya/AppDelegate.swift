@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseCore
 import IQKeyboardManagerSwift
+import DropDown
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        DropDown.startListeningToKeyboard()
         let navigationBarAppearace = UINavigationBar.appearance()
 //        let green = UIColor(rgb: 0x38a089)
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font: UIFont(name: "STC", size: 20)!]

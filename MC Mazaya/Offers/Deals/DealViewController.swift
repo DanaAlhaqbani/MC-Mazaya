@@ -1,8 +1,8 @@
 //
-//  VoucherDetailsVC.swift
+//  DealViewController.swift
 //  MC Mazaya
 //
-//  Created by دانة الحقباني on 17/02/1442 AH.
+//  Created by Alhnuof khalid on 10/04/1442 AH.
 //  Copyright © 1442 MC. All rights reserved.
 //
 
@@ -11,13 +11,14 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 
-class VoucherViewController : UIViewController , UITextViewDelegate {
-   
+
+class DealViewController : UIViewController , UITextViewDelegate {
+    
     let user = Auth.auth().currentUser?.uid
-    var voucher : Voucher?
-    var voucherEmbeddedView : VoucherView?
-    var branchesEmbeddedView : VouchersBranches?
-    var aboutEmbeddedView : VoucherInfo?
+    var deal : Deal?
+    var dealEmbeddedView : DealView?
+    var branchesEmbeddedView : DealBranchView?
+    var aboutEmbeddedView : DealAboutView?
     var tradeInfo : Trademark!
     private var currentView : UIView?
     @IBOutlet weak var BrandName: UILabel!
@@ -31,16 +32,16 @@ class VoucherViewController : UIViewController , UITextViewDelegate {
     @IBOutlet weak var star: UIButton!
     @IBOutlet weak var upperline: UIView!
     var ref = Database.database().reference()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-
-
-           
+    
+    
+    
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl){
-           //  guard let segmentcontrol = sender as? UISegmentedControl else {return }
+        //  guard let segmentcontrol = sender as? UISegmentedControl else {return }
         segmentedControl.changeUnderlinePosition()
         print(segmentedControl.selectedSegmentIndex)
         if segmentedControl.numberOfSegments == 3 {
@@ -69,29 +70,28 @@ class VoucherViewController : UIViewController , UITextViewDelegate {
                 WhoAreWeView.alpha = 1
             }
         }
-
+        
+    }
+    
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DealView, segue.identifier == "toDetails" {
+            vc.Trade = self.tradeInfo
+            vc.deal = self.deal
+            self.dealEmbeddedView = vc
+            //           self.
         }
+        if let vc = segue.destination as? DealBranchView, segue.identifier == "toBranches" {
+            vc.Trade = self.tradeInfo
+            self.branchesEmbeddedView = vc
+        }
+        if let vc = segue.destination as? DealAboutView, segue.identifier == "toAboutUs" {
+            vc.Trade = self.tradeInfo
+            self.aboutEmbeddedView = vc
+        }
+    }
+        
+}
 
-
-
-       
-       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if let vc = segue.destination as? VoucherView, segue.identifier == "toDetails" {
-                vc.Trade = self.tradeInfo
-                vc.voucher = self.voucher
-                self.voucherEmbeddedView = vc
-           }
-           if let vc = segue.destination as? VouchersBranches, segue.identifier == "toBranches" {
-               vc.Trade = self.tradeInfo
-               self.branchesEmbeddedView = vc
-           }
-           if let vc = segue.destination as? VoucherInfo, segue.identifier == "toAboutUs" {
-               vc.Trade = self.tradeInfo
-               self.aboutEmbeddedView = vc
-           }
-       }
-       
-
-       
-   }
-  

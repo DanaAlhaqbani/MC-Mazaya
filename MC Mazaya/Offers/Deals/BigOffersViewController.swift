@@ -20,7 +20,7 @@ class BigOffersViewController: UIViewController {
     @IBOutlet weak var trademarksTableView: UITableView!
     var deals = [Deal]()
     var dealsTrademark = Trademark()
-    
+    var selectedDeal : Deal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,44 +41,46 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
         return 105
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return deals.count
+        return 1
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        getDealsTrademarks(index: indexPath)
-        performSegue(withIdentifier: "toDes", sender: dealsTrademark)
+        self.selectedDeal = self.deals[indexPath.row]
+        performSegue(withIdentifier: "toDeal", sender: dealsTrademark)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let vc = segue.destination as? detailsViewController, segue.identifier == "toDes" {
+    if let vc = segue.destination as? DealViewController, segue.identifier == "toDeal" {
          vc.tradeInfo = sender as? Trademark
+        vc.deal = self.selectedDeal
       }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
-        getDealsTrademarks(index: indexPath)
-//        let trademark = deals[indexPath.row].trademark
-        let trademarkName = dealsTrademark.trademarkName
-        let trademarkImage = dealsTrademark.imgURL ?? ""
-
-        let offerTitle = deals[indexPath.row].offerTitle
-        cell.trademarkName.text = trademarkName
-        cell.Des.text = offerTitle
-        cell.trademarkImage.sd_setImage(with: URL(string: trademarkImage))
-        //make the cell looks good
-        cell.trademarkView.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-        cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-        cell.trademarkImage.layer.borderWidth = 0.8
-        cell.trademarkImage.layer.borderColor = UIColor.systemGray3.cgColor
-        cell.trademarkView.backgroundColor = UIColor(rgb: 0xF4F4F4)
-        cell.trademarkView.layer.shadowColor = UIColor.systemGray5.cgColor
-        cell.trademarkView.layer.shadowRadius = 2
-        cell.trademarkView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        cell.trademarkView.layer.shadowOpacity = 0.5
-        cell.trademarkView.clipsToBounds = false
-        cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
-        cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
+        if deals.count != 0 {
+            getDealsTrademarks(index: indexPath)
+            let trademarkName = dealsTrademark.trademarkName
+            let trademarkImage = dealsTrademark.imgURL ?? ""
+            let offerTitle = deals[indexPath.row].offerTitle
+            cell.trademarkName.text = trademarkName
+            cell.Des.text = offerTitle
+            cell.trademarkImage.sd_setImage(with: URL(string: trademarkImage))
+            //make the cell looks good
+            cell.trademarkView.layer.cornerRadius = cell.trademarkImage.frame.height / 2
+            cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
+            cell.trademarkImage.layer.borderWidth = 0.8
+            cell.trademarkImage.layer.borderColor = UIColor.systemGray3.cgColor
+            cell.trademarkView.backgroundColor = UIColor(rgb: 0xF4F4F4)
+            cell.trademarkView.layer.shadowColor = UIColor.systemGray5.cgColor
+            cell.trademarkView.layer.shadowRadius = 2
+            cell.trademarkView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            cell.trademarkView.layer.shadowOpacity = 0.5
+            cell.trademarkView.clipsToBounds = false
+            cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
+            cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
+        }
         return cell
     }
    
@@ -103,27 +105,30 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func getDealsTrademarks(index: IndexPath){
-        ref.child("Trademarks").queryOrderedByKey().queryEqual(toValue: deals[index.row].trademarkID).observeSingleEvent(of: .value, with: { snapshot in
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                self.dealsTrademark = Trademark(trademarkName: snap.childSnapshot(forPath: "trademarkName").value as? String,
-                                          contactNum: snap.childSnapshot(forPath: "contactNum").value as? String,
-                                          description: snap.childSnapshot(forPath: "description").value as? String,
-                                          email: snap.childSnapshot(forPath: "email").value as? String,
-                                          snapchat: snap.childSnapshot(forPath: "snapchat").value as? String,
-                                          instagram: snap.childSnapshot(forPath: "instagram").value as? String,
-                                          twitter: snap.childSnapshot(forPath: "twitter").value as? String,
-                                          website: snap.childSnapshot(forPath: "website").value as? String,
-                                          imgURL: snap.childSnapshot(forPath: "imgURL").value as? String,
-                                          backgroundImg: snap.childSnapshot(forPath: "backgroundImg").value as? String,
-                                          branches: [], offers: [], views: 0,
-                                          isFeatured: snap.childSnapshot(forPath: "isFeatured").value as? Bool ,
-                                          category: snap.childSnapshot(forPath: "category").value as? String,
-                                          trademarkID: snap.key,
-                                          serviceType: snap.childSnapshot(forPath: "serviceType").value as? String)
-            }
-            self.trademarksTableView.reloadData()
-        })
+        if deals.count != 0 {
+            ref.child("Trademarks").queryOrderedByKey().queryEqual(toValue: deals[index.row].trademarkID).observeSingleEvent(of: .value, with: { snapshot in
+                for child in snapshot.children {
+                    let snap = child as! DataSnapshot
+                    self.dealsTrademark = Trademark(trademarkName: snap.childSnapshot(forPath: "trademarkName").value as? String,
+                                              contactNum: snap.childSnapshot(forPath: "contactNum").value as? String,
+                                              description: snap.childSnapshot(forPath: "description").value as? String,
+                                              email: snap.childSnapshot(forPath: "email").value as? String,
+                                              snapchat: snap.childSnapshot(forPath: "snapchat").value as? String,
+                                              instagram: snap.childSnapshot(forPath: "instagram").value as? String,
+                                              twitter: snap.childSnapshot(forPath: "twitter").value as? String,
+                                              website: snap.childSnapshot(forPath: "website").value as? String,
+                                              imgURL: snap.childSnapshot(forPath: "imgURL").value as? String,
+                                              backgroundImg: snap.childSnapshot(forPath: "backgroundImg").value as? String,
+                                              branches: [], offers: [], views: 0,
+                                              isFeatured: snap.childSnapshot(forPath: "isFeatured").value as? Bool ,
+                                              category: snap.childSnapshot(forPath: "category").value as? String,
+                                              trademarkID: snap.key,
+                                              serviceType: snap.childSnapshot(forPath: "serviceType").value as? String)
+                }
+                self.trademarksTableView.reloadData()
+            })
+        }
+
     }
     
         

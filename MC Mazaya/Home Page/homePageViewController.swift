@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import SideMenu
-
+import DropDown
 
 class homePageViewController: UIViewController , UITableViewDataSource, UITableViewDelegate  {
     
@@ -51,7 +51,8 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var bannerView : bannerContainer?
     var trademarksIDs = [String]()
     var filteredTrademarks = [Trademark]()
-
+    let regionDropDownMenu = DropDown()
+    var seectedRegion = String()
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
@@ -70,7 +71,6 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         navigationController?.delegate = self
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -79,6 +79,17 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 //        setupSearchBar()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        mainViewXConstraint.constant = 0
+        UIView.animate(withDuration: 0.5, delay: 0.0,
+                       usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
+                       options: .curveEaseInOut, animations: {
+                        self.view.layoutIfNeeded()
+                       }, completion: nil)
+        isMenuShow = false
     }
 
     //MARK: - "Side Menue" Constants and Variables

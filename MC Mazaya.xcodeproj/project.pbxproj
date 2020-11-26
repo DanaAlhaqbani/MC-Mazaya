@@ -114,6 +114,11 @@
 		E7AEF979253C547300E83730 /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AEF978253C547300E83730 /* RegionTableViewCell.swift */; };
 		E7D4E7182562B623001DF4EE /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D4E7172562B623001DF4EE /* ScannerViewController.swift */; };
 		E7D6D3A52553CED000811F87 /* gradientLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D6D3A42553CED000811F87 /* gradientLoading.swift */; };
+		E7DB80C2256E4672000EEDFD /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB80C1256E4672000EEDFD /* DealViewController.swift */; };
+		E7DB80C5256E467F000EEDFD /* DealExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB80C4256E467F000EEDFD /* DealExtension.swift */; };
+		E7DB80C9256E46A1000EEDFD /* DealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB80C8256E46A1000EEDFD /* DealView.swift */; };
+		E7DB80CC256E46AB000EEDFD /* DealBranchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB80CB256E46AB000EEDFD /* DealBranchView.swift */; };
+		E7DB80CE256E46BA000EEDFD /* DealAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB80CD256E46BA000EEDFD /* DealAboutView.swift */; };
 		E7DFF6A4256CE3DD00D11BFA /* VoucherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DFF6A3256CE3DD00D11BFA /* VoucherExtensions.swift */; };
 		E7FE49BA254803110023D6DE /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE49B9254803110023D6DE /* Banner.swift */; };
 /* End PBXBuildFile section */
@@ -231,6 +236,11 @@
 		E7AEF978253C547300E83730 /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		E7D4E7172562B623001DF4EE /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		E7D6D3A42553CED000811F87 /* gradientLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradientLoading.swift; sourceTree = "<group>"; };
+		E7DB80C1256E4672000EEDFD /* DealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
+		E7DB80C4256E467F000EEDFD /* DealExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealExtension.swift; sourceTree = "<group>"; };
+		E7DB80C8256E46A1000EEDFD /* DealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealView.swift; sourceTree = "<group>"; };
+		E7DB80CB256E46AB000EEDFD /* DealBranchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealBranchView.swift; sourceTree = "<group>"; };
+		E7DB80CD256E46BA000EEDFD /* DealAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealAboutView.swift; sourceTree = "<group>"; };
 		E7DFF6A3256CE3DD00D11BFA /* VoucherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherExtensions.swift; sourceTree = "<group>"; };
 		E7FE49B9254803110023D6DE /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		FC89CF29850372E162B97828 /* Pods-MC Mazaya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Mazaya.debug.xcconfig"; path = "Target Support Files/Pods-MC Mazaya/Pods-MC Mazaya.debug.xcconfig"; sourceTree = "<group>"; };
@@ -452,6 +462,16 @@
 			path = "Embedded Views";
 			sourceTree = "<group>";
 		};
+		E7DB80C7256E4683000EEDFD /* Embedded Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7DB80C8256E46A1000EEDFD /* DealView.swift */,
+				E7DB80CB256E46AB000EEDFD /* DealBranchView.swift */,
+				E7DB80CD256E46BA000EEDFD /* DealAboutView.swift */,
+			);
+			path = "Embedded Views";
+			sourceTree = "<group>";
+		};
 		E7DBA580256254A700FBB968 /* Registration - Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +499,9 @@
 			isa = PBXGroup;
 			children = (
 				D6979631250E4320006439BD /* BigOffersViewController.swift */,
+				E7DB80C1256E4672000EEDFD /* DealViewController.swift */,
+				E7DB80C4256E467F000EEDFD /* DealExtension.swift */,
+				E7DB80C7256E4683000EEDFD /* Embedded Views */,
 			);
 			path = Deals;
 			sourceTree = "<group>";
@@ -778,6 +801,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E79A9DA72536EBDA00D65C76 /* HomeTabController.swift in Sources */,
+				E7DB80C5256E467F000EEDFD /* DealExtension.swift in Sources */,
 				E7353BA3254030600019A6AA /* singleResultCell.swift in Sources */,
 				D6E1285E24A07F6400977D26 /* LoginViewController.swift in Sources */,
 				E7D4E7182562B623001DF4EE /* ScannerViewController.swift in Sources */,
@@ -789,8 +813,10 @@
 				D6E8F25824BDB2AB00A4AA9D /* FamilyMember.swift in Sources */,
 				E78E48C8253739B80035DE60 /* SearchBarExtension.swift in Sources */,
 				D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */,
+				E7DB80CE256E46BA000EEDFD /* DealAboutView.swift in Sources */,
 				A9EEA958253C533E0013275D /* OffersAlertVC.swift in Sources */,
 				E7784CC12518FFB60020BDB0 /* userData.swift in Sources */,
+				E7DB80C9256E46A1000EEDFD /* DealView.swift in Sources */,
 				A93540F9252DC11A00E8E375 /* CustomTableViewCell.swift in Sources */,
 				D6381EBF24ADD4DA004569D6 /* CommunicateUsViewController.swift in Sources */,
 				D6F9BB6D255D0ECF00A12A88 /* Voucher.swift in Sources */,
@@ -850,8 +876,10 @@
 				D6381EB724ADD479004569D6 /* NewOffersViewController.swift in Sources */,
 				E78DAF86251A355B000FC30E /* searchResultsCell.swift in Sources */,
 				E78E48CA25373A1A0035DE60 /* SideMenuExtension.swift in Sources */,
+				E7DB80C2256E4672000EEDFD /* DealViewController.swift in Sources */,
 				3BD3530F24FDACA40053BC66 /* homePageViewController.swift in Sources */,
 				D641E9AB249F3031001851A9 /* AppDelegate.swift in Sources */,
+				E7DB80CC256E46AB000EEDFD /* DealBranchView.swift in Sources */,
 				E73A421925120A3F00F45CC5 /* GalleryCollectionViewCell.swift in Sources */,
 				D6D8270425331CE800B376E9 /* UIViewExtension.swift in Sources */,
 				D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */,

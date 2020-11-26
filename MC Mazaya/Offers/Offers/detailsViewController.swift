@@ -132,15 +132,15 @@ class detailsViewController : UIViewController , UITextViewDelegate {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? OfferView, segue.identifier == "info" {
+        if let vc = segue.destination as? OfferView, segue.identifier == "toDetails" {
             vc.Trade = self.tradeInfo
             self.offerVC = vc
         }
-        if let vc = segue.destination as? BranchView, segue.identifier == "info" {
+        if let vc = segue.destination as? BranchView, segue.identifier == "toBranches" {
             vc.Trade = self.tradeInfo
             self.BranchVC = vc
         }
-        if let vc = segue.destination as? WhoWeAreView, segue.identifier == "info" {
+        if let vc = segue.destination as? WhoWeAreView, segue.identifier == "toAboutUs" {
             vc.Trade = self.tradeInfo
             self.WWAVVC = vc
         }
