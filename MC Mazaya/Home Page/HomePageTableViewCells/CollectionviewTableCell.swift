@@ -108,7 +108,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
                     cell.featured.alpha = 0.8
                     cell.featured.rotate()
                 }
-            }
+            } 
         }
         //        }
         

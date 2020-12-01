@@ -20,6 +20,10 @@ extension UITextField {
         border1.setShadow()
     }
   
+    func cornerReduidTF(){
+//        let view = UIView()
+//        view.layer
+    }
     
     func underlineHomeAdminTextField(){
         

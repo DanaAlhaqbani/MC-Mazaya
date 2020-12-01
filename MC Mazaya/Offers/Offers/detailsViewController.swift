@@ -33,12 +33,12 @@ class detailsViewController : UIViewController , UITextViewDelegate {
     @IBOutlet weak var star: UIButton!
     @IBOutlet weak var upperline: UIView!
     var ref = Database.database().reference()
-    
+    var isFav : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupFavouriteButton()
+        checkFavorite()
         getOffers()
         getBranches()
     }
@@ -92,41 +92,24 @@ class detailsViewController : UIViewController , UITextViewDelegate {
         
         
     @IBAction func IsFavorite(_ sender: UIButton) {
-//        if !tradeInfo.isFav! {
-//            self.ref.child("Users/\(user!)/FavoriteTradeMarks").childByAutoId().setValue(self.tradeInfo.BrandName)
-//            self.star.isSelected = true
-//            self.tradeInfo.isFav = true
-//        } else {
-//            self.ref.child("Users/\(user!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: { (snap) in
-//                if let dict = snap.value as? [String: Any] {
-//                    for i in dict {
-//                        if i.value as? String == self.tradeInfo.BrandName {
-//                            self.ref.child("Users/\(self.user!)/FavoriteTradeMarks/\(i.key)").removeValue()
-//                        }
-//                    }
-//                }
-//            })
-//            self.star.isSelected = false
-//            self.tradeInfo.isFav = false
-//        }
+        sender.isSelected = !sender.isSelected
+        self.isFav = sender.isSelected
         
-//        sender.isSelected = !sender.isSelected
-//        let isChecked = sender.isSelected
-//        if !isChecked {
-//            for i in favDictionary {
-//                if i.value as? String == self.tradeInfo.BrandName {
-//                    self.ref.child("Users/\(user!)/FavoriteTradeMarks/\(i.key)").removeValue()
-//                    self.ref.child("Users/\(user!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: {(snap) in
-//                        if let dict = snap.value as? NSDictionary {
-//                            self.favDictionary = dict
-//                        }
-//                    })
-//                } // Remove trademark if it's already favourite trade
-//            } // Iterate over Favourite trademarks dictionray
-//            print(favDictionary)
-//        } else {
-//            self.ref.child("Users/\(user!)/FavoriteTradeMarks").childByAutoId().setValue(self.tradeInfo.BrandName)
-//        } // Add Trademark to Favourite Trademarks Dictionary
+      if isFav == true {
+        self.ref.child("Users/\(user!)/FavoriteTrademarks/\(tradeInfo.trademarkID!)").setValue("true")
+//            self.star.isSelected = true
+        } else {
+            self.ref.child("Users/\(user!)/FavoriteTrademarks").observeSingleEvent(of: .value, with: { (snap) in
+                if let dict = snap.value as? [String: Any] {
+                    for i in dict {
+                        if i.key == self.tradeInfo.trademarkID {
+                            self.ref.child("Users/\(self.user!)/FavoriteTrademarks/\(i.key)").removeValue()
+                        }
+                    }
+                }
+            })
+//            self.star.isSelected = false
+        }
         
     } // End of handling star pressing
     
@@ -148,15 +131,32 @@ class detailsViewController : UIViewController , UITextViewDelegate {
     
     
     func setupFavouriteButton(){
-//        if !tradeInfo.isFav! {
-//            self.star.isSelected = false
-//        } else {
-//            self.star.isSelected = true
-//        }
-//        star.setImage(UIImage(named: "Checked"), for: .selected)
-//        star.setImage(UIImage(named: "Unchecked"), for: .normal)
+        if !isFav {
+            self.star.isSelected = false
+        } else {
+            self.star.isSelected = true
+        }
+        star.setImage(UIImage(named: "Checked"), for: .selected)
+        star.setImage(UIImage(named: "Unchecked"), for: .normal)
     }
     
+    func checkFavorite(){
+        ref.child("Users/\(user!)/FavoriteTrademarks").observeSingleEvent(of: .value, with: { snapshot in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let id = snap.key
+                print("Aaaaaaaa")
+
+                if self.tradeInfo.trademarkID == id {
+                    print("Aaaaaaaa")
+                    self.isFav = true
+                } else {
+                    self.isFav = false
+                }
+            }
+            self.setupFavouriteButton()
+        })
+    }
 
     
 }

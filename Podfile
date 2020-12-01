@@ -22,5 +22,7 @@ pod 'FLAnimatedImage'
 pod 'SideMenu'
 pod 'SDWebImage'
 pod 'CHIPageControl/Chimayo'
+pod 'JVFloatLabeledTextField'
+pod 'MaterialComponents/TextControls+OutlinedTextFields'
 end
 

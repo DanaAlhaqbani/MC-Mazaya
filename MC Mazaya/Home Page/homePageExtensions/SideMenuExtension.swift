@@ -113,7 +113,6 @@ extension homePageViewController {
 
             isMenuShow = false
         }
-        
         leftBarButtonItem.tintColor = green
     }
     
@@ -123,14 +122,20 @@ extension homePageViewController {
         regionDropDownMenu.selectionAction = { [weak self] (index: Int, item: String) in //8
           guard let _ = self else { return }
             self?.selectedRegion = item
-            self?.ref?.child("Users/\((self?.user?.uid)!)/Region").setValue(self?.selectedRegion)
+            self?.ref?.child("Users/\((self?.user?.uid)!)/region").setValue(self?.selectedRegion)
             self?.mainViewXConstraint.constant = 0
             UIView.animate(withDuration: 0.5, delay: 0.0,
                            usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
                            options: .curveEaseInOut, animations: {
                             self?.view.layoutIfNeeded()
                            }, completion: nil)
-            self?.isMenuShow = false
+            DispatchQueue.main.async {
+//                self?.Categories = []
+//                self?.Trades = []
+//                self?.filteredTradeMarks = []
+                self?.tbleList.reloadData()
+            }
+//            self?.getCategories((self?.selectedRegion!)!)
         }
     }
     

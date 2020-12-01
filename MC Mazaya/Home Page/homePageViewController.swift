@@ -17,7 +17,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     //MARK: - Constants
     let user = Auth.auth().currentUser
     let green = UIColor(rgb: 0x38a089)
-//    let firstInitailizer = launchViewController()
+    //    let firstInitailizer = launchViewController()
     var searchBar : UISearchController!
     var searchbar = UISearchBar()
     var isFavourite = false
@@ -36,7 +36,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var Trades = [Trademark]()
     var filteredData = [String]()
     var filteredTradeMarks = [Trademark]()
-//    var resultCollectionViewController : searchResult!
+    //    var resultCollectionViewController : searchResult!
     var resultTableViewController : searchResultTable!
     var filteredCategoriesName = [String]()
     var filterVC = filterViewController()
@@ -53,6 +53,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     var filteredTrademarks = [Trademark]()
     let regionDropDownMenu = DropDown()
     var seectedRegion = String()
+//    var filteredCategories = [Category]()
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
@@ -64,7 +65,6 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         handleDelegates()
         dataUser()
         setUpUI()
-        getCategories()
         self.navigationItem.titleView = searchBar.searchBar
         filterVC.delegate = self
         navigationController?.navigationBar.tintColor = UIColor(rgb: 0x1C9A8A)
@@ -74,11 +74,11 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-//        setupSearchTextField()
+        //        setupSearchTextField()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        setupSearchBar()
+        //        setupSearchBar()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -90,8 +90,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                         self.view.layoutIfNeeded()
                        }, completion: nil)
         isMenuShow = false
+        
     }
-
+    
     //MARK: - "Side Menue" Constants and Variables
     let mainView : UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -106,14 +107,14 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.backgroundColor = green
         return $0
     }(UIView())
-
+    
     let separatorView : UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         let green = UIColor(rgb: 0x38a089)
         $0.backgroundColor = green
         return $0
     }(UIView())
-           
+    
     let sideMenuStackView : UIStackView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
@@ -141,7 +142,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
     }(UIButton(type: .system))
-           
+    
     lazy var openFamilyVC : UIButton = {
         $0.setTitle("عائلتي", for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.6274509804, blue: 0.537254902, alpha: 1)
@@ -151,7 +152,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
     }(UIButton(type: .system))
-        
+    
     lazy var openFavVC : UIButton = {
         $0.setTitle("المفضلة", for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.6274509804, blue: 0.537254902, alpha: 1)
@@ -212,7 +213,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
     }(UIButton(type: .system))
-
+    
     
     //MARK: - Logout Function
     func logout(){
@@ -222,11 +223,13 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             self.present(vc, animated: true, completion: nil)
         }
     }
-
+    
     //MARK:- Table View delegate and datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.Categories.count > 0 {
+        if self.Categories.count > 0 && self.featuredTradeMarks.count > 0 {
             return Categories.count + 1
+        } else if self.Categories.count > 0 && self.featuredTradeMarks.count == 0 {
+            return Categories.count
         } else {
             return 3
         }
@@ -235,31 +238,50 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell") as! CollectionviewTableCell
         if Categories.count != 0 {
-        if indexPath.row == 0 {
-            filterFeaturedTrademarks()
-            cell.nameLabel.text = "مميز"
-            let featured = self.featuredTradeMarks
-            cell.Trades = featured
-            cell.delegate = self
-            cell.setUpDataSource()
-        } else {
-        self.Categories = self.Categories.sorted {
-            guard let first = $0.Name else {
-                return false
+//            let trademarksNumber = self.Categories[indexPath.row].trademarks
+            if featuredTradeMarks.count != 0 {
+                if indexPath.row == 0 {
+                    cell.nameLabel.text = "مميز"
+                    let featured = self.featuredTradeMarks
+                    cell.Trades = featured
+                    cell.delegate = self
+                    cell.setUpDataSource()
+                } else {
+                    self.Categories = self.Categories.sorted {
+                        guard let first = $0.Name else {
+                            return false
+                        }
+                        guard let second = $1.Name else {
+                            return true
+                        }
+                        return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
+                    } // End of sorting result
+                    filterTrademarks(indexPath)
+                    cell.nameLabel.text = self.Categories[indexPath.row - 1].Name
+                    cell.catId = self.Categories[indexPath.row - 1].Name!
+                    cell.category = self.Categories[indexPath.row - 1]
+                    cell.Trades = filteredTrademarks
+                    cell.delegate = self
+                    cell.setUpDataSource()
+                    
+                }
+            } else {
+                cell.nameLabel.text = self.Categories[indexPath.row].Name
+                cell.catId = self.Categories[indexPath.row].Name!
+                cell.category = self.Categories[indexPath.row]
+                cell.Trades = filteredTrademarks
+                cell.delegate = self
+                cell.setUpDataSource()
             }
-            guard let second = $1.Name else {
-                return true
-            }
-            return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
-        } // End of sorting result
-            filterTrademarks(indexPath)
-            cell.nameLabel.text = self.Categories[indexPath.row - 1].Name
-            cell.catId = self.Categories[indexPath.row - 1].Name!
-            cell.category = self.Categories[indexPath.row - 1]
-            cell.Trades = filteredTrademarks
-            cell.delegate = self
-            cell.setUpDataSource()
-            }
+            self.Categories = self.Categories.sorted {
+                guard let first = $0.Name else {
+                    return false
+                }
+                guard let second = $1.Name else {
+                    return true
+                }
+                return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
+            } // End of sorting results
         }
         return cell
     }
@@ -288,15 +310,22 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         })
         handle = ref?.child("Users").child((user?.uid)!).child("points").observe(.value, with: { (snapshot) in
             let currentPoints = snapshot.value as? String
-             userData.points = currentPoints!
+            userData.points = currentPoints!
         })
-        handle = ref?.child("Users").child((user?.uid)!).child("region").observe(.value, with: { (snapshot) in
+        handle = ref?.child("Users").child((user?.uid)!).child("region").observe(.value, with: { [self] (snapshot) in
             let currentRegion = snapshot.value as? String
-             userData.region = currentRegion!
+            userData.region = currentRegion!
+            //            print(currentRegion)
+            DispatchQueue.main.async {
+                self.getCategories(currentRegion!)
+//                self.filterCategories()
+                //                self.tbleList.reloadData()
+            }
+            
         })
         handle = ref?.child("Users").child((user?.uid)!).child("userType").observe(.value, with: { (snapshot) in
             let currentuserType = snapshot.value as? String
-             userData.userType = currentuserType!
+            userData.userType = currentuserType!
         })
     }
     
@@ -307,35 +336,35 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         if segue.identifier == "tradeInfo" {
             let dis = segue.destination as! detailsViewController
             dis.tradeInfo = sender as? Trademark
-//            if self.favouriteTrades.contains(where: {$0.BrandName == dis.tradeInfo.BrandName}){
-//                dis.tradeInfo.isFav = true
-//            } else {
-////                dis.tradeInfo.isFav = false
-//            }
+            //            if self.favouriteTrades.contains(where: {$0.BrandName == dis.tradeInfo.BrandName}){
+            //                dis.tradeInfo.isFav = true
+            //            } else {
+            ////                dis.tradeInfo.isFav = false
+            //            }
             print(favDictionary)
         } // Show Description Segue
         if segue.identifier == "trademarks" {
-                let dis = segue.destination as! TrademarkTableVC
-                dis.trades = sender as? [Trademark] ?? []
-                
+            let dis = segue.destination as! TrademarkTableVC
+            dis.trades = sender as? [Trademark] ?? []
+            
         } // Show Trademarks Segue
         if segue.identifier == "filter" {
             let dis = segue.destination as! UINavigationController
             let filterVC = dis.viewControllers[0] as! filterViewController
-//            filterVC.Categories = self.categoriesCopy
+            //            filterVC.Categories = self.categoriesCopy
             filterVC.selectedSortByString = nil
             filterVC.selectedServiceString = nil
             filterVC.dismissHandler = {
                 if filterVC.selectedChecker == false {
-//                    self.Categories = self.categoriesCopy
+                    //                    self.Categories = self.categoriesCopy
                     self.Categories = filterVC.passedCategories
                     self.sortByString = filterVC.selectedSortByString
-//                    self.serviceTypeString = filterVC.selectedServiceString
+                    //                    self.serviceTypeString = filterVC.selectedServiceString
                     self.tbleList.reloadData()
                 } else {
-//                    self.Categories = self.categoriesCopy
+                    //                    self.Categories = self.categoriesCopy
                     self.sortByString = nil
-//                    self.serviceTypeString = nil
+                    //                    self.serviceTypeString = nil
                     self.tbleList.reloadData()
                 }
                 self.tbleList.reloadData()
@@ -345,24 +374,24 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             let dis = segue.destination as! NewOffersViewController
             dis.Categories = self.Categories
         } // Show new offers Segue
-         if segue.identifier == "toFav" {
+        if segue.identifier == "toFav" {
             let dis = segue.destination as! FavoriteViewController
-//            getFav()
-//            dis.Categories = self.Categories
+            //            getFav()
+            //            dis.Categories = self.Categories
             dis.favTrademarks = self.favouriteTrades
-//            dis.favDict = sender as! NSDictionary
+            //            dis.favDict = sender as! NSDictionary
         } // Show new offers Segue
         if segue.identifier == "toVouchers" {
-                let dis = segue.destination as! VouchersViewController
-                  dis.Categories = self.Categories
-                  dis.Trades = self.Trades
-             } // Show new offers Segue
+            let dis = segue.destination as! VouchersViewController
+            dis.Categories = self.Categories
+            dis.Trades = self.Trades
+        } // Show new offers Segue
         if let des = segue.destination as? categoriesCollectionView, segue.identifier == "categoriesCollection" {
-//            des.categories = self.Categories
-//            des.trademarks = Trades
-//            des.cate
+            //            des.categories = self.Categories
+            //            des.trademarks = Trades
+            //            des.cate
             
-//            self.categoriesCollection = des
+            //            self.categoriesCollection = des
         }
         if segue.identifier == "toRegion" {
             let des = segue.destination as! RegionVC
@@ -372,17 +401,17 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 print(self.selectedRegion!)
                 self.tbleList.reloadData()
             }
-//            self.regionFilrered = des
+            //            self.regionFilrered = des
         }
         if segue.identifier == "toCategory" {
             let des = segue.destination as! TrademarkTableVC
             let sender = sender as! Category
             des.category = sender
-        //
+            //
         }
         if let des = segue.destination as? bannerContainer , segue.identifier == "bannerContainer" {
-//            retrieveBanners()
-//            bannerView?.data = self.banners
+            //            retrieveBanners()
+            //            bannerView?.data = self.banners
             bannerView = des 
         }
         if segue.identifier == "toSeasonalOffers" {
@@ -390,7 +419,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             let sender = sender as! String
             des.seasonTitle = sender
         }
-
+        
     }// Prepare Function
     
 }

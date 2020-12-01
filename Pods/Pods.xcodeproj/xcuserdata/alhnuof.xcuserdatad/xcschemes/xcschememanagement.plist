@@ -119,6 +119,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JVFloatLabeledTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MDFInternationalization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MaterialComponents.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MC Mazaya.xcscheme</key>
 		<dict>
 			<key>isShown</key>

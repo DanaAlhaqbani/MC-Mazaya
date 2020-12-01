@@ -11,31 +11,36 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 import IQKeyboardManagerSwift
+import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: MDCOutlinedTextField!
+    @IBOutlet weak var passwordTextField: MDCOutlinedTextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var containerView: UIView!
-    
-
-    
     var container: UIView = UIView()
     var loadingView: UIView = UIView()
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
+    var userData : userData?
     @IBOutlet weak var showSignUp: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        emailTextField.backgroundUnderlined()
-               passwordTextField.backgroundUnderlined()
-               loginBtn.setButton()
-        emailTextField.addDoneButtonOnKeyboard()
-        passwordTextField.addDoneButtonOnKeyboard()
+//        emailTextField.backgroundUnderlined()
+//               passwordTextField.backgroundUnderlined()
+//               loginBtn.setButton()
+//        emailTextField.addDoneButtonOnKeyboard()
+//        passwordTextField.addDoneButtonOnKeyboard()
         view.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
 //        loginBtn.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
+//        emailTextField.layer.cornerRadius = 10
+//        passwordTextField.layer.cornerRadius = 10
+//        emailTextField.layer.borderWidth = 0.5
+//        passwordTextField.layer.borderWidth = 0.5
+//        emailTextField.layer.borderColor = UIColor(rgb: 0x38a089).cgColor
+//        passwordTextField.layer.borderColor = UIColor(rgb: 0x38a089).cgColor
+//        passwordTextField.
         loginBtn.backgroundColor = UIColor(rgb: 0x26998a)
         loginBtn.layer.cornerRadius = 20
         loginBtn.layer.masksToBounds = true
@@ -43,9 +48,25 @@ class LoginViewController: UIViewController {
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 20
         containerView.layer.masksToBounds = true
-        
-//        topView.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
 
+        emailTextField.label.text = "البريد الإلكتروني"
+        emailTextField.placeholder = "مثال mazaya@mci.gov.sa"
+        emailTextField.layer.borderColor = UIColor(rgb: 0x26998a).cgColor
+        emailTextField.label.tintColor = UIColor(rgb: 0x26998a)
+        passwordTextField.label.text = "كلمة المرور"
+        passwordTextField.placeholder = ""
+        passwordTextField.tintColor = UIColor(rgb: 0x26998a)
+        emailTextField.setOutlineColor(UIColor(rgb: 0x26998a), for: .normal)
+        passwordTextField.setOutlineColor(UIColor(rgb: 0x26998a), for: .normal)
+        emailTextField.setOutlineColor(UIColor(rgb: 0x26998a), for: .editing)
+        passwordTextField.setOutlineColor(UIColor(rgb: 0x26998a), for: .editing)
+//        topView.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
+        let emailImage = UIImageView(image: UIImage(named: "Email"))
+        let passImage = UIImageView(image: UIImage(named: "Password"))
+        emailTextField.trailingView?.addSubview(emailImage)
+        passwordTextField.trailingView?.addSubview(passImage)
+        emailTextField.containerRadius = 10
+        
     }
     
     @IBAction func LoginBtn(_ sender: Any) {
@@ -88,6 +109,7 @@ class LoginViewController: UIViewController {
                     if user!.isEmailVerified {
                         print("success")
                         self.successful()
+//                        self.userData = user
                     } else {
                         // email is not verified
                         print("email is not verified")

@@ -112,7 +112,38 @@ PODS:
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
   - IQKeyboardManagerSwift (6.5.6)
+  - JVFloatLabeledTextField (1.2.2)
   - leveldb-library (1.22)
+  - MaterialComponents/AnimationTiming (119.1.2)
+  - MaterialComponents/Availability (119.1.2)
+  - MaterialComponents/private/Math (119.1.2)
+  - "MaterialComponents/private/TextControlsPrivate+BaseStyle (119.1.2)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle (119.1.2)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/private/TextControlsPrivate+Shared (119.1.2)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+    - "MaterialComponents/TextControls+Enums"
+  - "MaterialComponents/private/TextControlsPrivate+TextFields (119.1.2)":
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/TextControls+BaseTextFields (119.1.2)":
+    - "MaterialComponents/private/TextControlsPrivate+BaseStyle"
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+    - "MaterialComponents/private/TextControlsPrivate+TextFields"
+    - MDFInternationalization
+  - "MaterialComponents/TextControls+Enums (119.1.2)"
+  - "MaterialComponents/TextControls+OutlinedTextFields (119.1.2)":
+    - MaterialComponents/Availability
+    - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
+    - "MaterialComponents/TextControls+BaseTextFields"
+  - MDFInternationalization (2.0.0)
   - nanopb (2.30906.0):
     - nanopb/decode (= 2.30906.0)
     - nanopb/encode (= 2.30906.0)
@@ -136,6 +167,8 @@ DEPENDENCIES:
   - FirebaseUI/Google
   - FLAnimatedImage
   - IQKeyboardManagerSwift
+  - JVFloatLabeledTextField
+  - "MaterialComponents/TextControls+OutlinedTextFields"
   - SDWebImage
   - SideMenu
 
@@ -162,7 +195,10 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
+    - JVFloatLabeledTextField
     - leveldb-library
+    - MaterialComponents
+    - MDFInternationalization
     - nanopb
     - PromisesObjC
     - SDWebImage
@@ -190,12 +226,15 @@ SPEC CHECKSUMS:
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  JVFloatLabeledTextField: df48598472ee015701d509f43e59492a0d4ca208
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  MaterialComponents: 8936712ec298476993950e2d5d77e348d8e84577
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: c3455967574f2502d36c360fa7bbb8fd7679bbdb
+PODFILE CHECKSUM: 14770834b15d1d958594156f8b7062a2d92b4189
 
 COCOAPODS: 1.9.3

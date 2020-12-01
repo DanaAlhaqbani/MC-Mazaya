@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     //MARK: - Variables
     var gender = ""
     var points = "0"
+    var region = "الكل"
     var container: UIView = UIView()
     var loadingView: UIView = UIView()
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -42,7 +43,6 @@ class SignUpViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nameTextField.backgroundUnderlined()
         phoneTextField.backgroundUnderlined()
         nameTextField.backgroundUnderlined()
@@ -51,9 +51,7 @@ class SignUpViewController: UIViewController {
         passwordConfirmationTextField.backgroundUnderlined()
         signUpButton.layer.cornerRadius = 20
         signUpButton.layer.masksToBounds = true
-//        signUpButton.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
         signUpButton.backgroundColor = UIColor(rgb: 0x26998a)
-        //        signUpButton.setButton()
         femaleRadioButton.isSelected = true
         gender = "أنثى"
         self.tabBarController?.tabBar.isHidden = true
@@ -156,7 +154,7 @@ class SignUpViewController: UIViewController {
             let alert = self.alertContent(title:  "تأكيد كلمة المرور غير متطابق!", message: " من فضلِك، أدخل كلمة مرور متطابقة" )
             self.present(alert, animated: true, completion: nil)
         } else {
-            self.signUp(email: email, password: password, confirmPassword: confirmPassword, name: name, gender: gender, phone: phone, userType: userType)
+            self.signUp(email: email, password: password, confirmPassword: confirmPassword, name: name, gender: gender, phone: phone, userType: userType, region: region)
             } // password != confirmPassword
 //            if isFilledData && self.isValidName(testStr: name) && self.isValidNumber(testStr: phone) && self.isValidemail == true && password.count >= 6 && password == confirmPassword && self.isValidNumberLength(testStr: phone) && self.isPhoneExist == false {
 ////                self.showSpinner()
@@ -238,7 +236,7 @@ class SignUpViewController: UIViewController {
     
     
     // Sign up Function
-    func signUp(email:String, password:String, confirmPassword:String, name:String, gender:String, phone: String, userType: String) {
+    func signUp(email:String, password:String, confirmPassword:String, name:String, gender:String, phone: String, userType: String, region: String) {
         // sign up with firebase
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
@@ -250,7 +248,7 @@ class SignUpViewController: UIViewController {
             }
             guard let uid = result?.user.uid else { return }
             // Passowrd deleted
-            let values = ["email": email, "name": name, "gender": gender, "phone": phone, "points": self.points, "userType": userType, "region" : "الكل"] as [String : Any]
+            let values = ["email": email, "name": name, "gender": gender, "phone": phone, "points": self.points, "userType": userType, "region" : region] as [String : Any]
             Database.database().reference().child("Users").child(uid).updateChildValues(values, withCompletionBlock: {(error, ref) in
                 if let error = error {
                     print("failed to update database values with error", error.localizedDescription)
