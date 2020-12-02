@@ -81,13 +81,10 @@ extension MyFamilyViewController: UITableViewDelegate, UITableViewDataSource {
         let memberRef = Database.database().reference().child("FamilyMembers")
         for key in familyMembersIDs {
             memberRef.child(key).observeSingleEvent(of: .value, with:  { snapshot in
-                for child in snapshot.children {
-                    let snap = child as! DataSnapshot
-                    if snap.key == key {
-                        let member = FamilyMemebr(employeeID: snap.childSnapshot(forPath: "employeeID").value as? String, phone: snap.childSnapshot(forPath: "phoneNumber").value as? String, name: snap.childSnapshot(forPath: "name").value as? String, status: snap.childSnapshot(forPath: "status").value as? String, userID: snap.childSnapshot(forPath: "userID").value as? String)
-                        self.familyMembers.append(member)
-                    }
-                }
+                    let snap = snapshot as! DataSnapshot
+                    let member = FamilyMemebr(employeeID: snap.childSnapshot(forPath: "employeeID").value as? String, phone: snap.childSnapshot(forPath: "phoneNumber").value as? String, name: snap.childSnapshot(forPath: "name").value as? String, status: snap.childSnapshot(forPath: "status").value as? String, userID: snap.childSnapshot(forPath: "userID").value as? String)
+                    self.familyMembers.append(member)
+                
                 self.FamilyTableView.reloadData()
             })
         }
