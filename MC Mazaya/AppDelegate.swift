@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.titleTextAttributes = textAttributes
         navigationBarAppearace.barTintColor = UIColor(rgb: 0x1C9A8A)
         navigationBarAppearace.tintColor = .white
+        
         labelAppearance.substituteFontName = "STC"
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
         UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white

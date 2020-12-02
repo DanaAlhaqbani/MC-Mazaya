@@ -24,10 +24,6 @@ class MyFamilyViewController: UIViewController {
         super.viewDidLoad()
         backgroundView.layer.cornerRadius = 20
         backgroundView.layer.masksToBounds = true
-        backgroundView.backgroundColor = UIColor(rgb: 0x33A697)
-        navigationItem.titleView?.backgroundColor = .clear
-//        navigationItem.title = "عائلتي"
-        
         getFamilyMembersIDs()
         FamilyTableView.delegate = self
         FamilyTableView.dataSource = self
@@ -35,6 +31,17 @@ class MyFamilyViewController: UIViewController {
         FamilyTableView.separatorStyle = .none
         FamilyTableView.showsVerticalScrollIndicator = false
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+          self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+          self.navigationController?.navigationBar.shadowImage = UIImage()
+          self.navigationController?.navigationBar.isTranslucent = true
+      }
+      override func viewWillDisappear(_ animated: Bool) {
+          self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+          self.navigationController?.navigationBar.shadowImage = UIImage()
+          self.navigationController?.navigationBar.isTranslucent = false
+      }
     
 }
 extension MyFamilyViewController: UITableViewDelegate, UITableViewDataSource {
