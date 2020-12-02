@@ -11,7 +11,7 @@ import UIKit
 class familyCell: UITableViewCell {
 
     @IBOutlet weak var familyView: UIView!
-    @IBOutlet weak var familyImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLable: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,8 +20,6 @@ class familyCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

@@ -18,16 +18,22 @@ class MyFamilyViewController: UIViewController {
     let userID = Auth.auth().currentUser?.uid
     var familyMembersIDs = [String]()
     var familyMembers = [FamilyMemebr]()
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var FamilyTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundView.layer.cornerRadius = 20
+        backgroundView.layer.masksToBounds = true
+        backgroundView.backgroundColor = UIColor(rgb: 0x33A697)
+        navigationItem.titleView?.backgroundColor = .clear
+//        navigationItem.title = "عائلتي"
+        
         getFamilyMembersIDs()
         FamilyTableView.delegate = self
         FamilyTableView.dataSource = self
         // Making table view style look gooood
         FamilyTableView.separatorStyle = .none
         FamilyTableView.showsVerticalScrollIndicator = false
-        
     }
     
 }
@@ -43,7 +49,11 @@ extension MyFamilyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = FamilyTableView.dequeueReusableCell(withIdentifier: "cell") as! familyCell
         cell.numberLable.text = familyMembers[indexPath.row].name
-        cell.familyView.layer.cornerRadius = cell.familyView.frame.height / 2
+        cell.familyView.layer.cornerRadius = 20
+        cell.familyView.backgroundColor = UIColor(rgb: 0xF4F4F4)
+        cell.familyView.layer.shadowColor = UIColor.systemGray5.cgColor
+        cell.familyView.layer.shadowRadius = 2
+        cell.familyView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         return cell
     }
     
