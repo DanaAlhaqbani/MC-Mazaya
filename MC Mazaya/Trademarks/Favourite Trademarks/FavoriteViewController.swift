@@ -21,14 +21,13 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
     
     @IBOutlet weak var trademarksTableView: UITableView!
     @IBOutlet weak var starButton: UIButton!
-    var Categories = [Category]()
-    var favDict : NSDictionary = [:]
     var Trademarks = [Trademark]()
     var favTrademarks = [Trademark]()
     var ref = Database.database().reference()
     var uid = Auth.auth().currentUser?.uid
-    var tradeName = String()
     var emptyView = UIView()
+    
+    
     let labelTitle : UILabel = {
         $0.text = "المفضلة فارغة"
         $0.font = UIFont(name: "STC", size: 20)
@@ -39,6 +38,8 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
         $0.image = UIImage(named: "emptyFav")
         return $0
     }(UIImageView())
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -51,11 +52,9 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
         trademarksTableView.delegate = self
         trademarksTableView.dataSource = self
         trademarksTableView.separatorStyle = .none
+        getFavourites()
         setupEmptyView()
-//        getFavourites()
-        if favTrademarks.count == 0 {
-            self.view.addSubview(self.emptyView)
-        }
+
     }
     
 
@@ -92,7 +91,6 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
         let imageURL = favTrademarks[indexPath.row].imgURL ?? ""
 //        cell.starButton.addTarget(indexPath.row, action: #selector(starPressed(_:)), for: .touchUpInside)
-        cell.favDict = self.favDict
         cell.trademarkName.text = favTrademarks[indexPath.row].trademarkName
         cell.trademarkImage.sd_setImage(with: URL(string: imageURL))
         cell.trademarkView.layer.cornerRadius = cell.trademarkImage.frame.height / 2
@@ -115,14 +113,21 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func getFavourites(){
-//        self.favTrademarks = []
-        ref.child("Users/\(uid!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: { snapshot in
-            let dictionary = snapshot.value as! NSDictionary
-            var keys =  [String: Any]()
-            for i in dictionary {
-                keys["Name"] = i.value as! String
-//                self.favTrademarks = Trademarks
+        self.favTrademarks = []
+        ref.child("Users/\(uid!)/FavoriteTrademarks").observeSingleEvent(of: .value, with: { snapshot in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let id = snap.key
+                for trade in self.Trademarks {
+                    if trade.trademarkID == id {
+                        self.favTrademarks.append(trade)
+                    }
+                }
             }
+            if self.favTrademarks.count == 0 {
+                self.view.addSubview(self.emptyView)
+            }
+            self.trademarksTableView.reloadData()
         })
     }
 

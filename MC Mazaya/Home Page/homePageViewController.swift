@@ -326,6 +326,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         handle = ref?.child("Users").child((user?.uid)!).child("userType").observe(.value, with: { (snapshot) in
             let currentuserType = snapshot.value as? String
             userData.userType = currentuserType!
+            DispatchQueue.main.async {
+                self.adjustSidemenue(currentuserType!)
+            }
         })
     }
     
@@ -378,7 +381,8 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             let dis = segue.destination as! FavoriteViewController
             //            getFav()
             //            dis.Categories = self.Categories
-            dis.favTrademarks = self.favouriteTrades
+//            dis.favTrademarks = self.favouriteTrades
+            dis.Trademarks = self.Trades
             //            dis.favDict = sender as! NSDictionary
         } // Show new offers Segue
         if segue.identifier == "toVouchers" {

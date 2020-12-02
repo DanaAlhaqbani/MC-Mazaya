@@ -60,16 +60,6 @@ extension homePageViewController {
             popController.popoverPresentationController?.delegate = self
             popController.popoverPresentationController?.sourceView = sender // button
             popController.popoverPresentationController?.sourceRect = sender.bounds
-            // present the popover
-//            self.present(popController, animated: true, completion: {
-//                //                popController.categories = self.categoriesCopy
-//                popController.dismissHandler = {
-//                    self.selectedRegion = popController.selectedRegion
-//                    print(self.selectedRegion!)
-//                    self.tbleList.reloadData()
-//                }
-//                //                self.tbleList.reloadData()
-//            })
             self.regionDropDownMenu.anchorView = sender
             self.setupRegionsDropDownMenu()
             self.regionDropDownMenu.show()
@@ -110,17 +100,19 @@ extension homePageViewController {
                            options: .curveEaseInOut, animations: {
                             self.view.layoutIfNeeded()
                            }, completion: nil)
-
+            
             isMenuShow = false
+            
+            
         }
         leftBarButtonItem.tintColor = green
     }
     
     func setupRegionsDropDownMenu(){
         self.regionDropDownMenu.dataSource = ["الكل", "الرياض", "مكة المكرمة", "القصيم", "منطقة الشرقية", "الحدود الشمالية", "المدينة المنورة", "نجران", "جازان", "الباحة", "عسير", "حائل",
-        "تبوك", "الجوف"]
+                                              "تبوك", "الجوف"]
         regionDropDownMenu.selectionAction = { [weak self] (index: Int, item: String) in //8
-          guard let _ = self else { return }
+            guard let _ = self else { return }
             self?.selectedRegion = item
             self?.ref?.child("Users/\((self?.user?.uid)!)/region").setValue(self?.selectedRegion)
             self?.mainViewXConstraint.constant = 0
@@ -130,12 +122,12 @@ extension homePageViewController {
                             self?.view.layoutIfNeeded()
                            }, completion: nil)
             DispatchQueue.main.async {
-//                self?.Categories = []
-//                self?.Trades = []
-//                self?.filteredTradeMarks = []
+                //                self?.Categories = []
+                //                self?.Trades = []
+                //                self?.filteredTradeMarks = []
                 self?.tbleList.reloadData()
             }
-//            self?.getCategories((self?.selectedRegion!)!)
+            //            self?.getCategories((self?.selectedRegion!)!)
         }
     }
     

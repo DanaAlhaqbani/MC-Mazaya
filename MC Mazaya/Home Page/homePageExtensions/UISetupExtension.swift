@@ -22,11 +22,9 @@ extension homePageViewController {
         sideMenu.addSubview(sideMenuStackView)
         sideMenuStackView.addArrangedSubview(MazayaLogoView)
         sideMenuStackView.addArrangedSubview(openRegionVC)
-        sideMenuStackView.addArrangedSubview(openFamilyVC)
         sideMenuStackView.addArrangedSubview(openFavVC)
         sideMenuStackView.addArrangedSubview(openNewOffersVC)
         sideMenuStackView.addArrangedSubview(openSuggestVC)
-        sideMenuStackView.addArrangedSubview(openVouchersVC)
         sideMenuStackView.addArrangedSubview(openHelpVC)
         sideMenuStackView.addArrangedSubview(logoutVS)
         leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterTapped))
@@ -101,5 +99,11 @@ extension homePageViewController {
             searchBar.searchBar.setPlaceholder(textColor: .white)
            } // end of setup search bae
 
-    
+    func adjustSidemenue(_ userType: String){
+        if userType == "موظف" {
+            sideMenuStackView.insertArrangedSubview(openFamilyVC, at: 2)
+            sideMenuStackView.insertArrangedSubview(openVouchersVC, at: 5)
+
+        }
+    }
 }
