@@ -44,6 +44,7 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        Trades = []
         allBtn.layer.cornerRadius = 10
         allBtn.clipsToBounds = true
         //        allBtn.layer.borderWidth = 1.00
@@ -76,10 +77,11 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
     //MARK:- setUpDataSource
     func setUpDataSource() {
         DispatchQueue.main.async {
-            self.galleryCollectionView.reloadData()
-            self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
+                self.galleryCollectionView.reloadData()
+                self.galleryCollectionView.semanticContentAttribute = .forceRightToLeft
         }
     }
+
     
     
     
@@ -92,8 +94,6 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
         }
     }
     
-    
-    var url = URL(string: "")
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
         //        if Trades[indexPath.row].category == catId {
@@ -108,9 +108,8 @@ class CollectionviewTableCell: UITableViewCell, UICollectionViewDataSource , UIC
                     cell.featured.alpha = 0.8
                     cell.featured.rotate()
                 }
-            } 
+            }
         }
-        //        }
         
         Trades = Trades.sorted {
             guard let first = $0.trademarkName else {

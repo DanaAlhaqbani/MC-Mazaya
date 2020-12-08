@@ -182,7 +182,7 @@ class launchViewController: UIViewController {
         _ = userNavViewController2?.viewControllers[0] as! BigOffersViewController
 //        getFeaturedTrademarks()
 //        bigOffers.Categories = self.Categories
-        lastView.Categories = self.Categories
+//        lastView.Categories = self.Categories
 //        lastView.categoriesCopy = self.categoriesCopy
         lastView.Trades = self.trades2
 //        lastView.banners = self.banners

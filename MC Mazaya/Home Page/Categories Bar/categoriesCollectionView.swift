@@ -12,7 +12,7 @@ import UIKit
 
 class categoriesCollectionView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    var categories = [Category]()
+    var categories = [String]()
     {
         didSet{
             DispatchQueue.main.async {
@@ -20,6 +20,7 @@ class categoriesCollectionView: UIViewController, UICollectionViewDelegate, UICo
             }
         }
     }
+//    var filtered
     
     var trademarks = [Trademark]()
     var filteredTrademarks = [Trademark]()
@@ -32,15 +33,13 @@ class categoriesCollectionView: UIViewController, UICollectionViewDelegate, UICo
             return 6
         }
     }
-    
-
-    
+        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! categoryCollectionViewCell
+        self.filterCategoryTrades(indexPath)
         if categories.count != 0 {
-            filterCategoryTrades(indexPath)
             cell.name.textColor = UIColor(rgb: 0x00524D)
-            cell.name.text = categories[indexPath.row].Name
+            cell.name.text = categories[indexPath.row]
             if cell.name.text == "الاغذية" {
                 cell.icon.image = UIImage(named: "Restaurants")
             }
@@ -70,13 +69,15 @@ class categoriesCollectionView: UIViewController, UICollectionViewDelegate, UICo
             }
         } else {
             cell.name.textColor = .white
-            
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.parent?.performSegue(withIdentifier: "toCategory", sender: categories[indexPath.row])
+
+        self.filterCategoryTrades(indexPath)
+        print(filteredTrademarks)
+        self.parent?.performSegue(withIdentifier: "toCategory", sender: filteredTrademarks)
     }
 
     override func viewDidLoad() {
@@ -92,8 +93,9 @@ class categoriesCollectionView: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func filterCategoryTrades(_ index: IndexPath){
+        self.filteredTrademarks = []
         for trade in trademarks {
-            if trade.trademarkName == categories[index.row].Name {
+            if trade.category == categories[index.row] {
                 self.filteredTrademarks.append(trade)
             }
         }

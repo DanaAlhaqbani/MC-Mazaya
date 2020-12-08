@@ -26,7 +26,7 @@ class TrademarkTableVC: UIViewController, CollectionCellDelegator {
     
     @IBOutlet weak var trademarksTableView: UITableView!
     var trades = [Trademark]()//[String]()
-    var category : Category?
+    var category : String?
     var url : String?
     var name = String()
 
@@ -93,20 +93,20 @@ extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
     
     func getCategoryTrademarks(){
         let tradeRef = Database.database().reference()
-        tradeRef.child("Trademarks").observeSingleEvent(of: .value, with: { snapshot in
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let key = snap.key
-                let categoryTrades = self.category?.trademarks ?? []
-                for trademarkID in categoryTrades {
-                    if trademarkID == key {
-                        let trademark = Trademark(snap: snap)
-                        self.trades.append(trademark)
-                    }
-                }
-            }
-            self.trademarksTableView.reloadData()
-        })
+//        tradeRef.child("Trademarks").observeSingleEvent(of: .value, with: { snapshot in
+//            for child in snapshot.children {
+//                let snap = child as! DataSnapshot
+//                let key = snap.key
+////                let categoryTrades = self.category?.trademarks ?? []
+//                for trademarkID in categoryTrades {
+//                    if trademarkID == key {
+//                        let trademark = Trademark(snap: snap)
+//                        self.trades.append(trademark)
+//                    }
+//                }
+//            }
+//            self.trademarksTableView.reloadData()
+//        })
     }
     
 }

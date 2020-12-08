@@ -14,15 +14,19 @@ struct Category {
     
     var Name : String?
     var trademarks : [String]?
-    var containsTrademarksAtUserRegion: Bool?
+    var trademark : [Trademark]?
+//    var containsTrademarksAtUserRegion: Bool?
     // Array of strings
     
-    public init(Name : String?, trademarks: [String]?, containsTrademarksAtUserRegion: Bool?) {
+    public init(Name : String?, trademarks: [String]?) {
         self.Name = Name
         self.trademarks = trademarks
-        self.containsTrademarksAtUserRegion = containsTrademarksAtUserRegion
+//        self.containsTrademarksAtUserRegion = containsTrademarksAtUserRegion
     }
-    
+    public init(name: String?, trademark: [Trademark]?){
+        self.Name = name
+        self.trademark = trademark
+    }
     
 }
 

@@ -22,29 +22,29 @@ extension homePageViewController: UISearchResultsUpdating, UISearchBarDelegate{
             resultTableViewController.trademarks = nil
             return }
         filteredData = []
-        filteredTradeMarks = []
+//        filteredTradeMarks = []
         let name = [String]()
-        for i in Categories {
-            let trades = i.trademarks ?? []
-            for _ in trades {
-//                name.append(t.trademarkName ?? "")
-            }
-            filteredData = name.filter({$0.contains(searchText)})
-            for _ in filteredData {
-                for _ in trades {
-//                    if t.trademarkName == i {
-//                        self.filteredTradeMarks.append(t)
-//                    } // Add filtered trademark to the array
-                } // Iterate in filtered trades
-            } // Iterate in filtered data
-            resultTableViewController.trademarks = []
-            resultTableViewController.areThereResults = false
-            if filteredTradeMarks.count != 0 {
-                resultTableViewController.trademarks = filteredTradeMarks
-                resultTableViewController.areThereResults = true
-            }
-            resultTableViewController.delegate = self
-        } // Iterate in each category
+//        for i in Categories {
+//            let trades = i.trademarks ?? []
+//            for _ in trades {
+////                name.append(t.trademarkName ?? "")
+//            }
+//            filteredData = name.filter({$0.contains(searchText)})
+//            for _ in filteredData {
+//                for _ in trades {
+////                    if t.trademarkName == i {
+////                        self.filteredTradeMarks.append(t)
+////                    } // Add filtered trademark to the array
+//                } // Iterate in filtered trades
+//            } // Iterate in filtered data
+//            resultTableViewController.trademarks = []
+//            resultTableViewController.areThereResults = false
+//            if filteredTradeMarks.count != 0 {
+//                resultTableViewController.trademarks = filteredTradeMarks
+//                resultTableViewController.areThereResults = true
+//            }
+//            resultTableViewController.delegate = self
+//        } // Iterate in each category
 
     } // end of filtering trademarks function
     

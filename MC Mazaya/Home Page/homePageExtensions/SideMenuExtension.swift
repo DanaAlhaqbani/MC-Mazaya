@@ -14,7 +14,6 @@ extension homePageViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         isMenuShow = false
         mainViewXConstraint.constant = 0
-        leftBarButtonItem.tintColor = green
         UIView.animate(withDuration: 0.5, delay: 0.0,
                        usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
                         self.view.layoutIfNeeded()
@@ -27,12 +26,10 @@ extension homePageViewController {
     @objc func menuTapped() {
         if isMenuShow {
             mainViewXConstraint.constant = 0
-            leftBarButtonItem.tintColor = green
             tbleList.isUserInteractionEnabled = true
             
         } else {
             mainViewXConstraint.constant = -sideMenuWidth
-            leftBarButtonItem.tintColor = .white
             tbleList.isUserInteractionEnabled = false
         }
         UIView.animate(withDuration: 0.5, delay: 0.0,
@@ -69,7 +66,7 @@ extension homePageViewController {
             //navigationController?.pushViewController(FamilyViewController(), animated: true)
         }
         else if sender.tag == 12 {
-            performSegue(withIdentifier: "toFav", sender: self.favDictionary)
+            performSegue(withIdentifier: "toFav", sender: self)
             // navigationController?.pushViewController(FavoriteViewController(), animated: true)
         }
         else if sender.tag == 13 {
@@ -105,7 +102,6 @@ extension homePageViewController {
             
             
         }
-        leftBarButtonItem.tintColor = green
     }
     
     func setupRegionsDropDownMenu(){

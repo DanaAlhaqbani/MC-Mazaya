@@ -17,77 +17,68 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     //MARK: - Constants
     let user = Auth.auth().currentUser
     let green = UIColor(rgb: 0x38a089)
-    //    let firstInitailizer = launchViewController()
-    var searchBar : UISearchController!
-    var searchbar = UISearchBar()
-    var isFavourite = false
+
     //MARK: - Vars
+    // Variables for database reference handling
     var ref: DatabaseReference?
     var handle: DatabaseHandle?
+    
+    // Variables for Side menu
     var SideMenu: SideMenuNavigationController?
     var rightBarButtonItem = UIBarButtonItem()
-    var leftBarButtonItem = UIBarButtonItem()
-    var leftBtn = UIButton()
     var rightBtn = UIButton()
     var mainViewXConstraint : NSLayoutConstraint!
     var sideMenuWidth = CGFloat()
     var isMenuShow = false
-    var Categories = [Category]()
+    
+    // Variables for retrieving functions
     var Trades = [Trademark]()
-    var filteredData = [String]()
-    var filteredTradeMarks = [Trademark]()
-    //    var resultCollectionViewController : searchResult!
-    var resultTableViewController : searchResultTable!
-    var filteredCategoriesName = [String]()
-    var filterVC = filterViewController()
-    var sortByString : String?
-    var favDictionary : NSDictionary = [:]
-    var favouriteTrades = [Trademark]()
-    var categoriesCollection : categoriesCollectionView?
-    var regionFilrered : RegionVC?
-    var selectedRegion : String?
     var featuredTradeMarks = [Trademark]()
+    var filteredTrademarks = [Trademark]()
+    var filteredCategories = [String]()
+    var tradesForRegion = [Trademark]()
+
+    // Variables for search bar
+    var searchBar : UISearchController!
+    var searchbar = UISearchBar()
+    var filteredData = [String]()
+    var resultTableViewController : searchResultTable!
+    
+    // Variables for "Categories Bar" Container
+    var categoriesCollection : categoriesCollectionView?
+    
+    // Variables for Banners Container
     var banners = [Banner]()
     var bannerView : bannerContainer?
-    var trademarksIDs = [String]()
-    var filteredTrademarks = [Trademark]()
+    
+    // Variables for handling region
+    var regionFilrered : RegionVC?
     let regionDropDownMenu = DropDown()
     var seectedRegion = String()
-    var shadowImage : UIImage?
-//    var filteredCategories = [Category]()
+    var selectedRegion : String?
+
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        // Setup and handling data functions
         setupSearchBar()
         handleDelegates()
         dataUser()
         setUpUI()
+        // Assign search bar at title of navigation bar and customize it
         self.navigationItem.titleView = searchBar.searchBar
-//        self.navigationController?.view.backgroundColor = .white
-//        self.navigationController?.navigationBar.isTranslucent = false
-        filterVC.delegate = self
         navigationController?.navigationBar.tintColor = UIColor(rgb: 0x1C9A8A)
         navigationController?.delegate = self
         navigationController?.navigationBar.isTranslucent = true
+        // Setup table view
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
-        self.shadowImage = self.navigationController?.navigationBar.shadowImage
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        //        setupSearchTextField()
-//        self.navigationController?.navigationBar.shadowImage = shadowImage
 
-    }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        //        setupSearchBar()
-    }
-    
+    // MARK: - Setup view when did disappear
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         mainViewXConstraint.constant = 0
@@ -97,7 +88,6 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                         self.view.layoutIfNeeded()
                        }, completion: nil)
         isMenuShow = false
-        
     }
     
     //MARK: - "Side Menue" Constants and Variables
@@ -106,31 +96,30 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.layer.zPosition = 100
         $0.isHidden = true
         return $0
-    }(UIView())
+    }(UIView()) // End of customize main view
     
     let sideMenu : UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         let green = UIColor(rgb: 0x26998a)
         $0.backgroundColor = green
         return $0
-    }(UIView())
+    }(UIView()) // End of customize side menu
     
     let separatorView : UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         let green = UIColor(rgb: 0x26998a)
         $0.backgroundColor = green
         return $0
-    }(UIView())
+    }(UIView()) // End of customize sperator view
     
     let sideMenuStackView : UIStackView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
-        //$0.distribution = .fillEqually
         let green = UIColor(rgb: 0x26998a)
         $0.spacing = 10
         $0.backgroundColor = green
         return $0
-    }(UIStackView())
+    }(UIStackView()) // End of customize stack view
     
     let MazayaLogoView : UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +127,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.clipsToBounds = true
         $0.image = #imageLiteral(resourceName: "whiteMazaya")
         return $0
-    }(UIImageView())
+    }(UIImageView()) // End of customize mazaya logo
     
     lazy var openRegionVC : UIButton = {
         $0.setTitle("المنطقة", for: .normal)
@@ -148,7 +137,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.tag = 10
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
-    }(UIButton(type: .system))
+    }(UIButton(type: .system)) // End of customize region
     
     lazy var openFamilyVC : UIButton = {
         $0.setTitle("عائلتي", for: .normal)
@@ -158,7 +147,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.tag = 11
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
-    }(UIButton(type: .system))
+    }(UIButton(type: .system)) // End of customize Family members
     
     lazy var openFavVC : UIButton = {
         $0.setTitle("المفضلة", for: .normal)
@@ -168,7 +157,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.tag = 12
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
-    }(UIButton(type: .system))
+    }(UIButton(type: .system)) // End of customize Favourite
     
     lazy var openNewOffersVC : UIButton = {
         $0.setTitle("جديد العروض", for: .normal)
@@ -178,7 +167,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.tag = 13
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
-    }(UIButton(type: .system))
+    }(UIButton(type: .system)) // End of customize New offers
     
     lazy var openSuggestVC : UIButton = {
         $0.setTitle("إقترح عرضاً", for: .normal)
@@ -188,7 +177,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.tag = 14
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
-    }(UIButton(type: .system))
+    }(UIButton(type: .system)) // End of cistomize Suggestions
     
     lazy var openVouchersVC : UIButton = {
         $0.setTitle("القسائم الشرائية", for: .normal)
@@ -198,7 +187,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.tag = 15
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
-    }(UIButton(type: .system))
+    }(UIButton(type: .system)) // End of customize Vouchers
     
     lazy var openHelpVC : UIButton = {
         $0.setTitle("للمساعدة", for: .normal)
@@ -208,7 +197,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.tag = 16
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
-    }(UIButton(type: .system))
+    }(UIButton(type: .system)) // End of customize Help page
     
     lazy var logoutVS : UIButton = {
         $0.setTitle("تسجيل الخروج", for: .normal)
@@ -219,34 +208,40 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.tag = 17
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
-    }(UIButton(type: .system))
+    }(UIButton(type: .system)) // End of customize logout button
     
     
     //MARK: - Logout Function
     func logout(){
-        try! Auth.auth().signOut()
+        try! Auth.auth().signOut() // Logout method
         if let storyboard = self.storyboard {
             let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
-            self.present(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil) // Move to login page
         }
-    }
+    } // End of logout function
     
     //MARK:- Table View delegate and datasource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.Categories.count > 0 && self.featuredTradeMarks.count > 0 {
-            return Categories.count + 1
-        } else if self.Categories.count > 0 && self.featuredTradeMarks.count == 0 {
-            return Categories.count
+        // Check if there is a featured trademarks, if There, the number of rows will be the number of categories plus one for Featured, otherwise will be just the number of categories
+        if self.filteredCategories.count > 0 && self.featuredTradeMarks.count > 0 {
+            return filteredCategories.count + 1
+        } else if self.filteredCategories.count > 0 && self.featuredTradeMarks.count == 0 {
+            return filteredCategories.count
         } else {
+            // To handle empty view while fetching data
             return 3
-        }
-    }
+        } // End of if-else statements
+    } // End of handlign row numbers function
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionviewTableCell") as! CollectionviewTableCell
-        if Categories.count != 0 {
-//            let trademarksNumber = self.Categories[indexPath.row].trademarks
+        // Check the number of categories not equal 0 to prevent errors
+        if filteredCategories.count != 0 {
+            // Check if there's featured trademarks to setup table view based on that
             if featuredTradeMarks.count != 0 {
+                // Set up Featured section
                 if indexPath.row == 0 {
                     cell.nameLabel.text = "مميز"
                     let featured = self.featuredTradeMarks
@@ -254,49 +249,54 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                     cell.delegate = self
                     cell.setUpDataSource()
                 } else {
-                    self.Categories = self.Categories.sorted {
-                        guard let first = $0.Name else {
+                    // Sort trademarks alphabetically
+                    self.filteredCategories = self.filteredCategories.sorted {
+                        guard let first = $0 as? String else {
                             return false
                         }
-                        guard let second = $1.Name else {
+                        guard let second = $1 as? String else {
                             return true
                         }
                         return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
                     } // End of sorting result
                     filterTrademarks(indexPath)
-                    cell.nameLabel.text = self.Categories[indexPath.row - 1].Name
-                    cell.catId = self.Categories[indexPath.row - 1].Name!
-                    cell.category = self.Categories[indexPath.row - 1]
+                    cell.nameLabel.text = self.filteredCategories[indexPath.row - 1]
+                    cell.catId = self.filteredCategories[indexPath.row - 1]
+//                    cell.category = self.filteredCategories[indexPath.row - 1]
                     cell.Trades = filteredTrademarks
                     cell.delegate = self
                     cell.setUpDataSource()
-                    
-                }
+                } // End of setting up other sections
             } else {
-                cell.nameLabel.text = self.Categories[indexPath.row].Name
-                cell.catId = self.Categories[indexPath.row].Name!
-                cell.category = self.Categories[indexPath.row]
+                // Deal with trademarks without featured
+                filterTrademarks(indexPath)
+                cell.nameLabel.text = self.filteredCategories[indexPath.row]
+                cell.catId = self.filteredCategories[indexPath.row]
+//                cell.category = self.regionCategories[indexPath.row]
                 cell.Trades = filteredTrademarks
                 cell.delegate = self
                 cell.setUpDataSource()
-            }
-            self.Categories = self.Categories.sorted {
-                guard let first = $0.Name else {
+//                cell.setUpEmptyCategory()
+            } // End of setting up trademarks
+            
+            self.filteredCategories = self.filteredCategories.sorted {
+                guard let first = $0 as? String else {
                     return false
                 }
-                guard let second = $1.Name else {
+                guard let second = $1 as? String else {
                     return true
                 }
                 return first.localizedCaseInsensitiveCompare(second) == ComparisonResult.orderedAscending
             } // End of sorting results
         }
         return cell
-    }
+    } // End of Cell At Row function
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
-    }
+    } // End of cell height functio
     
+    //MARK: - Retrieve user data
     func dataUser () {
         ref = Database.database().reference()
         handle = ref?.child("Users").child((user?.uid)!).child("name").observe(.value, with: { (snapshot) in
@@ -324,7 +324,8 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             userData.region = currentRegion!
             //            print(currentRegion)
             DispatchQueue.main.async {
-                self.getCategories(currentRegion!)
+//                self.getCategories(currentRegion!)
+                self.retrieveTrades(currentRegion!)
 //                self.filterCategories()
                 //                self.tbleList.reloadData()
             }
@@ -334,6 +335,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             let currentuserType = snapshot.value as? String
             userData.userType = currentuserType!
             DispatchQueue.main.async {
+                // Change the content of side menu based on user type; if it's employee show "Family members - Vouchers"
                 self.adjustSidemenue(currentuserType!)
             }
         })
@@ -351,35 +353,13 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
             //            } else {
             ////                dis.tradeInfo.isFav = false
             //            }
-            print(favDictionary)
+//            print(favDictionary)
         } // Show Description Segue
         if segue.identifier == "trademarks" {
             let dis = segue.destination as! TrademarkTableVC
             dis.trades = sender as? [Trademark] ?? []
             
         } // Show Trademarks Segue
-        if segue.identifier == "filter" {
-            let dis = segue.destination as! UINavigationController
-            let filterVC = dis.viewControllers[0] as! filterViewController
-            //            filterVC.Categories = self.categoriesCopy
-            filterVC.selectedSortByString = nil
-            filterVC.selectedServiceString = nil
-            filterVC.dismissHandler = {
-                if filterVC.selectedChecker == false {
-                    //                    self.Categories = self.categoriesCopy
-                    self.Categories = filterVC.passedCategories
-                    self.sortByString = filterVC.selectedSortByString
-                    //                    self.serviceTypeString = filterVC.selectedServiceString
-                    self.tbleList.reloadData()
-                } else {
-                    //                    self.Categories = self.categoriesCopy
-                    self.sortByString = nil
-                    //                    self.serviceTypeString = nil
-                    self.tbleList.reloadData()
-                }
-                self.tbleList.reloadData()
-            }
-        } // Handling Filter Segue
         if segue.identifier == "toNewOffers" {
             _ = segue.destination as! NewOffersViewController
 //            dis.Trades = self.Trades
@@ -394,7 +374,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         } // Show new offers Segue
         if segue.identifier == "toVouchers" {
             let dis = segue.destination as! VouchersViewController
-            dis.Categories = self.Categories
+//            dis.Categories = self.Categories
             dis.Trades = self.Trades
         } // Show new offers Segue
         if let _ = segue.destination as? categoriesCollectionView, segue.identifier == "categoriesCollection" {
@@ -416,8 +396,9 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         }
         if segue.identifier == "toCategory" {
             let des = segue.destination as! TrademarkTableVC
-            let sender = sender as! Category
-            des.category = sender
+//            let sender = sender as! Category
+//            des.category = sender
+            des.trades = sender as! [Trademark]
             //
         }
         if let des = segue.destination as? bannerContainer , segue.identifier == "bannerContainer" {

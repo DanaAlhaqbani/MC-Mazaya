@@ -11,23 +11,13 @@ import UIKit
 
 
 //MARK: - Extension "Protocols' functions"
-extension homePageViewController : CollectionCellDelegator, handleRetrievedData, sendBackSelectedOptions, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, ResultCellDelegator, reloadResultsTable, sendSelectedRegionDelegate {
-//    func retrievedBanners(myData dataObject: [Banner]) {
-//        self.banners = dataObject
-//    }
-    
+extension homePageViewController : CollectionCellDelegator, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, ResultCellDelegator, reloadResultsTable, sendSelectedRegionDelegate {
+
     func selectedRegion(myData dataObject: String) {
         self.selectedRegion = dataObject
     }
-    
-    
-    func retrievedcopyCategories(myData dataObject: [Category]) {
-    }
-    
-    func sendCategories(categories dataobject: [String]) {
-        self.filteredCategoriesName = dataobject
-        self.tbleList.reloadData()
-    }
+
+
     
     func callSegueFromCell(myData dataobject: Trademark) {
         self.performSegue(withIdentifier: "tradeInfo", sender:dataobject )
@@ -51,26 +41,10 @@ extension homePageViewController : CollectionCellDelegator, handleRetrievedData,
     } // end of 6 protocol function
     
     func handleDelegates(){
-//        resultCollectionViewController.delegate = self
-//        resultCollectionViewController.tradeDelegate = self
-//        filterVC.delegate = self
-//        filterVC.tableDelegate = self
-//        firstInitailizer.deleagte = self
         tbleList.dataSource = self
         tbleList.delegate = self
     }
-    
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-//        getFav()
-        let des = viewController as? detailsViewController
-        if favouriteTrades.contains(where: {$0.trademarkName == des?.tradeInfo.trademarkName }) {
-//            des?.tradeInfo.isFav = true
-            
-        } else {
-//            des?.tradeInfo.isFav = false
-        }
 
-    }
     // UIPopoverPresentationControllerDelegate method
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         // Force popover style

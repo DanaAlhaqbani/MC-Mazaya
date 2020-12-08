@@ -14,20 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //test github
-        //ajwan first commit
-        //ajwan second commit
-        print( " hi ")
-        print("hi")
-        print("Dana")
-        print("Pleaaaaaase run")
-        print("Commit all files")
-        print("تكفي ")
-        print("يرحم أمك و أبوك")
-        print("Teeeest 2 Nov :)")
-        print("tesst")
-        print("-------")
-        print("test 12 Nov")
-        
+
     }
 
 
