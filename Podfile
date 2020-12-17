@@ -23,5 +23,14 @@ pod 'SDWebImage'
 pod 'CHIPageControl/Chimayo'
 pod 'JVFloatLabeledTextField'
 pod 'MaterialComponents/TextControls+OutlinedTextFields'
+pod 'GooglePlaces'
+pod 'GoogleMaps'
+pod 'NewPopMenu', '~> 2.0'
+pod 'MaterialComponents/TextControls+OutlinedTextFieldsTheming'
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+end
 end
 

@@ -12,6 +12,22 @@
 		3BD3530B24FD26260053BC66 /* CustomSegmentedControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */; };
 		3BD3530F24FDACA40053BC66 /* homePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3530E24FDACA40053BC66 /* homePageViewController.swift */; };
 		9C2EFA87257C2B3700348480 /* TableAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EFA86257C2B3700348480 /* TableAnimation.swift */; };
+		9C3EF5F42583947E000787DC /* CustomMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3EF5F32583947E000787DC /* CustomMarkerView.swift */; };
+		9C3EF5F725839B55000787DC /* CustomMarkerInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3EF5F625839B55000787DC /* CustomMarkerInfoWindow.swift */; };
+		9C533A23257F59AD0058C71D /* singleNewOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C533A22257F59AD0058C71D /* singleNewOfferViewController.swift */; };
+		9C533A26257F5AE90058C71D /* singleNewOfferExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C533A25257F5AE90058C71D /* singleNewOfferExtension.swift */; };
+		9C533A2A257F5BC60058C71D /* newOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C533A29257F5BC60058C71D /* newOfferView.swift */; };
+		9C533A2C257F5E9A0058C71D /* NewOffersViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = D6381EB624ADD479004569D6 /* NewOffersViewController.swift */; };
+		9C533A2F257F79B90058C71D /* AllVouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C533A2E257F79B90058C71D /* AllVouchersView.swift */; };
+		9C70F9422581431F008A9A17 /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C70F9412581431F008A9A17 /* GoogleDataProvider.swift */; };
+		9C70F94525814326008A9A17 /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C70F94425814326008A9A17 /* GooglePlace.swift */; };
+		9C855A6D25838B6E0012198B /* GPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C855A6C25838B6E0012198B /* GPlace.swift */; };
+		9C886DED2582B9B400D3EBEB /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C886DEC2582B9B400D3EBEB /* PlaceMarker.swift */; };
+		9C886DF22582BA9600D3EBEB /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C886DEF2582BA9500D3EBEB /* MarkerInfoView.xib */; };
+		9C886DF32582BA9600D3EBEB /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C886DF02582BA9500D3EBEB /* UIView+Extensions.swift */; };
+		9C886DF42582BA9600D3EBEB /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C886DF12582BA9600D3EBEB /* MarkerInfoView.swift */; };
+		9C94DDDA25862AB10068623D /* UsedVoucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94DDD925862AB10068623D /* UsedVoucher.swift */; };
+		9CED3EB925827E110073D3EA /* aboutMazaya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED3EB825827E110073D3EA /* aboutMazaya.swift */; };
 		A92802EF2524946B00C67FB3 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92802EE2524946B00C67FB3 /* UISegmentedControl.swift */; };
 		A93540F7252DBDF200E8E375 /* OfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93540F6252DBDF200E8E375 /* OfferView.swift */; };
 		A93540F9252DC11A00E8E375 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93540F8252DC11900E8E375 /* CustomTableViewCell.swift */; };
@@ -73,8 +89,6 @@
 		D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */; };
 		D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF724524A4A52100EFA660 /* profileTextField.swift */; };
 		E21EA0A2FC41C344C26B66E8 /* Pods_MC_Mazaya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD1C005D496C2285C916D7C /* Pods_MC_Mazaya.framework */; };
-		E703C8AB252079C300C5F110 /* searchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E703C8AA252079C300C5F110 /* searchResult.swift */; };
-		E703C8AD2520AA5D00C5F110 /* trademarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E703C8AC2520AA5D00C5F110 /* trademarkCell.swift */; };
 		E70704A0256A6AF00081698A /* retrieveFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707049F256A6AF00081698A /* retrieveFunctions.swift */; };
 		E71B49DD2546D31D00B05F1F /* seasonalOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B49DC2546D31D00B05F1F /* seasonalOffers.swift */; };
 		E71B49DF2546D46300B05F1F /* seasonalOfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B49DE2546D46300B05F1F /* seasonalOfferTableViewCell.swift */; };
@@ -131,6 +145,21 @@
 		3BD3530924FD26260053BC66 /* CustomSegmentedControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControlDelegate.swift; sourceTree = "<group>"; };
 		3BD3530E24FDACA40053BC66 /* homePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homePageViewController.swift; sourceTree = "<group>"; };
 		9C2EFA86257C2B3700348480 /* TableAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAnimation.swift; sourceTree = "<group>"; };
+		9C3EF5F32583947E000787DC /* CustomMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarkerView.swift; sourceTree = "<group>"; };
+		9C3EF5F625839B55000787DC /* CustomMarkerInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarkerInfoWindow.swift; sourceTree = "<group>"; };
+		9C533A22257F59AD0058C71D /* singleNewOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleNewOfferViewController.swift; sourceTree = "<group>"; };
+		9C533A25257F5AE90058C71D /* singleNewOfferExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleNewOfferExtension.swift; sourceTree = "<group>"; };
+		9C533A29257F5BC60058C71D /* newOfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newOfferView.swift; sourceTree = "<group>"; };
+		9C533A2E257F79B90058C71D /* AllVouchersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVouchersView.swift; sourceTree = "<group>"; };
+		9C70F9412581431F008A9A17 /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
+		9C70F94425814326008A9A17 /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
+		9C855A6C25838B6E0012198B /* GPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPlace.swift; sourceTree = "<group>"; };
+		9C886DEC2582B9B400D3EBEB /* PlaceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
+		9C886DEF2582BA9500D3EBEB /* MarkerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
+		9C886DF02582BA9500D3EBEB /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		9C886DF12582BA9600D3EBEB /* MarkerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
+		9C94DDD925862AB10068623D /* UsedVoucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedVoucher.swift; sourceTree = "<group>"; };
+		9CED3EB825827E110073D3EA /* aboutMazaya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutMazaya.swift; sourceTree = "<group>"; };
 		A92802EE2524946B00C67FB3 /* UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		A93540F6252DBDF200E8E375 /* OfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferView.swift; sourceTree = "<group>"; };
 		A93540F8252DC11900E8E375 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,9 +224,6 @@
 		D6FF724124A4A09000EFA660 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		D6FF724324A4A0A400EFA660 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		D6FF724524A4A52100EFA660 /* profileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileTextField.swift; sourceTree = "<group>"; };
-		E703C8AA252079C300C5F110 /* searchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchResult.swift; sourceTree = "<group>"; };
-		E703C8AC2520AA5D00C5F110 /* trademarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trademarkCell.swift; sourceTree = "<group>"; };
-		E703C8AE2521C02700C5F110 /* trademarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = trademarkCell.xib; path = "MC Mazaya/CollectionviewTableCell/trademarkCell.xib"; sourceTree = SOURCE_ROOT; };
 		E707049F256A6AF00081698A /* retrieveFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = retrieveFunctions.swift; sourceTree = "<group>"; };
 		E71B49DC2546D31D00B05F1F /* seasonalOffers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seasonalOffers.swift; sourceTree = "<group>"; };
 		E71B49DE2546D46300B05F1F /* seasonalOfferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seasonalOfferTableViewCell.swift; sourceTree = "<group>"; };
@@ -290,6 +316,14 @@
 			path = SegmentedControl;
 			sourceTree = "<group>";
 		};
+		9C533A28257F5BB70058C71D /* EmbeddedViews */ = {
+			isa = PBXGroup;
+			children = (
+				9C533A29257F5BC60058C71D /* newOfferView.swift */,
+			);
+			path = EmbeddedViews;
+			sourceTree = "<group>";
+		};
 		D641E99E249F3031001851A9 = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +375,7 @@
 				E7DBA5832562551B00FBB968 /* Offers */,
 				E7DBA5822562551200FBB968 /* Deals */,
 				E7DBA581256254F500FBB968 /* Vouchers */,
+				E7DBA58C2562568800FBB968 /* New Offers */,
 			);
 			path = Offers;
 			sourceTree = "<group>";
@@ -397,9 +432,12 @@
 				E7ABDCFE251771F500B6C4B9 /* Branch.swift */,
 				E7ABDCFC2517710B00B6C4B9 /* Offer.swift */,
 				D6F9BB6C255D0ECF00A12A88 /* Voucher.swift */,
+				9C94DDD925862AB10068623D /* UsedVoucher.swift */,
 				E79A9AC0256B91250062008D /* Deal.swift */,
 				E7FE49B9254803110023D6DE /* Banner.swift */,
 				E79A9AC3256B922A0062008D /* region.swift */,
+				9C886DEC2582B9B400D3EBEB /* PlaceMarker.swift */,
+				9C855A6C25838B6E0012198B /* GPlace.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -407,10 +445,7 @@
 		E70D4CDA251E13EC00CC4F47 /* searchResults */ = {
 			isa = PBXGroup;
 			children = (
-				E703C8AA252079C300C5F110 /* searchResult.swift */,
 				E7353BA2254030600019A6AA /* singleResultCell.swift */,
-				E703C8AE2521C02700C5F110 /* trademarkCell.xib */,
-				E703C8AC2520AA5D00C5F110 /* trademarkCell.swift */,
 				E7353BA02540301F0019A6AA /* searchResultTable.swift */,
 			);
 			path = searchResults;
@@ -489,6 +524,7 @@
 			isa = PBXGroup;
 			children = (
 				D68B0E2B255015760033BEB5 /* VouchersViewController.swift */,
+				9C533A2E257F79B90058C71D /* AllVouchersView.swift */,
 				E7877583255BC5E50048616D /* usedVoucher.swift */,
 				E7DFF6AA256CE5AB00D11BFA /* Embedded Views */,
 			);
@@ -558,6 +594,7 @@
 				D6DC5BFF24B5BC320063CF8D /* FAQViewController.swift */,
 				E7DBA58E256256B600FBB968 /* Regions */,
 				E7DBA58D256256AF00FBB968 /* Family */,
+				9CED3EB825827E110073D3EA /* aboutMazaya.swift */,
 			);
 			path = Sidemenu;
 			sourceTree = "<group>";
@@ -577,7 +614,6 @@
 		E7DBA5892562565300FBB968 /* Trademarks */ = {
 			isa = PBXGroup;
 			children = (
-				E7DBA58C2562568800FBB968 /* New Offers */,
 				E7DBA58B2562566600FBB968 /* Favourite Trademarks */,
 				E7DBA58A2562565D00FBB968 /* All Trademarks */,
 			);
@@ -605,6 +641,9 @@
 			isa = PBXGroup;
 			children = (
 				D6381EB624ADD479004569D6 /* NewOffersViewController.swift */,
+				9C533A22257F59AD0058C71D /* singleNewOfferViewController.swift */,
+				9C533A25257F5AE90058C71D /* singleNewOfferExtension.swift */,
+				9C533A28257F5BB70058C71D /* EmbeddedViews */,
 			);
 			path = "New Offers";
 			sourceTree = "<group>";
@@ -633,7 +672,14 @@
 		E7DBA5912562586000FBB968 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				9C70F94425814326008A9A17 /* GooglePlace.swift */,
+				9C70F9412581431F008A9A17 /* GoogleDataProvider.swift */,
+				9C886DF12582BA9600D3EBEB /* MarkerInfoView.swift */,
+				9C886DEF2582BA9500D3EBEB /* MarkerInfoView.xib */,
+				9C886DF02582BA9500D3EBEB /* UIView+Extensions.swift */,
 				D620C51C24B1C35E0085B937 /* MapViewController.swift */,
+				9C3EF5F32583947E000787DC /* CustomMarkerView.swift */,
+				9C3EF5F625839B55000787DC /* CustomMarkerInfoWindow.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -720,6 +766,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C533A2C257F5E9A0058C71D /* NewOffersViewController.swift in Resources */,
 				E78DAF87251A355B000FC30E /* searchResultsCell.xib in Resources */,
 				D6D8270625331CE800B376E9 /* CommonAlertVC.xib in Resources */,
 				E7784CCD251A0A570020BDB0 /* singleTrademarkResult.xib in Resources */,
@@ -731,6 +778,7 @@
 				D641E9B7249F3037001851A9 /* LaunchScreen.storyboard in Resources */,
 				E73A421725120A3F00F45CC5 /* CollectionviewTableCell.xib in Resources */,
 				D641E9B4249F3037001851A9 /* Assets.xcassets in Resources */,
+				9C886DF22582BA9600D3EBEB /* MarkerInfoView.xib in Resources */,
 				E7ABDCFB25173DF900B6C4B9 /* stc_font_regular.ttf in Resources */,
 				A99D996624FF8AB60035D2FF /* GoogleService-Info.plist in Resources */,
 				D641E9B2249F3031001851A9 /* Main.storyboard in Resources */,
@@ -814,10 +862,13 @@
 				D6E8F25A24BF0A8B00A4AA9D /* AddFamilyMemberViewController.swift in Sources */,
 				E7DFF6A4256CE3DD00D11BFA /* VoucherExtensions.swift in Sources */,
 				D6E8F25824BDB2AB00A4AA9D /* FamilyMember.swift in Sources */,
+				9C533A26257F5AE90058C71D /* singleNewOfferExtension.swift in Sources */,
 				E78E48C8253739B80035DE60 /* SearchBarExtension.swift in Sources */,
 				D6DA493524C05A6F0020DB22 /* CustomCells.swift in Sources */,
 				E7DB80CE256E46BA000EEDFD /* DealAboutView.swift in Sources */,
+				9C3EF5F42583947E000787DC /* CustomMarkerView.swift in Sources */,
 				A9EEA958253C533E0013275D /* OffersAlertVC.swift in Sources */,
+				9C533A2A257F5BC60058C71D /* newOfferView.swift in Sources */,
 				9C2EFA87257C2B3700348480 /* TableAnimation.swift in Sources */,
 				E7784CC12518FFB60020BDB0 /* userData.swift in Sources */,
 				E7DB80C9256E46A1000EEDFD /* DealView.swift in Sources */,
@@ -827,11 +878,15 @@
 				D6E1286924A0A55600977D26 /* SignUpViewController.swift in Sources */,
 				E7877584255BC5E50048616D /* usedVoucher.swift in Sources */,
 				A94A1DEA253317730086605F /* BranchView.swift in Sources */,
+				9CED3EB925827E110073D3EA /* aboutMazaya.swift in Sources */,
 				E7353BA12540301F0019A6AA /* searchResultTable.swift in Sources */,
 				E7ABDCFD2517710B00B6C4B9 /* Offer.swift in Sources */,
 				D65880C42508B29A00BE29F9 /* TrademarkTableVC.swift in Sources */,
 				E742827425387E5A0050E18A /* categoryCollectionViewCell.swift in Sources */,
+				9C70F9422581431F008A9A17 /* GoogleDataProvider.swift in Sources */,
+				9C533A23257F59AD0058C71D /* singleNewOfferViewController.swift in Sources */,
 				D6FF724424A4A0A400EFA660 /* ChangePasswordViewController.swift in Sources */,
+				9C3EF5F725839B55000787DC /* CustomMarkerInfoWindow.swift in Sources */,
 				E73789D92523017500DF6FC1 /* filterViewController.swift in Sources */,
 				D619D71424F171EB0037150E /* familyCell.swift in Sources */,
 				3BD3530B24FD26260053BC66 /* CustomSegmentedControlDelegate.swift in Sources */,
@@ -839,16 +894,18 @@
 				E7784CBD2518FDC50020BDB0 /* launcViewController.swift in Sources */,
 				D6381EB124ADD3F7004569D6 /* FamilyViewController.swift in Sources */,
 				E7784CCC251A0A570020BDB0 /* singleTrademarkResult.swift in Sources */,
+				9C886DF32582BA9600D3EBEB /* UIView+Extensions.swift in Sources */,
 				D6D44CD424A8992700FAAFAF /* ChangePassPresenter.swift in Sources */,
 				3BD3530A24FD26260053BC66 /* CustomSegmentedControl.swift in Sources */,
+				9C533A2F257F79B90058C71D /* AllVouchersView.swift in Sources */,
 				E7ABDCFF251771F500B6C4B9 /* Branch.swift in Sources */,
-				E703C8AB252079C300C5F110 /* searchResult.swift in Sources */,
 				E73A421A25120A3F00F45CC5 /* CollectionviewTableCell.swift in Sources */,
 				D6D8270325331CE800B376E9 /* ExtensionUIViewController.swift in Sources */,
 				D619D71224F16C570037150E /* MyFamilyViewController.swift in Sources */,
 				E7AEF977253C511C00E83730 /* RegionVC.swift in Sources */,
 				D6FF724624A4A52100EFA660 /* profileTextField.swift in Sources */,
 				D68B0E31255015760033BEB5 /* VouchersViewController.swift in Sources */,
+				9C886DF42582BA9600D3EBEB /* MarkerInfoView.swift in Sources */,
 				E7AEF979253C547300E83730 /* RegionTableViewCell.swift in Sources */,
 				E79A9AC4256B922A0062008D /* region.swift in Sources */,
 				D6979632250E4320006439BD /* BigOffersViewController.swift in Sources */,
@@ -870,7 +927,7 @@
 				D68B0E32255015760033BEB5 /* SingleVoucherDetailsVC.swift in Sources */,
 				D6E1286324A08E4B00977D26 /* XUB.swift in Sources */,
 				D641E9AF249F3031001851A9 /* ViewController.swift in Sources */,
-				E703C8AD2520AA5D00C5F110 /* trademarkCell.swift in Sources */,
+				9C94DDDA25862AB10068623D /* UsedVoucher.swift in Sources */,
 				E742827125387DB60050E18A /* categoriesCollectionView.swift in Sources */,
 				E79A9ACD256B9B1D0062008D /* detailsRetrievingFunctions.swift in Sources */,
 				D6381EA924AB3B1F004569D6 /* TabBarController.swift in Sources */,
@@ -886,9 +943,11 @@
 				E7DB80CC256E46AB000EEDFD /* DealBranchView.swift in Sources */,
 				E73A421925120A3F00F45CC5 /* GalleryCollectionViewCell.swift in Sources */,
 				D6D8270425331CE800B376E9 /* UIViewExtension.swift in Sources */,
+				9C70F94525814326008A9A17 /* GooglePlace.swift in Sources */,
 				D641E9AD249F3031001851A9 /* SceneDelegate.swift in Sources */,
 				E742826F25385D6C0050E18A /* bannerContainer.swift in Sources */,
 				D620C51D24B1C35E0085B937 /* MapViewController.swift in Sources */,
+				9C886DED2582B9B400D3EBEB /* PlaceMarker.swift in Sources */,
 				D6381EBB24ADD4A5004569D6 /* SuggestOfferViewController.swift in Sources */,
 				D6E1286124A0805900977D26 /* XTF.swift in Sources */,
 				A93540F7252DBDF200E8E375 /* OfferView.swift in Sources */,
@@ -899,6 +958,7 @@
 				E78E48C6253739AB0035DE60 /* ProtocolsExtension.swift in Sources */,
 				E7566E0725590E7C00173DB8 /* BannerCollectionViewCell.swift in Sources */,
 				E78E48CC25373A510035DE60 /* UISetupExtension.swift in Sources */,
+				9C855A6D25838B6E0012198B /* GPlace.swift in Sources */,
 				A92802EF2524946B00C67FB3 /* UISegmentedControl.swift in Sources */,
 				E73A421B25120A3F00F45CC5 /* detailsViewController.swift in Sources */,
 				E79A9AC8256B9A470062008D /* detailsExtensions.swift in Sources */,
@@ -1052,6 +1112,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = GUMBR5MAD3;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = "MC Mazaya/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1072,6 +1133,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = GUMBR5MAD3;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = "MC Mazaya/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

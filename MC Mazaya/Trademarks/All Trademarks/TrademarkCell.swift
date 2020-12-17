@@ -29,40 +29,16 @@ class TrademarkCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    @IBOutlet weak var Des: UILabel!
     
+    @IBOutlet weak var Des: UILabel!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
     @IBAction func starPressed(_ sender: Any) {
-        self.ref.child("Users/\(uid!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: { (snap) in
-            if let dict = snap.value as? [String : Any] {
-                for i in dict {
-                    let key = i.key
-                    self.ref.child("Users/\(self.uid!)/FavoriteTradeMarks/\(key)").removeValue()
-                }
-            }
-        })
         if let delegate = self.delegate {
             delegate.btnTapped(cell: self)
         }
-//        for trade in favDict {
-//            print(trademarkName.text!)
-//            print(trade.value)
-//            if trade.value as? String == self.trademarkName.text {
-//                self.ref.child("Users/\(uid!)/FavoriteTradeMarks/\(trade.key)").removeValue()
-//                self.ref.child("Users/\(uid!)/FavoriteTradeMarks").observeSingleEvent(of: .value, with: {(snap) in
-//                    if let dict = snap.value as? NSDictionary {
-//                        self.favDict = dict
-//                    }
-//                })
-//                if let delegate = self.delegate {
-//                    delegate.btnTapped(cell: self)
-//                }
-//            }
-//        }
     }
 
 

@@ -78,6 +78,13 @@ PODS:
     - nanopb (~> 2.30906.0)
   - GoogleDataTransport (8.0.1):
     - nanopb (~> 2.30906.0)
+  - GoogleMaps (4.1.0):
+    - GoogleMaps/Maps (= 4.1.0)
+  - GoogleMaps/Base (4.1.0)
+  - GoogleMaps/Maps (4.1.0):
+    - GoogleMaps/Base
+  - GooglePlaces (4.1.0):
+    - GoogleMaps/Base (= 4.1.0)
   - GoogleSignIn (5.0.2):
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
@@ -114,6 +121,9 @@ PODS:
   - leveldb-library (1.22)
   - MaterialComponents/AnimationTiming (119.1.2)
   - MaterialComponents/Availability (119.1.2)
+  - MaterialComponents/private/Application (119.1.2)
+  - MaterialComponents/private/Color (119.1.2):
+    - MaterialComponents/Availability
   - MaterialComponents/private/Math (119.1.2)
   - "MaterialComponents/private/TextControlsPrivate+BaseStyle (119.1.2)":
     - MaterialComponents/AnimationTiming
@@ -131,6 +141,32 @@ PODS:
   - "MaterialComponents/private/TextControlsPrivate+TextFields (119.1.2)":
     - MaterialComponents/private/Math
     - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - MaterialComponents/schemes/Color (119.1.2):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+  - MaterialComponents/schemes/Container (119.1.2):
+    - MaterialComponents/schemes/Color
+    - MaterialComponents/schemes/Shape
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/schemes/Shape (119.1.2):
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/schemes/Typography (119.1.2):
+    - "MaterialComponents/schemes/Typography+BasicFontScheme"
+    - "MaterialComponents/schemes/Typography+Scheming"
+    - MaterialComponents/Typography
+  - "MaterialComponents/schemes/Typography+BasicFontScheme (119.1.2)"
+  - "MaterialComponents/schemes/Typography+Scheming (119.1.2)"
+  - MaterialComponents/ShadowElevations (119.1.2)
+  - MaterialComponents/ShadowLayer (119.1.2):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (119.1.2):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (119.1.2):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
   - "MaterialComponents/TextControls+BaseTextFields (119.1.2)":
     - "MaterialComponents/private/TextControlsPrivate+BaseStyle"
     - "MaterialComponents/private/TextControlsPrivate+Shared"
@@ -141,12 +177,21 @@ PODS:
     - MaterialComponents/Availability
     - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
     - "MaterialComponents/TextControls+BaseTextFields"
+  - "MaterialComponents/TextControls+OutlinedTextFieldsTheming (119.1.2)":
+    - MaterialComponents/schemes/Container
+    - "MaterialComponents/TextControls+OutlinedTextFields"
+  - MaterialComponents/Typography (119.1.2):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+    - MDFTextAccessibility
   - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
   - nanopb (2.30906.0):
     - nanopb/decode (= 2.30906.0)
     - nanopb/encode (= 2.30906.0)
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
+  - NewPopMenu (2.1.2)
   - PromisesObjC (1.2.11)
   - SDWebImage (5.9.4):
     - SDWebImage/Core (= 5.9.4)
@@ -163,9 +208,13 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Google
   - FLAnimatedImage
+  - GoogleMaps
+  - GooglePlaces
   - IQKeyboardManagerSwift
   - JVFloatLabeledTextField
   - "MaterialComponents/TextControls+OutlinedTextFields"
+  - "MaterialComponents/TextControls+OutlinedTextFieldsTheming"
+  - NewPopMenu (~> 2.0)
   - SDWebImage
   - SideMenu
 
@@ -187,6 +236,8 @@ SPEC REPOS:
     - FLAnimatedImage
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleMaps
+    - GooglePlaces
     - GoogleSignIn
     - GoogleUtilities
     - GTMAppAuth
@@ -196,7 +247,9 @@ SPEC REPOS:
     - leveldb-library
     - MaterialComponents
     - MDFInternationalization
+    - MDFTextAccessibility
     - nanopb
+    - NewPopMenu
     - PromisesObjC
     - SDWebImage
     - SideMenu
@@ -218,6 +271,8 @@ SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GoogleAppMeasurement: 57a0df93dc2feb5176b1bac06012dbd725191ba5
   GoogleDataTransport: e4085e6762f36a6141738f46b0153473ce57fb18
+  GoogleMaps: 008e2c80e38605b56b560e8deb73d4194ff30bef
+  GooglePlaces: a058b776259c13e1323c9ff135549cb1b13ad8e7
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: ffb2f4159f2c897c6e8992bd7fbcdef8a300589c
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
@@ -227,11 +282,13 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MaterialComponents: 8936712ec298476993950e2d5d77e348d8e84577
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
+  NewPopMenu: c6129e08e8192f6257ceb5f9a4357e1b59c6e2e7
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 7f8b05350556589b87694efd2016dc5b483957a4
+PODFILE CHECKSUM: 7f24978bc18d7d5330eccedc6f028a477d3ac6e5
 
 COCOAPODS: 1.10.0

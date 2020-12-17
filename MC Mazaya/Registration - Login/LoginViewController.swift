@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import IQKeyboardManagerSwift
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import MaterialComponents.MDCOutlinedTextField_MaterialTheming
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: MDCOutlinedTextField!
@@ -23,6 +24,7 @@ class LoginViewController: UIViewController {
     var loadingView: UIView = UIView()
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var userData : userData?
+//    let materialCustomize : MDCTextControlStyleOutlined!
     @IBOutlet weak var showSignUp: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,7 @@ class LoginViewController: UIViewController {
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 20
         containerView.layer.masksToBounds = true
-
+//        materialCustomiz
         emailTextField.label.text = "البريد الإلكتروني"
         emailTextField.placeholder = "مثال mazaya@mci.gov.sa"
         emailTextField.layer.borderColor = UIColor(rgb: 0x26998a).cgColor
@@ -60,13 +62,18 @@ class LoginViewController: UIViewController {
         passwordTextField.setOutlineColor(UIColor(rgb: 0x26998a), for: .normal)
         emailTextField.setOutlineColor(UIColor(rgb: 0x26998a), for: .editing)
         passwordTextField.setOutlineColor(UIColor(rgb: 0x26998a), for: .editing)
+
 //        topView.setGradientBackground(colorOne: UIColor(rgb: 0x26998a), colorTwo: UIColor(rgb: 0x268985))
         let emailImage = UIImageView(image: UIImage(named: "Email"))
         let passImage = UIImageView(image: UIImage(named: "Password"))
         emailTextField.trailingView?.addSubview(emailImage)
         passwordTextField.trailingView?.addSubview(passImage)
+//        passwordTextField.leadingView
+        passwordTextField.leadingViewMode = .always
         emailTextField.containerRadius = 10
-        
+        passwordTextField.containerRadius = 10
+        emailTextField.sizeToFit()
+        passwordTextField.sizeToFit()
     }
     
     @IBAction func LoginBtn(_ sender: Any) {

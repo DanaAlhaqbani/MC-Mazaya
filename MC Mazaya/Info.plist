@@ -69,5 +69,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>&quot;يرغب التطبيق باستخدام موقعك لتحديد العلامات التجارية القريبة حولك&quot;</string>
 </dict>
 </plist>

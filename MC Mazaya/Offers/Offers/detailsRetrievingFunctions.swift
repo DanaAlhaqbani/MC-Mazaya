@@ -17,7 +17,7 @@ extension detailsViewController {
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 // Create instance of offer model
-                let offer = Offer(snap: snap)
+                let offer = Offer(snap: snap, trademark: self.tradeInfo)
                 // Add offer to offers array to show in embedded view
                 self.offers.append(offer)
             } // End of itaration over offers
@@ -44,11 +44,24 @@ extension detailsViewController {
     
     //MARK: - Filter Offers
     func filterOffers(){
+        self.filteredOffers = []
         for offer in offers {
-            if offer.trademarkID == tradeInfo.trademarkID {
+            if userData.region == "الكل" && offer.userType == "الكل" && offer.trademarkID == tradeInfo.trademarkID {
                 self.filteredOffers.append(offer)
+            } else if userData.region == "الكل" && offer.userType == userData.userType && offer.trademarkID == tradeInfo.trademarkID {
+                self.filteredOffers.append(offer)
+            } else {
+                if offer.trademarkID == tradeInfo.trademarkID {
+                    let branches = offer.branches!
+                    for branch in branches {
+                        if branch.region == userData.region && (offer.userType == userData.userType || offer.userType == "الكل") {
+                            self.filteredOffers.append(offer)
+                        }
+                    }
+                }
             }
         }
     }
+    
     
 }

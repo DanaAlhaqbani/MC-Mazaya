@@ -42,10 +42,8 @@ class OffersAlertVC: UIViewController {
         viewContainer.layer.masksToBounds = true
        // buttonOkay.addCornerRadiusWithShadow(color: .lightGray, borderColor: .clear, cornerRadius: 25)
        // buttonCancel.setCornerRadiusWith(radius: 25, borderWidth: 1.0, borderColor: #colorLiteral(red: 0.2719825804, green: 0.6296295524, blue: 0.5390371084, alpha: 1))
-        
        // self.labelMessage.text = message
       //  self.labelDescription.text = descriptionMessage
-        
         if imageItem == nil {
            // imageViewItem.isHidden = true
         } else {
@@ -101,8 +99,8 @@ class OffersAlertVC: UIViewController {
     }
     
     @IBAction func okayButtonAction(sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-        if arrayAction != nil {
+//        self.dismiss(animated: true, completion: nil)
+        if arrayAction?.count != 0 {
             let dic = arrayAction![0]
             for (_, value) in dic {
                 let action: () -> Void = value

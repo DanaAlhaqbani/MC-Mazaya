@@ -26,6 +26,7 @@ extension homePageViewController {
         sideMenuStackView.addArrangedSubview(openNewOffersVC)
         sideMenuStackView.addArrangedSubview(openSuggestVC)
         sideMenuStackView.addArrangedSubview(openHelpVC)
+        sideMenuStackView.addArrangedSubview(openAboutVC)
         sideMenuStackView.addArrangedSubview(logoutVS)
 //        leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterTapped))
         rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: #selector(menuTapped))
@@ -45,9 +46,11 @@ extension homePageViewController {
             separatorView.widthAnchor.constraint(equalToConstant: 3),
             separatorView.leftAnchor.constraint(equalTo: sideMenu.leftAnchor),
             separatorView.centerYAnchor.constraint(equalTo: sideMenu.centerYAnchor),
-            sideMenuStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
+//            sideMenuStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
             sideMenuStackView.leftAnchor.constraint(equalTo: separatorView.rightAnchor),
             sideMenuStackView.widthAnchor.constraint(equalToConstant: sideMenuWidth),
+//            sideMenuStackView.centerXAnchor.constraint(equalTo: sideMenu.centerXAnchor),
+            sideMenuStackView.centerYAnchor.constraint(equalTo: sideMenu.centerYAnchor),
             openRegionVC.heightAnchor.constraint(equalToConstant: 40),
             MazayaLogoView.heightAnchor.constraint(equalToConstant: 110),
         ])
@@ -103,7 +106,6 @@ extension homePageViewController {
         if userType == "موظف" {
             sideMenuStackView.insertArrangedSubview(openFamilyVC, at: 2)
             sideMenuStackView.insertArrangedSubview(openVouchersVC, at: 5)
-
         }
     }
 }

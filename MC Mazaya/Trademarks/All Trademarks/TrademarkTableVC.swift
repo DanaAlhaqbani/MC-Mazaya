@@ -9,27 +9,31 @@
 import UIKit
 import SDWebImage
 import FirebaseDatabase
+import PopMenu
 
 class TrademarkTableVC: UIViewController, CollectionCellDelegator {
     var delegate : CollectionCellDelegator!
     var didSelectItemAction: ((IndexPath) -> Void)?
     func selectedCategory(myData dataobject: [Trademark]) {
-           self.performSegue(withIdentifier: "trademarks", sender: dataobject)
-       }
-       
-       //MARK: -Protocols' functions
-
+        self.performSegue(withIdentifier: "trademarks", sender: dataobject)
+    }
+    
+    //MARK: -Protocols' functions
     func callSegueFromCell(myData dataobject: Trademark) {
         self.performSegue(withIdentifier: "toDetails", sender:dataobject )
     }
     
-    
     @IBOutlet weak var trademarksTableView: UITableView!
     var trades = [Trademark]()//[String]()
+    var leftButton = UIBarButtonItem()
+    let manager = PopMenuManager.default
+    var mostViewedAction = PopMenuDefaultAction()
+    var localAction = PopMenuDefaultAction()
+    var onlineAction = PopMenuDefaultAction()
     var category : String?
     var url : String?
     var name = String()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         trademarksTableView.delegate = self
@@ -39,6 +43,7 @@ class TrademarkTableVC: UIViewController, CollectionCellDelegator {
         trademarksTableView.showsVerticalScrollIndicator = false
         getCategoryTrademarks()
         print(name)
+        sortBtn()
     }
     
 }
@@ -55,58 +60,88 @@ extension TrademarkTableVC: UITableViewDataSource, UITableViewDelegate{
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
         let trademarkName = trades[indexPath.row].trademarkName
         let trademarkDes = trades[indexPath.row].description        
-      //  let trademarkImage = trademarksImages[indexPath.row]
+        //  let trademarkImage = trademarksImages[indexPath.row]
         cell.trademarkName.text = trademarkName
         cell.Des.text = trademarkDes
         //cell.trademarkImage.image = UIImage(named: trademarkImage ?? "")
         let imageURL = trades[indexPath.row].imgURL
         cell.trademarkImage.sd_setImage(with: URL(string: imageURL ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
-         cell.trademarkView.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-             cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
-             cell.trademarkImage.layer.borderWidth = 0.8
-             cell.trademarkImage.layer.borderColor = UIColor.systemGray3.cgColor
-             cell.trademarkView.backgroundColor = UIColor(rgb: 0xF4F4F4)
-             cell.trademarkView.layer.shadowColor = UIColor.systemGray5.cgColor
-             cell.trademarkView.layer.shadowRadius = 2
-             cell.trademarkView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-             cell.trademarkView.layer.shadowOpacity = 0.5
-             cell.trademarkView.clipsToBounds = false
-             cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
-//        cell.trademarkImage.bringSubviewToFront(cell)
-
+        cell.trademarkView.layer.cornerRadius = cell.trademarkImage.frame.height / 2
+        cell.trademarkImage.layer.cornerRadius = cell.trademarkImage.frame.height / 2
+        cell.trademarkImage.layer.borderWidth = 0.8
+        cell.trademarkImage.layer.borderColor = UIColor.systemGray3.cgColor
+        cell.trademarkView.backgroundColor = UIColor(rgb: 0xF4F4F4)
+        cell.trademarkView.layer.shadowColor = UIColor.systemGray5.cgColor
+        cell.trademarkView.layer.shadowRadius = 2
+        cell.trademarkView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        cell.trademarkView.layer.shadowOpacity = 0.5
+        cell.trademarkView.clipsToBounds = false
+        cell.trademarkImage.bringSubviewToFront(cell.trademarkView)
+        //        cell.trademarkImage.bringSubviewToFront(cell)
+        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         didSelectItemAction?(indexPath)
-         if (self.delegate != nil) {
-        self.delegate.callSegueFromCell(myData: trades[indexPath.row])
-               }
+        didSelectItemAction?(indexPath)
+        if (self.delegate != nil) {
+            self.delegate.callSegueFromCell(myData: trades[indexPath.row])
+        }
         let trade = trades[indexPath.row]
         performSegue(withIdentifier: "toDetails", sender: trade)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "toDetails" {
-               let dis = segue.destination as! detailsViewController
-               dis.tradeInfo = sender as? Trademark
-           } // Show Description Segue
+        if segue.identifier == "toDetails" {
+            let dis = segue.destination as! detailsViewController
+            dis.tradeInfo = sender as? Trademark
+        } // Show Description Segue
     }
     
     func getCategoryTrademarks(){
         let tradeRef = Database.database().reference()
-//        tradeRef.child("Trademarks").observeSingleEvent(of: .value, with: { snapshot in
-//            for child in snapshot.children {
-//                let snap = child as! DataSnapshot
-//                let key = snap.key
-////                let categoryTrades = self.category?.trademarks ?? []
-//                for trademarkID in categoryTrades {
-//                    if trademarkID == key {
-//                        let trademark = Trademark(snap: snap)
-//                        self.trades.append(trademark)
-//                    }
-//                }
-//            }
-//            self.trademarksTableView.reloadData()
-//        })
+        //        tradeRef.child("Trademarks").observeSingleEvent(of: .value, with: { snapshot in
+        //            for child in snapshot.children {
+        //                let snap = child as! DataSnapshot
+        //                let key = snap.key
+        ////                let categoryTrades = self.category?.trademarks ?? []
+        //                for trademarkID in categoryTrades {
+        //                    if trademarkID == key {
+        //                        let trademark = Trademark(snap: snap)
+        //                        self.trades.append(trademark)
+        //                    }
+        //                }
+        //            }
+        //            self.trademarksTableView.reloadData()
+        //        })
     }
+    
+    func sortBtn(){
+        leftButton = UIBarButtonItem(image: UIImage(named: "sort"), style: .plain, target: self, action: #selector(sortButtonPressed))
+        leftButton.tintColor = .white
+        navigationItem.rightBarButtonItem = leftButton
+        self.mostViewedAction = PopMenuDefaultAction(title:"الاكثر مشاهدة", didSelect: { action in
+            self.trades = self.trades.sorted(by: {
+                $1.views ?? 0 < $0.views ?? 0
+            })
+        })
+        self.localAction = PopMenuDefaultAction(title: "محلي", didSelect: { action in
+            //  sort by local ********
+        })
+        
+        self.onlineAction = PopMenuDefaultAction(title:  "اون لاين", didSelect: { action in
+            //  sort by online ********
+        })
+        manager.popMenuAppearance.popMenuColor.backgroundColor = .solid(fill: .white)
+        manager.popMenuAppearance.popMenuColor.actionColor = .tint(UIColor(rgb: 0x1C9A8A))
+        manager.popMenuAppearance.popMenuFont = .systemFont(ofSize: 14, weight: .bold)
+        manager.addAction(mostViewedAction)
+        manager.addAction(localAction)
+        manager.addAction(onlineAction)
+        
+    }
+    
+    @objc func sortButtonPressed(){
+        manager.present(sourceView: leftButton, on: self)
+    }
+    
     
 }

@@ -7,62 +7,45 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
-import FirebaseDatabase
 
 class VouchersViewController: UIViewController {
-
-    @IBOutlet weak var trademarksTableView: UITableView!
-    let ref = Database.database().reference()
-    var voucherTrademark : Trademark?
-    var selectedVoucher : Voucher?
+    
     @IBOutlet weak var VoucherSC: UISegmentedControl!
-    var vouchersTrade = [Trademark]()
-    var vouchers = [Voucher]()
-    var Categories = [Category]()
-    var Trades = [Trademark]()
-    let firstVC = launchViewController()
-    var VouchersTrade = [Trademark]()
-    var isMyVoucher = false
-    var userVouchers = [Voucher]()
-    var userVouchersKey = [String]()
-    let userID = Auth.auth().currentUser?.uid
-    // master array
-//    lazy var titlesToDisplay = AvaVouchersTitles
-//    lazy var namesToDisplay = AvaVouchersNames
-//    lazy var imagesToDisplay = AvaVouchersImage
+    @IBOutlet weak var allVouchersView: UIView!
+    @IBOutlet weak var usedVouchersView: UIView!
+    var allVouchers: AllVouchersView?
+    var usedVouchers: usedVouchersView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSegmentUI()
-        trademarksTableView.dataSource = self
-        trademarksTableView.delegate = self
-         // Make the table view looks good
-        trademarksTableView.separatorStyle = .none
-        trademarksTableView.showsVerticalScrollIndicator = false
-        getUserVoucher()
-        getVouchers()
-     }
-    
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        allVouchersView.alpha = 1
+        usedVouchersView.alpha = 0
     }
-    */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toVoucherDetails" {
-            let dis = segue.destination as! VoucherViewController
-            dis.tradeInfo = sender as? Trademark
-            dis.voucher = self.selectedVoucher
-//           dis.tradOffers = self.vouchersList
-//           dis.userVouchers = self.userVouchers
-        } // Show Description Segue
+    
+    @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl){
+        VoucherSC.changeUnderlinePosition()
+        print(VoucherSC.selectedSegmentIndex)
+        if sender.selectedSegmentIndex == 1 {
+            allVouchersView.alpha = 1
+            usedVouchersView.alpha = 0
+        }
+        if sender.selectedSegmentIndex == 0 {
+            allVouchersView.alpha = 0
+            usedVouchersView.alpha = 1
+        }
+        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? AllVouchersView, segue.identifier == "toAllVouchers" {
+//            vc.Trade = self.tradeInfo
+            self.allVouchers = vc
+        }
+        if let vc = segue.destination as? usedVouchersView, segue.identifier == "toUsedVouchers" {
+//            vc.Trade = self.tradeInfo
+            self.usedVouchers = vc
+        }
+    }
+    
 }

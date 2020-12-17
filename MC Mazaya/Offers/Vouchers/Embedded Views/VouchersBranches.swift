@@ -46,17 +46,14 @@ class VouchersBranches: UIViewController ,UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "trademarkCell") as! CustomTableViewCell
-        
 //        if  (Allbranch[indexPath.row].BrancheName == "")  && ( Allbranch[indexPath.row].DescriptionBranch == "")  && (Allbranch[indexPath.row].BranchLink == ""){
 //            tableView.isHidden = true
 //            ErrorLabel.text = " عذرا العرض فقط اون لاين "
-//            
 //        }else{
-//            cell.Bname.text = Allbranch[indexPath.row].BrancheName
-//            cell.BDescriprion.text = Allbranch[indexPath.row].DescriptionBranch
-//            cell.selectionStyle = .none
+        cell.Bname.text = branches[indexPath.row].branchName
+        cell.BDescriprion.text = branches[indexPath.row].description
+        cell.selectionStyle = .none
 //        }
-//        
         return cell
     }
     
@@ -68,24 +65,14 @@ class VouchersBranches: UIViewController ,UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
-        //  let cell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell
-        
-//        let urlString = Allbranch[indexPath.row].BranchLink
-        
-        
-        
-        
-        
-        
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 105
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
-        
         tableview.reloadData()
         
     }

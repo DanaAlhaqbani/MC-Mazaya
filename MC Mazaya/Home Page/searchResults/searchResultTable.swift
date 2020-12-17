@@ -54,7 +54,6 @@ class searchResultTable: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "singleResult") as! singleResultCell
-        print(areThereResults as Any)
             let imgURL = trademarks?[indexPath.row].imgURL
             cell.logoImage.sd_setImage(with: URL(string: imgURL ?? ""))
             cell.trademarkView.layer.cornerRadius = cell.trademarkView.frame.height / 2
@@ -83,13 +82,16 @@ class searchResultTable: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        definesPresentationContext = true
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItemAction?(indexPath)
-        if (self.tradeDelegate != nil) {
-            self.tradeDelegate.callSegueFromTradeCell(myData: trademarks![indexPath.row] )
-        }
+//        if (self.tradeDelegate != nil) {
+//            self.tradeDelegate.callSegueFromTradeCell(myData: trademarks![indexPath.row] )
+        self.performSegue(withIdentifier: "toTrademark", sender: trademarks?[indexPath.row])
+//    }
     }
 
     
@@ -130,14 +132,18 @@ class searchResultTable: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? detailsViewController ,segue.identifier == "toTrademark" {
+            let sender = sender as! Trademark
+            vc.tradeInfo = sender
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

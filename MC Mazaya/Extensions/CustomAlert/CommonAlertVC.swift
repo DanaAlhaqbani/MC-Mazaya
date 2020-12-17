@@ -15,9 +15,6 @@ class CommonAlertVC: UIViewController {
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var buttonCancel: UIButton!
     @IBOutlet weak var buttonOkay: UIButton!
-    
-    @IBOutlet weak var imageViewItem: UIImageView!
-    
     @IBOutlet weak var heightViewContainer: NSLayoutConstraint!
     
     var message: String = ""
@@ -40,27 +37,29 @@ class CommonAlertVC: UIViewController {
         viewContainer.layer.cornerRadius = 20.0
         viewContainer.layer.masksToBounds = true
         buttonOkay.addCornerRadiusWithShadow(color: .lightGray, borderColor: .clear, cornerRadius: 25)
-        buttonCancel.setCornerRadiusWith(radius: 25, borderWidth: 1.0, borderColor: #colorLiteral(red: 0.03529411765, green: 0.2274509804, blue: 0.9333333333, alpha: 1))
+//        buttonCancel.setCornerRadiusWith(radius: 25, borderWidth: 1.0, borderColor: #colorLiteral(red: 0.03529411765, green: 0.2274509804, blue: 0.9333333333, alpha: 1))
         
         self.labelMessage.text = message
         self.labelDescription.text = descriptionMessage
-        self.labelMessage.font = UIFont(name: "STC", size: 15)
+        self.labelMessage.font = UIFont(name: "STC", size: 25)
+        self.labelDescription.font = UIFont(name: "STC", size: 15)
         self.buttonOkay.titleLabel?.font = UIFont(name: "STC", size: 15)
+        self.labelDescription.numberOfLines = 3
         if imageItem == nil {
-            imageViewItem.isHidden = true
+//            imageViewItem.isHidden = true
         } else {
-            imageViewItem.isHidden = false
-            imageViewItem.image = imageItem!
+//            imageViewItem.isHidden = false
+//            imageViewItem.image = imageItem!
         }
         
         if (descriptionMessage.count) > 0 && (imageItem != nil) {
-            heightViewContainer.constant = 400
+            heightViewContainer.constant = 300
         } else if (descriptionMessage.count) > 0 && (imageItem == nil) {
-            heightViewContainer.constant = 350
+            heightViewContainer.constant = 250
         }
 
         if arrayAction == nil {
-            buttonCancel.isHidden = true
+//            buttonCancel.isHidden = true
         } else {
             var count = 0
             for dic in arrayAction! {
@@ -69,11 +68,11 @@ class CommonAlertVC: UIViewController {
                 }
                 let allKeys = Array(dic.keys)
                 let buttonTitle: String = allKeys[0].uppercased()
-                if count == 0 {
-                    buttonOkay.setTitle(buttonTitle, for: .normal)
-                } else {
-                    buttonCancel.setTitle(buttonTitle, for: .normal)
-                }
+//                if count == 0 {
+                buttonOkay.setTitle(buttonTitle, for: .normal)
+//                } else {
+////                    buttonCancel.setTitle(buttonTitle, for: .normal)
+//                }
                 count += 1
             }
         }       
@@ -87,18 +86,24 @@ class CommonAlertVC: UIViewController {
         }
     }
     
-    @IBAction func cancelButtonAction(sender: UIButton) {
+    @IBAction func cancelPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        if arrayAction != nil {
-            let dic = arrayAction![1]
-            for (_, value) in dic {
-                let action: () -> Void = value
-                action()
-            }
-        } else {
-            okButtonAct?()
-        }
     }
+    
+    
+    
+//    @IBAction func cancelButtonAction(sender: UIButton) {
+//        self.dismiss(animated: true, completion: nil)
+//        if arrayAction != nil {
+//            let dic = arrayAction![1]
+//            for (_, value) in dic {
+//                let action: () -> Void = value
+//                action()
+//            }
+//        } else {
+//            okButtonAct?()
+//        }
+//    }
     
     @IBAction func okayButtonAction(sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -129,13 +134,15 @@ class CommonAlertVC: UIViewController {
             alertTitle = ""
         }
         let alert : UIAlertController = UIAlertController.init(title: alertTitle, message: message, preferredStyle: .alert)
-        
         for (key, value) in actionDic {
             let buttonTitle : String = key
             let action: (UIAlertAction) -> Void = value
             alert.addAction(UIAlertAction.init(title: buttonTitle, style: .default, handler: action))
         }
         UIApplication.shared.keyWindow?.rootViewController!.present(alert, animated: true, completion: nil)
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

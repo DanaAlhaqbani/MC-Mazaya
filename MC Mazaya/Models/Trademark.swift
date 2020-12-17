@@ -49,6 +49,13 @@ struct Trademark {
     }
     
     init(snap: DataSnapshot){
+        var branchesArr = [Branch]()
+        let branches = snap.childSnapshot(forPath: "Branches")
+        for child in branches.children {
+            let branchSnap = child as! DataSnapshot
+            let branch = Branch(snap: branchSnap)
+            branchesArr.append(branch)
+        }
         self.init(trademarkName: snap.childSnapshot(forPath: "trademarkName").value as? String,
                   contactNum: snap.childSnapshot(forPath: "contactNum").value as? String,
                   description: snap.childSnapshot(forPath: "description").value as? String,
@@ -59,7 +66,7 @@ struct Trademark {
                   website: snap.childSnapshot(forPath: "website").value as? String,
                   imgURL: snap.childSnapshot(forPath: "imgURL").value as? String,
                   backgroundImg: snap.childSnapshot(forPath: "backgroundImg").value as? String,
-                  branches: [], offers: [], views: 0,
+                  branches: branchesArr, offers: [], views: 0,
                   isFeatured: snap.childSnapshot(forPath: "isFeatured").value as? Bool ,
                   category: snap.childSnapshot(forPath: "category").value as? String,
                   trademarkID: snap.key,

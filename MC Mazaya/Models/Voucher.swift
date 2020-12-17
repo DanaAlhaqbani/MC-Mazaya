@@ -19,9 +19,10 @@ struct Voucher {
     var startDate: String?
     var endDate: String?
     var trademarkID: String?
-    var branches: [String]?
-
-    init(offerTitle: String?, offerDetails: String?, voucherCode: String?, numberOfCoupons: String?, numberOfPoints: String?, serviceType: String?, startDate: String?, endDate: String?, trademarkID: String?, branches: [String]?) {
+    var branches: [Branch]?
+    var trademark: Trademark?
+    var voucherID : String?
+    init(offerTitle: String?, offerDetails: String?, voucherCode: String?, numberOfCoupons: String?, numberOfPoints: String?, serviceType: String?, startDate: String?, endDate: String?, trademarkID: String?, branches: [Branch]?, trademark: Trademark?, voucherID: String?) {
         self.offerTitle = offerTitle
         self.offerDetails = offerDetails
         self.voucherCode = voucherCode
@@ -32,9 +33,12 @@ struct Voucher {
         self.endDate = endDate
         self.trademarkID = trademarkID
         self.branches = branches
+        self.trademark = trademark
+        self.voucherID = voucherID
     }
     
-    init(snap: DataSnapshot){
+    init(snap: DataSnapshot, trademark: Trademark){
+        let branches = trademark.branches
         self.init(offerTitle: snap.childSnapshot(forPath: "offerTitle").value as? String,
                   offerDetails: snap.childSnapshot(forPath: "offerDetails").value as? String,
                   voucherCode: snap.childSnapshot(forPath: "voucherCode").value as? String,
@@ -44,9 +48,6 @@ struct Voucher {
                   startDate: snap.childSnapshot(forPath: "startDate").value as? String,
                   endDate: snap.childSnapshot(forPath: "endDate").value as? String,
                   trademarkID: snap.childSnapshot(forPath: "trademarkID").value as? String,
-                  branches: snap.childSnapshot(forPath: "branches").value as? [String])
+                  branches: branches, trademark: trademark, voucherID: snap.key)
     }
-    
-    
-    
 }

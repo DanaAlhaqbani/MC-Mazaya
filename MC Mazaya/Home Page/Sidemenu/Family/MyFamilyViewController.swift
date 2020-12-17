@@ -11,9 +11,12 @@ import Firebase
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import MessageUI
 
-
-class MyFamilyViewController: UIViewController {
+class MyFamilyViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    }
+    
     
     let userID = Auth.auth().currentUser?.uid
     var familyMembersIDs = [String]()
@@ -27,6 +30,7 @@ class MyFamilyViewController: UIViewController {
         super.viewDidLoad()
         backgroundView.layer.cornerRadius = 20
         backgroundView.layer.masksToBounds = true
+        numberOfMembers.text = "- / 6"
         getFamilyMembersIDs()
         FamilyTableView.delegate = self
         FamilyTableView.dataSource = self
@@ -77,19 +81,26 @@ extension MyFamilyViewController: UITableViewDelegate, UITableViewDataSource {
     //    }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deletButton = UIContextualAction(style: .destructive, title: "حذف") {  (contextualAction, view, boolValue) in
-            //Code I want to do here
-            let ref = Database.database().reference()
-            ref.child("Users/\(self.userID!)/FamilyMembers").child("\(self.familyMembers[indexPath.row].userID!)").removeValue()
-            ref.child("FamilyMembers/\(self.familyMembers[indexPath.row].userID!)").removeValue()
-            print("Delete Button Pressed")
-            self.memberCount! -= 1
-            self.numberOfMembers.text = "\(self.memberCount!) / 6"
-            self.familyMembers.remove(at: indexPath.row)
-            self.FamilyTableView.reloadData()
+        if familyMembers[indexPath.row].status == "قيد الانتظار" {
+            let deletButton = UIContextualAction(style: .destructive, title: "حذف") {  (contextualAction, view, boolValue) in
+                //Code I want to do here
+                let ref = Database.database().reference()
+                ref.child("Users/\(self.userID!)/FamilyMembers").child("\(self.familyMembers[indexPath.row].userID!)").removeValue()
+                ref.child("FamilyMembers/\(self.familyMembers[indexPath.row].userID!)").removeValue()
+                print("Delete Button Pressed")
+                self.memberCount! -= 1
+                self.numberOfMembers.text = "\(self.memberCount!) / 6"
+                self.familyMembers.remove(at: indexPath.row)
+                self.FamilyTableView.reloadData()
+            }
+            let editButton = UIContextualAction(style: .normal, title: "تعديل", handler: { (contextualAction, view, boolValue) in
+    //            ref.child("Users/\(self.userID!)/FamilyMembers").child("\(self.familyMembers[indexPath.row].userID)").
+                self.FMAAction(indexPath)
+            })
+            let swipeActions = UISwipeActionsConfiguration(actions: [deletButton, editButton])
+            return swipeActions
         }
-        let swipeActions = UISwipeActionsConfiguration(actions: [deletButton])
-        return swipeActions
+        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -156,7 +167,84 @@ extension MyFamilyViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func FMAAction(_ index: IndexPath) {
+        let alertController = UIAlertController(title: "إضافة عضو", message: "أدخل اسم ورقم العضو الذي ترغب بدعوته", preferredStyle: .alert)
+        //the confirm action taking the inputs
+        let confirmAction = UIAlertAction(title: "إرسال الدعوة", style: .default) { (_) in
+            //getting id
+            //let id = task1.id
+            //getting new values
+            let  memberName = alertController.textFields?[0].text
+            let memberPhone = alertController.textFields?[1].text
+            //let assignedMember = alertController.textFields?[1].text
+            //calling the update method to update artist
+            self.editFamilyMember(memberName: memberName, memberPhone: memberPhone, indexPath: index)
+        }
+        
+        let cancelAction = UIAlertAction(title: "الغاء", style: .cancel) { (_) in }
+        //adding two textfields to alert
+        alertController.addTextField { (textField) in
+            textField.placeholder = "الاسم"
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "رقم الجوال"
+        }
+        //adding action
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
     
+    func editFamilyMember(memberName: String!, memberPhone: String! , indexPath: IndexPath){
+        self.sendInvitation(memberName: memberName, memberPhone: memberPhone)
+        if memberName != "" && memberPhone != ""{
+            if isValidNumber(Family_Phone: memberPhone) == true {
+//                let userRef = Database.database().reference().child("Users/\(userID!)/FamilyMembers")
+                let alert = self.alertContent(title:  "تم التعديل!", message: "تم تعديل بيانات العضو" )
+                self.present(alert, animated: true, completion: nil)
+                let ref = Database.database().reference().child("FamilyMembers/\(self.familyMembers[indexPath.row].userID ?? "")")
+                ref.child("name").setValue("\(memberName ?? "")")
+                ref.child("phoneNumber").setValue("\(memberPhone ?? "")")
+                print("Success Add family Member")
+            }
+            else {
+                let alert = self.alertContent(title:  "رقم الهاتف غير صالح!", message: " من فضلِك، أدخل رقم الهاتف بشكل صحيح" )
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        let alert = self.alertContent(title:  "بياناتك غير مكتملة!", message:"قم بتعبئة جميع الحقول")
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func isValidNumber(Family_Phone:String) -> Bool{
+        let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        return phoneTest.evaluate(with: Family_Phone)
+    }
+    
+    func alertContent(title: String, message: String)-> UIAlertController{
+        
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: NSLocalizedString("حسنًا", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        return alertVC
+    }
+    
+    func sendInvitation(memberName: String, memberPhone: String){
+        let composeVC = MFMessageComposeViewController()
+        composeVC.messageComposeDelegate = self
+        // Configure the fields of the interface.
+        composeVC.recipients = [memberPhone]
+        composeVC.body = "قم بتحميل تطبيق مزايا"
+        // Present the view controller modally.
+        if MFMessageComposeViewController.canSendText() {
+            self.present(composeVC, animated: true, completion: nil)
+        } else {
+            print("Can't send messages.")
+        }
+    }
     
     
 }

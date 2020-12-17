@@ -95,6 +95,7 @@ extension homePageViewController {
             self.filterCategories()
             self.filterFeaturedTrademarks()
             self.tbleList.reloadData()
+            
         }) // End of observation for Trademarks root
     } // End of retrieve Trademarks function
     

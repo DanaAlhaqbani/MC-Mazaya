@@ -19,16 +19,19 @@ class BigOffersViewController: UIViewController {
     var dealsTrademarks = [Trademark]()
     var selectedDeal : Deal?
     var trademarkIDs = [String]()
+    var filteredDeals = [Deal]()
+    //    var filteredBranches = [Branch]
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        getDeals()
-        getTradmearksIDs()
         trademarksTableView.delegate = self
         trademarksTableView.dataSource = self
         // Make the table view looks good
         trademarksTableView.separatorStyle = .none
         trademarksTableView.showsVerticalScrollIndicator = false
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getTradmearksIDs()
     }
     
     
@@ -40,12 +43,13 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return deals.count
+        return filteredDeals.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedDeal = self.deals[indexPath.row]
-        //        performSegue(withIdentifier: "toDeal", sender: dealsTrademark)
+        self.selectedDeal = self.filteredDeals[indexPath.row]
+        let trademark = filteredDeals[indexPath.row].trademark
+        performSegue(withIdentifier: "toDeal", sender: trademark)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DealViewController, segue.identifier == "toDeal" {
@@ -56,11 +60,11 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trademarksTableView.dequeueReusableCell(withIdentifier: "trademarkCell") as! TrademarkCell
-        if deals.count != 0 {
-            let trademark = deals[indexPath.row].trademark
+        if filteredDeals.count != 0 {
+            let trademark = filteredDeals[indexPath.row].trademark
             let trademarkName = trademark?.trademarkName
             let trademarkImage = trademark?.imgURL ?? ""
-            let offerTitle = deals[indexPath.row].offerTitle
+            let offerTitle = filteredDeals[indexPath.row].offerTitle
             cell.trademarkName.text = trademarkName
             cell.Des.text = offerTitle
             cell.trademarkImage.sd_setImage(with: URL(string: trademarkImage))
@@ -109,6 +113,7 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
                     }
                 }
             }
+            self.filterDealsBasedOnRegion()
             self.trademarksTableView.reloadData()
         })
     }
@@ -129,6 +134,24 @@ extension BigOffersViewController: UITableViewDataSource, UITableViewDelegate{
         self.getDeals()
     }
     
+    func filterDealsBasedOnRegion(){
+        filteredDeals = []
+        for deal in deals {
+            if userData.region == "الكل" && deal.userType == "الكل" {
+                self.filteredDeals.append(deal)
+            } else if userData.region == "الكل" && userData.userType == deal.userType {
+                self.filteredDeals.append(deal)
+            } else {
+                let branches = deal.branches!
+                for branch in branches {
+                    let region = branch.region
+                    if userData.region == region && (deal.userType == userData.userType || deal.userType == "الكل") {
+                        self.filteredDeals.append(deal)
+                    }
+                }
+            }
+        }
+    } // End of filtering deals based on user region
     
 }
 

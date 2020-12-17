@@ -45,5 +45,6 @@ struct userData {
     static var family = [String]()
     static var region = "الكل"
     static var userType = ""
+    static var myVouchers = [usedVoucher]()
 }
 

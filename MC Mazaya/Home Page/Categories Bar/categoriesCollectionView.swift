@@ -90,6 +90,7 @@ class categoriesCollectionView: UIViewController, UICollectionViewDelegate, UICo
         collectionView.collectionViewLayout = flowLayout
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.semanticContentAttribute = .forceRightToLeft
     }
     
     func filterCategoryTrades(_ index: IndexPath){

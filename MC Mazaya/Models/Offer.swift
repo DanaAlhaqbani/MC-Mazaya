@@ -19,10 +19,10 @@ struct Offer {
     var trademarkID: String?
     var userType: String?
     var usageType : String?
-    var branches : [String]?
+    var branches : [Branch]?
     var trademark: Trademark?
 
-    public init(discountCode : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?, trademarkID: String?, userType: String?, usageType: String?, branches: [String]?) {
+    public init(discountCode : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?, trademarkID: String?, userType: String?, usageType: String?, branches: [Branch]?) {
         self.discountCode = discountCode
         self.offersDetails = offersDetails
         self.offerTitle = offerTitle
@@ -35,7 +35,7 @@ struct Offer {
         self.branches = branches
     }
     
-    public init(discountCode : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?, trademarkID: String?, userType: String?, usageType: String?, branches: [String]?, trademark: Trademark?) {
+    public init(discountCode : String?, offersDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?, trademarkID: String?, userType: String?, usageType: String?, branches: [Branch]?, trademark: Trademark?) {
         self.discountCode = discountCode
         self.offersDetails = offersDetails
         self.offerTitle = offerTitle
@@ -50,6 +50,7 @@ struct Offer {
     }
     
     public init(snap: DataSnapshot, trademark: Trademark){
+        let branches = trademark.branches
         self.init(discountCode: snap.childSnapshot(forPath: "discountCode").value as? String,
                   offersDetails: snap.childSnapshot(forPath: "offerDetails").value as? String,
                   offerTitle: snap.childSnapshot(forPath: "offerTitle").value as? String,
@@ -59,7 +60,7 @@ struct Offer {
                   trademarkID: snap.childSnapshot(forPath: "trademarkID").value as? String,
                   userType: snap.childSnapshot(forPath: "userType").value as? String,
                   usageType: snap.childSnapshot(forPath: "usageType").value as? String,
-                  branches: snap.childSnapshot(forPath: "branches").value as? [String], trademark: trademark)
+                  branches: branches, trademark: trademark)
     }
     
     public init(snap: DataSnapshot){
@@ -72,12 +73,9 @@ struct Offer {
                   trademarkID: snap.childSnapshot(forPath: "trademarkID").value as? String,
                   userType: snap.childSnapshot(forPath: "userType").value as? String,
                   usageType: snap.childSnapshot(forPath: "usageType").value as? String,
-                  branches: snap.childSnapshot(forPath: "branches").value as? [String])
+                  branches: snap.childSnapshot(forPath: "branches").value as? [Branch])
     }
     
-    public init(){
-        
-    }
     
     
 }

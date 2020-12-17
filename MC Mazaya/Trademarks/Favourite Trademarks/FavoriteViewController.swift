@@ -15,6 +15,8 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
     
     func btnTapped(cell: TrademarkCell) {
         let indexPath = self.trademarksTableView.indexPath(for: cell)
+        let ref = Database.database().reference().child("Users/\(uid!)/FavoriteTrademarks")
+        ref.child("\(self.favTrademarks[indexPath!.row].trademarkID ?? "")").removeValue()
         self.favTrademarks.remove(at: indexPath!.row)
         self.trademarksTableView.reloadData()
     }
@@ -26,7 +28,6 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
     var ref = Database.database().reference()
     var uid = Auth.auth().currentUser?.uid
     var emptyView = UIView()
-    
     
     let labelTitle : UILabel = {
         $0.text = "المفضلة فارغة"
@@ -42,7 +43,8 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-//        self.trademarksTableView.reloadData()
+        getFavourites()
+        setupEmptyView()
     }
     
     override func viewDidLoad() {
@@ -50,9 +52,6 @@ class FavoriteViewController: UIViewController, MyCellDelegate {
         trademarksTableView.delegate = self
         trademarksTableView.dataSource = self
         trademarksTableView.separatorStyle = .none
-        getFavourites()
-        setupEmptyView()
-
     }
     
 

@@ -16,10 +16,12 @@ class VoucherView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet var UseAnoffer : UIButton!
     var voucher : Voucher?
-    var UserVoucher = [Voucher]()
+    var userVouchers = [usedVoucher]()
     var ref: DatabaseReference?
     var Trade : Trademark!
-    
+    var userID = Auth.auth().currentUser?.uid
+    var isUsedVoucher : Bool?
+    var isValidUserPoints : Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.delegate = self
@@ -37,7 +39,7 @@ class VoucherView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         let cell = tableview.dequeueReusableCell(withIdentifier: "trademarkCell") as! CustomTableViewCell
         cell.nameLabel.text = voucher?.offerTitle
         cell.addressLabel.text = voucher?.offerDetails
-        cell.servicetype.text = ("نوع الخدمة:" + ((voucher?.serviceType)!))
+        cell.servicetype.text = ("عدد النقاط" + ((voucher?.numberOfPoints)!))
         //action for selectedOffer
         //  cell.selectedOFfer.addTarget(self, action: #selector(OfferView.onClickedButton(_:)), for: .touchUpInside)
         cell.selectionStyle = .none
@@ -76,100 +78,97 @@ class VoucherView: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         for _ in 1...10{
             cell.selectedrow!.image = UIImage.init(named: "unselected")
         }
-        
         //    if indexPath.row == 0{
         //    cell.selectedrow!.image = UIImage.init(named: "unselected")
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         tableview.reloadData()
-        
     }
     
-    //    @IBAction func UseAnOffer(_ sender: Any) {
-    //         print("Tapped")
-    //
-    //        if checkUsedVoucher() == false {
-    //            if checkUserPoints() == true {
-    //                // show a successful get voucher message
-    //
-    //             self.showCustomAlertWith(message: "مبروك! حصلت قسيمة شرائية", descMsg: "", itemimage: nil, actions: nil)
-    //                // Add the voucher to user vouchers list
-    //                let voucher = ["BrandName" : Trade.trademarkName , "BrandImage": Trade.imgURL, "VoucherTitle" : voucherTitle , "VoucherCode" : discountCode , "VoucherDes" : voucherDes, "voucherNum" : voucherNum] as [String : Any]
-    //                                     let ref = Database.database().reference().child("Users").child(userID!).child("VoucherList")
-    //                                     let key = ref.childByAutoId().key
-    //                                     ref.child(key!).setValue(voucher)
-    //                                     print("Success Add voucher to user vouchers list")
-    //                // Decrease Vouchers number
-    //                let voucherNS = String(voucherNum)
-    //                var couponsNum = Int(numOfCopons!)
-    //                couponsNum = couponsNum! - 1
-    //                let updatedNumOfCopons = String(couponsNum!)
-    //                print(updatedNumOfCopons)
-    //                let ref2 = Database.database().reference().child("Categories").child(Trade.category!).child("TradeMarks").child(Trade.trademarkID!).child("Offers")
-    //                ref2.child(String(voucherNum)).updateChildValues(["NumberOfCoupons" : updatedNumOfCopons])
-    //                print(Trade.category!)
-    //                print(Trade.trademarkID!)
-    //                print(voucherNS)
-    //                print("Descreased copouns")
-    //                // Decrease user points
-    //                let voucherPInt = Int(voucherPoints!)!
-    //                let updatedPoints = userPN! - voucherPInt
-    //
-    //                Database.database().reference().child("Users").child(userID!).updateChildValues(["Points" : "\(updatedPoints)"])
-    //
-    //        }
-    //        else {
-    //
-    //            let alert = self.alertContent( title: "عذراً لا يمكنك استبدال هذة القسيمة ", message:  "عدد نقاطك غير كافي للحصول على هذة القسيمة" )
-    //            self.present(alert, animated: true, completion: nil)
-    //        }
-    //        } else{
-    //            let alert = self.alertContent( title: "عذراً لا يمكنك استبدال هذة القسيمة ", message:  "القسيمة الشرائية المختارة مستخدمة مسبقاً" )
-    //                      self.present(alert, animated: true, completion: nil)
-    //            print("++++++++++USED VOUCHER+++++++++++")
-    //        }
-    //
-    //    }
+    @IBAction func UseAnOffer(_ sender: Any) {
+        print("Tapped")
+        
+        if checkUsedVoucher() == false {
+            if checkUserPoints() == true {
+                // show a successful get voucher message
+                
+                self.showCustomAlertWith(message: "مبروك! حصلت قسيمة شرائية", descMsg: "", itemimage: nil, actions: nil)
+                // Add the voucher to user vouchers list
+                let voucher = [ "voucherTitle" : self.voucher?.offerTitle! ?? "" , "voucherCode" : self.voucher?.voucherCode! , "serviceType" : self.voucher?.serviceType! ?? "", "voucherID" : self.voucher?.voucherID! ?? "", "trademarkID" : self.voucher?.trademarkID ?? ""] as [String : Any]
+                let ref = Database.database().reference().child("Users").child(userID!).child("MyVouchers")
+                let key = self.voucher?.voucherID
+                ref.child(key!).setValue(voucher)
+                print("Success Add voucher to user vouchers list")
+                // Decrease Vouchers number
+//                let voucherNS = String(self.voucher.)
+                var couponsNum = Int((self.voucher?.numberOfCoupons!)!)
+                couponsNum! -= 1
+                let updatedNumOfCopons = String(couponsNum!)
+                let ref2 = Database.database().reference().child("Vouchers/\(self.voucher?.voucherID! ?? "")/NumberOfCoupons")
+                ref2.setValue(updatedNumOfCopons)
+                print(Trade.category!)
+                print(Trade.trademarkID!)
+//                print(voucherNS)
+                print("Descreased copouns")
+                // Decrease user points
+                let voucherPInt = Int((self.voucher?.numberOfPoints!)!)!
+                let updatedPoints = Int(userData.points)! - voucherPInt
+                Database.database().reference().child("Users/\(userID!)/points").setValue("\(updatedPoints)")
+            }
+            else {
+                let alert = self.alertContent( title: "عذراً لا يمكنك استبدال هذة القسيمة ", message:  "عدد نقاطك غير كافي للحصول على هذة القسيمة" )
+                self.present(alert, animated: true, completion: nil)
+            }
+        } else {
+            let alert = self.alertContent( title: "عذراً لا يمكنك استبدال هذة القسيمة ", message:  "القسيمة الشرائية المختارة مستخدمة مسبقاً" )
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func getUserVouchers(){
+        let ref = Database.database().reference().child("Users/\(userID!)/MyVouchers")
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let voucher = usedVoucher(snap: snap)
+                self.userVouchers.append(voucher)
+            }
+        })
+    }
     
     //check if the voucher is not already used by the user
-    //    func checkUsedVoucher() -> Bool {
-    ////        for voucher in self.UserVoucher {
-    //////                let UvoucherNum = voucher.voucherNum
-    //////                if UvoucherNum == self.voucherNum {
-    //////                     self.isUsedVoucher = true
-    //////            }
-    ////                else{
-    ////
-    ////                    self.isUsedVoucher = false
-    ////
-    ////            }
-    ////
-    ////            }
-    //        return isUsedVoucher
-    //    }
+    func checkUsedVoucher() -> Bool {
+        let usedVouchers = userData.myVouchers
+        for voucher in usedVouchers {
+            print(voucher.voucherID!)
+            let UvoucherNum = voucher.voucherID
+            if UvoucherNum == self.voucher?.voucherID {
+                self.isUsedVoucher = true
+            }
+            else{
+                self.isUsedVoucher = false
+            }
+        }
+        return isUsedVoucher ?? false
+    }
     
     // check if the user points is greater than voucher points
     
-    //    func checkUserPoints()-> Bool{
-    //        let userPoints = userData.points
-    //         userPN = Int(userPoints)
-    //              let voucherPN = Int(voucherPoints!)
-    //              print("==============points============")
-    //              if userPN! >= voucherPN! {
-    //                  isValidUserPoints = true
-    //              }
-    //              else {
-    //                isValidUserPoints = false
-    //        }
-    //        return isValidUserPoints
-    //    }
+    func checkUserPoints()-> Bool{
+        let userPoints = Int(userData.points)!
+//        userPN = Int(userPoints)
+        let voucherPN = Int((self.voucher?.numberOfPoints!)!)
+        if userPoints >= voucherPN! {
+            isValidUserPoints = true
+        }
+        else {
+            isValidUserPoints = false
+        }
+        return isValidUserPoints ?? false
+    }
     @objc func onClickedButton(_ sender:Any?) {
-        
         //  selectesButton.selectedOFfer.setImage(UIImage(named:"selected"), for:.normal)
-        
-        
     }
     
     

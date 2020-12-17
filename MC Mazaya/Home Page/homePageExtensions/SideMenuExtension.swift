@@ -47,7 +47,6 @@ extension homePageViewController {
     
     @objc func menuButtonsActions(_ sender : UIButton) {
         if sender.tag == 10 {
-            //            performSegue(withIdentifier: "toRegion", sender: self)
             // get a reference to the view controller for the popover
             let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regionPopover") as! RegionVC
             // set the presentation style
@@ -90,6 +89,9 @@ extension homePageViewController {
         }
         if sender.tag == 10 {
             isMenuShow = true
+        }
+        if sender.tag == 18 {
+            performSegue(withIdentifier: "toAbout", sender: self)
         } else {
             mainViewXConstraint.constant = 0
             UIView.animate(withDuration: 0.5, delay: 0.0,
@@ -105,7 +107,7 @@ extension homePageViewController {
     }
     
     func setupRegionsDropDownMenu(){
-        self.regionDropDownMenu.dataSource = ["الكل", "الرياض", "مكة المكرمة", "القصيم", "منطقة الشرقية", "الحدود الشمالية", "المدينة المنورة", "نجران", "جازان", "الباحة", "عسير", "حائل",
+        self.regionDropDownMenu.dataSource = ["الكل", "الرياض", "منطقة مكة المكرمة", "القصيم", "المنطقة الشرقية", "الحدود الشمالية", "المدينة المنورة", "نجران", "جازان", "الباحة", "عسير", "حائل",
                                               "تبوك", "الجوف"]
         regionDropDownMenu.selectionAction = { [weak self] (index: Int, item: String) in //8
             guard let _ = self else { return }

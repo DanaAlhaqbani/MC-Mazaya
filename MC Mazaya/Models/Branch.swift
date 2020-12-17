@@ -15,7 +15,7 @@ struct Branch {
     var latitude : String?
     var longitude : String?
     var region: String?
-    
+//    var tradeMArks
     init(branchName : String? , description : String?, latitude : String?, longitude: String?, region: String?) {
         self.branchName = branchName
         self.description = description

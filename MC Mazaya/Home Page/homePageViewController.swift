@@ -56,7 +56,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     let regionDropDownMenu = DropDown()
     var seectedRegion = String()
     var selectedRegion : String?
-
+    var trademarksResults = [Trademark]()
     //MARK: - Outlets
     @IBOutlet weak var tbleList: UITableView!
     
@@ -76,9 +76,15 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         // Setup table view
         tbleList.register(UINib(nibName: "CollectionviewTableCell", bundle: nil), forCellReuseIdentifier: "CollectionviewTableCell")
         tbleList.separatorStyle = .none
+        definesPresentationContext = true
+
     }
 
-    // MARK: - Setup view when did disappear
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+//        window
+    }
+    // Setup view when did disappear
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         mainViewXConstraint.constant = 0
@@ -132,7 +138,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     lazy var openRegionVC : UIButton = {
         $0.setTitle("المنطقة", for: .normal)
         $0.backgroundColor = UIColor(rgb: 0x26998a)
-        $0.titleLabel?.font = UIFont(name: "STC", size: 20)
+        $0.titleLabel?.font = UIFont(name: "STC", size: 17)
         $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         $0.tag = 10
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
@@ -142,7 +148,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     lazy var openFamilyVC : UIButton = {
         $0.setTitle("عائلتي", for: .normal)
         $0.backgroundColor = UIColor(rgb: 0x26998a)
-        $0.titleLabel?.font = UIFont(name: "STC", size: 20)
+        $0.titleLabel?.font = UIFont(name: "STC", size: 17)
         $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         $0.tag = 11
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
@@ -152,7 +158,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     lazy var openFavVC : UIButton = {
         $0.setTitle("المفضلة", for: .normal)
         $0.backgroundColor = UIColor(rgb: 0x26998a)
-        $0.titleLabel?.font = UIFont(name: "STC", size: 20)
+        $0.titleLabel?.font = UIFont(name: "STC", size: 17)
         $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         $0.tag = 12
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
@@ -162,7 +168,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     lazy var openNewOffersVC : UIButton = {
         $0.setTitle("جديد العروض", for: .normal)
         $0.backgroundColor = UIColor(rgb: 0x26998a)
-        $0.titleLabel?.font = UIFont(name: "STC", size: 20)
+        $0.titleLabel?.font = UIFont(name: "STC", size: 17)
         $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         $0.tag = 13
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
@@ -172,7 +178,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     lazy var openSuggestVC : UIButton = {
         $0.setTitle("إقترح عرضاً", for: .normal)
         $0.backgroundColor = UIColor(rgb: 0x26998a)
-        $0.titleLabel?.font = UIFont(name: "STC", size: 20)
+        $0.titleLabel?.font = UIFont(name: "STC", size: 17)
         $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         $0.tag = 14
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
@@ -182,7 +188,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     lazy var openVouchersVC : UIButton = {
         $0.setTitle("القسائم الشرائية", for: .normal)
         $0.backgroundColor = UIColor(rgb: 0x26998a)
-        $0.titleLabel?.font = UIFont(name: "STC", size: 20)
+        $0.titleLabel?.font = UIFont(name: "STC", size: 17)
         $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         $0.tag = 15
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
@@ -192,9 +198,19 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
     lazy var openHelpVC : UIButton = {
         $0.setTitle("للمساعدة", for: .normal)
         $0.backgroundColor = UIColor(rgb: 0x26998a)
-        $0.titleLabel?.font = UIFont(name: "STC", size: 20)
+        $0.titleLabel?.font = UIFont(name: "STC", size: 17)
         $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         $0.tag = 16
+        $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
+        return $0
+    }(UIButton(type: .system)) // End of customize Help page
+    
+    lazy var openAboutVC : UIButton = {
+        $0.setTitle("من نحن", for: .normal)
+        $0.backgroundColor = UIColor(rgb: 0x26998a)
+        $0.titleLabel?.font = UIFont(name: "STC", size: 17)
+        $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        $0.tag = 18
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
     }(UIButton(type: .system)) // End of customize Help page
@@ -203,12 +219,13 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         $0.setTitle("تسجيل الخروج", for: .normal)
         $0.backgroundColor = UIColor(rgb: 0x26998a)
         $0.imageView?.image = #imageLiteral(resourceName: "FAQ icon")
-        $0.titleLabel?.font = UIFont(name: "STC", size: 20)
+        $0.titleLabel?.font = UIFont(name: "STC", size: 17)
         $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         $0.tag = 17
         $0.addTarget(self, action: #selector(menuButtonsActions(_:)), for: .touchUpInside)
         return $0
     }(UIButton(type: .system)) // End of customize logout button
+    
     
     
     //MARK: - Logout Function
@@ -339,6 +356,14 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
                 self.adjustSidemenue(currentuserType!)
             }
         })
+        let voucherRef = ref?.child("Users").child((user?.uid)!).child("MyVouchers").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let voucher = usedVoucher(snap: snap)
+                userData.myVouchers.append(voucher)
+//                self.userVouchers.append(voucher)
+            }
+        })
     }
     
     
@@ -375,7 +400,7 @@ class homePageViewController: UIViewController , UITableViewDataSource, UITableV
         if segue.identifier == "toVouchers" {
             let dis = segue.destination as! VouchersViewController
 //            dis.Categories = self.Categories
-            dis.Trades = self.Trades
+//            dis.Trades = self.Trades
         } // Show new offers Segue
         if let _ = segue.destination as? categoriesCollectionView, segue.identifier == "categoriesCollection" {
             //            des.categories = self.Categories

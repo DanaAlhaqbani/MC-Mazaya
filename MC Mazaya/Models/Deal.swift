@@ -19,10 +19,10 @@ struct Deal {
     var trademarkID: String?
     var userType: String?
     var usageType : String?
-    var branches : [String]?
+    var branches : [Branch]?
     var trademark: Trademark?
     
-     init(discountCode : String?, offerDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?, trademarkID: String?, userType: String?, usageType: String?, branches: [String]?, trademark: Trademark?) {
+    init(discountCode : String?, offerDetails : String?, offerTitle: String?, serviceType : String?, endDate : String?, startDate : String?, trademarkID: String?, userType: String?, usageType: String?, branches: [Branch]?, trademark: Trademark?) {
         self.discountCode = discountCode
         self.offerDetails = offerDetails
         self.offerTitle = offerTitle
@@ -37,7 +37,8 @@ struct Deal {
     }
     
     init(snapshot: DataSnapshot, trademark: Trademark) {
-        self.init(discountCode: snapshot.childSnapshot(forPath: "discountCode").value as? String, offerDetails: snapshot.childSnapshot(forPath: "offerDetails").value as? String, offerTitle: snapshot.childSnapshot(forPath: "offerTitle").value as? String, serviceType: snapshot.childSnapshot(forPath: "serviceType").value as? String, endDate: snapshot.childSnapshot(forPath: "endDate").value as? String, startDate: snapshot.childSnapshot(forPath: "startDate").value as? String, trademarkID: snapshot.childSnapshot(forPath: "trademarkID").value as? String, userType: snapshot.childSnapshot(forPath: "userType").value as? String, usageType: snapshot.childSnapshot(forPath: "usageType").value as? String, branches: snapshot.childSnapshot(forPath: "branches").value as? [String], trademark: trademark)
+        let branches = trademark.branches
+        self.init(discountCode: snapshot.childSnapshot(forPath: "discountCode").value as? String, offerDetails: snapshot.childSnapshot(forPath: "offerDetails").value as? String, offerTitle: snapshot.childSnapshot(forPath: "offerTitle").value as? String, serviceType: snapshot.childSnapshot(forPath: "serviceType").value as? String, endDate: snapshot.childSnapshot(forPath: "endDate").value as? String, startDate: snapshot.childSnapshot(forPath: "startDate").value as? String, trademarkID: snapshot.childSnapshot(forPath: "trademarkID").value as? String, userType: snapshot.childSnapshot(forPath: "userType").value as? String, usageType: snapshot.childSnapshot(forPath: "usageType").value as? String, branches: branches, trademark: trademark)
     }
     
 }

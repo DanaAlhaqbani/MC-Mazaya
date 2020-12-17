@@ -14,7 +14,9 @@ extension DealViewController{
     func setupUI(){
         BrandName.text = tradeInfo.trademarkName
         let imgURL = tradeInfo.imgURL
+        let backgroundImg = tradeInfo.backgroundImg
         BrandLogo.sd_setImage(with: URL(string: imgURL ?? " https://trello-attachments.s3.amazonaws.com/5ef04261198acb0cf54fd294/807x767/db28d3a2562c70bb0b9f1f14f803af54/LogoMaz.png"))
+        BackgroundView.sd_setImage(with: URL(string: backgroundImg ?? ""))
         WhoAreWeView.alpha = 0
         BranchView.alpha = 0
         OffersView.alpha = 1

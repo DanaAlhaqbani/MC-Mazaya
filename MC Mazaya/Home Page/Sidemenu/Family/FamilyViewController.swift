@@ -24,7 +24,7 @@ class FamilyViewController: UIViewController, MFMessageComposeViewControllerDele
     var membersCounter: Int?
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,7 +57,7 @@ class FamilyViewController: UIViewController, MFMessageComposeViewControllerDele
     }(UILabel())
     
     lazy var FAQ : UIButton = {
-        $0.addTarget(self, action: #selector(FAQAction), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(FMAAction), for: .touchUpInside)
         $0.translatesAutoresizingMaskIntoConstraints = false
         let green = UIColor(rgb: 0x38a089)
         $0.tintColor = .white
@@ -71,7 +71,7 @@ class FamilyViewController: UIViewController, MFMessageComposeViewControllerDele
         return $0
     }(UIButton(type: .system))
     
-    @objc func FAQAction() {
+    @objc func FMAAction() {
         let alertController = UIAlertController(title: "إضافة عضو", message: "أدخل اسم ورقم العضو الذي ترغب بدعوته", preferredStyle: .alert)
         //the confirm action taking the inputs
         let confirmAction = UIAlertAction(title: "إرسال الدعوة", style: .default) { (_) in
@@ -97,23 +97,30 @@ class FamilyViewController: UIViewController, MFMessageComposeViewControllerDele
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
-        
     }
     
     func AddFamilyMember(memberName: String!, memberPhone: String! ){
         self.sendInvitation(memberName: memberName, memberPhone: memberPhone)
         if memberName != "" && memberPhone != ""{
             if isValidNumber(Family_Phone: memberPhone) == true {
-                let alert = self.alertContent(title:  "تم بنجاح!", message: "شكرا لك تم إرسال الدعوة" )
-                self.present(alert, animated: true, completion: nil)
-                let ref = Database.database().reference().child("FamilyMembers").childByAutoId()
-                let memberKey = ref.key!
-                let member = ["userID": memberKey,"name" : memberName , "phoneNumber": memberPhone, "status" : "قيد الانتظار", "employeeID": userID!]
-                ref.setValue(member)
-                let userRef = Database.database().reference().child("Users/\(userID!)")
-                userRef.child("membersCounter").setValue(["\(membersCounter ?? 0 + 1)"])
-                userRef.child("FamilyMembers/\(memberKey)").setValue(true)
-                print("Success Add family Member")
+                let userRef = Database.database().reference().child("Users/\(userID!)/FamilyMembers")
+                //                userRef.child("membersCounter").setValue(["\(membersCounter ?? 0 + 1)"])
+                userRef.observe(.value, with: { snapshot in
+                    if snapshot.childrenCount > 7 {
+                        let alert = self.alertContent(title:  "لا يمكن إضافة عضو", message:"تجاوزت الحد الأقصى لعدد أفراد العائلة المسموح به")
+                        self.present(alert, animated: true, completion: nil)
+                    } else {
+                        let alert = self.alertContent(title:  "تم بنجاح!", message: "شكرا لك تم إرسال الدعوة" )
+                        self.present(alert, animated: true, completion: nil)
+                        let ref = Database.database().reference().child("FamilyMembers").childByAutoId()
+                        let memberKey = ref.key!
+                        let member = ["userID": memberKey,"name" : memberName , "phoneNumber": memberPhone, "status" : "قيد الانتظار", "employeeID": self.userID!]
+                        ref.setValue(member)
+                        userRef.child("\(memberKey)").setValue(true)
+                        print("Success Add family Member")
+                    }
+                })
+                
             }
             else {
                 let alert = self.alertContent(title:  "رقم الهاتف غير صالح!", message: " من فضلِك، أدخل رقم الهاتف بشكل صحيح" )

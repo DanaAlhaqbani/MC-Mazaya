@@ -11,10 +11,10 @@ import UIKit
 
 //MARK: - Searchbar handling
 extension homePageViewController: UISearchResultsUpdating, UISearchBarDelegate{
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         reload(searchText)
     } // end of delegate function
-
         
     func reload(_ searchText: String?){
         guard searchBar.isActive else { return }
@@ -22,30 +22,26 @@ extension homePageViewController: UISearchResultsUpdating, UISearchBarDelegate{
             resultTableViewController.trademarks = nil
             return }
         filteredData = []
-//        filteredTradeMarks = []
-        let name = [String]()
-//        for i in Categories {
-//            let trades = i.trademarks ?? []
-//            for _ in trades {
-////                name.append(t.trademarkName ?? "")
-//            }
-//            filteredData = name.filter({$0.contains(searchText)})
-//            for _ in filteredData {
-//                for _ in trades {
-////                    if t.trademarkName == i {
-////                        self.filteredTradeMarks.append(t)
-////                    } // Add filtered trademark to the array
-//                } // Iterate in filtered trades
-//            } // Iterate in filtered data
-//            resultTableViewController.trademarks = []
-//            resultTableViewController.areThereResults = false
-//            if filteredTradeMarks.count != 0 {
-//                resultTableViewController.trademarks = filteredTradeMarks
-//                resultTableViewController.areThereResults = true
-//            }
-//            resultTableViewController.delegate = self
-//        } // Iterate in each category
-
+        trademarksResults = []
+        var names = [String]()
+            for trade in tradesForRegion {
+                names.append(trade.trademarkName ?? "")
+            }
+        filteredData = names.filter({$0.contains(searchText)}) .sorted { ($0.hasPrefix(searchText) ? 0 : 1) < ($1.hasPrefix(searchText) ? 0 : 1) }
+            for i in filteredData {
+                for trade in tradesForRegion {
+                    if trade.trademarkName == i {
+                        self.trademarksResults.append(trade)
+                    } // Add filtered trademark to the array
+                } // Iterate in filtered trades
+            } // Iterate in filtered data
+            resultTableViewController.trademarks = []
+            resultTableViewController.areThereResults = false
+            if trademarksResults.count != 0 {
+                resultTableViewController.trademarks = trademarksResults
+                resultTableViewController.areThereResults = true
+            }
+            resultTableViewController.delegate = self
     } // end of filtering trademarks function
     
         

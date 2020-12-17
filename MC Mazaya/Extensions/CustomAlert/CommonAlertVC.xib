@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,10 +15,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommonAlertVC" customModule="MC_Mazaya" customModuleProvider="target">
             <connections>
-                <outlet property="buttonCancel" destination="uch-SE-dhb" id="a7C-Bw-9a9"/>
+                <outlet property="buttonCancel" destination="jXm-yl-AiU" id="Sc5-hC-NgG"/>
                 <outlet property="buttonOkay" destination="rl1-yx-ELo" id="I9B-uf-pyh"/>
                 <outlet property="heightViewContainer" destination="MAd-iG-DIg" id="SNu-is-wbw"/>
-                <outlet property="imageViewItem" destination="G2I-sn-5Yu" id="TCu-ca-bKm"/>
                 <outlet property="labelDescription" destination="Yuz-DG-t3J" id="6mM-kx-HEF"/>
                 <outlet property="labelMessage" destination="KKU-ES-83k" id="pcX-u7-nDQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -30,31 +30,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rkx-vf-edJ">
-                    <rect key="frame" x="25" y="193.5" width="325" height="280"/>
+                    <rect key="frame" x="25" y="183.5" width="325" height="300"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ya5-8Q-nu2">
-                            <rect key="frame" x="10" y="20" width="305" height="240"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ya5-8Q-nu2">
+                            <rect key="frame" x="10" y="59" width="305" height="182.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 362" translatesAutoresizingMaskIntoConstraints="NO" id="dD9-iw-wME">
-                                    <rect key="frame" x="0.0" y="0.0" width="305" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="305" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="9OB-Mt-nK8"/>
+                                    </constraints>
                                 </imageView>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="02m-0O-8ix">
-                                    <rect key="frame" x="20.5" y="105" width="264" height="70"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="02m-0O-8ix">
+                                    <rect key="frame" x="29" y="65" width="247.5" height="52.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sending your reminder list request to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKU-ES-83k">
-                                            <rect key="frame" x="0.0" y="0.0" width="264" height="60"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="puX-nf-Ena"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                            <color key="textColor" cyan="0.65000000000000002" magenta="0.55216151475906372" yellow="0.51200008392333984" black="0.064082831144332886" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKU-ES-83k">
+                                            <rect key="frame" x="101" y="0.0" width="45" height="28"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
+                                            <color key="textColor" red="0.14901960780000001" green="0.59999999999999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="G2I-sn-5Yu">
-                                            <rect key="frame" x="108" y="65" width="48" height="0.0"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sending your reminder list request to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yuz-DG-t3J">
-                                            <rect key="frame" x="8.5" y="70" width="247.5" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="35" width="247.5" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                             <color key="textColor" cyan="0.65000000000000002" magenta="0.55216151475906372" yellow="0.51200008392333984" black="0.064082831144332886" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -62,9 +59,9 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Rwl-yY-uQD">
-                                    <rect key="frame" x="15" y="190" width="275" height="50"/>
+                                    <rect key="frame" x="90" y="132.5" width="125" height="50"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rl1-yx-ELo">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rl1-yx-ELo">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
                                             <color key="backgroundColor" red="0.21960784310000001" green="0.62745098040000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -79,47 +76,49 @@
                                                 <action selector="okayButtonActionWithSender:" destination="-1" eventType="touchUpInside" id="Hj9-Kf-l8M"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uch-SE-dhb">
-                                            <rect key="frame" x="150" y="0.0" width="125" height="50"/>
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                            <state key="normal" title="CANCEL">
-                                                <color key="titleColor" red="0.035294117647058823" green="0.22745098039215686" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="cancelButtonActionWithSender:" destination="-1" eventType="touchUpInside" id="I9D-Dq-mNe"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="uch-SE-dhb" firstAttribute="width" secondItem="rl1-yx-ELo" secondAttribute="width" id="dFg-62-e9U"/>
-                                        <constraint firstItem="uch-SE-dhb" firstAttribute="height" secondItem="rl1-yx-ELo" secondAttribute="height" id="dpB-UE-kC9"/>
+                                        <constraint firstAttribute="height" constant="50" id="Cy5-LU-Ray"/>
                                     </constraints>
                                 </stackView>
                             </subviews>
                         </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXm-yl-AiU">
+                            <rect key="frame" x="10" y="10" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="gKM-Z7-izU"/>
+                                <constraint firstAttribute="width" constant="25" id="zWX-AX-zvN"/>
+                            </constraints>
+                            <connections>
+                                <action selector="cancelPressed:" destination="-1" eventType="touchUpInside" id="dVS-Ce-XkR"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="ya5-8Q-nu2" firstAttribute="top" secondItem="Rkx-vf-edJ" secondAttribute="top" constant="20" id="3yq-HQ-T4w"/>
-                        <constraint firstAttribute="height" constant="280" id="MAd-iG-DIg"/>
-                        <constraint firstItem="ya5-8Q-nu2" firstAttribute="leading" secondItem="Rkx-vf-edJ" secondAttribute="leading" constant="10" id="aFc-HG-JE1"/>
-                        <constraint firstAttribute="bottom" secondItem="ya5-8Q-nu2" secondAttribute="bottom" constant="20" id="n4O-YK-hD8"/>
-                        <constraint firstAttribute="trailing" secondItem="ya5-8Q-nu2" secondAttribute="trailing" constant="10" id="nQd-tf-pfP"/>
+                        <constraint firstAttribute="height" constant="300" id="MAd-iG-DIg"/>
+                        <constraint firstItem="jXm-yl-AiU" firstAttribute="top" secondItem="Rkx-vf-edJ" secondAttribute="top" constant="10" id="OeZ-n9-sz1"/>
+                        <constraint firstItem="ya5-8Q-nu2" firstAttribute="centerX" secondItem="Rkx-vf-edJ" secondAttribute="centerX" id="Zuo-bI-ge3"/>
+                        <constraint firstItem="ya5-8Q-nu2" firstAttribute="centerY" secondItem="Rkx-vf-edJ" secondAttribute="centerY" id="eA5-yU-33Z"/>
+                        <constraint firstAttribute="trailing" secondItem="ya5-8Q-nu2" secondAttribute="trailing" constant="10" id="gne-nd-tYw"/>
+                        <constraint firstItem="ya5-8Q-nu2" firstAttribute="leading" secondItem="Rkx-vf-edJ" secondAttribute="leading" constant="10" id="ice-dA-LTz"/>
+                        <constraint firstItem="jXm-yl-AiU" firstAttribute="leading" secondItem="Rkx-vf-edJ" secondAttribute="leading" constant="10" id="mJd-kf-May"/>
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.40407680457746481" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Rkx-vf-edJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="centerX" multiplier="350:187.5" id="40D-5u-lfy"/>
+                <constraint firstItem="Rkx-vf-edJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Xxo-3g-lEH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rkx-vf-edJ" secondAttribute="trailing" constant="25" id="gCS-QL-9LN"/>
                 <constraint firstItem="Rkx-vf-edJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="jdk-Hz-ZbU"/>
                 <constraint firstItem="Rkx-vf-edJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="centerX" multiplier="25:187.5" id="ppp-uu-heJ"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-706" y="61"/>
+            <point key="canvasLocation" x="-706.39999999999998" y="60.719640179910051"/>
         </view>
     </objects>
     <resources>
         <image name="Group 362" width="346" height="336"/>
-        <image name="icon" width="48" height="48"/>
     </resources>
 </document>

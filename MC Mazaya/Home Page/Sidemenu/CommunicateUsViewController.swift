@@ -87,9 +87,7 @@ class CommunicateUsViewController: UIViewController {
           } else {
             UIApplication.shared.openURL(url)
           }
-        }
-        
-    
+        }        
     }
       
           
